@@ -9,12 +9,14 @@ import UIKit
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class LoginViewController: UIViewController, LoginScreenProtocol {
-    
+   
     var auth:Auth?
     var loginScreen:LoginScreen?
     var alert:Alert?
+    let signInConfig = GIDConfiguration(clientID: "614878693717-p6uad96i9eltvcigv9o8o589su8flt41.apps.googleusercontent.com")
     
     //LoadView eh responsavel para quando estamos criando uma view
     override func loadView() {
@@ -32,7 +34,7 @@ class LoginViewController: UIViewController, LoginScreenProtocol {
         //        self.loginScreen?.configTextFieldDelegate(delegate: self)
         self.auth = Auth.auth()
         self.alert = Alert(controller: self)
-        // Do any additional setup after loading the view.
+// Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,33 +42,52 @@ class LoginViewController: UIViewController, LoginScreenProtocol {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    func signIn(sender: Any) {
+      GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+        guard error == nil else { return }
+          
+          let vc: MainTabBarController = MainTabBarController()
+          self.navigationController?.pushViewController(vc, animated: false)
+      }
+    }
+    
+    func signOut(sender: Any) {
+      GIDSignIn.sharedInstance.signOut()
+    }
+    
+    
+    func tappedMockado() {
+        let vc: MainTabBarController = MainTabBarController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func actionLoginButton() {
         
-        var email = self.loginScreen?.emailTextField.text ?? ""
-        var password = self.loginScreen?.passwordTextField.text ?? ""
-        
-        guard let login = self.loginScreen else {return}
-        
-        if email.isEmpty || password.isEmpty {
-            self.loginScreen?.loginErrorLabel.text = "Todos os campos devem ser preenchidos"
-            self.loginScreen?.loginErrorLabel.isHidden = false
-        } else {
-            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
-                if error != nil{
-                    self.loginScreen?.loginErrorLabel.text = "Dados incorretos, verifique e tente novamente!"
-                    self.loginScreen?.loginErrorLabel.isHidden = false
-                }else{
-                    
-                    if usuario == nil{
-                        self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
-                    }else{
+//        var email = self.loginScreen?.emailTextField.text ?? ""
+//        var password = self.loginScreen?.passwordTextField.text ?? ""
+//
+//        guard let login = self.loginScreen else {return}
+//
+//        if email.isEmpty || password.isEmpty {
+//            self.loginScreen?.loginErrorLabel.text = "Todos os campos devem ser preenchidos"
+//            self.loginScreen?.loginErrorLabel.isHidden = false
+//        } else {
+//            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
+//                if error != nil{
+//                    self.loginScreen?.loginErrorLabel.text = "Dados incorretos, verifique e tente novamente!"
+//                    self.loginScreen?.loginErrorLabel.isHidden = false
+//                }else{
+//
+//                    if usuario == nil{
+//                        self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
+//                    }else{
                         let vc: MainTabBarController = MainTabBarController()
                         self.navigationController?.pushViewController(vc, animated: true)
-                    }
-                }
-            })
-            
-        }
+//                    }
+//                }
+//            })
+//
+//        }
     }
     
     func actionGoogleButton() {
