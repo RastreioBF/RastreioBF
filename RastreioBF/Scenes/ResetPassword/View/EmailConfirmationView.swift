@@ -36,7 +36,7 @@ class EmailConfirmationScreen: UIView {
         button.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
         button.imageView?.contentMode = .scaleAspectFit
-        button.addTarget(EmailConfirmationScreen.self, action: #selector(tappedBack), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tappedBack), for: .touchUpInside)
         return button
     }()
     

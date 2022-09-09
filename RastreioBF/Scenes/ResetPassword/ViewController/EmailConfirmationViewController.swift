@@ -53,7 +53,7 @@ class EmailConfirmationViewController: UIViewController, EmailConfirmationScreen
     }
     
     func actionGoBack() {
-        self.navigationController?.popToRootViewController(animated: true   )
+        self.navigationController?.popToRootViewController(animated: false)
     }
     
     func actionSignUpButton() {
