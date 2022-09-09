@@ -222,13 +222,14 @@ extension SignUpViewController: SignUpScreenProtocol {
         let emailText =  self.signUpScreen?.emailTextField.text ?? ""
         let passwordText =  self.signUpScreen?.passwordTextField.text ?? ""
         let confirmPasswordText =  self.signUpScreen?.confirmPasswordTextField.text ?? ""
+        let vc:DemoViewController = DemoViewController()
         
         if nameError == true && surnameError == true && emailError == true && passwordError == true && confPassError == true && !nameText.isEmpty &&  !surnameText.isEmpty && !emailText.isEmpty && !passwordText.isEmpty && !confirmPasswordText.isEmpty {
             
             self.alert?.getAlert(titulo: "Parabéns",
                                  mensagem: "Cadastro efetuado com sucesso!",
                                  completion: {
-                self.navigationController?.popToRootViewController(animated: true)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             )
             guard let register = self.signUpScreen else {return}
