@@ -1,0 +1,697 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0974F62E28CB77A7004E8716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0974F62D28CB77A7004E8716 /* AppDelegate.swift */; };
+		0974F63028CB77A7004E8716 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0974F62F28CB77A7004E8716 /* SceneDelegate.swift */; };
+		0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0974F63128CB77A7004E8716 /* UITextField+SecureToggle.swift */; };
+		0974F63728CB77A8004E8716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0974F63628CB77A8004E8716 /* Assets.xcassets */; };
+		0974F63A28CB77A8004E8716 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0974F63828CB77A8004E8716 /* LaunchScreen.storyboard */; };
+		0974F64528CB7883004E8716 /* loginAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64228CB7883004E8716 /* loginAnimation.json */; };
+		0974F64628CB7883004E8716 /* signUpAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64328CB7883004E8716 /* signUpAnimation.json */; };
+		0974F64728CB7883004E8716 /* unlocked.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64428CB7883004E8716 /* unlocked.json */; };
+		099BCC6328CB7CEF000DFDE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */; };
+		099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6528CB80D6000DFDE6 /* Constants.swift */; };
+		099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6728CB80EB000DFDE6 /* Bundle+.swift */; };
+		099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6928CB8103000DFDE6 /* String+.swift */; };
+		099BCC6D28CB8159000DFDE6 /* RastreioBF.strings in Resources */ = {isa = PBXBuildFile; fileRef = 099BCC6C28CB8159000DFDE6 /* RastreioBF.strings */; };
+		099BCC6F28CB817A000DFDE6 /* LocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6E28CB817A000DFDE6 /* LocalizedConstants.swift */; };
+		099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7128CB81CA000DFDE6 /* Alert.swift */; };
+		099BCC7628CB8231000DFDE6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7528CB8231000DFDE6 /* LoginViewController.swift */; };
+		099BCC7928CB8277000DFDE6 /* LoginSreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7828CB8277000DFDE6 /* LoginSreen.swift */; };
+		099BCC7D28CB82EF000DFDE6 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7C28CB82EF000DFDE6 /* DemoViewController.swift */; };
+		099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7F28CB8334000DFDE6 /* OnboardingViewController.swift */; };
+		099BCC8528CB83A9000DFDE6 /* EmailConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC8428CB83A9000DFDE6 /* EmailConfirmationView.swift */; };
+		099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC8628CB83CA000DFDE6 /* EmailConfirmationViewController.swift */; };
+		099BCC9928CB89B5000DFDE6 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9828CB89B5000DFDE6 /* SignUpScreen.swift */; };
+		099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */; };
+		099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */; };
+		099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */; };
+		099BCCA528CB8B12000DFDE6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA428CB8B12000DFDE6 /* HomeViewController.swift */; };
+		099BCCA828CB8B42000DFDE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */; };
+		099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */; };
+		099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */; };
+		C1335223FEFF26C5AAC2406F /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7735889C2E3DC872D9C5214 /* Pods_RastreioBF.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0974F62A28CB77A7004E8716 /* RastreioBF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RastreioBF.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0974F62D28CB77A7004E8716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0974F62F28CB77A7004E8716 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0974F63128CB77A7004E8716 /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
+		0974F63628CB77A8004E8716 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0974F63928CB77A8004E8716 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0974F63B28CB77A8004E8716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0974F64228CB7883004E8716 /* loginAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginAnimation.json; sourceTree = "<group>"; };
+		0974F64328CB7883004E8716 /* signUpAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signUpAnimation.json; sourceTree = "<group>"; };
+		0974F64428CB7883004E8716 /* unlocked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unlocked.json; sourceTree = "<group>"; };
+		099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		099BCC6528CB80D6000DFDE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		099BCC6728CB80EB000DFDE6 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
+		099BCC6928CB8103000DFDE6 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		099BCC6C28CB8159000DFDE6 /* RastreioBF.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = RastreioBF.strings; sourceTree = "<group>"; };
+		099BCC6E28CB817A000DFDE6 /* LocalizedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedConstants.swift; sourceTree = "<group>"; };
+		099BCC7128CB81CA000DFDE6 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		099BCC7528CB8231000DFDE6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		099BCC7828CB8277000DFDE6 /* LoginSreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSreen.swift; sourceTree = "<group>"; };
+		099BCC7C28CB82EF000DFDE6 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		099BCC7F28CB8334000DFDE6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		099BCC8428CB83A9000DFDE6 /* EmailConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationView.swift; sourceTree = "<group>"; };
+		099BCC8628CB83CA000DFDE6 /* EmailConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationViewController.swift; sourceTree = "<group>"; };
+		099BCC9828CB89B5000DFDE6 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
+		099BCCA428CB8B12000DFDE6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesViewController.swift; sourceTree = "<group>"; };
+		099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
+		2DB36A45BA7F28E0C2680CE9 /* Pods-RastreioBF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.debug.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.debug.xcconfig"; sourceTree = "<group>"; };
+		D691833E383C4262AF517C36 /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
+		F7735889C2E3DC872D9C5214 /* Pods_RastreioBF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RastreioBF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0974F62728CB77A6004E8716 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1335223FEFF26C5AAC2406F /* Pods_RastreioBF.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0974F62128CB77A6004E8716 = {
+			isa = PBXGroup;
+			children = (
+				0974F62C28CB77A7004E8716 /* RastreioBF */,
+				0974F62B28CB77A7004E8716 /* Products */,
+				582E715F33F688473BE0CC9E /* Pods */,
+				E62635D68D5EC9F5719611BD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0974F62B28CB77A7004E8716 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0974F62A28CB77A7004E8716 /* RastreioBF.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0974F62C28CB77A7004E8716 /* RastreioBF */ = {
+			isa = PBXGroup;
+			children = (
+				0974F64128CB786D004E8716 /* Assets */,
+				099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */,
+				0974F62D28CB77A7004E8716 /* AppDelegate.swift */,
+				0974F62F28CB77A7004E8716 /* SceneDelegate.swift */,
+				0974F63128CB77A7004E8716 /* UITextField+SecureToggle.swift */,
+				099BCC9028CB877E000DFDE6 /* LocalizedStrings */,
+				099BCC9228CB881B000DFDE6 /* Scenes */,
+				0974F63828CB77A8004E8716 /* LaunchScreen.storyboard */,
+				0974F63B28CB77A8004E8716 /* Info.plist */,
+			);
+			path = RastreioBF;
+			sourceTree = "<group>";
+		};
+		0974F64128CB786D004E8716 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0974F63628CB77A8004E8716 /* Assets.xcassets */,
+				0974F64228CB7883004E8716 /* loginAnimation.json */,
+				0974F64328CB7883004E8716 /* signUpAnimation.json */,
+				0974F64428CB7883004E8716 /* unlocked.json */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		099BCC7028CB81AA000DFDE6 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC7128CB81CA000DFDE6 /* Alert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		099BCC7428CB8216000DFDE6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC7528CB8231000DFDE6 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		099BCC7B28CB82D8000DFDE6 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC7C28CB82EF000DFDE6 /* DemoViewController.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		099BCC8128CB835A000DFDE6 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC9728CB8928000DFDE6 /* View */,
+				099BCC8328CB837C000DFDE6 /* ViewController */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		099BCC8328CB837C000DFDE6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC8628CB83CA000DFDE6 /* EmailConfirmationViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		099BCC8A28CB86E8000DFDE6 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC8C28CB8708000DFDE6 /* View */,
+				099BCC8E28CB8742000DFDE6 /* ViewController */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		099BCC8C28CB8708000DFDE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC9828CB89B5000DFDE6 /* SignUpScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		099BCC8E28CB8742000DFDE6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		099BCC9028CB877E000DFDE6 /* LocalizedStrings */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC6528CB80D6000DFDE6 /* Constants.swift */,
+				099BCC6728CB80EB000DFDE6 /* Bundle+.swift */,
+				099BCC6928CB8103000DFDE6 /* String+.swift */,
+				099BCC6C28CB8159000DFDE6 /* RastreioBF.strings */,
+				099BCC6E28CB817A000DFDE6 /* LocalizedConstants.swift */,
+			);
+			path = LocalizedStrings;
+			sourceTree = "<group>";
+		};
+		099BCC9228CB881B000DFDE6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC7028CB81AA000DFDE6 /* Alert */,
+				099BCC9328CB887C000DFDE6 /* Login */,
+				099BCC9528CB88B7000DFDE6 /* Onboard */,
+				099BCC8128CB835A000DFDE6 /* ResetPassword */,
+				099BCC8A28CB86E8000DFDE6 /* SignUp */,
+				099BCC9C28CB8A10000DFDE6 /* TabBar */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		099BCC9328CB887C000DFDE6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC9428CB889D000DFDE6 /* View */,
+				099BCC7428CB8216000DFDE6 /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		099BCC9428CB889D000DFDE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC7828CB8277000DFDE6 /* LoginSreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		099BCC9528CB88B7000DFDE6 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC7B28CB82D8000DFDE6 /* Demo */,
+				099BCC9628CB88F2000DFDE6 /* ViewController */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		099BCC9628CB88F2000DFDE6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC7F28CB8334000DFDE6 /* OnboardingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		099BCC9728CB8928000DFDE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC8428CB83A9000DFDE6 /* EmailConfirmationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		099BCC9C28CB8A10000DFDE6 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				099BCCA028CB8A9D000DFDE6 /* Done */,
+				099BCCA328CB8AE5000DFDE6 /* Home */,
+				099BCCA628CB8B28000DFDE6 /* Menu */,
+				099BCCA928CB8B6B000DFDE6 /* Pendencies */,
+				099BCC9D28CB8A20000DFDE6 /* MainTabBar */,
+				099BCCAC28CB8BAD000DFDE6 /* Warning */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		099BCC9D28CB8A20000DFDE6 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		099BCCA028CB8A9D000DFDE6 /* Done */ = {
+			isa = PBXGroup;
+			children = (
+				099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */,
+			);
+			path = Done;
+			sourceTree = "<group>";
+		};
+		099BCCA328CB8AE5000DFDE6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				099BCCA428CB8B12000DFDE6 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		099BCCA628CB8B28000DFDE6 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		099BCCA928CB8B6B000DFDE6 /* Pendencies */ = {
+			isa = PBXGroup;
+			children = (
+				099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */,
+			);
+			path = Pendencies;
+			sourceTree = "<group>";
+		};
+		099BCCAC28CB8BAD000DFDE6 /* Warning */ = {
+			isa = PBXGroup;
+			children = (
+				099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */,
+			);
+			path = Warning;
+			sourceTree = "<group>";
+		};
+		582E715F33F688473BE0CC9E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2DB36A45BA7F28E0C2680CE9 /* Pods-RastreioBF.debug.xcconfig */,
+				D691833E383C4262AF517C36 /* Pods-RastreioBF.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E62635D68D5EC9F5719611BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7735889C2E3DC872D9C5214 /* Pods_RastreioBF.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0974F62928CB77A6004E8716 /* RastreioBF */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0974F63E28CB77A8004E8716 /* Build configuration list for PBXNativeTarget "RastreioBF" */;
+			buildPhases = (
+				A1858145E601F5C9F8DC1546 /* [CP] Check Pods Manifest.lock */,
+				0974F62628CB77A6004E8716 /* Sources */,
+				0974F62728CB77A6004E8716 /* Frameworks */,
+				0974F62828CB77A6004E8716 /* Resources */,
+				5EAD9ABD69DA94FD225FAB1D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RastreioBF;
+			productName = RastreioBF;
+			productReference = 0974F62A28CB77A7004E8716 /* RastreioBF.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0974F62228CB77A6004E8716 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					0974F62928CB77A6004E8716 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 0974F62528CB77A6004E8716 /* Build configuration list for PBXProject "RastreioBF" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0974F62128CB77A6004E8716;
+			productRefGroup = 0974F62B28CB77A7004E8716 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0974F62928CB77A6004E8716 /* RastreioBF */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0974F62828CB77A6004E8716 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0974F63A28CB77A8004E8716 /* LaunchScreen.storyboard in Resources */,
+				099BCC6D28CB8159000DFDE6 /* RastreioBF.strings in Resources */,
+				0974F64528CB7883004E8716 /* loginAnimation.json in Resources */,
+				099BCC6328CB7CEF000DFDE6 /* GoogleService-Info.plist in Resources */,
+				0974F64628CB7883004E8716 /* signUpAnimation.json in Resources */,
+				0974F64728CB7883004E8716 /* unlocked.json in Resources */,
+				0974F63728CB77A8004E8716 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5EAD9ABD69DA94FD225FAB1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1858145E601F5C9F8DC1546 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RastreioBF-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0974F62628CB77A6004E8716 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				099BCC7628CB8231000DFDE6 /* LoginViewController.swift in Sources */,
+				099BCC6F28CB817A000DFDE6 /* LocalizedConstants.swift in Sources */,
+				099BCCA528CB8B12000DFDE6 /* HomeViewController.swift in Sources */,
+				0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */,
+				099BCC7928CB8277000DFDE6 /* LoginSreen.swift in Sources */,
+				099BCC8528CB83A9000DFDE6 /* EmailConfirmationView.swift in Sources */,
+				099BCC9928CB89B5000DFDE6 /* SignUpScreen.swift in Sources */,
+				0974F62E28CB77A7004E8716 /* AppDelegate.swift in Sources */,
+				099BCC7D28CB82EF000DFDE6 /* DemoViewController.swift in Sources */,
+				0974F63028CB77A7004E8716 /* SceneDelegate.swift in Sources */,
+				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
+				099BCCA828CB8B42000DFDE6 /* MenuViewController.swift in Sources */,
+				099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */,
+				099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */,
+				099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */,
+				099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */,
+				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
+				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
+				099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */,
+				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,
+				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,
+				099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0974F63828CB77A8004E8716 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0974F63928CB77A8004E8716 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0974F63C28CB77A8004E8716 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0974F63D28CB77A8004E8716 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0974F63F28CB77A8004E8716 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DB36A45BA7F28E0C2680CE9 /* Pods-RastreioBF.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RastreioBF/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = grupoTCC.RastreioBF;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0974F64028CB77A8004E8716 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D691833E383C4262AF517C36 /* Pods-RastreioBF.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RastreioBF/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = grupoTCC.RastreioBF;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0974F62528CB77A6004E8716 /* Build configuration list for PBXProject "RastreioBF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0974F63C28CB77A8004E8716 /* Debug */,
+				0974F63D28CB77A8004E8716 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0974F63E28CB77A8004E8716 /* Build configuration list for PBXNativeTarget "RastreioBF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0974F63F28CB77A8004E8716 /* Debug */,
+				0974F64028CB77A8004E8716 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0974F62228CB77A6004E8716 /* Project object */;
+}

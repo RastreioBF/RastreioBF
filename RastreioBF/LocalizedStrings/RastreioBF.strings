@@ -1,0 +1,44 @@
+//Login Page
+"loginLabel" = "RastreioBF";
+"forgotPasswordBt" = "Esqueceu a senha?";
+"login" = "Login";
+"optionalLabel" = "——————— OU ———————";
+"newHere" = "Novo aqui? ";
+"signUp" = "Sign Up";
+
+//Sign Up Page
+"signUpLabel" = "Sign Up RastreioBF";
+"alreadyMember" = "Já é um membro?";
+
+
+//PlaceHolder
+"emailPlaceHolder" = "E-mail";
+"passwordPlaceHolder" = "Senha";
+"namePlaceHolder" = "Nome";
+"surnamePlaceHolder" = "Sobrenome";
+"confirmPasswordPlaceHolder" = "Repita a senha";
+
+//Error Messages
+"loginErrorMessageLabel" = "E-mail e/ou senha incorreto(s)";
+"emptyNameError" = "Por favor digite seu nome";
+"emptySurnameError" = "Por favor digite seu sobrenome";
+"emptyEmailError" = "Por favor digite seu e-mail";
+"emptyPasswordError" = "Por favor digite uma senha";
+"emptyConfirmPasswordError" = "Por favor digite a senha novamente";
+"emailFormatError" = "Digite o e-mail no formato nome@exemplo.com";
+"passwordTargetError" = "Senha deve ter no mínimo 6 caracteres";
+"passwordsNotEqualError" = "Deve ser igual a senha";
+
+//TabBar Titles
+"homeTitle" = "Novo - RastreioBF";
+"warningTitle" = "Avisos - RastreioBF";
+"pendenciesTitle" = "Pendências - RastreioBF";
+"doneTitle" = "Finalizados - RastreioBF";
+"menuTitle" = "Menu";
+
+//Onboarding
+"firstSubtitle" = "Cadastre seu código no app RastreioBF";
+"secondSubtitle" = "Acompanhe o status do seu pacote";
+"thirdSubtitle" = "Planeje-se para sua entrega";
+"skipIntroductionBt" = "Pular Introdução";
+"rastreioBFBt" = "RastreioBF";
