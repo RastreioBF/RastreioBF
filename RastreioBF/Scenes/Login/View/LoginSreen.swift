@@ -63,7 +63,6 @@ class LoginScreen: UIView {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named:"loginImage")
         image.sizeToFit()
-//        image.image = LC.loginImage.text
         image.contentMode = .scaleAspectFit
         return image
     }()
@@ -98,12 +97,6 @@ class LoginScreen: UIView {
     
     lazy var loginErrorLabel: UILabel = {
         let label = UILabel()
-//        let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 2, height: 2))
-//        image.image = UIImage(named: "errorImage")
-//        image.translatesAutoresizingMaskIntoConstraints = false
-//        label.addSubview(image)
-//        image.centerYAnchor.constraint(equalTo: label.centerYAnchor, constant: 0).isActive = true
-//        image.leftAnchor.constraint(equalTo: label.leftAnchor, constant: -5).isActive = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemRed
         label.font = UIFont.preferredFont(forTextStyle: .callout)
