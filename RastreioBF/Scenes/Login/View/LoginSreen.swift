@@ -15,8 +15,9 @@ import GoogleSignIn
 protocol LoginScreenProtocol:AnyObject {
     func actionLoginButton()
     func actionSignUpButton()
-    func actionGoogleButton()
+    func signIn(sender: Any)
     func actionForgotPassword()
+    func tappedMockado()
 }
 
 //A viewController eh responsavel por saber que exitem os elementos, nela contem as ligacoes que referenciam ao elemento, a view eh responsavel por conter todos os elementos e suas configuracoes
@@ -63,7 +64,6 @@ class LoginScreen: UIView {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named:"loginImage")
         image.sizeToFit()
-//        image.image = LC.loginImage.text
         image.contentMode = .scaleAspectFit
         return image
     }()
@@ -98,12 +98,6 @@ class LoginScreen: UIView {
     
     lazy var loginErrorLabel: UILabel = {
         let label = UILabel()
-//        let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 2, height: 2))
-//        image.image = UIImage(named: "errorImage")
-//        image.translatesAutoresizingMaskIntoConstraints = false
-//        label.addSubview(image)
-//        image.centerYAnchor.constraint(equalTo: label.centerYAnchor, constant: 0).isActive = true
-//        image.leftAnchor.constraint(equalTo: label.leftAnchor, constant: -5).isActive = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemRed
         label.font = UIFont.preferredFont(forTextStyle: .callout)
@@ -167,6 +161,7 @@ class LoginScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.colorScheme = .light
         button.style = .wide
+        button.addTarget(self, action: #selector(tappedGoogleBbutton), for: .touchUpInside)
         return button
     }()
 
@@ -260,7 +255,7 @@ class LoginScreen: UIView {
     
     @objc
     private func tappedGoogleBbutton() {
-        self.delegate?.actionGoogleButton()
+        self.delegate?.signIn(sender: self)
     }
     
     @objc
@@ -268,9 +263,10 @@ class LoginScreen: UIView {
         self.delegate?.actionForgotPassword()
     }
     
- func validateFields(){
-    
-    }
+    @objc
+    func mockado(){
+        self.delegate?.tappedMockado()
+        }
     
     private func setUpConstraints(){
         self.setUpAnimationUIView()

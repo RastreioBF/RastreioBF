@@ -12,8 +12,6 @@ import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate{
-    
-    let signInConfig = GIDConfiguration(clientID: "614878693717-p6uad96i9eltvcigv9o8o589su8flt41.apps.googleusercontent.com")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
