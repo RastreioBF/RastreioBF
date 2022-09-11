@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
     private func setUpTabBarController() {
         
         //Adiciona as telas na TabBarController
-        let homeViewController = UINavigationController(rootViewController: HomeViewController())
+        let homeViewController = UINavigationController(rootViewController: TrackingViewController())
         let warningViewController = UINavigationController(rootViewController: WarningViewController())
         let doneViewController = UINavigationController(rootViewController: DoneViewController())
         let pendenciesViewController = UINavigationController(rootViewController: PendenciesViewController())
@@ -54,16 +54,13 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setUpNavigationBar(){
-        
 //        UINavigationBar.appearance().barStyle = .default
 //        UINavigationBar.appearance().tintColor = UIColor(named: "mainPurpleColor")
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-    
     }
-
 }
 
 extension UINavigationBar {

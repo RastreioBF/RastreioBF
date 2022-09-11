@@ -8,11 +8,12 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var signUpScreen: SignUpScreen?
     var auth:Auth?
     var alert:Alert?
+    var textfield = UITextField()
     
     override func loadView() {
         self.signUpScreen = SignUpScreen()
@@ -21,11 +22,16 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.signUpScreen?.configTextFieldDelegate(delegate: self)
+//        self.signUpScreen?.configTextFieldDelegate(delegate: self)
         self.signUpScreen?.delegate(delegate: self)
         self.hideErrorLabels()
         self.auth = Auth.auth()
         self.alert = Alert(controller: self)
+        self.signUpScreen?.nameTextField.delegate = self
+        self.signUpScreen?.surnameTextField.delegate = self
+        self.signUpScreen?.emailTextField.delegate = self
+        self.signUpScreen?.passwordTextField.delegate = self
+        self.signUpScreen?.confirmPasswordTextField.delegate = self
     }
     
     func hideErrorLabels(){
@@ -35,22 +41,42 @@ class SignUpViewController: UIViewController {
         self.signUpScreen?.passwordErrorLabel.isHidden = true
         self.signUpScreen?.confirmPasswordErrorLabel.isHidden = true
     }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.signUpScreen?.nameTextField:
+            self.signUpScreen?.surnameTextField.becomeFirstResponder()
+        case self.signUpScreen?.surnameTextField:
+            self.signUpScreen?.emailTextField.becomeFirstResponder()
+        case self.signUpScreen?.emailTextField:
+            self.signUpScreen?.passwordTextField.becomeFirstResponder()
+        case self.signUpScreen?.passwordTextField:
+            self.signUpScreen?.confirmPasswordTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
-extension SignUpViewController:UITextFieldDelegate {
+//extension SignUpViewController:UITextFieldDelegate {
+//
+//    //chamamos a funcao de validacao sempre no didend editing, pq ele so valida quando o tecldo baixou
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        //        self.signUpScreen?.validaTextFields()
+//    }
+//
+////    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+////        textField.resignFirstResponder()
+////        return true
+////    }
     
-    //chamamos a funcao de validacao sempre no didend editing, pq ele so valida quando o tecldo baixou
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        //        self.signUpScreen?.validaTextFields()
-    }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    
-}
+//}
 
 extension SignUpViewController: SignUpScreenProtocol {
     
@@ -79,12 +105,24 @@ extension SignUpViewController: SignUpScreenProtocol {
     }
     
     public func validateName(name: String) ->Bool {
-        // Length be 18 characters max and 3 characters minimum, you can always modify.
-        let nameRegex = "^\\w{3,18}$"
-        let trimmedString = name.trimmingCharacters(in: .whitespaces)
-        let validateName = NSPredicate(format: "SELF MATCHES %@", nameRegex)
-        let isValidateName = validateName.evaluate(with: trimmedString)
-        return isValidateName
+        var returnValue = true
+        let mobileRegEx =  "^\\w{3,18}$"
+        
+        do {
+            let regex = try NSRegularExpression(pattern: mobileRegEx)
+            let nsString = name as NSString
+            let results = regex.matches(in: name, range: NSRange(location: 0, length: nsString.length))
+            
+            if results.count == 0
+            {
+                returnValue = false
+            }
+            
+        } catch let error as NSError {
+            print("invalid regex: \(error.localizedDescription)")
+            returnValue = false
+        }
+        return  returnValue
     }
     
     public func validateEmailId(emailID: String) -> Bool {
@@ -142,7 +180,7 @@ extension SignUpViewController: SignUpScreenProtocol {
             label?.text = "Por favor, insira seu sobrenome"
             label?.isHidden = false
         } else if isValidName(text) == false {
-            label?.text = "O nome deve conter no minimo 3 caracteres"
+            label?.text = "O sobrenome deve conter no minimo 3 caracteres"
             label?.isHidden = false
         } else {
             label?.isHidden = true

@@ -68,8 +68,9 @@ class SignUpScreen: UIView {
         text.textAlignment = .left
         text.font = UIFont.systemFont(ofSize: 18)
         text.borderStyle = UITextField.BorderStyle.roundedRect
-        text.keyboardType = UIKeyboardType.default
+        text.keyboardType = UIKeyboardType.alphabet
         text.returnKeyType = UIReturnKeyType.continue
+        text.autocorrectionType = .no
         text.clearButtonMode = UITextField.ViewMode.whileEditing
         text.placeholder = LC.namePlaceHolder.text
         text.addTarget(self, action: #selector(tappedName), for: .editingChanged)
@@ -95,10 +96,11 @@ class SignUpScreen: UIView {
         text.textAlignment = .left
         text.font = UIFont.systemFont(ofSize: 18)
         text.borderStyle = UITextField.BorderStyle.roundedRect
-        text.keyboardType = UIKeyboardType.default
+        text.keyboardType = UIKeyboardType.alphabet
         text.returnKeyType = UIReturnKeyType.continue
         text.clearButtonMode = UITextField.ViewMode.whileEditing
         text.placeholder = LC.surnamePlaceHolder.text
+        text.autocorrectionType = .no
         text.addTarget(self, action: #selector(tappedSurname), for: .editingChanged)
         return text
     }()
@@ -125,6 +127,7 @@ class SignUpScreen: UIView {
         text.borderStyle = UITextField.BorderStyle.roundedRect
         text.keyboardType = UIKeyboardType.emailAddress
         text.returnKeyType = UIReturnKeyType.continue
+        text.autocorrectionType = .no
         text.clearButtonMode = UITextField.ViewMode.whileEditing
         text.addTarget(self, action: #selector(tappedEmail), for: .editingChanged)
         return text
@@ -150,10 +153,12 @@ class SignUpScreen: UIView {
         text.textAlignment = .left
         text.font = UIFont.systemFont(ofSize: 18)
         text.borderStyle = UITextField.BorderStyle.roundedRect
+        text.autocorrectionType = .no
         text.keyboardType = UIKeyboardType.default
         text.isSecureTextEntry.toggle()
-        text.returnKeyType = UIReturnKeyType.done
+        text.returnKeyType = UIReturnKeyType.continue
         text.addTarget(self, action: #selector(tappedPassword), for: .editingChanged)
+        text.textContentType = .init(rawValue: "")
         return text
     }()
     
@@ -176,11 +181,13 @@ class SignUpScreen: UIView {
         text.placeholder = LC.confirmPasswordPlaceHolder.text
         text.textAlignment = .left
         text.font = UIFont.systemFont(ofSize: 18)
+        text.autocorrectionType = .no
         text.borderStyle = UITextField.BorderStyle.roundedRect
         text.keyboardType = UIKeyboardType.default
         text.isSecureTextEntry.toggle()
         text.returnKeyType = UIReturnKeyType.done
         text.addTarget(self, action: #selector(tappedConfirmPassword), for: .editingChanged)
+        text.textContentType = .init(rawValue: "")
         return text
     }()
     
@@ -313,10 +320,10 @@ class SignUpScreen: UIView {
         return self.passwordTextField.text ?? ""
     }
     
-    public func configTextFieldDelegate(delegate:UITextFieldDelegate) {
-        self.emailTextField.delegate = delegate
-        self.passwordTextField.delegate = delegate
-    }
+//    public func configTextFieldDelegate(delegate:UITextFieldDelegate) {
+//        self.emailTextField.delegate = delegate
+//        self.passwordTextField.delegate = delegate
+//    }
     
 
     

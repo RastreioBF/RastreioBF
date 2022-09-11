@@ -11,7 +11,7 @@ import UIKit
 import FirebaseAuth
 import GoogleSignIn
 
-class LoginViewController: UIViewController, LoginScreenProtocol {
+class LoginViewController: UIViewController, LoginScreenProtocol, UITextFieldDelegate {
    
     var auth:Auth?
     var loginScreen:LoginScreen?
@@ -34,7 +34,9 @@ class LoginViewController: UIViewController, LoginScreenProtocol {
         //        self.loginScreen?.configTextFieldDelegate(delegate: self)
         self.auth = Auth.auth()
         self.alert = Alert(controller: self)
-// Do any additional setup after loading the view.
+        self.loginScreen?.emailTextField.delegate = self
+        self.loginScreen?.passwordTextField.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +92,31 @@ class LoginViewController: UIViewController, LoginScreenProtocol {
 //        }
     }
     
+    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        self.loginScreen?.validaTextFields()
+//        print("textFieldBeginEditing")
+//    }
+    
+    //Cria o metodo que ira baixar o teclado ao clicar em "done"
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.loginScreen?.emailTextField:
+            self.loginScreen?.passwordTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        print("textFielEndEditing")
+//    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func actionGoogleButton() {
         let vc: SignUpViewController = SignUpViewController()
         self.navigationController?.pushViewController(vc, animated: true)
@@ -129,24 +156,34 @@ class LoginViewController: UIViewController, LoginScreenProtocol {
 }
 
 //endereca o delegate do UITextField para a ViewController
-extension LoginViewController:UITextFieldDelegate{
-    
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.loginScreen?.validaTextFields()
-        print("textFieldBeginEditing")
-    }
-    
-    //Cria o metodo que ira baixar o teclado ao clicar em "done"
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print("textFielEndEditing")
-    }
-    
-}
+//extension LoginViewController:UITextFieldDelegate{
+//
+//
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        self.loginScreen?.validaTextFields()
+//        print("textFieldBeginEditing")
+//    }
+//
+//    //Cria o metodo que ira baixar o teclado ao clicar em "done"
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        switch textField {
+//        case self.loginScreen?.emailTextField:
+//            self.loginScreen?.passwordTextField.becomeFirstResponder()
+//        default:
+//            textField.resignFirstResponder()
+//        }
+//        return false
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        print("textFielEndEditing")
+//    }
+//
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
+//
+//}
 
 extension String{
     

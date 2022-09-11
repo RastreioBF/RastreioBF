@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class EmailConfirmationViewController: UIViewController, EmailConfirmationScreenProtocol {
+class EmailConfirmationViewController: UIViewController, EmailConfirmationScreenProtocol, UITextFieldDelegate {
     
     var auth:Auth?
     var emailConfirmationScreen:EmailConfirmationScreen?
@@ -26,7 +26,20 @@ class EmailConfirmationViewController: UIViewController, EmailConfirmationScreen
         //        self.emailConfirmationScreen?.configTextFieldDelegate(delegate: self)
         self.auth = Auth.auth()
         self.alert = Alert(controller: self)
+        self.emailConfirmationScreen?.emailTextField.delegate = self
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     public func validateEmailId(emailID: String) -> Bool {
