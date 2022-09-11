@@ -11,11 +11,8 @@
 #endif
 
 #import "FIRApp.h"
-#import "FIRConfiguration.h"
 #import "FirebaseCore.h"
-#import "FIRLoggerLevel.h"
 #import "FIROptions.h"
-#import "FIRVersion.h"
 
 FOUNDATION_EXPORT double FirebaseCoreVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirebaseCoreVersionString[];

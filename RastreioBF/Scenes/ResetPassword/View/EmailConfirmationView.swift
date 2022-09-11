@@ -78,7 +78,7 @@ class EmailConfirmationScreen: UIView {
         text.font = UIFont.systemFont(ofSize: 18)
         text.borderStyle = UITextField.BorderStyle.roundedRect
         text.keyboardType = UIKeyboardType.emailAddress
-        text.returnKeyType = UIReturnKeyType.continue
+        text.returnKeyType = UIReturnKeyType.done
         text.clearButtonMode = UITextField.ViewMode.whileEditing
         text.addTarget(self, action: #selector(tappedEmail), for: .editingChanged)
         return text
