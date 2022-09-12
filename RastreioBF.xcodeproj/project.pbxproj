@@ -23,9 +23,6 @@
 		0946C10728CBBB56007BF289 /* PrivacidadeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0F928CBBB56007BF289 /* PrivacidadeScreen.swift */; };
 		0946C10828CBBB56007BF289 /* RemoveUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0FB28CBBB56007BF289 /* RemoveUserScreen.swift */; };
 		0946C10928CBBB56007BF289 /* RemoveUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0FC28CBBB56007BF289 /* RemoveUserVC.swift */; };
-		094E246D28CE71FA00C6DDC8 /* EmailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E246C28CE71FA00C6DDC8 /* EmailNotificationViewController.swift */; };
-		094E246F28CE720A00C6DDC8 /* EmailNotificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E246E28CE720A00C6DDC8 /* EmailNotificationScreen.swift */; };
-		094E247128CE722400C6DDC8 /* TrackingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E247028CE722400C6DDC8 /* TrackingScreen.swift */; };
 		094E247528CE85B300C6DDC8 /* email-sent.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247428CE85B300C6DDC8 /* email-sent.json */; };
 		094E247928CE87A800C6DDC8 /* email-with-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247828CE87A700C6DDC8 /* email-with-blue.json */; };
 		094E247B28CE881400C6DDC8 /* receiveEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247A28CE881400C6DDC8 /* receiveEmail.json */; };
@@ -37,6 +34,10 @@
 		0974F64528CB7883004E8716 /* loginAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64228CB7883004E8716 /* loginAnimation.json */; };
 		0974F64628CB7883004E8716 /* signUpAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64328CB7883004E8716 /* signUpAnimation.json */; };
 		0974F64728CB7883004E8716 /* unlocked.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64428CB7883004E8716 /* unlocked.json */; };
+		098B467528CECA28009D08A4 /* TrackingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467428CECA28009D08A4 /* TrackingScreen.swift */; };
+		098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467C28CECB1E009D08A4 /* TrackingViewController.swift */; };
+		098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */; };
+		098B468128CECCE9009D08A4 /* EmailNotificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B468028CECCE9009D08A4 /* EmailNotificationScreen.swift */; };
 		099BCC6328CB7CEF000DFDE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */; };
 		099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6528CB80D6000DFDE6 /* Constants.swift */; };
 		099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6728CB80EB000DFDE6 /* Bundle+.swift */; };
@@ -54,11 +55,10 @@
 		099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */; };
 		099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */; };
 		099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */; };
-		099BCCA528CB8B12000DFDE6 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA428CB8B12000DFDE6 /* TrackingViewController.swift */; };
 		099BCCA828CB8B42000DFDE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */; };
 		099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */; };
 		099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */; };
-		0FD187A0801C6E51F2FBDD81 /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320F87CD4DCA6FC1DDDAF677 /* Pods_RastreioBF.framework */; };
+		529C280187E5D8F84ECFB25A /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D02BED84667E38063C552581 /* Pods_RastreioBF.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,9 +78,6 @@
 		0946C0F928CBBB56007BF289 /* PrivacidadeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacidadeScreen.swift; sourceTree = "<group>"; };
 		0946C0FB28CBBB56007BF289 /* RemoveUserScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserScreen.swift; sourceTree = "<group>"; };
 		0946C0FC28CBBB56007BF289 /* RemoveUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserVC.swift; sourceTree = "<group>"; };
-		094E246C28CE71FA00C6DDC8 /* EmailNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailNotificationViewController.swift; sourceTree = "<group>"; };
-		094E246E28CE720A00C6DDC8 /* EmailNotificationScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailNotificationScreen.swift; sourceTree = "<group>"; };
-		094E247028CE722400C6DDC8 /* TrackingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackingScreen.swift; path = ../../../../../../../../../Downloads/TrackingScreen.swift; sourceTree = "<group>"; };
 		094E247428CE85B300C6DDC8 /* email-sent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-sent.json"; sourceTree = "<group>"; };
 		094E247828CE87A700C6DDC8 /* email-with-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-with-blue.json"; sourceTree = "<group>"; };
 		094E247A28CE881400C6DDC8 /* receiveEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = receiveEmail.json; sourceTree = "<group>"; };
@@ -94,6 +91,10 @@
 		0974F64228CB7883004E8716 /* loginAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginAnimation.json; sourceTree = "<group>"; };
 		0974F64328CB7883004E8716 /* signUpAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signUpAnimation.json; sourceTree = "<group>"; };
 		0974F64428CB7883004E8716 /* unlocked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unlocked.json; sourceTree = "<group>"; };
+		098B467428CECA28009D08A4 /* TrackingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingScreen.swift; sourceTree = "<group>"; };
+		098B467C28CECB1E009D08A4 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
+		098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationViewController.swift; sourceTree = "<group>"; };
+		098B468028CECCE9009D08A4 /* EmailNotificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationScreen.swift; sourceTree = "<group>"; };
 		099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		099BCC6528CB80D6000DFDE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		099BCC6728CB80EB000DFDE6 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
@@ -111,13 +112,12 @@
 		099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
-		099BCCA428CB8B12000DFDE6 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesViewController.swift; sourceTree = "<group>"; };
 		099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
-		320F87CD4DCA6FC1DDDAF677 /* Pods_RastreioBF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RastreioBF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CC9B9A821D57DD87A06940E /* Pods-RastreioBF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.debug.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.debug.xcconfig"; sourceTree = "<group>"; };
-		C1CBA448AB42E7FFC1CE0502 /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
+		BCD655B6667F8244D17025EE /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
+		D02BED84667E38063C552581 /* Pods_RastreioBF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RastreioBF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8A6B1DCAB5C973666B7CA2A /* Pods-RastreioBF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.debug.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FD187A0801C6E51F2FBDD81 /* Pods_RastreioBF.framework in Frameworks */,
+				529C280187E5D8F84ECFB25A /* Pods_RastreioBF.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +226,7 @@
 		094E246428CE6D5900C6DDC8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				099BCCA428CB8B12000DFDE6 /* TrackingViewController.swift */,
+				098B467C28CECB1E009D08A4 /* TrackingViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 		094E246528CE6D6200C6DDC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				094E247028CE722400C6DDC8 /* TrackingScreen.swift */,
+				098B467428CECA28009D08A4 /* TrackingScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 		094E246A28CE71D100C6DDC8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				094E246C28CE71FA00C6DDC8 /* EmailNotificationViewController.swift */,
+				098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 		094E246B28CE71DE00C6DDC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				094E246E28CE720A00C6DDC8 /* EmailNotificationScreen.swift */,
+				098B468028CECCE9009D08A4 /* EmailNotificationScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 				0974F62C28CB77A7004E8716 /* RastreioBF */,
 				0974F62B28CB77A7004E8716 /* Products */,
 				582E715F33F688473BE0CC9E /* Pods */,
-				CB6B203BFF5E7882F1481C15 /* Frameworks */,
+				2BA2C3441E5274180E38F92A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -522,21 +522,21 @@
 			path = Warning;
 			sourceTree = "<group>";
 		};
+		2BA2C3441E5274180E38F92A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D02BED84667E38063C552581 /* Pods_RastreioBF.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		582E715F33F688473BE0CC9E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8CC9B9A821D57DD87A06940E /* Pods-RastreioBF.debug.xcconfig */,
-				C1CBA448AB42E7FFC1CE0502 /* Pods-RastreioBF.release.xcconfig */,
+				F8A6B1DCAB5C973666B7CA2A /* Pods-RastreioBF.debug.xcconfig */,
+				BCD655B6667F8244D17025EE /* Pods-RastreioBF.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		CB6B203BFF5E7882F1481C15 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				320F87CD4DCA6FC1DDDAF677 /* Pods_RastreioBF.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,11 +546,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0974F63E28CB77A8004E8716 /* Build configuration list for PBXNativeTarget "RastreioBF" */;
 			buildPhases = (
-				B920C583B31AE4620414DE82 /* [CP] Check Pods Manifest.lock */,
+				E9BAAE3F211F9C7801AF2F93 /* [CP] Check Pods Manifest.lock */,
 				0974F62628CB77A6004E8716 /* Sources */,
 				0974F62728CB77A6004E8716 /* Frameworks */,
 				0974F62828CB77A6004E8716 /* Resources */,
-				CCBC4AAD7C8B991B0286A4D2 /* [CP] Embed Pods Frameworks */,
+				E892B92A5CF765BA745A747B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -615,7 +615,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B920C583B31AE4620414DE82 /* [CP] Check Pods Manifest.lock */ = {
+		E892B92A5CF765BA745A747B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9BAAE3F211F9C7801AF2F93 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -637,23 +654,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCBC4AAD7C8B991B0286A4D2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -664,13 +664,12 @@
 				099BCC7628CB8231000DFDE6 /* LoginViewController.swift in Sources */,
 				099BCC6F28CB817A000DFDE6 /* LocalizedConstants.swift in Sources */,
 				0946C10728CBBB56007BF289 /* PrivacidadeScreen.swift in Sources */,
-				099BCCA528CB8B12000DFDE6 /* TrackingViewController.swift in Sources */,
-				094E247128CE722400C6DDC8 /* TrackingScreen.swift in Sources */,
+				098B467528CECA28009D08A4 /* TrackingScreen.swift in Sources */,
 				0946C10528CBBB56007BF289 /* MeusDadosTableViewCell.swift in Sources */,
 				0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */,
 				099BCC7928CB8277000DFDE6 /* LoginSreen.swift in Sources */,
 				0946C0FE28CBBB56007BF289 /* DescricaoVC.swift in Sources */,
-				094E246F28CE720A00C6DDC8 /* EmailNotificationScreen.swift in Sources */,
+				098B468128CECCE9009D08A4 /* EmailNotificationScreen.swift in Sources */,
 				0946C0FF28CBBB56007BF289 /* MovimentacaoScreen.swift in Sources */,
 				0946C10128CBBB56007BF289 /* CadastroVC.swift in Sources */,
 				0946C10428CBBB56007BF289 /* MeusDadosScreen.swift in Sources */,
@@ -692,10 +691,11 @@
 				099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */,
 				0946C0FD28CBBB56007BF289 /* DescricaoScreen.swift in Sources */,
 				099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */,
-				094E246D28CE71FA00C6DDC8 /* EmailNotificationViewController.swift in Sources */,
 				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
+				098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */,
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
 				099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */,
+				098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */,
 				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,
 				0946C10928CBBB56007BF289 /* RemoveUserVC.swift in Sources */,
 				0946C10228CBBB56007BF289 /* CadastroScreen.swift in Sources */,
@@ -835,7 +835,7 @@
 		};
 		0974F63F28CB77A8004E8716 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CC9B9A821D57DD87A06940E /* Pods-RastreioBF.debug.xcconfig */;
+			baseConfigurationReference = F8A6B1DCAB5C973666B7CA2A /* Pods-RastreioBF.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -862,7 +862,7 @@
 		};
 		0974F64028CB77A8004E8716 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1CBA448AB42E7FFC1CE0502 /* Pods-RastreioBF.release.xcconfig */;
+			baseConfigurationReference = BCD655B6667F8244D17025EE /* Pods-RastreioBF.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
