@@ -27,7 +27,13 @@ class EmailConfirmationViewController: UIViewController, EmailConfirmationScreen
         self.auth = Auth.auth()
         self.alert = Alert(controller: self)
         self.emailConfirmationScreen?.emailTextField.delegate = self
+        self.setupKeyboardHiding()
         
+    }
+    
+    private func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -105,3 +111,29 @@ class EmailConfirmationViewController: UIViewController, EmailConfirmationScreen
     }
 }
 
+// MARK: Keyboard
+extension EmailConfirmationViewController {
+    @objc func keyboardWillShow(sender: NSNotification) {
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
+        
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextFieldFrame = view.convert(currentTextField.frame, from: currentTextField.superview)
+        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
+        
+        if textFieldBottomY > keyboardTopY {
+            let textBoxY = convertedTextFieldFrame.origin.y
+            let newFrameY = (textBoxY - keyboardTopY / 1.23) * -1
+            view.frame.origin.y = newFrameY
+        }
+
+        print("foo - userInfo: \(userInfo)")
+        print("foo - keyboardFrame: \(keyboardFrame)")
+        print("foo - currentTextField: \(currentTextField)")
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+          view.frame.origin.y = 0
+      }
+}

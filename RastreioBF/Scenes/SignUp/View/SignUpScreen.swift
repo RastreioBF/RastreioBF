@@ -450,7 +450,7 @@ class SignUpScreen: UIView {
     
     private func setUpSignUpButton() {
         NSLayoutConstraint.activate([
-            self.signUpButton.bottomAnchor.constraint(equalTo: alreadyMemberLabel.topAnchor, constant: -20),
+            self.signUpButton.topAnchor.constraint(equalTo: confirmPasswordErrorLabel.topAnchor, constant: 25),
             self.signUpButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.signUpButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.signUpButton.heightAnchor.constraint(equalToConstant: 40)
@@ -459,7 +459,7 @@ class SignUpScreen: UIView {
     
     private func setUpAlreadyMemberLabel() {
         NSLayoutConstraint.activate([
-            self.alreadyMemberLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            self.alreadyMemberLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             self.alreadyMemberLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             ])
     }

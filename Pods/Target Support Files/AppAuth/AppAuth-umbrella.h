@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "AppAuthCore.h"
 #import "OIDAuthorizationRequest.h"
 #import "OIDAuthorizationResponse.h"
 #import "OIDAuthorizationService.h"
@@ -22,7 +23,6 @@
 #import "OIDEndSessionResponse.h"
 #import "OIDError.h"
 #import "OIDErrorUtilities.h"
-#import "OIDExternalUserAgent.h"
 #import "OIDExternalUserAgentRequest.h"
 #import "OIDExternalUserAgentSession.h"
 #import "OIDFieldMapping.h"
@@ -40,6 +40,7 @@
 #import "OIDTokenUtilities.h"
 #import "OIDURLQueryComponent.h"
 #import "OIDURLSessionProvider.h"
+#import "AppAuth.h"
 #import "OIDAuthorizationService+IOS.h"
 #import "OIDAuthState+IOS.h"
 #import "OIDExternalUserAgentCatalyst.h"

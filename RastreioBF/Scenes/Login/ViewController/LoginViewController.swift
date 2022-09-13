@@ -36,12 +36,18 @@ class LoginViewController: UIViewController, LoginScreenProtocol, UITextFieldDel
         self.alert = Alert(controller: self)
         self.loginScreen?.emailTextField.delegate = self
         self.loginScreen?.passwordTextField.delegate = self
+        self.setupKeyboardHiding()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //retira a sombra da navigationController
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    private func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func signIn(sender: Any) {
@@ -214,3 +220,28 @@ extension String{
     }
 }
 
+extension LoginViewController {
+    @objc func keyboardWillShow(sender: NSNotification) {
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
+        
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextFieldFrame = view.convert(currentTextField.frame, from: currentTextField.superview)
+        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
+        
+        if textFieldBottomY > keyboardTopY {
+            let textBoxY = convertedTextFieldFrame.origin.y
+            let newFrameY = (textBoxY - keyboardTopY / 1.7) * -1
+            view.frame.origin.y = newFrameY
+        }
+
+        print("foo - userInfo: \(userInfo)")
+        print("foo - keyboardFrame: \(keyboardFrame)")
+        print("foo - currentTextField: \(currentTextField)")
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+          view.frame.origin.y = 0
+      }
+}

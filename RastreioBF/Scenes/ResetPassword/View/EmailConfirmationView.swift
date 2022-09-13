@@ -49,7 +49,7 @@ class EmailConfirmationScreen: UIView {
     var animationView:AnimationView = {
         var animation = AnimationView()
         animation = .init(name: "unlocked")
-        animation.contentMode = .scaleAspectFit
+        animation.contentMode = .scaleAspectFill
         animation.loopMode = .playOnce
         animation.animationSpeed = 0.5
         animation.translatesAutoresizingMaskIntoConstraints = false
@@ -225,7 +225,7 @@ class EmailConfirmationScreen: UIView {
     
     private func setUpConfirmationButton() {
         NSLayoutConstraint.activate([
-            self.confirmationCodeButton.bottomAnchor.constraint(equalTo: registerLabel.topAnchor, constant: -15),
+            self.confirmationCodeButton.topAnchor.constraint(equalTo: emailErrorLabel.bottomAnchor, constant: 15),
             self.confirmationCodeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.confirmationCodeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.confirmationCodeButton.heightAnchor.constraint(equalToConstant: 40)
@@ -234,7 +234,7 @@ class EmailConfirmationScreen: UIView {
     
     private func setUpRegisterLabel() {
         NSLayoutConstraint.activate([
-            self.registerLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
+            self.registerLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25),
             self.registerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             ])
     }
