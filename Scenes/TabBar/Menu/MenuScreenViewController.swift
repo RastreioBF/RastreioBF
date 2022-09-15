@@ -104,6 +104,19 @@ class MenuScreenViewController: UIViewController, UITableViewDelegate, UITableVi
 
            
         ]))
+        
+        // grupo 4
+        models.append(Section(title: "Sair", options: [
+            
+            .staticCell(model : SettingsOption(title: "Logout", icon: UIImage(systemName: "person.badge.minus"), iconBackgroundColor: .systemRed){
+               // let meusDados = MeusDadosVC() referenciar a tela logout
+             //    self.navigationController?.pushViewController(meusDados, animated: true) mudar de tela
+                let alert : Alert = Alert(controller: self)
+                alert.userAlertLogout()
+            }),
+        
+        ]))
+        
 }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = models[section]
@@ -144,6 +157,7 @@ class MenuScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             
         }
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let type = models[ indexPath.section].options[ indexPath.row]
@@ -156,5 +170,3 @@ class MenuScreenViewController: UIViewController, UITableViewDelegate, UITableVi
           }
     }
 }
-
-
