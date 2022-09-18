@@ -40,6 +40,15 @@ class LoginViewController: UIViewController, LoginScreenProtocol, UITextFieldDel
 
     }
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        hidesBottomBarWhenPushed = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         //retira a sombra da navigationController
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -71,31 +80,31 @@ class LoginViewController: UIViewController, LoginScreenProtocol, UITextFieldDel
     
     func actionLoginButton() {
         
-//        var email = self.loginScreen?.emailTextField.text ?? ""
-//        var password = self.loginScreen?.passwordTextField.text ?? ""
-//
-//        guard let login = self.loginScreen else {return}
-//
-//        if email.isEmpty || password.isEmpty {
-//            self.loginScreen?.loginErrorLabel.text = "Todos os campos devem ser preenchidos"
-//            self.loginScreen?.loginErrorLabel.isHidden = false
-//        } else {
-//            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
-//                if error != nil{
-//                    self.loginScreen?.loginErrorLabel.text = "Dados incorretos, verifique e tente novamente!"
-//                    self.loginScreen?.loginErrorLabel.isHidden = false
-//                }else{
-//
-//                    if usuario == nil{
-//                        self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
-//                    }else{
+        var email = self.loginScreen?.emailTextField.text ?? ""
+        var password = self.loginScreen?.passwordTextField.text ?? ""
+
+        guard let login = self.loginScreen else {return}
+
+        if email.isEmpty || password.isEmpty {
+            self.loginScreen?.loginErrorLabel.text = "Todos os campos devem ser preenchidos"
+            self.loginScreen?.loginErrorLabel.isHidden = false
+        } else {
+            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
+                if error != nil{
+                    self.loginScreen?.loginErrorLabel.text = "Dados incorretos, verifique e tente novamente!"
+                    self.loginScreen?.loginErrorLabel.isHidden = false
+                }else{
+
+                    if usuario == nil{
+                        self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
+                    }else{
                         let vc: MainTabBarController = MainTabBarController()
                         self.navigationController?.pushViewController(vc, animated: true)
-//                    }
-//                }
-//            })
-//
-//        }
+                    }
+                }
+            })
+
+        }
     }
     
     

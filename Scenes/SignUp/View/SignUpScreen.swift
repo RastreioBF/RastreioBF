@@ -237,7 +237,6 @@ class SignUpScreen: UIView {
         self.errorMessagesHidden()
         self.configSuperView()
         self.configConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
