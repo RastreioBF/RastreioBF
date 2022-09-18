@@ -9,12 +9,14 @@ import UIKit
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
-class LoginViewController: UIViewController, LoginScreenProtocol {
-    
+class LoginViewController: UIViewController, LoginScreenProtocol, UITextFieldDelegate {
+   
     var auth:Auth?
     var loginScreen:LoginScreen?
     var alert:Alert?
+    let signInConfig = GIDConfiguration(clientID: "614878693717-p6uad96i9eltvcigv9o8o589su8flt41.apps.googleusercontent.com")
     
     //LoadView eh responsavel para quando estamos criando uma view
     override func loadView() {
@@ -32,7 +34,10 @@ class LoginViewController: UIViewController, LoginScreenProtocol {
         //        self.loginScreen?.configTextFieldDelegate(delegate: self)
         self.auth = Auth.auth()
         self.alert = Alert(controller: self)
-        // Do any additional setup after loading the view.
+        self.loginScreen?.emailTextField.delegate = self
+        self.loginScreen?.passwordTextField.delegate = self
+        self.setupKeyboardHiding()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,33 +45,82 @@ class LoginViewController: UIViewController, LoginScreenProtocol {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    private func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func signIn(sender: Any) {
+      GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+        guard error == nil else { return }
+          
+          let vc: MainTabBarController = MainTabBarController()
+          self.navigationController?.pushViewController(vc, animated: false)
+      }
+    }
+    
+    func signOut(sender: Any) {
+      GIDSignIn.sharedInstance.signOut()
+    }
+    
+    
+    func tappedMockado() {
+        let vc: MainTabBarController = MainTabBarController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func actionLoginButton() {
         
-        var email = self.loginScreen?.emailTextField.text ?? ""
-        var password = self.loginScreen?.passwordTextField.text ?? ""
-        
-        guard let login = self.loginScreen else {return}
-        
-        if email.isEmpty || password.isEmpty {
-            self.loginScreen?.loginErrorLabel.text = "Todos os campos devem ser preenchidos"
-            self.loginScreen?.loginErrorLabel.isHidden = false
-        } else {
-            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
-                if error != nil{
-                    self.loginScreen?.loginErrorLabel.text = "Dados incorretos, verifique e tente novamente!"
-                    self.loginScreen?.loginErrorLabel.isHidden = false
-                }else{
-                    
-                    if usuario == nil{
-                        self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
-                    }else{
+//        var email = self.loginScreen?.emailTextField.text ?? ""
+//        var password = self.loginScreen?.passwordTextField.text ?? ""
+//
+//        guard let login = self.loginScreen else {return}
+//
+//        if email.isEmpty || password.isEmpty {
+//            self.loginScreen?.loginErrorLabel.text = "Todos os campos devem ser preenchidos"
+//            self.loginScreen?.loginErrorLabel.isHidden = false
+//        } else {
+//            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
+//                if error != nil{
+//                    self.loginScreen?.loginErrorLabel.text = "Dados incorretos, verifique e tente novamente!"
+//                    self.loginScreen?.loginErrorLabel.isHidden = false
+//                }else{
+//
+//                    if usuario == nil{
+//                        self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
+//                    }else{
                         let vc: MainTabBarController = MainTabBarController()
                         self.navigationController?.pushViewController(vc, animated: true)
-                    }
-                }
-            })
-            
+//                    }
+//                }
+//            })
+//
+//        }
+    }
+    
+    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        self.loginScreen?.validaTextFields()
+//        print("textFieldBeginEditing")
+//    }
+    
+    //Cria o metodo que ira baixar o teclado ao clicar em "done"
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.loginScreen?.emailTextField:
+            self.loginScreen?.passwordTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
         }
+        return false
+    }
+    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        print("textFielEndEditing")
+//    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func actionGoogleButton() {
@@ -108,24 +162,34 @@ class LoginViewController: UIViewController, LoginScreenProtocol {
 }
 
 //endereca o delegate do UITextField para a ViewController
-extension LoginViewController:UITextFieldDelegate{
-    
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.loginScreen?.validaTextFields()
-        print("textFieldBeginEditing")
-    }
-    
-    //Cria o metodo que ira baixar o teclado ao clicar em "done"
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print("textFielEndEditing")
-    }
-    
-}
+//extension LoginViewController:UITextFieldDelegate{
+//
+//
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        self.loginScreen?.validaTextFields()
+//        print("textFieldBeginEditing")
+//    }
+//
+//    //Cria o metodo que ira baixar o teclado ao clicar em "done"
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        switch textField {
+//        case self.loginScreen?.emailTextField:
+//            self.loginScreen?.passwordTextField.becomeFirstResponder()
+//        default:
+//            textField.resignFirstResponder()
+//        }
+//        return false
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        print("textFielEndEditing")
+//    }
+//
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
+//
+//}
 
 extension String{
     
@@ -156,3 +220,28 @@ extension String{
     }
 }
 
+extension LoginViewController {
+    @objc func keyboardWillShow(sender: NSNotification) {
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
+        
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextFieldFrame = view.convert(currentTextField.frame, from: currentTextField.superview)
+        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
+        
+        if textFieldBottomY > keyboardTopY {
+            let textBoxY = convertedTextFieldFrame.origin.y
+            let newFrameY = (textBoxY - keyboardTopY / 1.7) * -1
+            view.frame.origin.y = newFrameY
+        }
+
+        print("foo - userInfo: \(userInfo)")
+        print("foo - keyboardFrame: \(keyboardFrame)")
+        print("foo - currentTextField: \(currentTextField)")
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+          view.frame.origin.y = 0
+      }
+}

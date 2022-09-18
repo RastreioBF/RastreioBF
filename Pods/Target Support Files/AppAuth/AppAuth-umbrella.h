@@ -23,7 +23,6 @@
 #import "OIDEndSessionResponse.h"
 #import "OIDError.h"
 #import "OIDErrorUtilities.h"
-#import "OIDExternalUserAgent.h"
 #import "OIDExternalUserAgentRequest.h"
 #import "OIDExternalUserAgentSession.h"
 #import "OIDFieldMapping.h"
