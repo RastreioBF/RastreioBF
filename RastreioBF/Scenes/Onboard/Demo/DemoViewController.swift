@@ -68,7 +68,7 @@ extension DemoViewController {
         nextButton.setTitleColor(.white, for: .normal)
         nextButton.layer.cornerRadius = 8
         nextButton.backgroundColor = UIColor(named: "mainPurpleColor")
-        nextButton.setTitle("RsstreioBF", for: .normal)
+        nextButton.setTitle("RastreioBF", for: .normal)
         nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
     }
     

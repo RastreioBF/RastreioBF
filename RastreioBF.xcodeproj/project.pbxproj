@@ -7,23 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090D841928D32E1900198D69 /* WarningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D841828D32E1900198D69 /* WarningScreen.swift */; };
+		090D841C28D33DFB00198D69 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D841B28D33DFB00198D69 /* APIHelper.swift */; };
+		0918AD4628D6953F00E95DFB /* ProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */; };
+		0918AD4828D6958B00E95DFB /* DataProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918AD4728D6958B00E95DFB /* DataProduct.swift */; };
 		0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0937E43328CFD58400920D18 /* UIResponder+Utils.swift */; };
 		0946C0E128CBBA74007BF289 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0E028CBBA74007BF289 /* SwitchTableViewCell.swift */; };
 		0946C0E328CBBADC007BF289 /* MenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0E228CBBADC007BF289 /* MenuScreenViewController.swift */; };
 		0946C0E528CBBB1F007BF289 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0E428CBBB1F007BF289 /* SettingsTableViewCell.swift */; };
-		0946C0FD28CBBB56007BF289 /* DescricaoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0E828CBBB56007BF289 /* DescricaoScreen.swift */; };
-		0946C0FE28CBBB56007BF289 /* DescricaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0E928CBBB56007BF289 /* DescricaoVC.swift */; };
-		0946C0FF28CBBB56007BF289 /* MovimentacaoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0EB28CBBB56007BF289 /* MovimentacaoScreen.swift */; };
-		0946C10028CBBB56007BF289 /* MovimentacaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0EC28CBBB56007BF289 /* MovimentacaoVC.swift */; };
-		0946C10128CBBB56007BF289 /* CadastroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0EE28CBBB56007BF289 /* CadastroVC.swift */; };
-		0946C10228CBBB56007BF289 /* CadastroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0EF28CBBB56007BF289 /* CadastroScreen.swift */; };
-		0946C10328CBBB56007BF289 /* MeusDadosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0F328CBBB56007BF289 /* MeusDadosVC.swift */; };
-		0946C10428CBBB56007BF289 /* MeusDadosScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0F428CBBB56007BF289 /* MeusDadosScreen.swift */; };
-		0946C10528CBBB56007BF289 /* MeusDadosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0F628CBBB56007BF289 /* MeusDadosTableViewCell.swift */; };
-		0946C10628CBBB56007BF289 /* PrivacidadeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0F828CBBB56007BF289 /* PrivacidadeVC.swift */; };
-		0946C10728CBBB56007BF289 /* PrivacidadeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0F928CBBB56007BF289 /* PrivacidadeScreen.swift */; };
-		0946C10828CBBB56007BF289 /* RemoveUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0FB28CBBB56007BF289 /* RemoveUserScreen.swift */; };
-		0946C10928CBBB56007BF289 /* RemoveUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946C0FC28CBBB56007BF289 /* RemoveUserVC.swift */; };
 		094E247528CE85B300C6DDC8 /* email-sent.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247428CE85B300C6DDC8 /* email-sent.json */; };
 		094E247928CE87A800C6DDC8 /* email-with-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247828CE87A700C6DDC8 /* email-with-blue.json */; };
 		094E247B28CE881400C6DDC8 /* receiveEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247A28CE881400C6DDC8 /* receiveEmail.json */; };
@@ -39,6 +30,19 @@
 		098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467C28CECB1E009D08A4 /* TrackingViewController.swift */; };
 		098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */; };
 		098B468128CECCE9009D08A4 /* EmailNotificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B468028CECCE9009D08A4 /* EmailNotificationScreen.swift */; };
+		098C412628D2BB5D00F1E511 /* DescricaoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411128D2BB5C00F1E511 /* DescricaoScreen.swift */; };
+		098C412728D2BB5D00F1E511 /* DescricaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411228D2BB5C00F1E511 /* DescricaoVC.swift */; };
+		098C412828D2BB5D00F1E511 /* MovimentacaoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411428D2BB5C00F1E511 /* MovimentacaoScreen.swift */; };
+		098C412928D2BB5D00F1E511 /* MovimentacaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411528D2BB5C00F1E511 /* MovimentacaoVC.swift */; };
+		098C412A28D2BB5D00F1E511 /* CadastroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411728D2BB5C00F1E511 /* CadastroVC.swift */; };
+		098C412B28D2BB5D00F1E511 /* CadastroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411828D2BB5C00F1E511 /* CadastroScreen.swift */; };
+		098C412C28D2BB5D00F1E511 /* MeusDadosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411C28D2BB5D00F1E511 /* MeusDadosVC.swift */; };
+		098C412D28D2BB5D00F1E511 /* MeusDadosScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411D28D2BB5D00F1E511 /* MeusDadosScreen.swift */; };
+		098C412E28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411F28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift */; };
+		098C412F28D2BB5D00F1E511 /* PrivacidadeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412128D2BB5D00F1E511 /* PrivacidadeVC.swift */; };
+		098C413028D2BB5D00F1E511 /* PrivacidadeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412228D2BB5D00F1E511 /* PrivacidadeScreen.swift */; };
+		098C413128D2BB5D00F1E511 /* RemoveUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412428D2BB5D00F1E511 /* RemoveUserScreen.swift */; };
+		098C413228D2BB5D00F1E511 /* RemoveUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412528D2BB5D00F1E511 /* RemoveUserVC.swift */; };
 		099BCC6328CB7CEF000DFDE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */; };
 		099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6528CB80D6000DFDE6 /* Constants.swift */; };
 		099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6728CB80EB000DFDE6 /* Bundle+.swift */; };
@@ -59,27 +63,21 @@
 		099BCCA828CB8B42000DFDE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */; };
 		099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */; };
 		099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */; };
-		CC17C0E1DE0EF677F3CC3D65 /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37A3A628B7B3B8E7989A14C /* Pods_RastreioBF.framework */; };
+		09EAB3FD28D76D3400968827 /* DoneScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FC28D76D3400968827 /* DoneScreen.swift */; };
+		09EAB40028D76EF200968827 /* DataDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FF28D76EF200968827 /* DataDone.swift */; };
+		09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB40328D76F9900968827 /* DoneTableViewCell.swift */; };
+		26524DB5A9FE359307734D31 /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C572B4F02D59DFA4A5E52F2 /* Pods_RastreioBF.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090D841828D32E1900198D69 /* WarningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningScreen.swift; sourceTree = "<group>"; };
+		090D841B28D33DFB00198D69 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewCell.swift; sourceTree = "<group>"; };
+		0918AD4728D6958B00E95DFB /* DataProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProduct.swift; sourceTree = "<group>"; };
 		0937E43328CFD58400920D18 /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
 		0946C0E028CBBA74007BF289 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		0946C0E228CBBADC007BF289 /* MenuScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenViewController.swift; sourceTree = "<group>"; };
 		0946C0E428CBBB1F007BF289 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		0946C0E828CBBB56007BF289 /* DescricaoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescricaoScreen.swift; sourceTree = "<group>"; };
-		0946C0E928CBBB56007BF289 /* DescricaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescricaoVC.swift; sourceTree = "<group>"; };
-		0946C0EB28CBBB56007BF289 /* MovimentacaoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentacaoScreen.swift; sourceTree = "<group>"; };
-		0946C0EC28CBBB56007BF289 /* MovimentacaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentacaoVC.swift; sourceTree = "<group>"; };
-		0946C0EE28CBBB56007BF289 /* CadastroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroVC.swift; sourceTree = "<group>"; };
-		0946C0EF28CBBB56007BF289 /* CadastroScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroScreen.swift; sourceTree = "<group>"; };
-		0946C0F328CBBB56007BF289 /* MeusDadosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosVC.swift; sourceTree = "<group>"; };
-		0946C0F428CBBB56007BF289 /* MeusDadosScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosScreen.swift; sourceTree = "<group>"; };
-		0946C0F628CBBB56007BF289 /* MeusDadosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosTableViewCell.swift; sourceTree = "<group>"; };
-		0946C0F828CBBB56007BF289 /* PrivacidadeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacidadeVC.swift; sourceTree = "<group>"; };
-		0946C0F928CBBB56007BF289 /* PrivacidadeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacidadeScreen.swift; sourceTree = "<group>"; };
-		0946C0FB28CBBB56007BF289 /* RemoveUserScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserScreen.swift; sourceTree = "<group>"; };
-		0946C0FC28CBBB56007BF289 /* RemoveUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserVC.swift; sourceTree = "<group>"; };
 		094E247428CE85B300C6DDC8 /* email-sent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-sent.json"; sourceTree = "<group>"; };
 		094E247828CE87A700C6DDC8 /* email-with-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-with-blue.json"; sourceTree = "<group>"; };
 		094E247A28CE881400C6DDC8 /* receiveEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = receiveEmail.json; sourceTree = "<group>"; };
@@ -97,6 +95,19 @@
 		098B467C28CECB1E009D08A4 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationViewController.swift; sourceTree = "<group>"; };
 		098B468028CECCE9009D08A4 /* EmailNotificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationScreen.swift; sourceTree = "<group>"; };
+		098C411128D2BB5C00F1E511 /* DescricaoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescricaoScreen.swift; sourceTree = "<group>"; };
+		098C411228D2BB5C00F1E511 /* DescricaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescricaoVC.swift; sourceTree = "<group>"; };
+		098C411428D2BB5C00F1E511 /* MovimentacaoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentacaoScreen.swift; sourceTree = "<group>"; };
+		098C411528D2BB5C00F1E511 /* MovimentacaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentacaoVC.swift; sourceTree = "<group>"; };
+		098C411728D2BB5C00F1E511 /* CadastroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroVC.swift; sourceTree = "<group>"; };
+		098C411828D2BB5C00F1E511 /* CadastroScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroScreen.swift; sourceTree = "<group>"; };
+		098C411C28D2BB5D00F1E511 /* MeusDadosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosVC.swift; sourceTree = "<group>"; };
+		098C411D28D2BB5D00F1E511 /* MeusDadosScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosScreen.swift; sourceTree = "<group>"; };
+		098C411F28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosTableViewCell.swift; sourceTree = "<group>"; };
+		098C412128D2BB5D00F1E511 /* PrivacidadeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacidadeVC.swift; sourceTree = "<group>"; };
+		098C412228D2BB5D00F1E511 /* PrivacidadeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacidadeScreen.swift; sourceTree = "<group>"; };
+		098C412428D2BB5D00F1E511 /* RemoveUserScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserScreen.swift; sourceTree = "<group>"; };
+		098C412528D2BB5D00F1E511 /* RemoveUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserVC.swift; sourceTree = "<group>"; };
 		099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		099BCC6528CB80D6000DFDE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		099BCC6728CB80EB000DFDE6 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
@@ -117,9 +128,12 @@
 		099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesViewController.swift; sourceTree = "<group>"; };
 		099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
-		3A04A88C9C24C3EF1FA4BDD1 /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
-		52F24FEAC301DE72ACA2DC1F /* Pods-RastreioBF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.debug.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.debug.xcconfig"; sourceTree = "<group>"; };
-		D37A3A628B7B3B8E7989A14C /* Pods_RastreioBF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RastreioBF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09EAB3FC28D76D3400968827 /* DoneScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneScreen.swift; sourceTree = "<group>"; };
+		09EAB3FF28D76EF200968827 /* DataDone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDone.swift; sourceTree = "<group>"; };
+		09EAB40328D76F9900968827 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
+		0C572B4F02D59DFA4A5E52F2 /* Pods_RastreioBF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RastreioBF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4F01538A35421483F2FB74C /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
+		EBB91E562CFBABC36D402905 /* Pods-RastreioBF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.debug.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,102 +141,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC17C0E1DE0EF677F3CC3D65 /* Pods_RastreioBF.framework in Frameworks */,
+				26524DB5A9FE359307734D31 /* Pods_RastreioBF.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0946C0E628CBBB56007BF289 /* GroupRastreio */ = {
+		090D841A28D33DD900198D69 /* APIRestFull */ = {
 			isa = PBXGroup;
 			children = (
-				0946C0E728CBBB56007BF289 /* Descricao */,
-				0946C0EA28CBBB56007BF289 /* Movimentacao */,
-				0946C0ED28CBBB56007BF289 /* Cadastro */,
+				090D841B28D33DFB00198D69 /* APIHelper.swift */,
 			);
-			path = GroupRastreio;
+			path = APIRestFull;
 			sourceTree = "<group>";
 		};
-		0946C0E728CBBB56007BF289 /* Descricao */ = {
+		0918AD4928D696E600E95DFB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				0946C0E828CBBB56007BF289 /* DescricaoScreen.swift */,
-				0946C0E928CBBB56007BF289 /* DescricaoVC.swift */,
+				0918AD4728D6958B00E95DFB /* DataProduct.swift */,
 			);
-			path = Descricao;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		0946C0EA28CBBB56007BF289 /* Movimentacao */ = {
+		0918AD4A28D696F300E95DFB /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				0946C0EB28CBBB56007BF289 /* MovimentacaoScreen.swift */,
-				0946C0EC28CBBB56007BF289 /* MovimentacaoVC.swift */,
+				090D841828D32E1900198D69 /* WarningScreen.swift */,
 			);
-			path = Movimentacao;
+			path = Screen;
 			sourceTree = "<group>";
 		};
-		0946C0ED28CBBB56007BF289 /* Cadastro */ = {
+		0918AD4B28D6970E00E95DFB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0946C0EE28CBBB56007BF289 /* CadastroVC.swift */,
-				0946C0EF28CBBB56007BF289 /* CadastroScreen.swift */,
+				099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */,
 			);
-			path = Cadastro;
-			sourceTree = "<group>";
-		};
-		0946C0F028CBBB56007BF289 /* GroupPrivacidade */ = {
-			isa = PBXGroup;
-			children = (
-				0946C0F128CBBB56007BF289 /* GroupPrivacidade */,
-			);
-			path = GroupPrivacidade;
-			sourceTree = "<group>";
-		};
-		0946C0F128CBBB56007BF289 /* GroupPrivacidade */ = {
-			isa = PBXGroup;
-			children = (
-				0946C0F228CBBB56007BF289 /* SolicitarMeusDados */,
-				0946C0F728CBBB56007BF289 /* Privacidade */,
-				0946C0FA28CBBB56007BF289 /* RemoveDados */,
-			);
-			path = GroupPrivacidade;
-			sourceTree = "<group>";
-		};
-		0946C0F228CBBB56007BF289 /* SolicitarMeusDados */ = {
-			isa = PBXGroup;
-			children = (
-				0946C0F328CBBB56007BF289 /* MeusDadosVC.swift */,
-				0946C0F428CBBB56007BF289 /* MeusDadosScreen.swift */,
-				0946C0F528CBBB56007BF289 /* Cell */,
-			);
-			path = SolicitarMeusDados;
-			sourceTree = "<group>";
-		};
-		0946C0F528CBBB56007BF289 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				0946C0F628CBBB56007BF289 /* MeusDadosTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		0946C0F728CBBB56007BF289 /* Privacidade */ = {
-			isa = PBXGroup;
-			children = (
-				0946C0F828CBBB56007BF289 /* PrivacidadeVC.swift */,
-				0946C0F928CBBB56007BF289 /* PrivacidadeScreen.swift */,
-			);
-			path = Privacidade;
-			sourceTree = "<group>";
-		};
-		0946C0FA28CBBB56007BF289 /* RemoveDados */ = {
-			isa = PBXGroup;
-			children = (
-				0946C0FB28CBBB56007BF289 /* RemoveUserScreen.swift */,
-				0946C0FC28CBBB56007BF289 /* RemoveUserVC.swift */,
-			);
-			path = RemoveDados;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		094E246428CE6D5900C6DDC8 /* ViewController */ = {
@@ -276,13 +231,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		096CA8E328D5525A00C459B0 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		0974F62128CB77A6004E8716 = {
 			isa = PBXGroup;
 			children = (
 				0974F62C28CB77A7004E8716 /* RastreioBF */,
 				0974F62B28CB77A7004E8716 /* Products */,
 				582E715F33F688473BE0CC9E /* Pods */,
-				74B09FE9258789311F6888F0 /* Frameworks */,
+				15DB3AED003CDCEC668FA10B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,6 +260,7 @@
 		0974F62C28CB77A7004E8716 /* RastreioBF */ = {
 			isa = PBXGroup;
 			children = (
+				090D841A28D33DD900198D69 /* APIRestFull */,
 				0974F64128CB786D004E8716 /* Assets */,
 				099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */,
 				0974F62D28CB77A7004E8716 /* AppDelegate.swift */,
@@ -323,6 +287,97 @@
 				094E247828CE87A700C6DDC8 /* email-with-blue.json */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		098C410F28D2BB5C00F1E511 /* GroupRastreio */ = {
+			isa = PBXGroup;
+			children = (
+				098C411028D2BB5C00F1E511 /* Descricao */,
+				098C411328D2BB5C00F1E511 /* Movimentacao */,
+				098C411628D2BB5C00F1E511 /* Cadastro */,
+			);
+			path = GroupRastreio;
+			sourceTree = "<group>";
+		};
+		098C411028D2BB5C00F1E511 /* Descricao */ = {
+			isa = PBXGroup;
+			children = (
+				098C411128D2BB5C00F1E511 /* DescricaoScreen.swift */,
+				098C411228D2BB5C00F1E511 /* DescricaoVC.swift */,
+			);
+			path = Descricao;
+			sourceTree = "<group>";
+		};
+		098C411328D2BB5C00F1E511 /* Movimentacao */ = {
+			isa = PBXGroup;
+			children = (
+				098C411428D2BB5C00F1E511 /* MovimentacaoScreen.swift */,
+				098C411528D2BB5C00F1E511 /* MovimentacaoVC.swift */,
+			);
+			path = Movimentacao;
+			sourceTree = "<group>";
+		};
+		098C411628D2BB5C00F1E511 /* Cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				098C411728D2BB5C00F1E511 /* CadastroVC.swift */,
+				098C411828D2BB5C00F1E511 /* CadastroScreen.swift */,
+			);
+			path = Cadastro;
+			sourceTree = "<group>";
+		};
+		098C411928D2BB5D00F1E511 /* GroupPrivacidade */ = {
+			isa = PBXGroup;
+			children = (
+				098C411A28D2BB5D00F1E511 /* GroupPrivacidade */,
+			);
+			path = GroupPrivacidade;
+			sourceTree = "<group>";
+		};
+		098C411A28D2BB5D00F1E511 /* GroupPrivacidade */ = {
+			isa = PBXGroup;
+			children = (
+				098C411B28D2BB5D00F1E511 /* SolicitarMeusDados */,
+				098C412028D2BB5D00F1E511 /* Privacidade */,
+				098C412328D2BB5D00F1E511 /* RemoveDados */,
+			);
+			path = GroupPrivacidade;
+			sourceTree = "<group>";
+		};
+		098C411B28D2BB5D00F1E511 /* SolicitarMeusDados */ = {
+			isa = PBXGroup;
+			children = (
+				098C411C28D2BB5D00F1E511 /* MeusDadosVC.swift */,
+				098C411D28D2BB5D00F1E511 /* MeusDadosScreen.swift */,
+				098C411E28D2BB5D00F1E511 /* Cell */,
+			);
+			path = SolicitarMeusDados;
+			sourceTree = "<group>";
+		};
+		098C411E28D2BB5D00F1E511 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				098C411F28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		098C412028D2BB5D00F1E511 /* Privacidade */ = {
+			isa = PBXGroup;
+			children = (
+				098C412128D2BB5D00F1E511 /* PrivacidadeVC.swift */,
+				098C412228D2BB5D00F1E511 /* PrivacidadeScreen.swift */,
+			);
+			path = Privacidade;
+			sourceTree = "<group>";
+		};
+		098C412328D2BB5D00F1E511 /* RemoveDados */ = {
+			isa = PBXGroup;
+			children = (
+				098C412428D2BB5D00F1E511 /* RemoveUserScreen.swift */,
+				098C412528D2BB5D00F1E511 /* RemoveUserVC.swift */,
+			);
+			path = RemoveDados;
 			sourceTree = "<group>";
 		};
 		099BCC7028CB81AA000DFDE6 /* Alert */ = {
@@ -482,7 +537,10 @@
 		099BCCA028CB8A9D000DFDE6 /* Done */ = {
 			isa = PBXGroup;
 			children = (
-				099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */,
+				09EAB40228D76F4C00968827 /* TableView */,
+				09EAB3FE28D76ECE00968827 /* DataDone */,
+				09EAB3FB28D76D0F00968827 /* ViewController */,
+				09EAB3FA28D76CF200968827 /* DoneScreen */,
 			);
 			path = Done;
 			sourceTree = "<group>";
@@ -503,8 +561,8 @@
 				0946C0E228CBBADC007BF289 /* MenuScreenViewController.swift */,
 				0946C0E428CBBB1F007BF289 /* SettingsTableViewCell.swift */,
 				0946C0E028CBBA74007BF289 /* SwitchTableViewCell.swift */,
-				0946C0F028CBBB56007BF289 /* GroupPrivacidade */,
-				0946C0E628CBBB56007BF289 /* GroupRastreio */,
+				098C411928D2BB5D00F1E511 /* GroupPrivacidade */,
+				098C410F28D2BB5C00F1E511 /* GroupRastreio */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -520,26 +578,61 @@
 		099BCCAC28CB8BAD000DFDE6 /* Warning */ = {
 			isa = PBXGroup;
 			children = (
-				099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */,
+				0918AD4B28D6970E00E95DFB /* ViewController */,
+				0918AD4A28D696F300E95DFB /* Screen */,
+				0918AD4928D696E600E95DFB /* Data */,
+				096CA8E328D5525A00C459B0 /* TableView */,
 			);
 			path = Warning;
+			sourceTree = "<group>";
+		};
+		09EAB3FA28D76CF200968827 /* DoneScreen */ = {
+			isa = PBXGroup;
+			children = (
+				09EAB3FC28D76D3400968827 /* DoneScreen.swift */,
+			);
+			path = DoneScreen;
+			sourceTree = "<group>";
+		};
+		09EAB3FB28D76D0F00968827 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		09EAB3FE28D76ECE00968827 /* DataDone */ = {
+			isa = PBXGroup;
+			children = (
+				09EAB3FF28D76EF200968827 /* DataDone.swift */,
+			);
+			path = DataDone;
+			sourceTree = "<group>";
+		};
+		09EAB40228D76F4C00968827 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				09EAB40328D76F9900968827 /* DoneTableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		15DB3AED003CDCEC668FA10B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C572B4F02D59DFA4A5E52F2 /* Pods_RastreioBF.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		582E715F33F688473BE0CC9E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				52F24FEAC301DE72ACA2DC1F /* Pods-RastreioBF.debug.xcconfig */,
-				3A04A88C9C24C3EF1FA4BDD1 /* Pods-RastreioBF.release.xcconfig */,
+				EBB91E562CFBABC36D402905 /* Pods-RastreioBF.debug.xcconfig */,
+				C4F01538A35421483F2FB74C /* Pods-RastreioBF.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		74B09FE9258789311F6888F0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D37A3A628B7B3B8E7989A14C /* Pods_RastreioBF.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,11 +642,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0974F63E28CB77A8004E8716 /* Build configuration list for PBXNativeTarget "RastreioBF" */;
 			buildPhases = (
-				8A02547AE50C6F406FCE2F2C /* [CP] Check Pods Manifest.lock */,
+				C325BC99E1873CD81BE21438 /* [CP] Check Pods Manifest.lock */,
 				0974F62628CB77A6004E8716 /* Sources */,
 				0974F62728CB77A6004E8716 /* Frameworks */,
 				0974F62828CB77A6004E8716 /* Resources */,
-				338D525C41C26EBBE601DE3C /* [CP] Embed Pods Frameworks */,
+				89882F9709F9AF8CB4FC6D98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -618,7 +711,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		338D525C41C26EBBE601DE3C /* [CP] Embed Pods Frameworks */ = {
+		89882F9709F9AF8CB4FC6D98 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -635,7 +728,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A02547AE50C6F406FCE2F2C /* [CP] Check Pods Manifest.lock */ = {
+		C325BC99E1873CD81BE21438 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -665,47 +758,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				099BCC7628CB8231000DFDE6 /* LoginViewController.swift in Sources */,
+				098C412A28D2BB5D00F1E511 /* CadastroVC.swift in Sources */,
+				098C412C28D2BB5D00F1E511 /* MeusDadosVC.swift in Sources */,
+				098C412E28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift in Sources */,
 				099BCC6F28CB817A000DFDE6 /* LocalizedConstants.swift in Sources */,
-				0946C10728CBBB56007BF289 /* PrivacidadeScreen.swift in Sources */,
 				098B467528CECA28009D08A4 /* TrackingScreen.swift in Sources */,
-				0946C10528CBBB56007BF289 /* MeusDadosTableViewCell.swift in Sources */,
 				0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */,
+				098C413228D2BB5D00F1E511 /* RemoveUserVC.swift in Sources */,
 				099BCC7928CB8277000DFDE6 /* LoginSreen.swift in Sources */,
-				0946C0FE28CBBB56007BF289 /* DescricaoVC.swift in Sources */,
+				098C413128D2BB5D00F1E511 /* RemoveUserScreen.swift in Sources */,
+				098C412728D2BB5D00F1E511 /* DescricaoVC.swift in Sources */,
+				098C412928D2BB5D00F1E511 /* MovimentacaoVC.swift in Sources */,
+				098C412628D2BB5D00F1E511 /* DescricaoScreen.swift in Sources */,
 				098B468128CECCE9009D08A4 /* EmailNotificationScreen.swift in Sources */,
-				0946C0FF28CBBB56007BF289 /* MovimentacaoScreen.swift in Sources */,
-				0946C10128CBBB56007BF289 /* CadastroVC.swift in Sources */,
-				0946C10428CBBB56007BF289 /* MeusDadosScreen.swift in Sources */,
-				0946C10828CBBB56007BF289 /* RemoveUserScreen.swift in Sources */,
+				098C412F28D2BB5D00F1E511 /* PrivacidadeVC.swift in Sources */,
 				0946C0E328CBBADC007BF289 /* MenuScreenViewController.swift in Sources */,
 				099BCC8528CB83A9000DFDE6 /* EmailConfirmationView.swift in Sources */,
-				0946C10328CBBB56007BF289 /* MeusDadosVC.swift in Sources */,
+				09EAB3FD28D76D3400968827 /* DoneScreen.swift in Sources */,
 				099BCC9928CB89B5000DFDE6 /* SignUpScreen.swift in Sources */,
+				0918AD4828D6958B00E95DFB /* DataProduct.swift in Sources */,
 				0974F62E28CB77A7004E8716 /* AppDelegate.swift in Sources */,
+				0918AD4628D6953F00E95DFB /* ProductDetailTableViewCell.swift in Sources */,
 				099BCC7D28CB82EF000DFDE6 /* DemoViewController.swift in Sources */,
+				090D841C28D33DFB00198D69 /* APIHelper.swift in Sources */,
 				0974F63028CB77A7004E8716 /* SceneDelegate.swift in Sources */,
-				0946C10628CBBB56007BF289 /* PrivacidadeVC.swift in Sources */,
-				0946C10028CBBB56007BF289 /* MovimentacaoVC.swift in Sources */,
+				09EAB40028D76EF200968827 /* DataDone.swift in Sources */,
 				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
 				099BCCA828CB8B42000DFDE6 /* MenuViewController.swift in Sources */,
 				0946C0E528CBBB1F007BF289 /* SettingsTableViewCell.swift in Sources */,
 				099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */,
 				099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */,
 				099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */,
-				0946C0FD28CBBB56007BF289 /* DescricaoScreen.swift in Sources */,
 				099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */,
 				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
+				098C412828D2BB5D00F1E511 /* MovimentacaoScreen.swift in Sources */,
+				09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */,
+				098C412B28D2BB5D00F1E511 /* CadastroScreen.swift in Sources */,
 				098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */,
+				098C413028D2BB5D00F1E511 /* PrivacidadeScreen.swift in Sources */,
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
 				099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */,
 				098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */,
 				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,
+				098C412D28D2BB5D00F1E511 /* MeusDadosScreen.swift in Sources */,
 				0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */,
-				0946C10928CBBB56007BF289 /* RemoveUserVC.swift in Sources */,
-				0946C10228CBBB56007BF289 /* CadastroScreen.swift in Sources */,
 				0946C0E128CBBA74007BF289 /* SwitchTableViewCell.swift in Sources */,
 				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,
 				099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */,
+				090D841928D32E1900198D69 /* WarningScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,7 +939,7 @@
 		};
 		0974F63F28CB77A8004E8716 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 52F24FEAC301DE72ACA2DC1F /* Pods-RastreioBF.debug.xcconfig */;
+			baseConfigurationReference = EBB91E562CFBABC36D402905 /* Pods-RastreioBF.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -866,7 +966,7 @@
 		};
 		0974F64028CB77A8004E8716 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A04A88C9C24C3EF1FA4BDD1 /* Pods-RastreioBF.release.xcconfig */;
+			baseConfigurationReference = C4F01538A35421483F2FB74C /* Pods-RastreioBF.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

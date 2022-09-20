@@ -19,16 +19,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconBackground" translatesAutoresizingMaskIntoConstraints="NO" id="vc4-fb-Vb2">
                                 <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="URo-iP-YUa"/>
                                     <constraint firstAttribute="width" constant="300" id="bOp-2k-s43"/>
                                     <constraint firstAttribute="height" constant="300" id="lPV-Za-1EH"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="tUE-Bi-l6Z"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vc4-fb-Vb2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aFG-SV-FAJ"/>
                             <constraint firstItem="vc4-fb-Vb2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="boz-Fg-KzB"/>
                             <constraint firstItem="vc4-fb-Vb2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jWe-9R-hRV"/>
+                            <constraint firstItem="vc4-fb-Vb2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="tuL-oM-EcP"/>
                         </constraints>
                     </view>
                 </viewController>

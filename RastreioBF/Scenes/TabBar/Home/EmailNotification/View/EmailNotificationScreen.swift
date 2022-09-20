@@ -12,6 +12,7 @@ import Lottie
 protocol EmailNotificationScreenProtocol: AnyObject {
     func actionBackButton()
     func actionConfirmationButton()
+    func didTapEmail()
 }
 
 class EmailNotificationScreen: UIView {
@@ -50,11 +51,11 @@ class EmailNotificationScreen: UIView {
     lazy var insertEmailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .callout)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.text = "Insira o Email"
-        label.tintColor = UIColor(named: "mainPurpleColor")
-        label.textAlignment = .center
+        label.text = "Insira seu e-mail"
+        label.textColor = UIColor(named: "mainPurpleColor")
+        label.textAlignment = .left
         return label
     }()
     
@@ -68,7 +69,19 @@ class EmailNotificationScreen: UIView {
         textField.placeholder = "Digite seu email..."
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .darkGray
+        textField.addTarget(self, action: #selector(tappedEmail), for: .editingChanged)
         return textField
+    }()
+    
+    lazy var emailErrorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .systemRed
+        label.font = UIFont.preferredFont(forTextStyle: .callout)
+        label.font = .systemFont(ofSize: 10, weight: .regular)
+        label.text = LC.emptyEmailError.text
+        label.textAlignment = .left
+        return label
     }()
     
     lazy var confirmationButton: UIButton = {
@@ -92,10 +105,16 @@ class EmailNotificationScreen: UIView {
         self.configButtonEnabled(false)
     }
     
+    @objc
+    private func tappedEmail(){
+        self.delegate?.didTapEmail()
+    }
+    
     private func configSuperView(){
         self.addSubview(self.animationUIView)
         animationUIView.addSubview(animationView)
         self.addSubview(self.insertEmailLabel)
+        self.addSubview(self.emailErrorLabel)
         self.addSubview(self.emailTextField)
         self.addSubview(self.confirmationButton)
     }
@@ -177,18 +196,23 @@ class EmailNotificationScreen: UIView {
             self.animationView.trailingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.trailingAnchor),
             
             self.insertEmailLabel.topAnchor.constraint(equalTo: self.animationUIView.bottomAnchor, constant: 5),
-            self.insertEmailLabel.leadingAnchor.constraint(equalTo: self.animationUIView.leadingAnchor),
+            self.insertEmailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.insertEmailLabel.trailingAnchor.constraint(equalTo: self.animationUIView.trailingAnchor),
                         
             self.emailTextField.topAnchor.constraint(equalTo: self.insertEmailLabel.bottomAnchor, constant: 10),
             self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.emailTextField.bottomAnchor.constraint(equalTo: emailErrorLabel.topAnchor, constant: -1),
 //            self.emailTextField.heightAnchor.constraint(equalToConstant: 45),
             
-            self.confirmationButton.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 15),
+            self.emailErrorLabel.bottomAnchor.constraint(equalTo: confirmationButton.topAnchor, constant: -10),
+            self.emailErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 23),
+            self.emailErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            
+          
             self.confirmationButton.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
             self.confirmationButton.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
-            self.confirmationButton.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor)
+            self.confirmationButton.heightAnchor.constraint(equalToConstant: 40)
         
         
         ])

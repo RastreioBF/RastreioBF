@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RemoveUserScreenProtocol: class{
- 
+    
     func actionRegisterButton()
 }
 
@@ -20,21 +20,21 @@ class  RemoveUserScreen: UIView {
         self.delegate = delegate
     }
     
-
+    
     lazy var removeDadosLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemRed
         label.font = UIFont.boldSystemFont(ofSize: 35)
         label.text = "Remover Conta"
-
+        
         return label
     }()
     
     lazy var logoAppImageView : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage( named: "removeUserIcon" )
+        image.image = UIImage( named: "errorImage" )
         image.contentMode = .scaleAspectFit
         //image.backgroundColor = .red
         return image
@@ -54,11 +54,15 @@ class  RemoveUserScreen: UIView {
         tableView.layer.shadowRadius = 10.0
         //tableView.register(MeusDadosTableViewCell.self , forCellReuseIdentifier: MeusDadosTableViewCell.identifier)
         tableView.layer.cornerRadius = 15
+        tableView.isScrollEnabled = false
         return tableView
     }()
     
+  
+    
+    
     lazy var registerButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Remover", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -89,7 +93,8 @@ class  RemoveUserScreen: UIView {
     }
     
     private func configSuperView() {
-       addSubview(self.removeDadosLabel)
+        addSubview(self.removeDadosLabel)
+        
         addSubview(self.tableView)
         self.tableView.addSubview(self.removeDadosLabel)
         self.addSubview(self.logoAppImageView)
@@ -98,7 +103,7 @@ class  RemoveUserScreen: UIView {
         self.tableView.addSubview(self.registerButton)
         
         addSubview(self.emailAlertTextField)
-                
+        
     }
     
     override init(frame: CGRect) {
@@ -109,9 +114,9 @@ class  RemoveUserScreen: UIView {
         
     }
     
-
     
-
+    
+    
     @objc private func tappedRegisterButton(){
         self.delegate?.actionRegisterButton()
     }
@@ -146,19 +151,19 @@ class  RemoveUserScreen: UIView {
             self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.tableView.heightAnchor.constraint(equalToConstant: 500),
             
-//
+            //
             self.removeDadosLabel.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
             self.removeDadosLabel.topAnchor.constraint(equalTo: self.tableView.topAnchor, constant: 20),
-//
-           // self.logoAppImageView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor ),
+            //
+            // self.logoAppImageView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor ),
             self.logoAppImageView.topAnchor.constraint(equalTo: self.removeDadosLabel.bottomAnchor, constant: 10),
             self.logoAppImageView.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor , constant: -100),
             self.logoAppImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.logoAppImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.logoAppImageView.heightAnchor.constraint(equalToConstant: 150),
-        
+            
             self.registerButton.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
-         //   self.registerButton.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor),
+            //   self.registerButton.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor),
             self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 100),
             self.registerButton.leadingAnchor.constraint(equalTo: self.tableView.leadingAnchor, constant: 35),
             self.registerButton.trailingAnchor.constraint(equalTo: self.tableView.trailingAnchor, constant: -35),
