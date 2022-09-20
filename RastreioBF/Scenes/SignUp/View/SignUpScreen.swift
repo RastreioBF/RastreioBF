@@ -155,10 +155,11 @@ class SignUpScreen: UIView {
         text.borderStyle = UITextField.BorderStyle.roundedRect
         text.autocorrectionType = .no
         text.keyboardType = UIKeyboardType.default
-        text.isSecureTextEntry.toggle()
+        text.isSecureTextEntry = false
         text.returnKeyType = UIReturnKeyType.continue
+        text.disableAutoFill()
         text.addTarget(self, action: #selector(tappedPassword), for: .editingChanged)
-        text.textContentType = .init(rawValue: "")
+        text.textContentType = .oneTimeCode
         return text
     }()
     
@@ -184,10 +185,11 @@ class SignUpScreen: UIView {
         text.autocorrectionType = .no
         text.borderStyle = UITextField.BorderStyle.roundedRect
         text.keyboardType = UIKeyboardType.default
-        text.isSecureTextEntry.toggle()
+        text.isSecureTextEntry = false
+        text.textContentType = .oneTimeCode
         text.returnKeyType = UIReturnKeyType.done
+        text.disableAutoFill()
         text.addTarget(self, action: #selector(tappedConfirmPassword), for: .editingChanged)
-        text.textContentType = .init(rawValue: "")
         return text
     }()
     
@@ -235,7 +237,6 @@ class SignUpScreen: UIView {
         self.errorMessagesHidden()
         self.configSuperView()
         self.configConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -494,4 +495,14 @@ class SignUpScreen: UIView {
         alreadyMemberLabel.attributedText = baseString
     }
 
+}
+
+extension UITextField {
+    func disableAutoFill() {
+        if #available(iOS 12, *) {
+            textContentType = .oneTimeCode
+        } else {
+            textContentType = .init(rawValue: "")
+        }
+    }
 }

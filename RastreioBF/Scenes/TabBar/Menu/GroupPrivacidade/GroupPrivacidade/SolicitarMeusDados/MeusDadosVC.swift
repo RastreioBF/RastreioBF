@@ -30,7 +30,9 @@ class MeusDadosVC: UIViewController, MeusDadosScreenProtocol {
     func actionRegisterButton() {
         guard let register = self.meusDadosScreen else { return }
         var emailtTextfield = self.meusDadosScreen?.emailAlertTextField
-        self.alert?.getAlert(titulo: "Solicitar dados", mensagem: " Em qual endereço de e-mail você deseja receber o relatório dos seus dados?" )
+        //self.alert?.getAlert(titulo: "Solicitar dados", mensagem: " Em qual endereço de e-mail você deseja receber o relatório dos seus dados?" )
+        self.alert?.addContact()
+        
         
     }
     

@@ -64,6 +64,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+
+        if(textField == self.signUpScreen?.confirmPasswordTextField) { self.signUpScreen?.confirmPasswordTextField.isSecureTextEntry = true }
+        if(textField == self.signUpScreen?.passwordTextField) { self.signUpScreen?.passwordTextField.isSecureTextEntry = true }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -73,15 +79,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 //
 //    //chamamos a funcao de validacao sempre no didend editing, pq ele so valida quando o tecldo baixou
 //    func textFieldDidEndEditing(_ textField: UITextField) {
-//        //        self.signUpScreen?.validaTextFields()
+//                self.signUpScreen?.validaTextFields()
 //    }
 //
-////    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-////        textField.resignFirstResponder()
-////        return true
-////    }
-    
-    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//
+//
 //}
 
 extension SignUpViewController: SignUpScreenProtocol {
@@ -330,3 +336,5 @@ extension SignUpViewController {
           view.frame.origin.y = 0
       }
 }
+
+

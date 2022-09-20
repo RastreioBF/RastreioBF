@@ -36,10 +36,11 @@ class PrivacidadeScreen : UIView{
         tableView.layer.shadowOpacity = 0.7
         tableView.layer.shadowRadius = 10
         
-        
+        tableView.isScrollEnabled = false
         tableView.layer.cornerRadius = 15
        // tableView.layer.borderColor = UIColor.darkGray.cgColor
         //tableView.register(MeusDadosTableViewCell.self , forCellReuseIdentifier: MeusDadosTableViewCell.identifier)
+
         return tableView
     }()
     
@@ -55,6 +56,7 @@ class PrivacidadeScreen : UIView{
       
         
         label.text = "A política de privacidade (ou declaração de política de privacidade) é o documento por meio do qual a pessoa física ou jurídica que mantém um site ou aplicativo expõe e explica a todos os interessados a forma como os dados pessoais dos usuários da plataforma serão tratados. O assunto é regulamentado, no Brasil, principalmente pela Lei Geral de Proteção de Dados Pessoais (LGPD), lei que estabeleceu uma série de exigências àqueles que realizam operações de tratamento de dados pessoais. A lei se aplica: se a operação de tratamento é realizada no território nacional; se a atividade de tratamento tem por objetivo a oferta de produtos ou serviços ou o tratamento de dados de indivíduos localizados no território nacional; se os dados pessoais são coletados no território nacional."
+        
         return label
     }()
     

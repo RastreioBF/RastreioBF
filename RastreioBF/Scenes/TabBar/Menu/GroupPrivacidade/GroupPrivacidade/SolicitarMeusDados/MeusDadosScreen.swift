@@ -32,6 +32,16 @@ class  MeusDadosScreen: UIView {
     }()
     
     
+    lazy var logoAppImageView : UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage( named: "signinImagepng" )
+        image.contentMode = .scaleAspectFit
+        //image.backgroundColor = .red
+        return image
+    }()
+    
+    
     lazy var  cardTableView : UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +57,7 @@ class  MeusDadosScreen: UIView {
         tableView.layer.shadowOpacity = 0.7
         tableView.layer.shadowRadius = 10
         
-        
+        tableView.isScrollEnabled = false
         tableView.layer.cornerRadius = 15
        // tableView.layer.borderColor = UIColor.darkGray.cgColor
         //tableView.register(MeusDadosTableViewCell.self , forCellReuseIdentifier: MeusDadosTableViewCell.identifier)
@@ -86,9 +96,11 @@ class  MeusDadosScreen: UIView {
     }
     
     private func configSuperView() {
-       // addSubview(self.loginLabel)
+      
         addSubview(self.cardTableView)
+       
         self.cardTableView.addSubview(self.loginLabel)
+        self.cardTableView.addSubview(self.logoAppImageView)
         self.addSubview(registerButton)
         
         self.cardTableView.addSubview(self.registerButton)
@@ -118,6 +130,15 @@ class  MeusDadosScreen: UIView {
         self.cardTableView.dataSource = dataSource
     }
     
+    
+
+    
+    public func getEmail()-> String{
+        return self.emailAlertTextField.text ?? ""
+    }
+    
+
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -137,7 +158,6 @@ class  MeusDadosScreen: UIView {
             
             self.cardTableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             self.cardTableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            
             self.cardTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.cardTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.cardTableView.heightAnchor.constraint(equalToConstant: 400),
@@ -145,12 +165,15 @@ class  MeusDadosScreen: UIView {
             
             self.loginLabel.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
             self.loginLabel.topAnchor.constraint(equalTo: self.cardTableView.topAnchor, constant: 20),
-           
             
+            self.logoAppImageView.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
+           self.logoAppImageView.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 20),
+            self.logoAppImageView.heightAnchor.constraint(equalToConstant: 200),
+            self.logoAppImageView.widthAnchor.constraint(equalToConstant: 200),
         
             self.registerButton.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
-            //self.loginLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-            self.registerButton.centerYAnchor.constraint(equalTo: self.cardTableView.centerYAnchor),
+            self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 40),
+            
             self.registerButton.leadingAnchor.constraint(equalTo: self.cardTableView.leadingAnchor, constant: 35),
             self.registerButton.trailingAnchor.constraint(equalTo: self.cardTableView.trailingAnchor, constant: -35),
             
