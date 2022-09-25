@@ -14,5 +14,6 @@ target 'RastreioBF' do
   pod 'GoogleSignIn'
   pod 'FirebaseCore'
   pod 'Firebase/Core'
-
+  pod 'SwiftLint'
+  
 end

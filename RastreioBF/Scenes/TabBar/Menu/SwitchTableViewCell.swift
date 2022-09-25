@@ -92,4 +92,3 @@ class SwitchTableViewCell: UITableViewCell {
         mySwitch.isOn = model.isOn
     }
 }
-

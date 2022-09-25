@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RemoveUserScreenProtocol: class{
+protocol RemoveUserScreenProtocol: AnyObject{
     
     func actionRegisterButton()
 }
@@ -19,8 +19,7 @@ class  RemoveUserScreen: UIView {
     func delegate( delegate: RemoveUserScreenProtocol?){
         self.delegate = delegate
     }
-    
-    
+
     lazy var removeDadosLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -57,9 +56,6 @@ class  RemoveUserScreen: UIView {
         tableView.isScrollEnabled = false
         return tableView
     }()
-    
-  
-    
     
     lazy var registerButton: UIButton = {
         let button = UIButton()
@@ -103,7 +99,6 @@ class  RemoveUserScreen: UIView {
         self.tableView.addSubview(self.registerButton)
         
         addSubview(self.emailAlertTextField)
-        
     }
     
     override init(frame: CGRect) {
@@ -113,9 +108,6 @@ class  RemoveUserScreen: UIView {
         self.setupConstraints()
         
     }
-    
-    
-    
     
     @objc private func tappedRegisterButton(){
         self.delegate?.actionRegisterButton()
@@ -167,12 +159,6 @@ class  RemoveUserScreen: UIView {
             self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 100),
             self.registerButton.leadingAnchor.constraint(equalTo: self.tableView.leadingAnchor, constant: 35),
             self.registerButton.trailingAnchor.constraint(equalTo: self.tableView.trailingAnchor, constant: -35),
-            
-            
-            
-            
         ])
     }
 }
-
-

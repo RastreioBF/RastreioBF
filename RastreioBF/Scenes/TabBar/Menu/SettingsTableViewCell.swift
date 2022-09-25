@@ -76,6 +76,4 @@ class SettingsTableViewCell: UITableViewCell {
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor
     }
-    
-   
 }

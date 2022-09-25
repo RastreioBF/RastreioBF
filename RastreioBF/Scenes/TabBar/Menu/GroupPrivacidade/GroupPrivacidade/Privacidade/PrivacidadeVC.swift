@@ -15,6 +15,4 @@ class PrivacidadeVC: UIViewController {
         self.view = self.privacidadeScreen
         
     }
-
-
 }

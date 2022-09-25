@@ -66,7 +66,7 @@
 		09EAB3FD28D76D3400968827 /* DoneScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FC28D76D3400968827 /* DoneScreen.swift */; };
 		09EAB40028D76EF200968827 /* DataDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FF28D76EF200968827 /* DataDone.swift */; };
 		09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB40328D76F9900968827 /* DoneTableViewCell.swift */; };
-		26524DB5A9FE359307734D31 /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C572B4F02D59DFA4A5E52F2 /* Pods_RastreioBF.framework */; };
+		7D797B15494CDE1CFBECE562 /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7B445947F71DA9F2221638 /* Pods_RastreioBF.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,9 +131,9 @@
 		09EAB3FC28D76D3400968827 /* DoneScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneScreen.swift; sourceTree = "<group>"; };
 		09EAB3FF28D76EF200968827 /* DataDone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDone.swift; sourceTree = "<group>"; };
 		09EAB40328D76F9900968827 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
-		0C572B4F02D59DFA4A5E52F2 /* Pods_RastreioBF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RastreioBF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4F01538A35421483F2FB74C /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
-		EBB91E562CFBABC36D402905 /* Pods-RastreioBF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.debug.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.debug.xcconfig"; sourceTree = "<group>"; };
+		2BD18B210BED5A4DEC4ED84E /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
+		58930812760BD916E186C320 /* Pods-RastreioBF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.debug.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.debug.xcconfig"; sourceTree = "<group>"; };
+		CE7B445947F71DA9F2221638 /* Pods_RastreioBF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RastreioBF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26524DB5A9FE359307734D31 /* Pods_RastreioBF.framework in Frameworks */,
+				7D797B15494CDE1CFBECE562 /* Pods_RastreioBF.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +245,7 @@
 				0974F62C28CB77A7004E8716 /* RastreioBF */,
 				0974F62B28CB77A7004E8716 /* Products */,
 				582E715F33F688473BE0CC9E /* Pods */,
-				15DB3AED003CDCEC668FA10B /* Frameworks */,
+				77D32B0F7B03D50838EB03A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -618,21 +618,21 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
-		15DB3AED003CDCEC668FA10B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0C572B4F02D59DFA4A5E52F2 /* Pods_RastreioBF.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		582E715F33F688473BE0CC9E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EBB91E562CFBABC36D402905 /* Pods-RastreioBF.debug.xcconfig */,
-				C4F01538A35421483F2FB74C /* Pods-RastreioBF.release.xcconfig */,
+				58930812760BD916E186C320 /* Pods-RastreioBF.debug.xcconfig */,
+				2BD18B210BED5A4DEC4ED84E /* Pods-RastreioBF.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		77D32B0F7B03D50838EB03A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE7B445947F71DA9F2221638 /* Pods_RastreioBF.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -642,11 +642,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0974F63E28CB77A8004E8716 /* Build configuration list for PBXNativeTarget "RastreioBF" */;
 			buildPhases = (
-				C325BC99E1873CD81BE21438 /* [CP] Check Pods Manifest.lock */,
+				ED8FB9FE9AA0625A2021204D /* [CP] Check Pods Manifest.lock */,
 				0974F62628CB77A6004E8716 /* Sources */,
 				0974F62728CB77A6004E8716 /* Frameworks */,
 				0974F62828CB77A6004E8716 /* Resources */,
-				89882F9709F9AF8CB4FC6D98 /* [CP] Embed Pods Frameworks */,
+				6B1C0273957DA5F697A8CF9E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -711,7 +711,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		89882F9709F9AF8CB4FC6D98 /* [CP] Embed Pods Frameworks */ = {
+		6B1C0273957DA5F697A8CF9E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -728,7 +728,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RastreioBF/Pods-RastreioBF-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C325BC99E1873CD81BE21438 /* [CP] Check Pods Manifest.lock */ = {
+		ED8FB9FE9AA0625A2021204D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -939,7 +939,7 @@
 		};
 		0974F63F28CB77A8004E8716 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBB91E562CFBABC36D402905 /* Pods-RastreioBF.debug.xcconfig */;
+			baseConfigurationReference = 58930812760BD916E186C320 /* Pods-RastreioBF.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -966,7 +966,7 @@
 		};
 		0974F64028CB77A8004E8716 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4F01538A35421483F2FB74C /* Pods-RastreioBF.release.xcconfig */;
+			baseConfigurationReference = 2BD18B210BED5A4DEC4ED84E /* Pods-RastreioBF.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

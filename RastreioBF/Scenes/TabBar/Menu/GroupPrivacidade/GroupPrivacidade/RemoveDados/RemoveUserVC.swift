@@ -8,12 +8,9 @@
 import UIKit
 
 class RemoveUserVC: UIViewController, RemoveUserScreenProtocol {
-   
     
- 
     var removeUserScreen: RemoveUserScreen?
     var alert : Alert?
-    
     
     override func loadView() {
         self.removeUserScreen = RemoveUserScreen()
@@ -24,8 +21,7 @@ class RemoveUserVC: UIViewController, RemoveUserScreenProtocol {
         super.viewDidLoad()
         self.removeUserScreen?.delegate(delegate: self)
         self.alert = Alert(controller: self)
-}
-    
+    }
     
     func actionRegisterButton() {
         guard let register = self.removeUserScreen else { return }
@@ -33,9 +29,4 @@ class RemoveUserVC: UIViewController, RemoveUserScreenProtocol {
         self.alert?.deleteDataUser()
         
     }
-    
-    
-    
 }
-
-

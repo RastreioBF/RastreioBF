@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class CadastroScreen : UIView {
     
     lazy var loginLabel:UILabel = {
