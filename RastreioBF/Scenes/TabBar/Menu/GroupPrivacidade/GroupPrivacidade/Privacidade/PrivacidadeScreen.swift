@@ -13,9 +13,10 @@ class PrivacidadeScreen : UIView{
     lazy var loginLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemBlue
+        label.textColor = UIColor(named: "mainPurpleColor")
         label.font = UIFont.boldSystemFont(ofSize: 35)
         label.text = "Privacidade"
+        
        
         return label
     }()
@@ -25,21 +26,13 @@ class PrivacidadeScreen : UIView{
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
-        
-        // border
-        tableView.layer.borderWidth = 2.0
-        tableView.layer.borderColor = UIColor.gray.cgColor
-
-        // shadow
-        tableView.layer.shadowColor = UIColor.gray.cgColor
-        tableView.layer.shadowOffset = CGSize(width: 3, height: 3)
-        tableView.layer.shadowOpacity = 0.7
-        tableView.layer.shadowRadius = 10
-        
+        tableView.layer.shadowOffset = CGSize(width: 2, height: 6)
+        tableView.layer.masksToBounds=false
+        tableView.layer.shadowRadius = 4.0
+        tableView.layer.shadowOpacity = 1.0
+        tableView.layer.shadowColor=UIColor.gray.cgColor
         tableView.isScrollEnabled = false
         tableView.layer.cornerRadius = 15
-       // tableView.layer.borderColor = UIColor.darkGray.cgColor
-        //tableView.register(MeusDadosTableViewCell.self , forCellReuseIdentifier: MeusDadosTableViewCell.identifier)
 
         return tableView
     }()
@@ -97,7 +90,6 @@ override init(frame: CGRect) {
             
             self.cardTableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             self.cardTableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            
             self.cardTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.cardTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.cardTableView.heightAnchor.constraint(equalToConstant: 600),

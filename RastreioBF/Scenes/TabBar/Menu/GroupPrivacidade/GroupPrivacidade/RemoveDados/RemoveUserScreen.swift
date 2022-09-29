@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RemoveUserScreenProtocol: AnyObject{
+protocol RemoveUserScreenProtocol: class{
     
     func actionRegisterButton()
 }
@@ -19,12 +19,13 @@ class  RemoveUserScreen: UIView {
     func delegate( delegate: RemoveUserScreenProtocol?){
         self.delegate = delegate
     }
-
+    
+    
     lazy var removeDadosLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemRed
-        label.font = UIFont.boldSystemFont(ofSize: 35)
+        label.textColor = UIColor(named: "mainPurpleColor")
+        label.font = UIFont.boldSystemFont(ofSize: 40)
         label.text = "Remover Conta"
         
         return label
@@ -33,7 +34,7 @@ class  RemoveUserScreen: UIView {
     lazy var logoAppImageView : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage( named: "errorImage" )
+        image.image = UIImage( named: "removeUser" )
         image.contentMode = .scaleAspectFit
         //image.backgroundColor = .red
         return image
@@ -43,20 +44,20 @@ class  RemoveUserScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
-        // border
-        tableView.layer.borderWidth = 4.0
-        tableView.layer.borderColor = UIColor.gray.cgColor
-        // shadow
-        tableView.layer.shadowColor = UIColor.black.cgColor
-        tableView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        tableView.layer.shadowOffset = CGSize(width: 2, height: 6)
+        tableView.layer.masksToBounds=false
+        tableView.layer.shadowRadius = 4.0
         tableView.layer.shadowOpacity = 1.0
-        tableView.layer.shadowRadius = 10.0
-        //tableView.register(MeusDadosTableViewCell.self , forCellReuseIdentifier: MeusDadosTableViewCell.identifier)
-        tableView.layer.cornerRadius = 15
+        tableView.layer.shadowColor=UIColor.gray.cgColor
         tableView.isScrollEnabled = false
+        tableView.layer.cornerRadius = 15
         return tableView
     }()
     
+
+   
+      
+
     lazy var registerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +65,7 @@ class  RemoveUserScreen: UIView {
         button.setTitleColor(.white, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 9
-        button.backgroundColor = .systemRed //UIColor( red: 102/255, green: 103/255, blue: 171/255, alpha: 1.0)
+        button.backgroundColor = UIColor(named: "mainPurpleColor")
         button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
         
         return button
@@ -99,6 +100,7 @@ class  RemoveUserScreen: UIView {
         self.tableView.addSubview(self.registerButton)
         
         addSubview(self.emailAlertTextField)
+        
     }
     
     override init(frame: CGRect) {
@@ -108,6 +110,9 @@ class  RemoveUserScreen: UIView {
         self.setupConstraints()
         
     }
+    
+    
+    
     
     @objc private func tappedRegisterButton(){
         self.delegate?.actionRegisterButton()
@@ -145,20 +150,25 @@ class  RemoveUserScreen: UIView {
             
             //
             self.removeDadosLabel.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
-            self.removeDadosLabel.topAnchor.constraint(equalTo: self.tableView.topAnchor, constant: 20),
+            self.removeDadosLabel.topAnchor.constraint(equalTo: self.tableView.topAnchor, constant: 35),
             //
             // self.logoAppImageView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor ),
-            self.logoAppImageView.topAnchor.constraint(equalTo: self.removeDadosLabel.bottomAnchor, constant: 10),
-            self.logoAppImageView.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor , constant: -100),
-            self.logoAppImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.logoAppImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            //self.logoAppImageView.topAnchor.constraint(equalTo: self.removeDadosLabel.bottomAnchor, constant: 10),
+            self.logoAppImageView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor, constant: 20),
+            self.logoAppImageView.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor ),
             self.logoAppImageView.heightAnchor.constraint(equalToConstant: 150),
             
             self.registerButton.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
             //   self.registerButton.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor),
-            self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 100),
+            self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 80),
             self.registerButton.leadingAnchor.constraint(equalTo: self.tableView.leadingAnchor, constant: 35),
             self.registerButton.trailingAnchor.constraint(equalTo: self.tableView.trailingAnchor, constant: -35),
+            
+            
+            
+            
         ])
     }
 }
+
+

@@ -80,6 +80,10 @@ class LoginViewController: UIViewController, LoginScreenProtocol, UITextFieldDel
     
     func actionLoginButton() {
         
+        let vc: MainTabBarController = MainTabBarController()
+        self.navigationController?.pushViewController(vc, animated: true)
+               
+        
         let email = self.loginScreen?.emailTextField.text ?? ""
         let password = self.loginScreen?.passwordTextField.text ?? ""
 

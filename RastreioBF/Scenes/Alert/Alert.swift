@@ -60,7 +60,7 @@ class Alert:NSObject{
     }
     
     func userAlertLogout(completion:((_ value:String) -> Void)? = nil){
-        let _textField:UITextField?
+            var _textField:UITextField?
             let alert = UIAlertController(title: "Atenção", message: "Deseja sair ?", preferredStyle: .alert)
             let ok = UIAlertAction(title: "continuar", style: .default) { (acao) in
                 completion?(_textField?.text ?? "")

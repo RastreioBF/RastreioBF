@@ -1,3 +1,4 @@
+
 //
 //  MeusDadosScreen.swift
 //  BackFrontProject
@@ -7,8 +8,8 @@
 
 import UIKit
 
-protocol MeusDadosScreenProtocol: AnyObject{
- 
+protocol MeusDadosScreenProtocol: class{
+    func actionBackButton()
     func actionRegisterButton()
 }
 
@@ -20,14 +21,21 @@ class  MeusDadosScreen: UIView {
         self.delegate = delegate
     }
     
+    lazy var backButton:UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "back"), for: .normal)
+        button.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
+        return button
+    }()
 
     lazy var loginLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemBlue
+        
         label.font = UIFont.boldSystemFont(ofSize: 35)
         label.text = "Meus Dados"
-
+        label.textColor = UIColor(named: "mainPurpleColor")
         return label
     }()
     
@@ -46,21 +54,13 @@ class  MeusDadosScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
-        
-        // border
-        tableView.layer.borderWidth = 2.0
-        tableView.layer.borderColor = UIColor.gray.cgColor
-
-        // shadow
-        tableView.layer.shadowColor = UIColor.gray.cgColor
-        tableView.layer.shadowOffset = CGSize(width: 3, height: 3)
-        tableView.layer.shadowOpacity = 0.7
-        tableView.layer.shadowRadius = 10
-        
+        tableView.layer.shadowOffset = CGSize(width: 2, height: 6)
+        tableView.layer.masksToBounds=false
+        tableView.layer.shadowRadius = 4.0
+        tableView.layer.shadowOpacity = 1.0
+        tableView.layer.shadowColor=UIColor.gray.cgColor
         tableView.isScrollEnabled = false
         tableView.layer.cornerRadius = 15
-       // tableView.layer.borderColor = UIColor.darkGray.cgColor
-        //tableView.register(MeusDadosTableViewCell.self , forCellReuseIdentifier: MeusDadosTableViewCell.identifier)
         return tableView
     }()
     
@@ -69,43 +69,32 @@ class  MeusDadosScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("solicitar", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(named: "mainPurpleColor")
         button.clipsToBounds = true
         button.layer.cornerRadius = 9
-        button.backgroundColor = .systemBlue //UIColor( red: 102/255, green: 103/255, blue: 171/255, alpha: 1.0)
         button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
         
         return button
     }()
     
-    lazy var emailAlertTextField : UITextField = {
-        let email = UITextField()
-        email.translatesAutoresizingMaskIntoConstraints = false
-        email.autocorrectionType = .no
-        email.backgroundColor = .white
-        email.borderStyle = .roundedRect
-        email.keyboardType = .emailAddress
-        email.placeholder = "digite seu e-mail:"
-        email.font = UIFont.systemFont( ofSize: 14)
-        email.textColor = .darkGray
-        
-        return email
-    }()
+    @objc private func tappedBackButton(){
+        self.delegate?.actionBackButton()
+    }
     
     private func configBackGround(){
         self.backgroundColor = .white
     }
     
     private func configSuperView() {
-      
+        addSubview(self.backButton)
         addSubview(self.cardTableView)
-       
         self.cardTableView.addSubview(self.loginLabel)
         self.cardTableView.addSubview(self.logoAppImageView)
         self.addSubview(registerButton)
         
         self.cardTableView.addSubview(self.registerButton)
         
-        addSubview(self.emailAlertTextField)
+
                 
     }
     
@@ -133,9 +122,7 @@ class  MeusDadosScreen: UIView {
     
 
     
-    public func getEmail()-> String{
-        return self.emailAlertTextField.text ?? ""
-    }
+
     
 
     
@@ -155,6 +142,9 @@ class  MeusDadosScreen: UIView {
     
     private  func setupConstraints() {
         NSLayoutConstraint.activate([
+            
+            self.backButton.leadingAnchor.constraint(equalTo: self.backButton.leadingAnchor, constant: 35),
+            self.backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 20),
             
             self.cardTableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             self.cardTableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),

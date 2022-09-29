@@ -23,7 +23,7 @@ class MainTabBarController: UITabBarController {
         let warningViewController = UINavigationController(rootViewController: WarningViewController())
         let doneViewController = UINavigationController(rootViewController: DoneViewController())
         let pendenciesViewController = UINavigationController(rootViewController: PendenciesViewController())
-        let menuViewController = UINavigationController(rootViewController: MenuScreenViewController())
+        let menuViewController = UINavigationController(rootViewController: MenuScreenVC())
         
         //Array com a ordem das telas
         self.setViewControllers([homeViewController, warningViewController, doneViewController, pendenciesViewController, menuViewController], animated: true)
