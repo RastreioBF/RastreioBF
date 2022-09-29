@@ -7,12 +7,22 @@
 
 import UIKit
 
-class PrivacidadeVC: UIViewController {
-    let privacidadeScreen = PrivacidadeScreen()
+class PrivacidadeVC: UIViewController, PrivacidadeScreenProtocol {
     
+    var privacidadeScreen : PrivacidadeScreen?
+
+    func actionBackButton() {
+        self.navigationController?.popViewController(animated: true)
+        print("tappedButton")
+    }
+    
+    override func loadView() {
+        privacidadeScreen = PrivacidadeScreen()
+        self.view = self.privacidadeScreen
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = self.privacidadeScreen
-        
+     
+        self.privacidadeScreen?.delegate(delegate: self)
     }
 }

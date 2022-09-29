@@ -28,7 +28,7 @@ class  MeusDadosScreen: UIView {
         button.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
         return button
     }()
-
+    
     lazy var loginLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +65,7 @@ class  MeusDadosScreen: UIView {
     }()
     
     lazy var registerButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("solicitar", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -94,8 +94,8 @@ class  MeusDadosScreen: UIView {
         
         self.cardTableView.addSubview(self.registerButton)
         
-
-                
+        
+        
     }
     
     override init(frame: CGRect) {
@@ -106,9 +106,9 @@ class  MeusDadosScreen: UIView {
         
     }
     
-
     
-
+    
+    
     @objc private func tappedRegisterButton(){
         self.delegate?.actionRegisterButton()
     }
@@ -118,13 +118,6 @@ class  MeusDadosScreen: UIView {
         self.cardTableView.delegate = delegate
         self.cardTableView.dataSource = dataSource
     }
-    
-    
-
-    
-
-    
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -157,10 +150,10 @@ class  MeusDadosScreen: UIView {
             self.loginLabel.topAnchor.constraint(equalTo: self.cardTableView.topAnchor, constant: 20),
             
             self.logoAppImageView.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
-           self.logoAppImageView.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 20),
+            self.logoAppImageView.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 20),
             self.logoAppImageView.heightAnchor.constraint(equalToConstant: 200),
             self.logoAppImageView.widthAnchor.constraint(equalToConstant: 200),
-        
+            
             self.registerButton.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
             self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 40),
             

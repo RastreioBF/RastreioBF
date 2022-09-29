@@ -8,7 +8,24 @@
 import Foundation
 import UIKit
 
+protocol PrivacidadeScreenProtocol: class{
+    func actionBackButton()
+}
+
 class PrivacidadeScreen : UIView{
+    weak private var delegate : PrivacidadeScreenProtocol?
+    
+    func delegate( delegate: PrivacidadeScreenProtocol?){
+        self.delegate = delegate
+    }
+    
+    lazy var backButton:UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "back"), for: .normal)
+        button.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
+        return button
+    }()
     
     lazy var loginLabel:UILabel = {
         let label = UILabel()
@@ -49,13 +66,16 @@ class PrivacidadeScreen : UIView{
       
         
         label.text = "A política de privacidade (ou declaração de política de privacidade) é o documento por meio do qual a pessoa física ou jurídica que mantém um site ou aplicativo expõe e explica a todos os interessados a forma como os dados pessoais dos usuários da plataforma serão tratados. O assunto é regulamentado, no Brasil, principalmente pela Lei Geral de Proteção de Dados Pessoais (LGPD), lei que estabeleceu uma série de exigências àqueles que realizam operações de tratamento de dados pessoais. A lei se aplica: se a operação de tratamento é realizada no território nacional; se a atividade de tratamento tem por objetivo a oferta de produtos ou serviços ou o tratamento de dados de indivíduos localizados no território nacional; se os dados pessoais são coletados no território nacional."
-        
         return label
     }()
     
     private func configBackGround(){
        // self.backgroundColor = UIColor(red: 24/255, green: 117/255, blue: 104/255, alpha: 1.0)
         self.backgroundColor = .white
+    }
+    
+    @objc private func tappedBackButton(){
+        self.delegate?.actionBackButton()
     }
     
 override init(frame: CGRect) {
@@ -72,7 +92,7 @@ override init(frame: CGRect) {
     
     private func configSuperView(){
       
-      
+        self.addSubview(self.backButton)
         self.addSubview(self.cardTableView)
         self.addSubview(self.privacidadeLabel)
         self.addSubview(self.loginLabel)
@@ -84,6 +104,10 @@ override init(frame: CGRect) {
     
     private  func setupConstraints() {
         NSLayoutConstraint.activate([
+            
+            
+            self.backButton.leadingAnchor.constraint(equalTo: self.backButton.leadingAnchor, constant: 35),
+            self.backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 20),
         
             self.loginLabel.topAnchor.constraint(equalTo: self.cardTableView.topAnchor, constant: 20),
             self.loginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),

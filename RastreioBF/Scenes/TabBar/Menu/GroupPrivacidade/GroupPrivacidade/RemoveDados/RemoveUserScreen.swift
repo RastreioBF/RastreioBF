@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RemoveUserScreenProtocol: class{
-    
+    func actionBackButton()
     func actionRegisterButton()
 }
 
@@ -20,6 +20,13 @@ class  RemoveUserScreen: UIView {
         self.delegate = delegate
     }
     
+    lazy var backButton:UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "back"), for: .normal)
+        button.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
+        return button
+    }()
     
     lazy var removeDadosLabel:UILabel = {
         let label = UILabel()
@@ -53,10 +60,6 @@ class  RemoveUserScreen: UIView {
         tableView.layer.cornerRadius = 15
         return tableView
     }()
-    
-
-   
-      
 
     lazy var registerButton: UIButton = {
         let button = UIButton()
@@ -71,27 +74,18 @@ class  RemoveUserScreen: UIView {
         return button
     }()
     
-    lazy var emailAlertTextField : UITextField = {
-        let email = UITextField()
-        email.translatesAutoresizingMaskIntoConstraints = false
-        email.autocorrectionType = .no
-        email.backgroundColor = .white
-        email.borderStyle = .roundedRect
-        email.keyboardType = .emailAddress
-        email.placeholder = "digite seu e-mail:"
-        email.font = UIFont.systemFont( ofSize: 14)
-        email.textColor = .darkGray
-        
-        return email
-    }()
-    
     private func configBackGround(){
         self.backgroundColor = .white
     }
     
+    @objc private func tappedBackButton(){
+        self.delegate?.actionBackButton()
+    }
+    
     private func configSuperView() {
-        addSubview(self.removeDadosLabel)
         
+        addSubview(self.backButton)
+        addSubview(self.removeDadosLabel)
         addSubview(self.tableView)
         self.tableView.addSubview(self.removeDadosLabel)
         self.addSubview(self.logoAppImageView)
@@ -99,7 +93,7 @@ class  RemoveUserScreen: UIView {
         
         self.tableView.addSubview(self.registerButton)
         
-        addSubview(self.emailAlertTextField)
+  
         
     }
     
@@ -111,13 +105,9 @@ class  RemoveUserScreen: UIView {
         
     }
     
-    
-    
-    
     @objc private func tappedRegisterButton(){
         self.delegate?.actionRegisterButton()
     }
-    
     
     public func configTableViewProtocols(delegate: UITableViewDelegate, dataSource : UITableViewDataSource){
         self.tableView.delegate = delegate
@@ -141,6 +131,9 @@ class  RemoveUserScreen: UIView {
     private  func setupConstraints() {
         NSLayoutConstraint.activate([
             
+            self.backButton.leadingAnchor.constraint(equalTo: self.backButton.leadingAnchor, constant: 35),
+            self.backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 20),
+            
             self.tableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             self.tableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
             
@@ -148,25 +141,20 @@ class  RemoveUserScreen: UIView {
             self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.tableView.heightAnchor.constraint(equalToConstant: 500),
             
-            //
             self.removeDadosLabel.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
             self.removeDadosLabel.topAnchor.constraint(equalTo: self.tableView.topAnchor, constant: 35),
-            //
-            // self.logoAppImageView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor ),
-            //self.logoAppImageView.topAnchor.constraint(equalTo: self.removeDadosLabel.bottomAnchor, constant: 10),
+            
             self.logoAppImageView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor, constant: 20),
             self.logoAppImageView.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor ),
             self.logoAppImageView.heightAnchor.constraint(equalToConstant: 150),
             
             self.registerButton.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
-            //   self.registerButton.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor),
+            
             self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 80),
             self.registerButton.leadingAnchor.constraint(equalTo: self.tableView.leadingAnchor, constant: 35),
             self.registerButton.trailingAnchor.constraint(equalTo: self.tableView.trailingAnchor, constant: -35),
             
-            
-            
-            
+        
         ])
     }
 }

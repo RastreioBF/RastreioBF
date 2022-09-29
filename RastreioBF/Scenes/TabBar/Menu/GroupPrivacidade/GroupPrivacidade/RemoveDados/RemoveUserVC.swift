@@ -8,6 +8,9 @@
 import UIKit
 
 class RemoveUserVC: UIViewController, RemoveUserScreenProtocol {
+    func actionBackButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     var removeUserScreen: RemoveUserScreen?
     var alert : Alert?
@@ -25,7 +28,6 @@ class RemoveUserVC: UIViewController, RemoveUserScreenProtocol {
     
     func actionRegisterButton() {
         guard let register = self.removeUserScreen else { return }
-        var emailtTextfield = self.removeUserScreen?.emailAlertTextField
         self.alert?.deleteDataUser()
         
     }
