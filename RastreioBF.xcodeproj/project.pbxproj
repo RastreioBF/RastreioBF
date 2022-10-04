@@ -26,23 +26,23 @@
 		0974F64528CB7883004E8716 /* loginAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64228CB7883004E8716 /* loginAnimation.json */; };
 		0974F64628CB7883004E8716 /* signUpAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64328CB7883004E8716 /* signUpAnimation.json */; };
 		0974F64728CB7883004E8716 /* unlocked.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64428CB7883004E8716 /* unlocked.json */; };
-		098B467528CECA28009D08A4 /* TrackingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467428CECA28009D08A4 /* TrackingScreen.swift */; };
+		098B467528CECA28009D08A4 /* TrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467428CECA28009D08A4 /* TrackingView.swift */; };
 		098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467C28CECB1E009D08A4 /* TrackingViewController.swift */; };
 		098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */; };
-		098B468128CECCE9009D08A4 /* EmailNotificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B468028CECCE9009D08A4 /* EmailNotificationScreen.swift */; };
-		098C412628D2BB5D00F1E511 /* DescricaoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411128D2BB5C00F1E511 /* DescricaoScreen.swift */; };
-		098C412728D2BB5D00F1E511 /* DescricaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411228D2BB5C00F1E511 /* DescricaoVC.swift */; };
-		098C412828D2BB5D00F1E511 /* MovimentacaoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411428D2BB5C00F1E511 /* MovimentacaoScreen.swift */; };
-		098C412928D2BB5D00F1E511 /* MovimentacaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411528D2BB5C00F1E511 /* MovimentacaoVC.swift */; };
-		098C412A28D2BB5D00F1E511 /* CadastroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411728D2BB5C00F1E511 /* CadastroVC.swift */; };
-		098C412B28D2BB5D00F1E511 /* CadastroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411828D2BB5C00F1E511 /* CadastroScreen.swift */; };
-		098C412C28D2BB5D00F1E511 /* MeusDadosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411C28D2BB5D00F1E511 /* MeusDadosVC.swift */; };
-		098C412D28D2BB5D00F1E511 /* MeusDadosScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411D28D2BB5D00F1E511 /* MeusDadosScreen.swift */; };
-		098C412E28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411F28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift */; };
-		098C412F28D2BB5D00F1E511 /* PrivacidadeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412128D2BB5D00F1E511 /* PrivacidadeVC.swift */; };
-		098C413028D2BB5D00F1E511 /* PrivacidadeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412228D2BB5D00F1E511 /* PrivacidadeScreen.swift */; };
-		098C413128D2BB5D00F1E511 /* RemoveUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412428D2BB5D00F1E511 /* RemoveUserScreen.swift */; };
-		098C413228D2BB5D00F1E511 /* RemoveUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412528D2BB5D00F1E511 /* RemoveUserVC.swift */; };
+		098B468128CECCE9009D08A4 /* EmailNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B468028CECCE9009D08A4 /* EmailNotificationView.swift */; };
+		098C412628D2BB5D00F1E511 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411128D2BB5C00F1E511 /* DescriptionView.swift */; };
+		098C412728D2BB5D00F1E511 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411228D2BB5C00F1E511 /* DescriptionViewController.swift */; };
+		098C412828D2BB5D00F1E511 /* MovementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411428D2BB5C00F1E511 /* MovementView.swift */; };
+		098C412928D2BB5D00F1E511 /* MovementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411528D2BB5C00F1E511 /* MovementViewController.swift */; };
+		098C412A28D2BB5D00F1E511 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411728D2BB5C00F1E511 /* RegistrationViewController.swift */; };
+		098C412B28D2BB5D00F1E511 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411828D2BB5C00F1E511 /* RegistrationView.swift */; };
+		098C412C28D2BB5D00F1E511 /* MyDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411C28D2BB5D00F1E511 /* MyDataViewController.swift */; };
+		098C412D28D2BB5D00F1E511 /* MyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411D28D2BB5D00F1E511 /* MyDataView.swift */; };
+		098C412E28D2BB5D00F1E511 /* MyDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C411F28D2BB5D00F1E511 /* MyDataTableViewCell.swift */; };
+		098C412F28D2BB5D00F1E511 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412128D2BB5D00F1E511 /* PrivacyViewController.swift */; };
+		098C413028D2BB5D00F1E511 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412228D2BB5D00F1E511 /* PrivacyView.swift */; };
+		098C413128D2BB5D00F1E511 /* RemoveUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412428D2BB5D00F1E511 /* RemoveUserView.swift */; };
+		098C413228D2BB5D00F1E511 /* RemoveUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C412528D2BB5D00F1E511 /* RemoveUserViewController.swift */; };
 		099BCC6328CB7CEF000DFDE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */; };
 		099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6528CB80D6000DFDE6 /* Constants.swift */; };
 		099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6728CB80EB000DFDE6 /* Bundle+.swift */; };
@@ -51,19 +51,19 @@
 		099BCC6F28CB817A000DFDE6 /* LocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6E28CB817A000DFDE6 /* LocalizedConstants.swift */; };
 		099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7128CB81CA000DFDE6 /* Alert.swift */; };
 		099BCC7628CB8231000DFDE6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7528CB8231000DFDE6 /* LoginViewController.swift */; };
-		099BCC7928CB8277000DFDE6 /* LoginSreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7828CB8277000DFDE6 /* LoginSreen.swift */; };
+		099BCC7928CB8277000DFDE6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7828CB8277000DFDE6 /* LoginView.swift */; };
 		099BCC7D28CB82EF000DFDE6 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7C28CB82EF000DFDE6 /* DemoViewController.swift */; };
 		099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC7F28CB8334000DFDE6 /* OnboardingViewController.swift */; };
 		099BCC8528CB83A9000DFDE6 /* EmailConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC8428CB83A9000DFDE6 /* EmailConfirmationView.swift */; };
 		099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC8628CB83CA000DFDE6 /* EmailConfirmationViewController.swift */; };
-		099BCC9928CB89B5000DFDE6 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9828CB89B5000DFDE6 /* SignUpScreen.swift */; };
+		099BCC9928CB89B5000DFDE6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9828CB89B5000DFDE6 /* SignUpView.swift */; };
 		099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */; };
 		099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */; };
 		099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */; };
 		099BCCA828CB8B42000DFDE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */; };
 		099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */; };
 		099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */; };
-		09EAB3FD28D76D3400968827 /* DoneScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FC28D76D3400968827 /* DoneScreen.swift */; };
+		09EAB3FD28D76D3400968827 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FC28D76D3400968827 /* DoneView.swift */; };
 		09EAB40028D76EF200968827 /* DataDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FF28D76EF200968827 /* DataDone.swift */; };
 		09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB40328D76F9900968827 /* DoneTableViewCell.swift */; };
 		7D797B15494CDE1CFBECE562 /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7B445947F71DA9F2221638 /* Pods_RastreioBF.framework */; };
@@ -91,23 +91,23 @@
 		0974F64228CB7883004E8716 /* loginAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginAnimation.json; sourceTree = "<group>"; };
 		0974F64328CB7883004E8716 /* signUpAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signUpAnimation.json; sourceTree = "<group>"; };
 		0974F64428CB7883004E8716 /* unlocked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unlocked.json; sourceTree = "<group>"; };
-		098B467428CECA28009D08A4 /* TrackingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingScreen.swift; sourceTree = "<group>"; };
+		098B467428CECA28009D08A4 /* TrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingView.swift; sourceTree = "<group>"; };
 		098B467C28CECB1E009D08A4 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationViewController.swift; sourceTree = "<group>"; };
-		098B468028CECCE9009D08A4 /* EmailNotificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationScreen.swift; sourceTree = "<group>"; };
-		098C411128D2BB5C00F1E511 /* DescricaoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescricaoScreen.swift; sourceTree = "<group>"; };
-		098C411228D2BB5C00F1E511 /* DescricaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescricaoVC.swift; sourceTree = "<group>"; };
-		098C411428D2BB5C00F1E511 /* MovimentacaoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentacaoScreen.swift; sourceTree = "<group>"; };
-		098C411528D2BB5C00F1E511 /* MovimentacaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentacaoVC.swift; sourceTree = "<group>"; };
-		098C411728D2BB5C00F1E511 /* CadastroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroVC.swift; sourceTree = "<group>"; };
-		098C411828D2BB5C00F1E511 /* CadastroScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroScreen.swift; sourceTree = "<group>"; };
-		098C411C28D2BB5D00F1E511 /* MeusDadosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosVC.swift; sourceTree = "<group>"; };
-		098C411D28D2BB5D00F1E511 /* MeusDadosScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosScreen.swift; sourceTree = "<group>"; };
-		098C411F28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeusDadosTableViewCell.swift; sourceTree = "<group>"; };
-		098C412128D2BB5D00F1E511 /* PrivacidadeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacidadeVC.swift; sourceTree = "<group>"; };
-		098C412228D2BB5D00F1E511 /* PrivacidadeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacidadeScreen.swift; sourceTree = "<group>"; };
-		098C412428D2BB5D00F1E511 /* RemoveUserScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserScreen.swift; sourceTree = "<group>"; };
-		098C412528D2BB5D00F1E511 /* RemoveUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserVC.swift; sourceTree = "<group>"; };
+		098B468028CECCE9009D08A4 /* EmailNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationView.swift; sourceTree = "<group>"; };
+		098C411128D2BB5C00F1E511 /* DescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		098C411228D2BB5C00F1E511 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		098C411428D2BB5C00F1E511 /* MovementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementView.swift; sourceTree = "<group>"; };
+		098C411528D2BB5C00F1E511 /* MovementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementViewController.swift; sourceTree = "<group>"; };
+		098C411728D2BB5C00F1E511 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		098C411828D2BB5C00F1E511 /* RegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		098C411C28D2BB5D00F1E511 /* MyDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDataViewController.swift; sourceTree = "<group>"; };
+		098C411D28D2BB5D00F1E511 /* MyDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDataView.swift; sourceTree = "<group>"; };
+		098C411F28D2BB5D00F1E511 /* MyDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDataTableViewCell.swift; sourceTree = "<group>"; };
+		098C412128D2BB5D00F1E511 /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		098C412228D2BB5D00F1E511 /* PrivacyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		098C412428D2BB5D00F1E511 /* RemoveUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserView.swift; sourceTree = "<group>"; };
+		098C412528D2BB5D00F1E511 /* RemoveUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserViewController.swift; sourceTree = "<group>"; };
 		099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		099BCC6528CB80D6000DFDE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		099BCC6728CB80EB000DFDE6 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
@@ -116,19 +116,19 @@
 		099BCC6E28CB817A000DFDE6 /* LocalizedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedConstants.swift; sourceTree = "<group>"; };
 		099BCC7128CB81CA000DFDE6 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		099BCC7528CB8231000DFDE6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		099BCC7828CB8277000DFDE6 /* LoginSreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSreen.swift; sourceTree = "<group>"; };
+		099BCC7828CB8277000DFDE6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		099BCC7C28CB82EF000DFDE6 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		099BCC7F28CB8334000DFDE6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		099BCC8428CB83A9000DFDE6 /* EmailConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationView.swift; sourceTree = "<group>"; };
 		099BCC8628CB83CA000DFDE6 /* EmailConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationViewController.swift; sourceTree = "<group>"; };
-		099BCC9828CB89B5000DFDE6 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		099BCC9828CB89B5000DFDE6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		099BCCA728CB8B42000DFDE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesViewController.swift; sourceTree = "<group>"; };
 		099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
-		09EAB3FC28D76D3400968827 /* DoneScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneScreen.swift; sourceTree = "<group>"; };
+		09EAB3FC28D76D3400968827 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
 		09EAB3FF28D76EF200968827 /* DataDone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDone.swift; sourceTree = "<group>"; };
 		09EAB40328D76F9900968827 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
 		2BD18B210BED5A4DEC4ED84E /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		094E246528CE6D6200C6DDC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				098B467428CECA28009D08A4 /* TrackingScreen.swift */,
+				098B467428CECA28009D08A4 /* TrackingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 		094E246B28CE71DE00C6DDC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				098B468028CECCE9009D08A4 /* EmailNotificationScreen.swift */,
+				098B468028CECCE9009D08A4 /* EmailNotificationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,8 +302,8 @@
 		098C411028D2BB5C00F1E511 /* Descricao */ = {
 			isa = PBXGroup;
 			children = (
-				098C411128D2BB5C00F1E511 /* DescricaoScreen.swift */,
-				098C411228D2BB5C00F1E511 /* DescricaoVC.swift */,
+				098C411128D2BB5C00F1E511 /* DescriptionView.swift */,
+				098C411228D2BB5C00F1E511 /* DescriptionViewController.swift */,
 			);
 			path = Descricao;
 			sourceTree = "<group>";
@@ -311,8 +311,8 @@
 		098C411328D2BB5C00F1E511 /* Movimentacao */ = {
 			isa = PBXGroup;
 			children = (
-				098C411428D2BB5C00F1E511 /* MovimentacaoScreen.swift */,
-				098C411528D2BB5C00F1E511 /* MovimentacaoVC.swift */,
+				098C411428D2BB5C00F1E511 /* MovementView.swift */,
+				098C411528D2BB5C00F1E511 /* MovementViewController.swift */,
 			);
 			path = Movimentacao;
 			sourceTree = "<group>";
@@ -320,8 +320,8 @@
 		098C411628D2BB5C00F1E511 /* Cadastro */ = {
 			isa = PBXGroup;
 			children = (
-				098C411728D2BB5C00F1E511 /* CadastroVC.swift */,
-				098C411828D2BB5C00F1E511 /* CadastroScreen.swift */,
+				098C411728D2BB5C00F1E511 /* RegistrationViewController.swift */,
+				098C411828D2BB5C00F1E511 /* RegistrationView.swift */,
 			);
 			path = Cadastro;
 			sourceTree = "<group>";
@@ -347,8 +347,8 @@
 		098C411B28D2BB5D00F1E511 /* SolicitarMeusDados */ = {
 			isa = PBXGroup;
 			children = (
-				098C411C28D2BB5D00F1E511 /* MeusDadosVC.swift */,
-				098C411D28D2BB5D00F1E511 /* MeusDadosScreen.swift */,
+				098C411C28D2BB5D00F1E511 /* MyDataViewController.swift */,
+				098C411D28D2BB5D00F1E511 /* MyDataView.swift */,
 				098C411E28D2BB5D00F1E511 /* Cell */,
 			);
 			path = SolicitarMeusDados;
@@ -357,7 +357,7 @@
 		098C411E28D2BB5D00F1E511 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				098C411F28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift */,
+				098C411F28D2BB5D00F1E511 /* MyDataTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -365,8 +365,8 @@
 		098C412028D2BB5D00F1E511 /* Privacidade */ = {
 			isa = PBXGroup;
 			children = (
-				098C412128D2BB5D00F1E511 /* PrivacidadeVC.swift */,
-				098C412228D2BB5D00F1E511 /* PrivacidadeScreen.swift */,
+				098C412128D2BB5D00F1E511 /* PrivacyViewController.swift */,
+				098C412228D2BB5D00F1E511 /* PrivacyView.swift */,
 			);
 			path = Privacidade;
 			sourceTree = "<group>";
@@ -374,8 +374,8 @@
 		098C412328D2BB5D00F1E511 /* RemoveDados */ = {
 			isa = PBXGroup;
 			children = (
-				098C412428D2BB5D00F1E511 /* RemoveUserScreen.swift */,
-				098C412528D2BB5D00F1E511 /* RemoveUserVC.swift */,
+				098C412428D2BB5D00F1E511 /* RemoveUserView.swift */,
+				098C412528D2BB5D00F1E511 /* RemoveUserViewController.swift */,
 			);
 			path = RemoveDados;
 			sourceTree = "<group>";
@@ -433,7 +433,7 @@
 		099BCC8C28CB8708000DFDE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				099BCC9828CB89B5000DFDE6 /* SignUpScreen.swift */,
+				099BCC9828CB89B5000DFDE6 /* SignUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,7 +483,7 @@
 		099BCC9428CB889D000DFDE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				099BCC7828CB8277000DFDE6 /* LoginSreen.swift */,
+				099BCC7828CB8277000DFDE6 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -589,7 +589,7 @@
 		09EAB3FA28D76CF200968827 /* DoneScreen */ = {
 			isa = PBXGroup;
 			children = (
-				09EAB3FC28D76D3400968827 /* DoneScreen.swift */,
+				09EAB3FC28D76D3400968827 /* DoneView.swift */,
 			);
 			path = DoneScreen;
 			sourceTree = "<group>";
@@ -758,24 +758,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				099BCC7628CB8231000DFDE6 /* LoginViewController.swift in Sources */,
-				098C412A28D2BB5D00F1E511 /* CadastroVC.swift in Sources */,
-				098C412C28D2BB5D00F1E511 /* MeusDadosVC.swift in Sources */,
-				098C412E28D2BB5D00F1E511 /* MeusDadosTableViewCell.swift in Sources */,
+				098C412A28D2BB5D00F1E511 /* RegistrationViewController.swift in Sources */,
+				098C412C28D2BB5D00F1E511 /* MyDataViewController.swift in Sources */,
+				098C412E28D2BB5D00F1E511 /* MyDataTableViewCell.swift in Sources */,
 				099BCC6F28CB817A000DFDE6 /* LocalizedConstants.swift in Sources */,
-				098B467528CECA28009D08A4 /* TrackingScreen.swift in Sources */,
+				098B467528CECA28009D08A4 /* TrackingView.swift in Sources */,
 				0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */,
-				098C413228D2BB5D00F1E511 /* RemoveUserVC.swift in Sources */,
-				099BCC7928CB8277000DFDE6 /* LoginSreen.swift in Sources */,
-				098C413128D2BB5D00F1E511 /* RemoveUserScreen.swift in Sources */,
-				098C412728D2BB5D00F1E511 /* DescricaoVC.swift in Sources */,
-				098C412928D2BB5D00F1E511 /* MovimentacaoVC.swift in Sources */,
-				098C412628D2BB5D00F1E511 /* DescricaoScreen.swift in Sources */,
-				098B468128CECCE9009D08A4 /* EmailNotificationScreen.swift in Sources */,
-				098C412F28D2BB5D00F1E511 /* PrivacidadeVC.swift in Sources */,
+				098C413228D2BB5D00F1E511 /* RemoveUserViewController.swift in Sources */,
+				099BCC7928CB8277000DFDE6 /* LoginView.swift in Sources */,
+				098C413128D2BB5D00F1E511 /* RemoveUserView.swift in Sources */,
+				098C412728D2BB5D00F1E511 /* DescriptionViewController.swift in Sources */,
+				098C412928D2BB5D00F1E511 /* MovementViewController.swift in Sources */,
+				098C412628D2BB5D00F1E511 /* DescriptionView.swift in Sources */,
+				098B468128CECCE9009D08A4 /* EmailNotificationView.swift in Sources */,
+				098C412F28D2BB5D00F1E511 /* PrivacyViewController.swift in Sources */,
 				0946C0E328CBBADC007BF289 /* MenuScreenViewController.swift in Sources */,
 				099BCC8528CB83A9000DFDE6 /* EmailConfirmationView.swift in Sources */,
-				09EAB3FD28D76D3400968827 /* DoneScreen.swift in Sources */,
-				099BCC9928CB89B5000DFDE6 /* SignUpScreen.swift in Sources */,
+				09EAB3FD28D76D3400968827 /* DoneView.swift in Sources */,
+				099BCC9928CB89B5000DFDE6 /* SignUpView.swift in Sources */,
 				0918AD4828D6958B00E95DFB /* DataProduct.swift in Sources */,
 				0974F62E28CB77A7004E8716 /* AppDelegate.swift in Sources */,
 				0918AD4628D6953F00E95DFB /* ProductDetailTableViewCell.swift in Sources */,
@@ -791,16 +791,16 @@
 				099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */,
 				099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */,
 				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
-				098C412828D2BB5D00F1E511 /* MovimentacaoScreen.swift in Sources */,
+				098C412828D2BB5D00F1E511 /* MovementView.swift in Sources */,
 				09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */,
-				098C412B28D2BB5D00F1E511 /* CadastroScreen.swift in Sources */,
+				098C412B28D2BB5D00F1E511 /* RegistrationView.swift in Sources */,
 				098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */,
-				098C413028D2BB5D00F1E511 /* PrivacidadeScreen.swift in Sources */,
+				098C413028D2BB5D00F1E511 /* PrivacyView.swift in Sources */,
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
 				099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */,
 				098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */,
 				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,
-				098C412D28D2BB5D00F1E511 /* MeusDadosScreen.swift in Sources */,
+				098C412D28D2BB5D00F1E511 /* MyDataView.swift in Sources */,
 				0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */,
 				0946C0E128CBBA74007BF289 /* SwitchTableViewCell.swift in Sources */,
 				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,

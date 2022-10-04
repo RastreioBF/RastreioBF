@@ -12,7 +12,7 @@ import Lottie
 import GoogleSignIn
 
 //Protocolos com as funcoes de acao dos botoes
-protocol LoginScreenProtocol:AnyObject {
+protocol LoginViewProtocol:AnyObject {
     func actionLoginButton()
     func actionSignUpButton()
     func signIn(sender: Any)
@@ -21,14 +21,14 @@ protocol LoginScreenProtocol:AnyObject {
 }
 
 //A viewController eh responsavel por saber que exitem os elementos, nela contem as ligacoes que referenciam ao elemento, a view eh responsavel por conter todos os elementos e suas configuracoes
-class LoginScreen: UIView {
+class LoginView: UIView {
 
 //    var viewModel: LoginViewModel
     private var shouldFocusLink: Bool = false
     //acessa o protocolo
-    weak var delegate:LoginScreenProtocol?
+    weak var delegate:LoginViewProtocol?
     //funcao para configurar o delegate
-    func delegate(delegate:LoginScreenProtocol?){
+    func delegate(delegate:LoginViewProtocol?){
         self.delegate = delegate
     }
     

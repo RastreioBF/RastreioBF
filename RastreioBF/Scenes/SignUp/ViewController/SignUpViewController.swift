@@ -10,13 +10,13 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
-    var signUpScreen: SignUpScreen?
+    var signUpScreen: SignUpView?
     var auth:Auth?
     var alert:Alert?
     var textfield = UITextField()
     
     override func loadView() {
-        self.signUpScreen = SignUpScreen()
+        self.signUpScreen = SignUpView()
         self.view = self.signUpScreen
     }
     
@@ -90,7 +90,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 //
 //}
 
-extension SignUpViewController: SignUpScreenProtocol {
+extension SignUpViewController: SignUpViewProtocol {
     
     //MARK: - TextField Masks
     

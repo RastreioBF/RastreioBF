@@ -7,12 +7,12 @@
 
 import UIKit
 
-class DescricaoVC: UIViewController {
+class DescriptionViewController: UIViewController {
     
-    var rastreioScreen : DescricaoScreen?
+    var rastreioScreen : DescriptionView?
 
     override func loadView() {
-        self.rastreioScreen = DescricaoScreen()
+        self.rastreioScreen = DescriptionView()
         self.view = self.rastreioScreen
     }
     

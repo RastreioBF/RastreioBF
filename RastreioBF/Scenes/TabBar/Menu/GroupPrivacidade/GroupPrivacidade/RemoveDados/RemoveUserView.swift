@@ -7,71 +7,64 @@
 
 import UIKit
 
-protocol MeusDadosScreenProtocol: AnyObject{
- 
+protocol RemoveUserViewProtocol: AnyObject{
+    
     func actionRegisterButton()
 }
 
-class  MeusDadosScreen: UIView {
+class  RemoveUserView: UIView {
     
-    weak private var delegate : MeusDadosScreenProtocol?
+    weak private var delegate : RemoveUserViewProtocol?
     
-    func delegate( delegate: MeusDadosScreenProtocol?){
+    func delegate( delegate: RemoveUserViewProtocol?){
         self.delegate = delegate
     }
-    
 
-    lazy var loginLabel:UILabel = {
+    lazy var removeDadosLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemBlue
+        label.textColor = .systemRed
         label.font = UIFont.boldSystemFont(ofSize: 35)
-        label.text = "Meus Dados"
-
+        label.text = "Remover Conta"
+        
         return label
     }()
-    
     
     lazy var logoAppImageView : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage( named: "signinImagepng" )
+        image.image = UIImage( named: "errorImage" )
         image.contentMode = .scaleAspectFit
         //image.backgroundColor = .red
         return image
     }()
     
-    
-    lazy var  cardTableView : UITableView = {
+    lazy var  tableView : UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
-        
         // border
-        tableView.layer.borderWidth = 2.0
+        tableView.layer.borderWidth = 4.0
         tableView.layer.borderColor = UIColor.gray.cgColor
-
         // shadow
-        tableView.layer.shadowColor = UIColor.gray.cgColor
+        tableView.layer.shadowColor = UIColor.black.cgColor
         tableView.layer.shadowOffset = CGSize(width: 3, height: 3)
-        tableView.layer.shadowOpacity = 0.7
-        tableView.layer.shadowRadius = 10
-        
-        tableView.isScrollEnabled = false
-        tableView.layer.cornerRadius = 15
-       // tableView.layer.borderColor = UIColor.darkGray.cgColor
+        tableView.layer.shadowOpacity = 1.0
+        tableView.layer.shadowRadius = 10.0
         //tableView.register(MeusDadosTableViewCell.self , forCellReuseIdentifier: MeusDadosTableViewCell.identifier)
+        tableView.layer.cornerRadius = 15
+        tableView.isScrollEnabled = false
         return tableView
     }()
     
     lazy var registerButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("solicitar", for: .normal)
+        button.setTitle("Remover", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 9
-        button.backgroundColor = .systemBlue //UIColor( red: 102/255, green: 103/255, blue: 171/255, alpha: 1.0)
+        button.backgroundColor = .systemRed //UIColor( red: 102/255, green: 103/255, blue: 171/255, alpha: 1.0)
         button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
         
         return button
@@ -96,17 +89,16 @@ class  MeusDadosScreen: UIView {
     }
     
     private func configSuperView() {
-      
-        addSubview(self.cardTableView)
-       
-        self.cardTableView.addSubview(self.loginLabel)
-        self.cardTableView.addSubview(self.logoAppImageView)
+        addSubview(self.removeDadosLabel)
+        
+        addSubview(self.tableView)
+        self.tableView.addSubview(self.removeDadosLabel)
+        self.addSubview(self.logoAppImageView)
         self.addSubview(registerButton)
         
-        self.cardTableView.addSubview(self.registerButton)
+        self.tableView.addSubview(self.registerButton)
         
         addSubview(self.emailAlertTextField)
-                
     }
     
     override init(frame: CGRect) {
@@ -117,27 +109,15 @@ class  MeusDadosScreen: UIView {
         
     }
     
-
-    
-
     @objc private func tappedRegisterButton(){
         self.delegate?.actionRegisterButton()
     }
     
     
     public func configTableViewProtocols(delegate: UITableViewDelegate, dataSource : UITableViewDataSource){
-        self.cardTableView.delegate = delegate
-        self.cardTableView.dataSource = dataSource
+        self.tableView.delegate = delegate
+        self.tableView.dataSource = dataSource
     }
-    
-    
-
-    
-    public func getEmail()-> String{
-        return self.emailAlertTextField.text ?? ""
-    }
-    
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -156,32 +136,29 @@ class  MeusDadosScreen: UIView {
     private  func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            self.cardTableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            self.cardTableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            self.cardTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.cardTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.cardTableView.heightAnchor.constraint(equalToConstant: 400),
+            self.tableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            self.tableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
             
+            self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.tableView.heightAnchor.constraint(equalToConstant: 500),
             
-            self.loginLabel.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
-            self.loginLabel.topAnchor.constraint(equalTo: self.cardTableView.topAnchor, constant: 20),
+            //
+            self.removeDadosLabel.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
+            self.removeDadosLabel.topAnchor.constraint(equalTo: self.tableView.topAnchor, constant: 20),
+            //
+            // self.logoAppImageView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor ),
+            self.logoAppImageView.topAnchor.constraint(equalTo: self.removeDadosLabel.bottomAnchor, constant: 10),
+            self.logoAppImageView.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor , constant: -100),
+            self.logoAppImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.logoAppImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.logoAppImageView.heightAnchor.constraint(equalToConstant: 150),
             
-            self.logoAppImageView.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
-           self.logoAppImageView.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 20),
-            self.logoAppImageView.heightAnchor.constraint(equalToConstant: 200),
-            self.logoAppImageView.widthAnchor.constraint(equalToConstant: 200),
-        
-            self.registerButton.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
-            self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 40),
-            
-            self.registerButton.leadingAnchor.constraint(equalTo: self.cardTableView.leadingAnchor, constant: 35),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.cardTableView.trailingAnchor, constant: -35),
-            
-            
-            
-            
+            self.registerButton.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
+            //   self.registerButton.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor),
+            self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 100),
+            self.registerButton.leadingAnchor.constraint(equalTo: self.tableView.leadingAnchor, constant: 35),
+            self.registerButton.trailingAnchor.constraint(equalTo: self.tableView.trailingAnchor, constant: -35),
         ])
     }
 }
-
-

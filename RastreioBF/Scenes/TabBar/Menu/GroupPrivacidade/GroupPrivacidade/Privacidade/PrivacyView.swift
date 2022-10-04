@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PrivacidadeScreen : UIView{
+class PrivacyView : UIView{
     
     lazy var loginLabel:UILabel = {
         let label = UILabel()

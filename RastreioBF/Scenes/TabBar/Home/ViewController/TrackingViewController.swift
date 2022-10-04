@@ -10,11 +10,11 @@ import UIKit
 
 class TrackingViewController: UIViewController {
     
-    var trackingScreen: TrackingScreen?
+    var trackingScreen: TrackingView?
     var alert: Alert?
     
     override func loadView() {
-        self.trackingScreen = TrackingScreen()
+        self.trackingScreen = TrackingView()
         self.view = self.trackingScreen
     }
 
@@ -41,7 +41,7 @@ extension TrackingViewController: UITextFieldDelegate {
     }
 }
 
-extension TrackingViewController: TrackingScreenProtocol{
+extension TrackingViewController: TrackingViewProtocol{
     func actionEmailNotificationSwitch() {
     }
     

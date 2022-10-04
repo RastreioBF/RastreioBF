@@ -7,8 +7,8 @@
 
 import UIKit
 
-class MovimentacaoVC: UIViewController {
-    var movimentacao = MovimentacaoScreen()
+class MovementViewController: UIViewController {
+    var movimentacao = MovementView()
     
     
     override func viewDidLoad() {
@@ -19,7 +19,7 @@ class MovimentacaoVC: UIViewController {
     
 
     override func loadView() {
-        self.movimentacao = MovimentacaoScreen()
+        self.movimentacao = MovementView()
         super.viewDidLoad()
         self.view = self.movimentacao
     }

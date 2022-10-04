@@ -8,16 +8,16 @@
 
 import UIKit
 
-class CadastroVC: UIViewController {
+class RegistrationViewController: UIViewController {
 
-    var cadastro : CadastroScreen?
+    var cadastro : RegistrationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     override func loadView() {
-        self.cadastro = CadastroScreen()
+        self.cadastro = RegistrationView()
         super.viewDidLoad()
         self.view = self.cadastro
     }

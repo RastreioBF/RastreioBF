@@ -71,15 +71,15 @@ class MenuScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     models.append(Section(title: "Rastreio", options: [
       
         .staticCell(model : SettingsOption(title: "Rastreiamento", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen){
-            let vc = DescricaoVC()
+            let vc = DescriptionViewController()
             self.navigationController?.pushViewController(vc, animated: true )
         }),
         .staticCell(model : SettingsOption(title: "Cadastro", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemCyan){
-            let cadastro = CadastroVC()
+            let cadastro = RegistrationViewController()
             self.navigationController?.pushViewController(cadastro, animated: true)
         }),
         .staticCell(model : SettingsOption(title: "Movimentação", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPurple){
-            let movimentacao = MovimentacaoVC()
+            let movimentacao = MovementViewController()
             self.navigationController?.pushViewController(movimentacao, animated: true)
         }),
 
@@ -89,16 +89,16 @@ class MenuScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         models.append(Section(title: "Privacidade", options: [
             
             .staticCell(model : SettingsOption(title: "Solicitar Meus Dados", icon: UIImage(systemName: "person.text.rectangle"), iconBackgroundColor: .systemPurple){
-                let meusDados = MeusDadosVC()
+                let meusDados = MyDataViewController()
                 self.navigationController?.pushViewController(meusDados, animated: true)
             }),
             .staticCell(model : SettingsOption(title: "Politica de Privacidade", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemCyan){
-                let politicaDePrivacidade = PrivacidadeVC()
+                let politicaDePrivacidade = PrivacyViewController()
                 self.navigationController?.pushViewController(politicaDePrivacidade, animated: true)
             }),
             .staticCell(model : SettingsOption(title: "Remover meus Dados", icon: UIImage(systemName: "person.crop.circle.badge.xmark"), iconBackgroundColor: .systemRed){
                 
-                let removeUser = RemoveUserVC()
+                let removeUser = RemoveUserViewController()
                 self.navigationController?.pushViewController(removeUser, animated: true)
                 }),
 

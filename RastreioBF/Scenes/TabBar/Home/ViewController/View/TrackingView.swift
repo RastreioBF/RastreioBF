@@ -7,18 +7,18 @@
 
 import UIKit
 
-protocol TrackingScreenProtocol: AnyObject {
+protocol TrackingViewProtocol: AnyObject {
     func actionBackButton()
     func actionSubmitButton()
     func actionEmailNotificationSwitch()
     func actionSendNoticationToAnotherEmailButton()
 }
 
-class TrackingScreen: UIView {
+class TrackingView: UIView {
     
-    weak var delegate: TrackingScreenProtocol?
+    weak var delegate: TrackingViewProtocol?
     
-    func delegate(delegate: TrackingScreenProtocol?){
+    func delegate(delegate: TrackingViewProtocol?){
         self.delegate = delegate
     }
     

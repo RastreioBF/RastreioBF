@@ -11,16 +11,16 @@ import UIKit
 import FirebaseAuth
 import GoogleSignIn
 
-class LoginViewController: UIViewController, LoginScreenProtocol, UITextFieldDelegate {
+class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDelegate {
    
     var auth:Auth?
-    var loginScreen:LoginScreen?
+    var loginScreen:LoginView?
     var alert:Alert?
     let signInConfig = GIDConfiguration(clientID: "614878693717-p6uad96i9eltvcigv9o8o589su8flt41.apps.googleusercontent.com")
     
     //LoadView eh responsavel para quando estamos criando uma view
     override func loadView() {
-        self.loginScreen = LoginScreen()
+        self.loginScreen = LoginView()
         //aqui dizemos que a nossa view eh igual a login screen
         self.view = self.loginScreen
     }

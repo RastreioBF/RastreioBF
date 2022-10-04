@@ -7,8 +7,8 @@
 
 import UIKit
 
-class PrivacidadeVC: UIViewController {
-    let privacidadeScreen = PrivacidadeScreen()
+class PrivacyViewController: UIViewController {
+    let privacidadeScreen = PrivacyView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

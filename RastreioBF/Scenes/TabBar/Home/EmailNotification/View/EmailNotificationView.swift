@@ -9,17 +9,17 @@ import UIKit
 import Foundation
 import Lottie
 
-protocol EmailNotificationScreenProtocol: AnyObject {
+protocol EmailNotificationViewProtocol: AnyObject {
     func actionBackButton()
     func actionConfirmationButton()
     func didTapEmail()
 }
 
-class EmailNotificationScreen: UIView {
+class EmailNotificationView: UIView {
     
-    weak var delegate: EmailNotificationScreenProtocol?
+    weak var delegate: EmailNotificationViewProtocol?
     
-    func delegate(delegate: EmailNotificationScreenProtocol?){
+    func delegate(delegate: EmailNotificationViewProtocol?){
         self.delegate = delegate
     }
     

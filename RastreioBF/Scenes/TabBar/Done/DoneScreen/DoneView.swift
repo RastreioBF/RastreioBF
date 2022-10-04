@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DoneScreen: UIView {
+class DoneView: UIView {
 
     lazy var finishedTitleLabel : UILabel = {
        let label = UILabel()

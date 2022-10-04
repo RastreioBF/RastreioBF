@@ -10,7 +10,7 @@ import Lottie
 import UIKit.UITextField
 import Foundation
 
-protocol SignUpScreenProtocol: AnyObject{
+protocol SignUpViewProtocol: AnyObject{
     func actionGoToLoginButton()
     func actionSignUpButton()
     func didTapName()
@@ -20,13 +20,13 @@ protocol SignUpScreenProtocol: AnyObject{
     func didTapConfirmPassword()
 }
 
-class SignUpScreen: UIView {
+class SignUpView: UIView {
     
     // MARK: - Delegate
     private var shouldFocusLink: Bool = false
-    weak var delegate:SignUpScreenProtocol?
+    weak var delegate:SignUpViewProtocol?
     
-    func delegate(delegate:SignUpScreenProtocol?) {
+    func delegate(delegate:SignUpViewProtocol?) {
         self.delegate = delegate
     }
     

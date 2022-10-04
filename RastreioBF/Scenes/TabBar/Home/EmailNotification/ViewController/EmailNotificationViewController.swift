@@ -9,11 +9,11 @@ import UIKit
 
 class EmailNotificationViewController: UIViewController {
     
-    var emailNotificationScreen: EmailNotificationScreen?
+    var emailNotificationScreen: EmailNotificationView?
     var alert: Alert?
     
     override func loadView() {
-        self.emailNotificationScreen = EmailNotificationScreen()
+        self.emailNotificationScreen = EmailNotificationView()
         self.view = self.emailNotificationScreen
     }
 
@@ -67,7 +67,7 @@ extension EmailNotificationViewController: UITextFieldDelegate {
     }
 }
 
-extension EmailNotificationViewController: EmailNotificationScreenProtocol{
+extension EmailNotificationViewController: EmailNotificationViewProtocol{
     
     func didTapEmail() {
         let text =  self.emailNotificationScreen?.emailTextField.text ?? ""

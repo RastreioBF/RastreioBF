@@ -7,16 +7,16 @@
 
 import UIKit
 
-class MeusDadosVC: UIViewController, MeusDadosScreenProtocol {
+class MyDataViewController: UIViewController, MyDataViewProtocol {
    
     
  
-    var meusDadosScreen: MeusDadosScreen?
+    var meusDadosScreen: MyDataView?
     var alert : Alert?
     
     
     override func loadView() {
-        self.meusDadosScreen = MeusDadosScreen()
+        self.meusDadosScreen = MyDataView()
         self.view = self.meusDadosScreen
     }
     

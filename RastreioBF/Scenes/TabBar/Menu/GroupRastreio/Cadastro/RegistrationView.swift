@@ -1,34 +1,33 @@
 //
-//  MovimentacaoScreen.swift
+//  MenuRastreioScreen.swift
 //  BackFrontProject
 //
-//  Created by ALYSSON MENEZES on 25/08/22.
+//  Created by ALYSSON MENEZES on 24/08/22.
 //
 
 import UIKit
 
-class MovimentacaoScreen : UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.configBackGround()
-        self.configSuperView()
-        self.setupConstraints()
-    }
-    
-  
+class RegistrationView : UIView {
     
     lazy var loginLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 40)
-        label.text = "Movimentação"
+        label.text = "Cadastro"
         return label
     }()
     
     private func configBackGround(){
-        self.backgroundColor = UIColor(red: 244/255, green: 34/255, blue: 24/255, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 24/255, green: 200/255, blue: 10/255, alpha: 1.0)
+    }
+    
+override init(frame: CGRect) {
+        super.init( frame: frame)
+        self.configBackGround()
+        self.configSuperView()
+        self.setupConstraints()
+    
     }
     
     required init?(coder: NSCoder) {
@@ -48,6 +47,5 @@ class MovimentacaoScreen : UIView {
             self.loginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
     }
-    
     
 }

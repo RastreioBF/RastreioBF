@@ -7,13 +7,13 @@
 
 import UIKit
 
-class RemoveUserVC: UIViewController, RemoveUserScreenProtocol {
+class RemoveUserViewController: UIViewController, RemoveUserViewProtocol {
     
-    var removeUserScreen: RemoveUserScreen?
+    var removeUserScreen: RemoveUserView?
     var alert : Alert?
     
     override func loadView() {
-        self.removeUserScreen = RemoveUserScreen()
+        self.removeUserScreen = RemoveUserView()
         self.view = self.removeUserScreen
     }
     
@@ -24,7 +24,7 @@ class RemoveUserVC: UIViewController, RemoveUserScreenProtocol {
     }
     
     func actionRegisterButton() {
-        guard let register = self.removeUserScreen else { return }
+        guard self.removeUserScreen != nil else { return }
         var emailtTextfield = self.removeUserScreen?.emailAlertTextField
         self.alert?.deleteDataUser()
         
