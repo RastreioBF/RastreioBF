@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-protocol PrivacidadeScreenProtocol: class{
+protocol PrivacyPoliciesViewProtocol: class{
     func actionBackButton()
 }
 
-class PrivacidadeScreen : UIView{
-    weak private var delegate : PrivacidadeScreenProtocol?
+class PrivacyPoliciesView : UIView{
+    weak private var delegate : PrivacyPoliciesViewProtocol?
     
-    func delegate( delegate: PrivacidadeScreenProtocol?){
+    func delegate( delegate: PrivacyPoliciesViewProtocol?){
         self.delegate = delegate
     }
     

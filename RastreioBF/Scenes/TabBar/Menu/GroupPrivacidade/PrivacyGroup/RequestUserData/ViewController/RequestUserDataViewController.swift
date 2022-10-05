@@ -7,28 +7,28 @@
 
 import UIKit
 
-class MeusDadosVC: UIViewController, MeusDadosScreenProtocol {
+class RequestUserDataViewController: UIViewController, RequestUserDataProtocol {
     func actionBackButton() {
         self.navigationController?.popViewController(animated: true)
     }
     
-    var meusDadosScreen: MeusDadosScreen?
+    var userDataView: RequestUserDataView?
     var alert : Alert?
     
     
     override func loadView() {
-        self.meusDadosScreen = MeusDadosScreen()
-        self.view = self.meusDadosScreen
+        self.userDataView = RequestUserDataView()
+        self.view = self.userDataView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.meusDadosScreen?.delegate(delegate: self)
+        self.userDataView?.delegate(delegate: self)
         self.alert = Alert(controller: self)
         
     }
     func actionRegisterButton() {
-        guard let register = self.meusDadosScreen else { return }
+        guard let register = self.userDataView else { return }
         self.alert?.addContact()
     }
     

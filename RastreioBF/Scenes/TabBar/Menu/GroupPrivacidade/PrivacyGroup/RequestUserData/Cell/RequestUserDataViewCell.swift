@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MeusDadosTableViewCell: UITableViewCell {
+class RequestUserDataViewCell: UITableViewCell {
 
-    static let identifier:String = "MeusDadosTableViewCell"
+    static let identifier:String = "RequestUserDataViewCell"
     
     lazy var userImageView : UIImageView = {
         let image = UIImageView()

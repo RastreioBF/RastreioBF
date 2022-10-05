@@ -1,3 +1,4 @@
+
 //
 //  MeusDadosScreen.swift
 //  BackFrontProject
@@ -7,16 +8,16 @@
 
 import UIKit
 
-protocol RemoveUserScreenProtocol: class{
+protocol RequestUserDataProtocol: class{
     func actionBackButton()
     func actionRegisterButton()
 }
 
-class  RemoveUserScreen: UIView {
+class  RequestUserDataView: UIView {
     
-    weak private var delegate : RemoveUserScreenProtocol?
+    weak private var delegate : RequestUserDataProtocol?
     
-    func delegate( delegate: RemoveUserScreenProtocol?){
+    func delegate( delegate: RequestUserDataProtocol?){
         self.delegate = delegate
     }
     
@@ -28,26 +29,28 @@ class  RemoveUserScreen: UIView {
         return button
     }()
     
-    lazy var removeDadosLabel:UILabel = {
+    lazy var loginLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(named: "mainPurpleColor")
-        label.font = UIFont.boldSystemFont(ofSize: 40)
-        label.text = "Remover Conta"
         
+        label.font = UIFont.boldSystemFont(ofSize: 35)
+        label.text = "Meus Dados"
+        label.textColor = UIColor(named: "mainPurpleColor")
         return label
     }()
+    
     
     lazy var logoAppImageView : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage( named: "removeUser" )
+        image.image = UIImage( named: "signinImagepng" )
         image.contentMode = .scaleAspectFit
         //image.backgroundColor = .red
         return image
     }()
     
-    lazy var  tableView : UITableView = {
+    
+    lazy var  cardTableView : UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
@@ -60,40 +63,38 @@ class  RemoveUserScreen: UIView {
         tableView.layer.cornerRadius = 15
         return tableView
     }()
-
+    
     lazy var registerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Remover", for: .normal)
+        button.setTitle("solicitar", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(named: "mainPurpleColor")
         button.clipsToBounds = true
         button.layer.cornerRadius = 9
-        button.backgroundColor = UIColor(named: "mainPurpleColor")
         button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
         
         return button
     }()
     
-    private func configBackGround(){
-        self.backgroundColor = .white
-    }
-    
     @objc private func tappedBackButton(){
         self.delegate?.actionBackButton()
     }
     
+    private func configBackGround(){
+        self.backgroundColor = .white
+    }
+    
     private func configSuperView() {
-        
         addSubview(self.backButton)
-        addSubview(self.removeDadosLabel)
-        addSubview(self.tableView)
-        self.tableView.addSubview(self.removeDadosLabel)
-        self.addSubview(self.logoAppImageView)
+        addSubview(self.cardTableView)
+        self.cardTableView.addSubview(self.loginLabel)
+        self.cardTableView.addSubview(self.logoAppImageView)
         self.addSubview(registerButton)
         
-        self.tableView.addSubview(self.registerButton)
+        self.cardTableView.addSubview(self.registerButton)
         
-  
+        
         
     }
     
@@ -105,13 +106,17 @@ class  RemoveUserScreen: UIView {
         
     }
     
+    
+    
+    
     @objc private func tappedRegisterButton(){
         self.delegate?.actionRegisterButton()
     }
     
+    
     public func configTableViewProtocols(delegate: UITableViewDelegate, dataSource : UITableViewDataSource){
-        self.tableView.delegate = delegate
-        self.tableView.dataSource = dataSource
+        self.cardTableView.delegate = delegate
+        self.cardTableView.dataSource = dataSource
     }
     
     required init?(coder: NSCoder) {
@@ -134,27 +139,30 @@ class  RemoveUserScreen: UIView {
             self.backButton.leadingAnchor.constraint(equalTo: self.backButton.leadingAnchor, constant: 35),
             self.backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 20),
             
-            self.tableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            self.tableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
+            self.cardTableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            self.cardTableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
+            self.cardTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.cardTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.cardTableView.heightAnchor.constraint(equalToConstant: 400),
             
-            self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.tableView.heightAnchor.constraint(equalToConstant: 500),
             
-            self.removeDadosLabel.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
-            self.removeDadosLabel.topAnchor.constraint(equalTo: self.tableView.topAnchor, constant: 35),
+            self.loginLabel.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
+            self.loginLabel.topAnchor.constraint(equalTo: self.cardTableView.topAnchor, constant: 20),
             
-            self.logoAppImageView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor, constant: 20),
-            self.logoAppImageView.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor ),
-            self.logoAppImageView.heightAnchor.constraint(equalToConstant: 150),
+            self.logoAppImageView.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
+            self.logoAppImageView.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 20),
+            self.logoAppImageView.heightAnchor.constraint(equalToConstant: 200),
+            self.logoAppImageView.widthAnchor.constraint(equalToConstant: 200),
             
-            self.registerButton.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor),
+            self.registerButton.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
+            self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 40),
             
-            self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 80),
-            self.registerButton.leadingAnchor.constraint(equalTo: self.tableView.leadingAnchor, constant: 35),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.tableView.trailingAnchor, constant: -35),
+            self.registerButton.leadingAnchor.constraint(equalTo: self.cardTableView.leadingAnchor, constant: 35),
+            self.registerButton.trailingAnchor.constraint(equalTo: self.cardTableView.trailingAnchor, constant: -35),
             
-        
+            
+            
+            
         ])
     }
 }

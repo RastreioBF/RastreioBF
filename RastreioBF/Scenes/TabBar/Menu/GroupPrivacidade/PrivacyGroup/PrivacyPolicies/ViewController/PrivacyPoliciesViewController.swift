@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PrivacidadeVC: UIViewController, PrivacidadeScreenProtocol {
+class PrivacyPoliciesViewController: UIViewController, PrivacyPoliciesViewProtocol {
     
-    var privacidadeScreen : PrivacidadeScreen?
+    var privacyView : PrivacyPoliciesView?
 
     func actionBackButton() {
         self.navigationController?.popViewController(animated: true)
@@ -17,12 +17,12 @@ class PrivacidadeVC: UIViewController, PrivacidadeScreenProtocol {
     }
     
     override func loadView() {
-        privacidadeScreen = PrivacidadeScreen()
-        self.view = self.privacidadeScreen
+        privacyView = PrivacyPoliciesView()
+        self.view = self.privacyView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        self.privacidadeScreen?.delegate(delegate: self)
+        self.privacyView?.delegate(delegate: self)
     }
 }

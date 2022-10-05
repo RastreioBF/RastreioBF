@@ -7,16 +7,16 @@
 
 import UIKit
 
-class RemoveUserVC: UIViewController, RemoveUserScreenProtocol {
+class RemoveUserViewController: UIViewController, RemoveUserScreenProtocol {
     func actionBackButton() {
         self.navigationController?.popViewController(animated: true)
     }
     
-    var removeUserScreen: RemoveUserScreen?
+    var removeUserScreen: RemoveUserView?
     var alert : Alert?
     
     override func loadView() {
-        self.removeUserScreen = RemoveUserScreen()
+        self.removeUserScreen = RemoveUserView()
         self.view = self.removeUserScreen
     }
     

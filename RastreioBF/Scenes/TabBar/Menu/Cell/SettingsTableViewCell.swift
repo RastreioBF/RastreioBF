@@ -56,7 +56,7 @@ class SettingsTableViewCell: UITableViewCell {
         
         let imageSize = size/1.5
         iconImageView.frame = CGRect(x: (size-imageSize)/2 , y: (size-imageSize)/2, width: imageSize, height: imageSize)
-
+        
         label.frame = CGRect(x: 25 + iconContainer.frame.size.width,
                              y: 0,
                              width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
