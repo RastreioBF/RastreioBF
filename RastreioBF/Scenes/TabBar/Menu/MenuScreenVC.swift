@@ -66,7 +66,7 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
         ]))
         
-        // grupo 1
+        // grupo 1 ... 
         //    models.append(Section(title: "Rastreio", options: [
         //
         //        .staticCell(model : SettingsOption(title: "Rastreiamento", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen){
