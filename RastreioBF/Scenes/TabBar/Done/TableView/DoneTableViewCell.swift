@@ -57,7 +57,7 @@ class DoneTableViewCell: UITableViewCell {
         image.contentMode = .scaleToFill
         image.clipsToBounds = false
         image.layer.cornerRadius = 15
-        image.image = UIImage( systemName: "done")
+        image.image = UIImage(systemName: "done")
         return image
     }()
     
@@ -100,25 +100,25 @@ class DoneTableViewCell: UITableViewCell {
          self.contentView.addSubview(self.productNameLabel)
          self.contentView.addSubview(self.codeTrakingLabel)
          self.contentView.addSubview(self.productDescriptionLabel)
+         self.contentView.addSubview(self.productStatusImage)
          self.contentView.addSubview(self.productDateLabel)
          self.contentView.addSubview(self.productTimeLabel)
-         self.contentView.addSubview(self.productStatusImage)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setupCell( data: DataDone){
-        self.productNameLabel.text = data.productName
-        self.codeTrakingLabel.text = data.codeTraking
-        self.productImageView.image = UIImage(named: data.productNameImage)
-        self.productDescriptionLabel.text = data.productDescription
-        self.productStatusImage.image = UIImage(named: data.productStatusImage)
-        self.productDateLabel.text = data.data
-        self.productTimeLabel.text = data.time
+//    public func setupCell( data: DataDone){
+//        self.productNameLabel.text = data.productName
+//        self.codeTrakingLabel.text = data.codeTraking
+//        self.productImageView.image = UIImage(named: data.productNameImage)
+//        self.productDescriptionLabel.text = data.productDescription
+//        self.productStatusImage.image = UIImage(named: data.productStatusImage)
+//        self.productDateLabel.text = data.data
+//        self.productTimeLabel.text = data.time
        
-    }
+    //}
     
     func setupConstraints(){
         NSLayoutConstraint.activate([

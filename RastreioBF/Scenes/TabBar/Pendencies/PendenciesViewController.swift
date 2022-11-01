@@ -11,9 +11,9 @@ class PendenciesViewController: UIViewController {
     
     var pendenciesScreen: WarningScreen?
     
-    var data : [DataProduct] = [ DataProduct(
+    static var data : [DataProduct] = [ DataProduct(
         productName: "Shein",
-        productNameImage: "truck",
+        productNameImage: "pendencias",
         codeTraking: "PJSHGAQ#",
         productDescription: "Pagamento de taxas aduaneiras pendente",
         //        productStatusImage: "done",
@@ -22,7 +22,7 @@ class PendenciesViewController: UIViewController {
                                  
                                  DataProduct (
                                     productName: "Drop4Me",
-                                    productNameImage: "truck",
+                                    productNameImage: "pendencias",
                                     codeTraking: "JAKIHSAQ#",
                                     productDescription: "Pagamento de taxas aduaneiras pendente",
                                     //        productStatusImage: "done",
@@ -46,18 +46,57 @@ class PendenciesViewController: UIViewController {
     
 }
     extension PendenciesViewController: UITableViewDelegate, UITableViewDataSource{
+        
+        
+        func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            
+            return true
+            
+        }
+        
+    
+        func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+            
+            return .delete
+            
+        }
+        
+        
+        
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            
+            if editingStyle == .delete {
+                
+                tableView.beginUpdates()
+                
+                PendenciesViewController.data.remove(at: indexPath.row)
+                
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                tableView.endUpdates()
+                
+            }
+            
+        }
+        
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return self.data.count
+            return PendenciesViewController.data.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell : ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-            cell?.setupCell(data: self.data[indexPath.row])
+            cell?.setupCell(data: PendenciesViewController.data[indexPath.row])
             
             return cell ?? UITableViewCell()
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 125
+        }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let vc : DetailScreen = DetailScreen()
+            vc.data = PendenciesViewController.data[indexPath.row]
+            present(vc, animated: true)
         }
     }

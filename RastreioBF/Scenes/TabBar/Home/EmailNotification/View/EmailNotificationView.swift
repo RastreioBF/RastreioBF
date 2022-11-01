@@ -1,8 +1,8 @@
 //
-//  EmailNotificationScreen.swift
-//  ViewCodeProject
+//  EmailNotificationView.swift
+//  MyProjectScreens
 //
-//  Created by Anderson Sales on 11/09/22.
+//  Created by Anderson Sales on 28/10/22.
 //
 
 import UIKit
@@ -22,14 +22,6 @@ class EmailNotificationView: UIView {
     func delegate(delegate: EmailNotificationViewProtocol?){
         self.delegate = delegate
     }
-    
-//    lazy var backButton: UIButton = {
-//        let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.setImage(UIImage(named: "back"), for: .normal)
-//        button.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
-//        return button
-//    }()
     
     var animationUIView:UIView = {
         let view = UIView()
@@ -66,6 +58,7 @@ class EmailNotificationView: UIView {
         textField.backgroundColor = .white
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
+        textField.returnKeyType = UIReturnKeyType.done
         textField.placeholder = "Digite seu email..."
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .darkGray
@@ -118,8 +111,7 @@ class EmailNotificationView: UIView {
         self.addSubview(self.emailTextField)
         self.addSubview(self.confirmationButton)
     }
-    
-    
+        
     private func configBackground(){
         self.backgroundColor = .white
     }
@@ -138,7 +130,7 @@ class EmailNotificationView: UIView {
     
     public func validateTextFields(){
         let emailField: String = self.emailTextField.text ?? ""
-        if !emailField.isEmpty {
+        if !emailField.isEmpty && !emailField.hasPrefix(" ") {
             let isEmailAddressValid = isValidEmailAddress(emailAddressString: emailField)
             if isEmailAddressValid {
                 self.configButtonEnabled(true)
@@ -177,7 +169,6 @@ class EmailNotificationView: UIView {
         return  returnValue
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -203,19 +194,16 @@ class EmailNotificationView: UIView {
             self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.emailTextField.bottomAnchor.constraint(equalTo: emailErrorLabel.topAnchor, constant: -1),
-//            self.emailTextField.heightAnchor.constraint(equalToConstant: 45),
             
             self.emailErrorLabel.bottomAnchor.constraint(equalTo: confirmationButton.topAnchor, constant: -10),
             self.emailErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 23),
             self.emailErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             
-          
             self.confirmationButton.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
             self.confirmationButton.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
             self.confirmationButton.heightAnchor.constraint(equalToConstant: 40)
         
-        
         ])
     }
-    
 }
+

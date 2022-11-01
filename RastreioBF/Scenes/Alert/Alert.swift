@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class Alert:NSObject{
     
@@ -52,12 +53,23 @@ class Alert:NSObject{
         let alert = UIAlertController(title: "Remover Dados", message: "Essa opção irá apagar todos os seus dados (rastreios, conta de login, desse e dos demais dispositivos que você fez login com a sua conta (caso tenha feito), e também os apagará do servidor. Os dados serão removidos permanentemente sem opção de backup. Deseja prosseguir?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "enviar", style: .default) { (acao) in
             completion?(_textField?.text ?? "")
+            let user = Auth.auth().currentUser
+            user?.delete { error in
+                if let error = error {
+                    // An error happened.
+                } else {
+                    let vc:LoginViewController = LoginViewController()
+                    self.controller.navigationController?.pushViewController(vc, animated: false)
+                }
+            }
         }
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alert.addAction(cancel)
         alert.addAction(ok)
         self.controller.present(alert, animated: true, completion: nil)
     }
+    
+    
     
     func userAlertLogout(completion:((_ value:String) -> Void)? = nil){
         var _textField:UITextField?

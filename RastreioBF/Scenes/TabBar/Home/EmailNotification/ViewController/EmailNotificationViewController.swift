@@ -1,31 +1,31 @@
 //
 //  EmailNotificationViewController.swift
-//  ViewCodeProject
+//  MyProjectScreens
 //
-//  Created by Anderson Sales on 11/09/22.
+//  Created by Anderson Sales on 28/10/22.
 //
 
 import UIKit
 
 class EmailNotificationViewController: UIViewController {
     
-    var emailNotificationScreen: EmailNotificationView?
+    var emailNotificationView: EmailNotificationView?
     var alert: Alert?
     
     override func loadView() {
-        self.emailNotificationScreen = EmailNotificationView()
-        self.view = self.emailNotificationScreen
+        self.emailNotificationView = EmailNotificationView()
+        self.view = self.emailNotificationView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.emailNotificationScreen?.configTextFieldDelegate(delegate: self)
-        self.emailNotificationScreen?.delegate(delegate: self)
+        self.emailNotificationView?.configTextFieldDelegate(delegate: self)
+        self.emailNotificationView?.delegate(delegate: self)
         self.alert = Alert(controller: self)
-        self.emailNotificationScreen?.delegate = self
-        self.emailNotificationScreen?.emailErrorLabel.isHidden = true
+        self.emailNotificationView?.delegate = self
+        self.emailNotificationView?.emailErrorLabel.isHidden = true
         self.setupKeyboardHiding()
-
+        self.configTapGesture()
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -49,16 +49,12 @@ class EmailNotificationViewController: UIViewController {
         let isValidateEmail = validateEmail.evaluate(with: trimmedString)
         return isValidateEmail
     }
-    
-    
 }
 
 extension EmailNotificationViewController: UITextFieldDelegate {
     
-    
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.emailNotificationScreen?.validateTextFields()
+        self.emailNotificationView?.validateTextFields()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -70,10 +66,10 @@ extension EmailNotificationViewController: UITextFieldDelegate {
 extension EmailNotificationViewController: EmailNotificationViewProtocol{
     
     func didTapEmail() {
-        let text =  self.emailNotificationScreen?.emailTextField.text ?? ""
-        let label =  self.emailNotificationScreen?.emailErrorLabel
+        let text =  self.emailNotificationView?.emailTextField.text ?? ""
+        let label =  self.emailNotificationView?.emailErrorLabel
         
-        if text.isEmpty {
+        if text.isEmpty || text.hasPrefix(" ") {
             label?.text = "Por favor, insira seu e-mail"
             label?.isHidden = false
         } else if validateEmailId(emailID: text) == false {
@@ -89,7 +85,11 @@ extension EmailNotificationViewController: EmailNotificationViewProtocol{
     }
     
     func actionConfirmationButton() {
-        self.alert?.getAlert(titulo: "Tudo certo", mensagem: "Email cadastrado com sucesso!", completion: actionBackButton)
+        if checkEmailTextFieldIsnotEmpty(){
+            alert?.getAlert(titulo: "Tudo certo!", mensagem: "Email cadastrado com sucesso!", completion: actionBackButton)
+        } else {
+            alert?.getAlert(titulo: "Atenção!", mensagem: "Por favor insira um email para cadastro!")
+        }
     }
 }
 
@@ -105,16 +105,32 @@ extension EmailNotificationViewController {
         
         if textFieldBottomY > keyboardTopY {
             let textBoxY = convertedTextFieldFrame.origin.y
-            let newFrameY = (textBoxY - keyboardTopY / 1.3) * -1
+            let newFrameY = (textBoxY - keyboardTopY / 1.25) * -1
             view.frame.origin.y = newFrameY
         }
-
-        print("foo - userInfo: \(userInfo)")
-        print("foo - keyboardFrame: \(keyboardFrame)")
-        print("foo - currentTextField: \(currentTextField)")
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
           view.frame.origin.y = 0
       }
+    
+    func checkEmailTextFieldIsnotEmpty() -> Bool {
+        let text = emailNotificationView?.emailTextField.text ?? ""
+        
+        if text.isEmpty || text.hasPrefix(" "){
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    private func configTapGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap(){
+        view.endEditing(true)
+    }
 }
+

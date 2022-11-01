@@ -67,6 +67,15 @@ class ProductDetailTableViewCell: UITableViewCell {
         return label
     }()
     
+    lazy var productStatusImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleToFill
+        image.clipsToBounds = false
+        image.layer.cornerRadius = 15
+        image.image = UIImage(named: "done")
+        return image
+    }()
     
     private func configBackground(){
         self.backgroundColor = .red
@@ -100,6 +109,27 @@ class ProductDetailTableViewCell: UITableViewCell {
     public func setupCell( data: DataProduct){
         self.productNameLabel.text = data.productName
         self.codeTrakingLabel.text = data.codeTraking
+        self.productImageView.image = UIImage(named: data.productNameImage)
+        self.productDescriptionLabel.text = data.productDescription
+        self.productDateLabel.text = data.data
+        self.productTimeLabel.text = data.time
+       
+    }
+  
+//    public func setupCell2( data: DataDone){
+//        self.productNameLabel.text = data.productName
+//        self.codeTrakingLabel.text = data.codeTraking
+//        self.productImageView.image = UIImage(named: data.productNameImage)
+//        self.productDescriptionLabel.text = data.productDescription
+//        self.productStatusImage.image = UIImage(named: data.productStatusImage)
+//        self.productDateLabel.text = data.data
+//        self.productTimeLabel.text = data.time
+        
+   // }
+    
+    public func setupDetailCell( data: DataProduct){
+        self.productNameLabel.text = "Seu produto: \(data.productName)\n"
+        self.codeTrakingLabel.text = "Acompanhe pelo código:\(data.codeTraking)"
         self.productImageView.image = UIImage(named: data.productNameImage)
         self.productDescriptionLabel.text = data.productDescription
         self.productDateLabel.text = data.data

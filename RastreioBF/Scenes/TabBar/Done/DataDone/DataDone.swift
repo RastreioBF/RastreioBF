@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct DataDone{
-    var productName : String
-    var productNameImage: String
-    var codeTraking : String
-    var productDescription: String
-    var productStatusImage: String
-    var data: String
-    var time: String
-    
-}
+//struct DataDone{
+//    var productName : String
+//    var productNameImage: String
+//    var codeTraking : String
+//    var productDescription: String
+//    var productStatusImage: String
+//    var data: String
+//    var time: String
+//
+//}

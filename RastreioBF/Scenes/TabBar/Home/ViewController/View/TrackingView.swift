@@ -1,11 +1,12 @@
 //
-//  TrackingScreen.swift
-//  RastreioBF
+//  TrackingView.swift
+//  MyProjectScreens
 //
-//  Created by Jessica Bigal on 11/09/22.
+//  Created by Anderson Sales on 28/10/22.
 //
 
 import UIKit
+import Lottie
 
 protocol TrackingViewProtocol: AnyObject {
     func actionBackButton()
@@ -21,32 +22,6 @@ class TrackingView: UIView {
     func delegate(delegate: TrackingViewProtocol?){
         self.delegate = delegate
     }
-    
-//    lazy var backButton: UIButton = {
-//        let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.setImage(UIImage(named: "back"), for: .normal)
-//        button.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
-//        return button
-//    }()
-//
-//    lazy var trackingLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.font = UIFont.preferredFont(forTextStyle: .callout)
-//        label.font = .systemFont(ofSize: 25, weight: .semibold)
-//        label.text = "Novo Rastreio"
-//        label.textAlignment = .center
-//        return label
-//    }()
-//
-//    lazy var imageAddUser: UIImageView = {
-//        let image = UIImageView()
-//        image.translatesAutoresizingMaskIntoConstraints = false
-//        image.image = UIImage(named: "logoImage")
-//        image.contentMode = .scaleAspectFit
-//        return image
-//    }()
     
     lazy var instructionLabel: UILabel = {
         let label = UILabel()
@@ -77,6 +52,8 @@ class TrackingView: UIView {
         textField.backgroundColor = .white
         textField.borderStyle = .roundedRect
         textField.keyboardType = .default
+        textField.returnKeyType = UIReturnKeyType.continue
+        textField.tag = 0
         textField.placeholder = "Insira seu número de rastreio..."
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .darkGray
@@ -100,6 +77,8 @@ class TrackingView: UIView {
         textField.backgroundColor = .white
         textField.borderStyle = .roundedRect
         textField.keyboardType = .default
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.tag = 1
         textField.placeholder = "Insira uma descrição..."
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .darkGray
@@ -159,9 +138,6 @@ class TrackingView: UIView {
     }
     
     private func configSuperView(){
-//        self.addSubview(self.trackingLabel)
-//        self.addSubview(self.backButton)
-//        self.addSubview(self.imageAddUser)
         self.addSubview(self.instructionLabel)
         self.addSubview(self.trackingNumberLabel)
         self.addSubview(self.trackingNumberTextField)
@@ -171,7 +147,6 @@ class TrackingView: UIView {
         self.addSubview(self.emailNotificationSwitch)
         self.addSubview(self.sendNoticationToAnotherEmailButton)
         self.addSubview(self.submitButton)
-        
     }
         
     private func configBackground(){
@@ -203,20 +178,20 @@ class TrackingView: UIView {
         let trackingNumber: String = self.trackingNumberTextField.text ?? ""
         let description: String = self.descriptionTextField.text ?? ""
         
-        if !trackingNumber.isEmpty && !description.isEmpty {
-            self.configButtonEnabled(true)
-        } else{
+        if trackingNumber.isEmpty || description.isEmpty || trackingNumber.hasPrefix(" ") || description.hasPrefix(" ") {
             self.configButtonEnabled(false)
+        } else {
+            self.configButtonEnabled(true)
         }
     }
     
     private func configButtonEnabled(_ enable: Bool){
         if enable {
-            self.submitButton.setTitleColor(.lightGray, for: .normal)
-            self.submitButton.isEnabled = true
+            submitButton.setTitleColor(.white, for: .normal)
+            submitButton.isEnabled = true
         } else {
-            self.submitButton.setTitleColor(.white, for: .normal)
-            self.submitButton.isEnabled = false
+            submitButton.setTitleColor(.lightGray, for: .normal)
+            submitButton.isEnabled = false
         }
     }
     
@@ -227,55 +202,35 @@ class TrackingView: UIView {
     private func setUpConstraints(){
         NSLayoutConstraint.activate([
             
-//            self.trackingLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 5),
-//            self.trackingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-//            self.trackingLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-//            self.trackingLabel.heightAnchor.constraint(equalToConstant: 40),
-//
-//            self.backButton.topAnchor.constraint(equalTo: self.trackingLabel.topAnchor),
-//            self.backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-//
-//            self.imageAddUser.topAnchor.constraint(equalTo: self.trackingLabel.bottomAnchor, constant: 30),
-//            self.imageAddUser.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            self.imageAddUser.widthAnchor.constraint(equalToConstant: 100),
-//            self.imageAddUser.heightAnchor.constraint(equalToConstant: 100),
-            
-            self.instructionLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
+            self.instructionLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 80),
             self.instructionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             self.instructionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-//            self.instructionLabel.heightAnchor.constraint(equalToConstant: 40)
             
-            self.trackingNumberLabel.topAnchor.constraint(equalTo: self.instructionLabel.bottomAnchor, constant: 30),
+            self.trackingNumberLabel.topAnchor.constraint(equalTo: self.instructionLabel.bottomAnchor, constant: 50),
             self.trackingNumberLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.trackingNumberLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-//            self.trackingNumberLabel.heightAnchor.constraint(equalToConstant: 40),
             
             self.trackingNumberTextField.topAnchor.constraint(equalTo: self.trackingNumberLabel.bottomAnchor, constant: 5),
             self.trackingNumberTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.trackingNumberTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-//            self.trackingNumberTextField.heightAnchor.constraint(equalToConstant: 40),
             
             self.descriptionLabel.topAnchor.constraint(equalTo: self.trackingNumberTextField.bottomAnchor, constant: 10),
             self.descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-//            self.descriptionLabel.heightAnchor.constraint(equalToConstant: 40),
             
             self.descriptionTextField.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 5),
             self.descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-//            self.descriptionTextField.heightAnchor.constraint(equalToConstant: 40),
             
             self.getEmailNotificationLabel.topAnchor.constraint(equalTo: self.descriptionTextField.bottomAnchor, constant: 15),
             self.getEmailNotificationLabel.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),
             self.getEmailNotificationLabel.trailingAnchor.constraint(equalTo: self.descriptionTextField.trailingAnchor),
-//            self.getEmailNotificationLabel.heightAnchor.constraint(equalTo: self.emailNotificationSwitch.heightAnchor),
             
             self.emailNotificationSwitch.topAnchor.constraint(equalTo: self.getEmailNotificationLabel.topAnchor),
             self.emailNotificationSwitch.trailingAnchor.constraint(equalTo: self.descriptionTextField.trailingAnchor),
             
             self.sendNoticationToAnotherEmailButton.topAnchor.constraint(equalTo: self.getEmailNotificationLabel.bottomAnchor, constant: 0),
             self.sendNoticationToAnotherEmailButton.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),
-//            self.sendNoticationToAnotherEmailButton.trailingAnchor.constraint(equalTo: self.descriptionTextField.trailingAnchor),
             
             self.submitButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.submitButton.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),
