@@ -60,16 +60,16 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
     }
     
     func signIn(sender: Any) {
-      GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-        guard error == nil else { return }
-          
-          let vc: MainTabBarController = MainTabBarController()
-          self.navigationController?.pushViewController(vc, animated: false)
-      }
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+            guard error == nil else { return }
+            
+            let vc: MainTabBarController = MainTabBarController()
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
     }
     
     func signOut(sender: Any) {
-      GIDSignIn.sharedInstance.signOut()
+        GIDSignIn.sharedInstance.signOut()
     }
     
     
@@ -78,13 +78,17 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    private var authUser : User? {
+        return Auth.auth().currentUser
+    }
+    
     func actionLoginButton() {
         
         let email = self.loginScreen?.emailTextField.text ?? ""
         let password = self.loginScreen?.passwordTextField.text ?? ""
-
+        
         guard let login = self.loginScreen else {return}
-
+        
         if email.isEmpty || password.isEmpty {
             self.loginScreen?.loginErrorLabel.text = "Todos os campos devem ser preenchidos"
             self.loginScreen?.loginErrorLabel.isHidden = false
@@ -93,25 +97,22 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
                 if error != nil{
                     self.loginScreen?.loginErrorLabel.text = "Dados incorretos, verifique e tente novamente!"
                     self.loginScreen?.loginErrorLabel.isHidden = false
+                } else if !Auth.auth().currentUser!.isEmailVerified {
+                    self.alert?.getAlertActions(titulo: "Atenção", mensagem: "E-mail não verificado, caso tenha feito o sign in, por favor verifique seu e-mail. Gostaria que um novo e-mail seja enviado?", completion: {
+                        self.authUser!.sendEmailVerification(completion: { (error) in
+                            // Notify the user that the mail has sent or couldn't because of an error.
+                        })
+                    })
+                } else if usuario == nil{
+                    self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
                 }else{
-
-                    if usuario == nil{
-                        self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
-                    }else{
-                        let vc: MainTabBarController = MainTabBarController()
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
-                }
-            })
-
+                            print("new user")
+                            let vc: MainTabBarController = MainTabBarController()
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                })
         }
     }
-    
-    
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        self.loginScreen?.validaTextFields()
-//        print("textFieldBeginEditing")
-//    }
     
     //Cria o metodo que ira baixar o teclado ao clicar em "done"
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -124,9 +125,9 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
         return false
     }
     
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        print("textFielEndEditing")
-//    }
+    //    func textFieldDidEndEditing(_ textField: UITextField) {
+    //        print("textFielEndEditing")
+    //    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -170,37 +171,7 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
     
 }
 
-//endereca o delegate do UITextField para a ViewController
-//extension LoginViewController:UITextFieldDelegate{
-//
-//
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        self.loginScreen?.validaTextFields()
-//        print("textFieldBeginEditing")
-//    }
-//
-//    //Cria o metodo que ira baixar o teclado ao clicar em "done"
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        switch textField {
-//        case self.loginScreen?.emailTextField:
-//            self.loginScreen?.passwordTextField.becomeFirstResponder()
-//        default:
-//            textField.resignFirstResponder()
-//        }
-//        return false
-//    }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        print("textFielEndEditing")
-//    }
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
-//
-//}
-
-extension String{
+extension String {
     
     public func validaPhoneNumber(phoneNumber: String) -> Bool {
         //      let phoneNumberRegex = "^[6-9]\d{9}$"
@@ -210,7 +181,7 @@ extension String{
         let isValidPhone = validatePhone.evaluate(with: trimmedString)
         return isValidPhone
     }
-  
+    
     public func validatePassword(password: String) -> Bool {
         //Minimum 8 characters at least 1 Alphabet and 1 Number:
         //      let passRegEx = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
@@ -244,13 +215,13 @@ extension LoginViewController {
             let newFrameY = (textBoxY - keyboardTopY / 1.7) * -1
             view.frame.origin.y = newFrameY
         }
-
+        
         print("foo - userInfo: \(userInfo)")
         print("foo - keyboardFrame: \(keyboardFrame)")
         print("foo - currentTextField: \(currentTextField)")
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-          view.frame.origin.y = 0
-      }
+        view.frame.origin.y = 0
+    }
 }

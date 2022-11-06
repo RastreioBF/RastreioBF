@@ -247,7 +247,6 @@ extension SignUpViewController: SignUpViewProtocol {
     
     func registerUser(userUsername userName:String, userEmail email:String, userPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
         
-        
         let user = Auth.auth().currentUser
         if let user = user {
             let uid = user.uid
@@ -257,6 +256,22 @@ extension SignUpViewController: SignUpViewProtocol {
                 multiFactorString += info.displayName ?? "[\(String(describing: self.signUpScreen?.nameTextField.text))]"
                 multiFactorString += " "
             }
+        }
+    }
+    
+    //Checks e-mail
+    private var authUser : User? {
+        return Auth.auth().currentUser
+    }
+
+    public func sendVerificationMail() {
+        if self.authUser != nil && !self.authUser!.isEmailVerified {
+            self.authUser!.sendEmailVerification(completion: { (error) in
+                // Notify the user that the mail has sent or couldn't because of an error.
+            })
+        }
+        else {
+            // Either the user is not available, or the user is already verified.
         }
     }
     
@@ -276,24 +291,38 @@ extension SignUpViewController: SignUpViewProtocol {
         
         if nameError == true && surnameError == true && emailError == true && passwordError == true && confPassError == true && !nameText.isEmpty &&  !surnameText.isEmpty && !emailText.isEmpty && !passwordText.isEmpty && !confirmPasswordText.isEmpty {
             
-            self.alert?.getAlert(titulo: "Parabéns",
-                                 mensagem: "Cadastro efetuado com sucesso!",
-                                 completion: {
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            )
-            guard let register = self.signUpScreen else {return}
-            self.auth?.createUser(withEmail: register.getEmail(), password: register.getPassword(), completion: { (result, error) in
+            if let email = self.signUpScreen?.emailTextField.text , let password = self.signUpScreen?.passwordTextField.text {
 
-                if error != nil{
-                    self.alert?.getAlert(titulo: "Atenção", mensagem: "Erro ao cadastrar")
-                }else{
-                    self.alert?.getAlert(titulo: "Parabens", mensagem: "Usuario cadastrado com sucesso", completion: {
-                        let vc:DemoViewController = DemoViewController()
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    })
-                }
+                   Auth.auth().createUser(withEmail: email, password: password, completion: { user, error in
+
+                       if let firebaseError = error {
+                           print(firebaseError.localizedDescription)
+                           return
+                       }
+
+                       self.sendVerificationMail()
+                   })
+            }
+            
+            self.alert?.getAlert(titulo: "Parabéns",
+                                 mensagem: "Um e-mail de confirmacao foi enviado para ativacao da sua conta",
+                                 completion: {
+                let vc:LoginViewController = LoginViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
             })
+//            guard let register = self.signUpScreen else {return}
+//            self.auth?.createUser(withEmail: register.getEmail(), password: register.getPassword(), completion: { (result, error) in
+//
+//                if error != nil{
+//                    self.alert?.getAlert(titulo: "Atenção", mensagem: "Erro ao cadastrar")
+//                }else{
+//                    self.alert?.getAlert(titulo: "Parabens", mensagem: "Usuario cadastrado com sucesso", completion: {
+//                        let vc:DemoViewController = DemoViewController()
+//                        self.navigationController?.pushViewController(vc, animated: true)
+//                    })
+//                }
+//            })
+            
         } else {
             self.alert?.getAlert(titulo: "Atenção", mensagem: "Todos os campos devem estar preenchidos corretamente")
         }

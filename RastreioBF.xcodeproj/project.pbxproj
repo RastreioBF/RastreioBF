@@ -712,6 +712,8 @@
 			dependencies = (
 			);
 			name = RastreioBF;
+			packageProductDependencies = (
+			);
 			productName = RastreioBF;
 			productReference = 0974F62A28CB77A7004E8716 /* RastreioBF.app */;
 			productType = "com.apple.product-type.application";
@@ -740,6 +742,8 @@
 				Base,
 			);
 			mainGroup = 0974F62128CB77A6004E8716;
+			packageReferences = (
+			);
 			productRefGroup = 0974F62B28CB77A7004E8716 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
