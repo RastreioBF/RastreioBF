@@ -6,13 +6,11 @@
 //
 
 import UIKit
-
-import UIKit
 import FirebaseAuth
 import GoogleSignIn
 
 class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDelegate {
-   
+    
     var auth:Auth?
     var loginScreen:LoginView?
     var alert:Alert?
@@ -37,7 +35,7 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
         self.loginScreen?.emailTextField.delegate = self
         self.loginScreen?.passwordTextField.delegate = self
         self.setupKeyboardHiding()
-
+        
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -63,8 +61,8 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
             guard error == nil else { return }
             
-            let vc: MainTabBarController = MainTabBarController()
-            self.navigationController?.pushViewController(vc, animated: false)
+            let vc: DemoViewController = DemoViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -106,11 +104,16 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
                 } else if usuario == nil{
                     self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
                 }else{
-                            print("new user")
-                            let vc: MainTabBarController = MainTabBarController()
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
-                })
+                    if (self.auth?.currentUser?.metadata.creationDate == self.auth?.currentUser?.metadata.lastSignInDate
+                    ) {
+                        let vc: DemoViewController = DemoViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    } else {
+                        let vc: MainTabBarController = MainTabBarController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            })
         }
     }
     
@@ -125,18 +128,13 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
         return false
     }
     
-    //    func textFieldDidEndEditing(_ textField: UITextField) {
-    //        print("textFielEndEditing")
-    //    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     func actionGoogleButton() {
-        let vc: SignUpViewController = SignUpViewController()
+        let vc: DemoViewController = DemoViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-        //        self.validationFields()
     }
     
     func actionSignUpButton() {
