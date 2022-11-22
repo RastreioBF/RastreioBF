@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Foundation
 
 class ProductDetailTableViewCell: UITableViewCell {
     
     static let identifier : String = "ProductDetailTableViewCell"
+//    var viewModel: WarningCellViewModel?
     
     lazy var  productImageView : UIImageView = {
         let image = UIImageView()
@@ -166,5 +168,31 @@ class ProductDetailTableViewCell: UITableViewCell {
             
             
         ])
+    }
+    
+    func prepareCell(model: Evento, model2: UnidadeEndereco) {
+//        self.viewModel = WarningCellViewModel(object: model, test: model2)
+//        self.productDateLabel.text = viewModel?.descricao ?? ""
+//        self.codeTrakingLabel.text = viewModel?.unidade
+//        var dataFormatada = viewModel?.data.replacingOccurrences(of: "-", with: "/")
+//
+//        self.productDateLabel.text = dataFormatada
+//        self.productDescriptionLabel.text = viewModel!.cidade + "-" + (viewModel?.uf ?? "")
+
+//        DispatchQueue.global().async {
+//            if let imageUrl = URL(string: "https://proxyapp.correios.com.br" + (self.viewModel!.image)) {
+//                do {
+//                    let data = try Data(contentsOf: imageUrl)
+//                    let img = UIImage(data: data)
+//                    DispatchQueue.main.async {
+//                        self.productImageView.image = img
+//                    }
+//                } catch {
+//                    print("Error")
+//                }
+//            }
+//        }
+        
+        
     }
 }

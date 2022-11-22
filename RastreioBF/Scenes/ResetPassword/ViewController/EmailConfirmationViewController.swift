@@ -8,27 +8,37 @@
 import UIKit
 import FirebaseAuth
 
-class EmailConfirmationViewController: UIViewController, EmailConfirmationScreenProtocol, UITextFieldDelegate {
+class EmailConfirmationViewController: UIViewController, UITextFieldDelegate {
     
     var auth:Auth?
     var emailConfirmationScreen:EmailConfirmationScreen?
     var alert:Alert?
     
+    let viewModel: EmailConfirmationViewModelProtocol
+    
     override func loadView() {
         self.emailConfirmationScreen = EmailConfirmationScreen()
-        self.view = self.emailConfirmationScreen
+        view = self.emailConfirmationScreen
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.emailConfirmationScreen?.delegate(delegate: self)
-        self.emailConfirmationScreen?.emailErrorLabel.isHidden = true
+        emailConfirmationScreen?.delegate = self
+        emailConfirmationScreen?.emailErrorLabel.isHidden = true
         //coloca a responsabilidade do delegate na viewController
-        //        self.emailConfirmationScreen?.configTextFieldDelegate(delegate: self)
-        self.auth = Auth.auth()
-        self.alert = Alert(controller: self)
-        self.emailConfirmationScreen?.emailTextField.delegate = self
-        self.setupKeyboardHiding()
+        auth = Auth.auth()
+        alert = Alert(controller: self)
+        emailConfirmationScreen?.emailTextField.delegate = self
+        setupKeyboardHiding()
         
+    }
+    
+    init(viewModel: EmailConfirmationViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupKeyboardHiding() {
@@ -136,4 +146,22 @@ extension EmailConfirmationViewController {
     @objc func keyboardWillHide(notification: NSNotification) {
           view.frame.origin.y = 0
       }
+}
+
+extension EmailConfirmationViewController: EmailConfirmationScreenDelegate {
+    func actionGoBackTapped() {
+        viewModel.actionGoBack()
+    }
+    
+    func actionGoToCodeButtonTapped() {
+        viewModel.actionGoToCodeButton()
+    }
+    
+    func didTapEmailTapped() {
+        viewModel.didTapEmail()
+    }
+    
+    func actionSignUpButtonTapped() {
+        viewModel.actionSignUpButton()
+    }
 }

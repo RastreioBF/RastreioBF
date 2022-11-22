@@ -143,8 +143,11 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
     }
     
     func actionForgotPassword() {
-        let vc:EmailConfirmationViewController = EmailConfirmationViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let coordinator = EmailConfirmationCoordinator(
+            navigationController: self.navigationController ?? UINavigationController()
+        )
+        coordinator.start()
         
     }
     

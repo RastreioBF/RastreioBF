@@ -10,22 +10,11 @@ import Lottie
 import UIKit.UITextField
 import Foundation
 
-protocol EmailConfirmationScreenProtocol: AnyObject{
-    func actionGoToCodeButton()
-    func actionSignUpButton()
-    func didTapEmail()
-    func actionGoBack()
-}
-
 class EmailConfirmationScreen: UIView {
 
     // MARK: - Delegate
     private var shouldFocusLink: Bool = false
-    weak var delegate:EmailConfirmationScreenProtocol?
-    
-    func delegate(delegate:EmailConfirmationScreenProtocol?) {
-        self.delegate = delegate
-    }
+    var delegate: EmailConfirmationScreenDelegate?
     
     // MARK: - UI Properties
     
@@ -135,23 +124,23 @@ class EmailConfirmationScreen: UIView {
     }
     
     @objc
-    private func tappedBack(){
-        self.delegate?.actionGoBack()
+    private func tappedBack() {
+        self.delegate?.actionGoBackTapped()
     }
     
     @objc
-    private func tappedEmail(){
-        self.delegate?.didTapEmail()
+    private func tappedEmail() {
+        self.delegate?.didTapEmailTapped()
     }
     
     @objc
-    func tappedConfirmCodeButton(){
-        self.delegate?.actionGoToCodeButton()
+    func tappedConfirmCodeButton() {
+        self.delegate?.actionGoToCodeButtonTapped()
     }
     
     @objc
     private func tappedRegisterButton() {
-        self.delegate?.actionSignUpButton()
+        self.delegate?.actionSignUpButtonTapped()
     }
     
     func configSuperView(){
@@ -269,4 +258,3 @@ class EmailConfirmationScreen: UIView {
         registerLabel.attributedText = baseString
     }
 }
-

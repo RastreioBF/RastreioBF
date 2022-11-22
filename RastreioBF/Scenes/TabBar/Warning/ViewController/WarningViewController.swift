@@ -13,6 +13,7 @@ class WarningViewController: UIViewController {
     //Aqui voce apresenta sua screen para a viewController
     var warningScreen: WarningScreen?
     //var newData: DataProduct?
+//    var viewModel: WarningCellViewModel?
     
     static var data : [DataProduct] = [DataProduct(
         productName: "Playstation 5",
