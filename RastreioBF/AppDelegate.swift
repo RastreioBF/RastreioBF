@@ -13,6 +13,8 @@ import FirebaseCore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate{
 
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         UINavigationBar.appearance().customNavigationBar()
@@ -24,6 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
               // Show the app's signed-in state.
             }
           }
+        
+        
+        let navVC = UINavigationController()
+        
+        let coordinator = MainCoordinator()
+        coordinator.navigationController = navVC
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = navVC
+        window.makeKeyAndVisible()
+        self.window = window
+        
+        coordinator.start()
         
         return true
     }

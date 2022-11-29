@@ -10,10 +10,8 @@ target 'RastreioBF' do
   pod 'lottie-ios'
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
-  pod 'FirebaseFirestore'
   pod 'GoogleSignIn'
   pod 'FirebaseCore'
   pod 'Firebase/Core'
-  pod 'SwiftLint'
   
 end

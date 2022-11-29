@@ -8,8 +8,9 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate, Coordinating {
     
+    var coordinator: Coordinator?
     var signUpScreen: SignUpView?
     var auth:Auth?
     var alert:Alert?
@@ -334,8 +335,7 @@ extension SignUpViewController: SignUpViewProtocol {
     }
     
     func actionGoToLoginButton() {
-        let vc:LoginViewController = LoginViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        coordinator?.eventOcurred(with: .goBackTapped)
     }
 }
 

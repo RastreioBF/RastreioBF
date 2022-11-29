@@ -20,18 +20,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
         }
         
-        //Cria a tela
+        let navVC = UINavigationController()
+        
+        let coordinator = MainCoordinator()
+        coordinator.navigationController = navVC
+        
         let window = UIWindow(windowScene: windowScene)
-        //Cria vc com propriedades da ViewController
-        let vc: LoginViewController = LoginViewController()
-        //Defini a viewController raiz, quando temos uma navigation, precisamos ter os pontos de partida
-        let navVC = UINavigationController(rootViewController: vc)
-        //acessa a window e identificamos que a rootViewController eh a navVC
         window.rootViewController = navVC
-        //faz com que a tela apareca, habilita a tela
         window.makeKeyAndVisible()
-        //Realizamos a utilizacao dela, realizando a uitlizacao do window criado
         self.window = window
+        
+        coordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

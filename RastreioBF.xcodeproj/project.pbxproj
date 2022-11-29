@@ -14,6 +14,8 @@
 		0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0937E43328CFD58400920D18 /* UIResponder+Utils.swift */; };
 		093F937F2926DC9C00DA697B /* RastreioBFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F937E2926DC9C00DA697B /* RastreioBFService.swift */; };
 		093F93812926DD0D00DA697B /* ModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93802926DD0D00DA697B /* ModelService.swift */; };
+		093F93D6292D7FB700DA697B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93D5292D7FB700DA697B /* Coordinator.swift */; };
+		093F93D9292D81C200DA697B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93D8292D81C200DA697B /* MainCoordinator.swift */; };
 		094E247528CE85B300C6DDC8 /* email-sent.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247428CE85B300C6DDC8 /* email-sent.json */; };
 		094E247928CE87A800C6DDC8 /* email-with-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247828CE87A700C6DDC8 /* email-with-blue.json */; };
 		094E247B28CE881400C6DDC8 /* receiveEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247A28CE881400C6DDC8 /* receiveEmail.json */; };
@@ -83,6 +85,8 @@
 		0937E43328CFD58400920D18 /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
 		093F937E2926DC9C00DA697B /* RastreioBFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioBFService.swift; sourceTree = "<group>"; };
 		093F93802926DD0D00DA697B /* ModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelService.swift; sourceTree = "<group>"; };
+		093F93D5292D7FB700DA697B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		093F93D8292D81C200DA697B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		094E247428CE85B300C6DDC8 /* email-sent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-sent.json"; sourceTree = "<group>"; };
 		094E247828CE87A700C6DDC8 /* email-with-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-with-blue.json"; sourceTree = "<group>"; };
 		094E247A28CE881400C6DDC8 /* receiveEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = receiveEmail.json; sourceTree = "<group>"; };
@@ -195,6 +199,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		093F93D7292D7FC600DA697B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				093F93D5292D7FB700DA697B /* Coordinator.swift */,
+				093F93D8292D81C200DA697B /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		094E246428CE6D5900C6DDC8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +312,7 @@
 		0974F62C28CB77A7004E8716 /* RastreioBF */ = {
 			isa = PBXGroup;
 			children = (
+				093F93D7292D7FC600DA697B /* Coordinator */,
 				090D841A28D33DD900198D69 /* Service */,
 				0974F64128CB786D004E8716 /* Assets */,
 				099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */,
@@ -907,9 +921,11 @@
 				098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */,
 				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,
 				0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */,
+				093F93D6292D7FB700DA697B /* Coordinator.swift in Sources */,
 				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,
 				093F937F2926DC9C00DA697B /* RastreioBFService.swift in Sources */,
 				099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */,
+				093F93D9292D81C200DA697B /* MainCoordinator.swift in Sources */,
 				090D841928D32E1900198D69 /* WarningScreen.swift in Sources */,
 				3A163B0F29117046005A93AA /* MenuScreenVC.swift in Sources */,
 				3A163B0429117046005A93AA /* CadastroVC.swift in Sources */,

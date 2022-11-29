@@ -9,8 +9,8 @@ import UIKit
 import FirebaseAuth
 import GoogleSignIn
 
-class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDelegate {
-    
+class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDelegate, Coordinating {
+    var coordinator: Coordinator?
     var auth:Auth?
     var loginScreen:LoginView?
     var alert:Alert?
@@ -138,8 +138,9 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
     }
     
     func actionSignUpButton() {
-        let vc: SignUpViewController = SignUpViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc: SignUpViewController = SignUpViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+        coordinator?.eventOcurred(with: .buttonTapped)
     }
     
     func actionForgotPassword() {

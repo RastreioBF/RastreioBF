@@ -8,8 +8,10 @@
 import Foundation
 import UIKit
 
-class EmailConfirmationCoordinator: EmailConfirmationCoordinatorProtocol {
+class EmailConfirmationCoordinator: EmailConfirmationCoordinatorProtocol, Coordinating {
     
+    var coordinator: Coordinator?
+    var coordinations: MainCoordinator?
     var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -28,8 +30,10 @@ class EmailConfirmationCoordinator: EmailConfirmationCoordinatorProtocol {
     }
     
     func actionSignUpButton() {
-        let vc: SignUpViewController = SignUpViewController()
-        self.navigationController.pushViewController(vc, animated: true)
+//        let vc: SignUpViewController = SignUpViewController()
+//        self.navigationController.pushViewController(vc, animated: true)
+        coordinator?.eventOcurred(with: .buttonTapped)
+//        coordinations?.eventOcurred(with: .buttonTapped)
     }
     
     func actionGoToCodeButton() {
