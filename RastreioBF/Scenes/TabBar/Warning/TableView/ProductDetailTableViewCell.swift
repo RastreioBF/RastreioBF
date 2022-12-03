@@ -85,8 +85,6 @@ class ProductDetailTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview()
@@ -134,7 +132,6 @@ class ProductDetailTableViewCell: UITableViewCell {
         self.productDescriptionLabel.text = data.productDescription
         self.productDateLabel.text = data.data
         self.productTimeLabel.text = data.time
-       
     }
     
     func setupConstraints(){
@@ -156,15 +153,11 @@ class ProductDetailTableViewCell: UITableViewCell {
             self.productDescriptionLabel.leadingAnchor.constraint(equalTo: self.productImageView.trailingAnchor, constant: 10),
             self.productDescriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             
-            
             self.productDateLabel.topAnchor.constraint(equalTo: self.productImageView.bottomAnchor),
             self.productDateLabel.leadingAnchor.constraint(equalTo: self.productImageView.leadingAnchor),
             
             self.productTimeLabel.topAnchor.constraint(equalTo: self.productDescriptionLabel.bottomAnchor ),
             self.productTimeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            
-            
-            
         ])
     }
 }

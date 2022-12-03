@@ -11,8 +11,12 @@ class TrackingViewController: UIViewController {
     
     var trackingView: TrackingView?
     var alert: Alert?
-    var newData: DataProduct?
     var warningViewController: WarningViewController?
+    
+    var warningDataVM = WarningViewControllerViewModel()
+    var doneDataVM = DoneViewControllerViewModel()
+    var pendingDataVM  = PendenciesViewControllerViewModel()
+    var dataProductVM = TrackingViewControllerViewModel()
     
     override func loadView() {
         self.trackingView = TrackingView()
@@ -66,12 +70,18 @@ extension TrackingViewController: TrackingViewProtocol{
     }
     
     func actionSubmitButton() {
-        // FUncao disparada quando o botao salvar é acionado
+        // Funcao disparada quando o botao salvar é acionado
         if checkTextFieldsAreNotEmpty() {
             
-            self.newData = DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", data: "01/11/2022", time: "20:30")
-            let viewController = WarningViewController()
-            viewController.insertRows(data: newData)
+            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", data: "01/11/2022", time: "20:30", status: ""))
+            
+            if dataProductVM.getStatus(index: dataProductVM.dataArraySize-1) == "done" {
+                doneDataVM.setupDataProduct(data: dataProductVM.getLastData()!)
+            } else if dataProductVM.getStatus(index: dataProductVM.dataArraySize-1) == "pending" {
+                    pendingDataVM.setupDataProduct(data: dataProductVM.getLastData()!)
+            } else {
+                warningDataVM.setupDataProduct(data: dataProductVM.getLastData()!)
+            }
             
             self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!")
             self.trackingView?.trackingNumberTextField.text = ""
@@ -97,5 +107,3 @@ extension TrackingViewController: TrackingViewProtocol{
         return true
     }
 }
-
-
