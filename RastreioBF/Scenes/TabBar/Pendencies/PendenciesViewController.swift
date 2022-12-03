@@ -50,7 +50,7 @@ class PendenciesViewController: UIViewController {
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return dataProductVM.dataArraySize
+            return dataProductVM.dataArraySize == 0 ? 1 : dataProductVM.dataArraySize
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

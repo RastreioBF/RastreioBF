@@ -10,6 +10,7 @@ import Foundation
 class PendenciesViewControllerViewModel {
     
     private static var data : [DataProduct] = []
+    private static var emptyData: [DataProduct] = [DataProduct(productName: "Sem dados ainda", productNameImage: "avisos", codeTraking: "N/A", productDescription: "Sem descrição", date: "DD/MM/AAAA", time: "HH:MM", status: "Desconhecido")]
     
     func getLastData() -> DataProduct? {
         return PendenciesViewControllerViewModel.data.last
@@ -20,7 +21,11 @@ class PendenciesViewControllerViewModel {
     }
     
     func getDataProduct(indexPath: IndexPath) -> DataProduct {
-        return PendenciesViewControllerViewModel.data[indexPath.row]
+        if dataArraySize == 0 {
+            return PendenciesViewControllerViewModel.emptyData[indexPath.row]
+        } else {
+            return PendenciesViewControllerViewModel.data[indexPath.row]
+        }
     }
     
     var dataArraySize: Int {

@@ -10,6 +10,7 @@ import Foundation
 class WarningViewControllerViewModel {
     
     private static var data : [DataProduct] = []
+    private static var emptyData: [DataProduct] = [DataProduct(productName: "Sem dados ainda", productNameImage: "avisos", codeTraking: "N/A", productDescription: "Sem descrição", date: "DD/MM/AAAA", time: "HH:MM", status: "Desconhecido")]
     
     func getLastData() -> DataProduct? {
         return WarningViewControllerViewModel.data.last
@@ -20,7 +21,11 @@ class WarningViewControllerViewModel {
     }
     
     func getDataProduct(indexPath: IndexPath) -> DataProduct {
-        return WarningViewControllerViewModel.data[indexPath.row]
+        if dataArraySize == 0 {
+            return WarningViewControllerViewModel.emptyData[indexPath.row]
+        } else {
+            return WarningViewControllerViewModel.data[indexPath.row]
+        }
     }
     
     var dataArraySize: Int {

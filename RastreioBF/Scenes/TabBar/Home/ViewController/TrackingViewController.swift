@@ -69,7 +69,7 @@ extension TrackingViewController: TrackingViewProtocol{
         // Funcao disparada quando o botao salvar é acionado
         if checkTextFieldsAreNotEmpty() {
             
-            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", data: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
+            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
             
             dataProductVM.populateCorrectArray(data: dataProductVM.getLastData())
      

@@ -109,7 +109,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         self.codeTrakingLabel.text = data.codeTraking
         self.productImageView.image = UIImage(named: data.productNameImage)
         self.productDescriptionLabel.text = data.productDescription
-        self.productDateLabel.text = data.data
+        self.productDateLabel.text = data.date
         self.productTimeLabel.text = data.time
        
     }
@@ -130,7 +130,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         self.codeTrakingLabel.text = "Acompanhe pelo código:\(data.codeTraking)"
         self.productImageView.image = UIImage(named: data.productNameImage)
         self.productDescriptionLabel.text = data.productDescription
-        self.productDateLabel.text = data.data
+        self.productDateLabel.text = data.date
         self.productTimeLabel.text = data.time
     }
     

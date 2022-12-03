@@ -9,7 +9,8 @@ import Foundation
 
 class DoneViewControllerViewModel {
     
-    private static var data : [DataProduct] = []
+    private static var data: [DataProduct] = []
+    private static var emptyData: [DataProduct] = [DataProduct(productName: "Sem dados ainda", productNameImage: "avisos", codeTraking: "N/A", productDescription: "Sem descrição", date: "DD/MM/AAAA", time: "HH:MM", status: "Desconhecido")]
     
     func getLastData() -> DataProduct? {
         return DoneViewControllerViewModel.data.last
@@ -20,7 +21,11 @@ class DoneViewControllerViewModel {
     }
     
     func getDataProduct(indexPath: IndexPath) -> DataProduct {
-        return DoneViewControllerViewModel.data[indexPath.row]
+        if dataArraySize == 0 {
+            return DoneViewControllerViewModel.emptyData[indexPath.row]
+        } else {
+            return DoneViewControllerViewModel.data[indexPath.row]
+        }
     }
     
     var dataArraySize: Int {
