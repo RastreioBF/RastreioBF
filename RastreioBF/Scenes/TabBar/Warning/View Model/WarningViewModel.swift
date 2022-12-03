@@ -10,7 +10,7 @@ import Foundation
 class WarningViewControllerViewModel {
     
     private static var data : [DataProduct] = []
-    private static var emptyData: [DataProduct] = [DataProduct(productName: "Sem dados ainda", productNameImage: "avisos", codeTraking: "N/A", productDescription: "Sem descrição", date: "DD/MM/AAAA", time: "HH:MM", status: "Desconhecido")]
+    private static var emptyData: [DataProduct] = [DataProduct(productName: "Sem dados ainda", productNameImage: "avisos", codeTraking: "N/A", productDescription: "Sem descrição", date: "N/A", time: "N/A", status: "Desconhecido")]
     
     func getLastData() -> DataProduct? {
         return WarningViewControllerViewModel.data.last

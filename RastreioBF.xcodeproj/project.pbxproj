@@ -46,9 +46,6 @@
 		099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */; };
 		099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */; };
 		099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */; };
-		09EAB3FD28D76D3400968827 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FC28D76D3400968827 /* DoneView.swift */; };
-		09EAB40028D76EF200968827 /* DataDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FF28D76EF200968827 /* DataDone.swift */; };
-		09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB40328D76F9900968827 /* DoneTableViewCell.swift */; };
 		3A163B0029117046005A93AA /* DescricaoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A163AE029117046005A93AA /* DescricaoScreen.swift */; };
 		3A163B0129117046005A93AA /* DescricaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A163AE129117046005A93AA /* DescricaoVC.swift */; };
 		3A163B0229117046005A93AA /* MovimentacaoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A163AE329117046005A93AA /* MovimentacaoScreen.swift */; };
@@ -116,9 +113,6 @@
 		099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesViewController.swift; sourceTree = "<group>"; };
 		099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
-		09EAB3FC28D76D3400968827 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
-		09EAB3FF28D76EF200968827 /* DataDone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDone.swift; sourceTree = "<group>"; };
-		09EAB40328D76F9900968827 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
 		2BD18B210BED5A4DEC4ED84E /* Pods-RastreioBF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RastreioBF.release.xcconfig"; path = "Target Support Files/Pods-RastreioBF/Pods-RastreioBF.release.xcconfig"; sourceTree = "<group>"; };
 		3A163AE029117046005A93AA /* DescricaoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescricaoScreen.swift; sourceTree = "<group>"; };
 		3A163AE129117046005A93AA /* DescricaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescricaoVC.swift; sourceTree = "<group>"; };
@@ -174,19 +168,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0918AD4A28D696F300E95DFB /* Screen */ = {
+		0918AD4A28D696F300E95DFB /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				3A3FC2AB2910A98800C12F47 /* DetailScreen.swift */,
 				090D841828D32E1900198D69 /* WarningScreen.swift */,
 			);
-			path = Screen;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0918AD4B28D6970E00E95DFB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6CFFA7B8293B9122006DAF62 /* View Model */,
 				099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */,
 			);
 			path = ViewController;
@@ -195,7 +188,6 @@
 		094E246428CE6D5900C6DDC8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6CFFA7BE293BBC52006DAF62 /* View Model */,
 				098B467C28CECB1E009D08A4 /* TrackingViewController.swift */,
 			);
 			name = ViewController;
@@ -212,8 +204,9 @@
 		094E246828CE718D00C6DDC8 /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				094E246428CE6D5900C6DDC8 /* ViewController */,
 				094E246528CE6D6200C6DDC8 /* View */,
+				094E246428CE6D5900C6DDC8 /* ViewController */,
+				6CFFA7BE293BBC52006DAF62 /* View Model */,
 			);
 			name = Tracking;
 			path = ViewController;
@@ -244,12 +237,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		096CA8E328D5525A00C459B0 /* TableView */ = {
+		096CA8E328D5525A00C459B0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */,
 			);
-			path = TableView;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0974F62128CB77A6004E8716 = {
@@ -444,6 +437,8 @@
 				099BCCA928CB8B6B000DFDE6 /* Pendencies */,
 				099BCC9D28CB8A20000DFDE6 /* MainTabBar */,
 				099BCCAC28CB8BAD000DFDE6 /* Warning */,
+				096CA8E328D5525A00C459B0 /* Cell */,
+				0918AD4928D696E600E95DFB /* Model */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -451,7 +446,7 @@
 		099BCC9D28CB8A20000DFDE6 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */,
+				6CFFA7C5293BFFCF006DAF62 /* View Controller */,
 			);
 			path = MainTabBar;
 			sourceTree = "<group>";
@@ -459,10 +454,8 @@
 		099BCCA028CB8A9D000DFDE6 /* Done */ = {
 			isa = PBXGroup;
 			children = (
-				09EAB40228D76F4C00968827 /* TableView */,
-				09EAB3FE28D76ECE00968827 /* DataDone */,
 				09EAB3FB28D76D0F00968827 /* ViewController */,
-				09EAB3FA28D76CF200968827 /* DoneScreen */,
+				6CFFA7C1293BBCC2006DAF62 /* View Model */,
 			);
 			path = Done;
 			sourceTree = "<group>";
@@ -479,8 +472,8 @@
 		099BCCA928CB8B6B000DFDE6 /* Pendencies */ = {
 			isa = PBXGroup;
 			children = (
+				6CFFA7C4293BFF56006DAF62 /* View Controller */,
 				6CFFA7BB293BBC1E006DAF62 /* View Model */,
-				099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */,
 			);
 			path = Pendencies;
 			sourceTree = "<group>";
@@ -488,45 +481,19 @@
 		099BCCAC28CB8BAD000DFDE6 /* Warning */ = {
 			isa = PBXGroup;
 			children = (
+				0918AD4A28D696F300E95DFB /* Views */,
 				0918AD4B28D6970E00E95DFB /* ViewController */,
-				0918AD4A28D696F300E95DFB /* Screen */,
-				0918AD4928D696E600E95DFB /* Model */,
-				096CA8E328D5525A00C459B0 /* TableView */,
+				6CFFA7B8293B9122006DAF62 /* View Model */,
 			);
 			path = Warning;
-			sourceTree = "<group>";
-		};
-		09EAB3FA28D76CF200968827 /* DoneScreen */ = {
-			isa = PBXGroup;
-			children = (
-				09EAB3FC28D76D3400968827 /* DoneView.swift */,
-			);
-			path = DoneScreen;
 			sourceTree = "<group>";
 		};
 		09EAB3FB28D76D0F00968827 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6CFFA7C1293BBCC2006DAF62 /* View Model */,
 				099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		09EAB3FE28D76ECE00968827 /* DataDone */ = {
-			isa = PBXGroup;
-			children = (
-				09EAB3FF28D76EF200968827 /* DataDone.swift */,
-			);
-			path = DataDone;
-			sourceTree = "<group>";
-		};
-		09EAB40228D76F4C00968827 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				09EAB40328D76F9900968827 /* DoneTableViewCell.swift */,
-			);
-			path = TableView;
 			sourceTree = "<group>";
 		};
 		3A163ADD29117046005A93AA /* Menu */ = {
@@ -730,6 +697,22 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		6CFFA7C4293BFF56006DAF62 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		6CFFA7C5293BFFCF006DAF62 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		77D32B0F7B03D50838EB03A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -873,7 +856,6 @@
 				3A163B0029117046005A93AA /* DescricaoScreen.swift in Sources */,
 				3A163B0B29117046005A93AA /* PrivacyPoliciesView.swift in Sources */,
 				3A163B0929117046005A93AA /* RequestUserDataView.swift in Sources */,
-				09EAB3FD28D76D3400968827 /* DoneView.swift in Sources */,
 				099BCC9928CB89B5000DFDE6 /* SignUpView.swift in Sources */,
 				3A163B0229117046005A93AA /* MovimentacaoScreen.swift in Sources */,
 				3A163B1029117046005A93AA /* Menu.swift in Sources */,
@@ -883,7 +865,6 @@
 				099BCC7D28CB82EF000DFDE6 /* DemoViewController.swift in Sources */,
 				090D841C28D33DFB00198D69 /* APIHelper.swift in Sources */,
 				0974F63028CB77A7004E8716 /* SceneDelegate.swift in Sources */,
-				09EAB40028D76EF200968827 /* DataDone.swift in Sources */,
 				3A163B0629117046005A93AA /* SettingsTableViewCell.swift in Sources */,
 				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
 				3A163B0C29117046005A93AA /* PrivacyPoliciesViewController.swift in Sources */,
@@ -897,7 +878,6 @@
 				3A163B0129117046005A93AA /* DescricaoVC.swift in Sources */,
 				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
 				6CFFA7BA293B9159006DAF62 /* WarningViewModel.swift in Sources */,
-				09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */,
 				3A163B0329117046005A93AA /* MovimentacaoVC.swift in Sources */,
 				098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */,
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
