@@ -104,7 +104,7 @@ class TrackingView: UIView {
         textField.keyboardType = .default
         textField.returnKeyType = UIReturnKeyType.done
         textField.tag = 1
-        textField.placeholder = "Insira o status da entrega..."
+        textField.placeholder = "Entregue ou Pendente..."
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .darkGray
         return textField

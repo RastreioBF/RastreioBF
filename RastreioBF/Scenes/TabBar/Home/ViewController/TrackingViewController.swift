@@ -12,10 +12,6 @@ class TrackingViewController: UIViewController {
     var trackingView: TrackingView?
     var alert: Alert?
     var warningViewController: WarningViewController?
-    
-    var warningDataVM = WarningViewControllerViewModel()
-    var doneDataVM = DoneViewControllerViewModel()
-    var pendingDataVM  = PendenciesViewControllerViewModel()
     var dataProductVM = TrackingViewControllerViewModel()
     
     override func loadView() {
@@ -73,19 +69,14 @@ extension TrackingViewController: TrackingViewProtocol{
         // Funcao disparada quando o botao salvar é acionado
         if checkTextFieldsAreNotEmpty() {
             
-            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", data: "01/11/2022", time: "20:30", status: ""))
+            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", data: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
             
-            if dataProductVM.getStatus(index: dataProductVM.dataArraySize-1) == "done" {
-                doneDataVM.setupDataProduct(data: dataProductVM.getLastData()!)
-            } else if dataProductVM.getStatus(index: dataProductVM.dataArraySize-1) == "pending" {
-                    pendingDataVM.setupDataProduct(data: dataProductVM.getLastData()!)
-            } else {
-                warningDataVM.setupDataProduct(data: dataProductVM.getLastData()!)
-            }
-            
+            dataProductVM.populateCorrectArray(data: dataProductVM.getLastData())
+     
             self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!")
             self.trackingView?.trackingNumberTextField.text = ""
             self.trackingView?.descriptionTextField.text = ""
+            self.trackingView?.statusTextField.text = ""
                        
         } else {
             self.alert?.getAlert(titulo: "Atenção!", mensagem: "Todos os campos precisam ser preenchidos para que os dados possam ser salvos!")

@@ -9,15 +9,7 @@ import Foundation
 
 class DoneViewControllerViewModel {
     
-    private static var data : [DataProduct] = [ DataProduct(
-        productName: "Nome do Produto",
-        productNameImage: "done",
-        codeTraking: "AA123456789BR",
-        productDescription: "Status da Entrega",
-        data: "DD/MM/AAAA",
-        time: "HH:MM",
-        status: "done"),
-    ]
+    private static var data : [DataProduct] = []
     
     func getLastData() -> DataProduct? {
         return DoneViewControllerViewModel.data.last

@@ -9,15 +9,37 @@ import Foundation
 
 struct TrackingViewControllerViewModel {
     
-    private static var data : [DataProduct] = [ DataProduct(
-        productName: "Nome do Produto",
-        productNameImage: "post",
-        codeTraking: "AA123456789BR",
-        productDescription: "Status da Entrega",
-        data: "DD/MM/AAAA",
-        time: "HH:MM",
-        status: "new"),
-    ]
+    var warningDataVM = WarningViewControllerViewModel()
+    var doneDataVM = DoneViewControllerViewModel()
+    var pendingDataVM  = PendenciesViewControllerViewModel()
+    
+    private static var data : [DataProduct] = []
+    
+    func populateCorrectArray(data: DataProduct?){
+        if data!.status.lowercased() == "entregue" {
+            doneDataVM.setupDataProduct(data: DataProduct(
+                productName: data?.productName ?? "",
+                productNameImage: "done",
+                codeTraking: data?.codeTraking ?? "",
+                productDescription: data?.productDescription ?? "",
+                data: data?.data ?? "DD/MM/AAAA",
+                time: data?.time ?? "HH:MM",
+                status: data?.status ?? "pending"))
+            warningDataVM.setupDataProduct(data: data!)
+        } else if data!.status.lowercased() == "pendente" {
+            pendingDataVM.setupDataProduct(data: DataProduct(
+                productName: data?.productName ?? "",
+                productNameImage: "errorImage",
+                codeTraking: data?.codeTraking ?? "",
+                productDescription: data?.productDescription ?? "",
+                data: data?.data ?? "DD/MM/AAAA",
+                time: data?.time ?? "HH:MM",
+                status: data?.status ?? "pending"))
+            warningDataVM.setupDataProduct(data: data!)
+        } else {
+            warningDataVM.setupDataProduct(data: data!)
+        }
+    }
     
     func getStatus(index: Int) -> String? {
         return TrackingViewControllerViewModel.data[index].status

@@ -9,15 +9,7 @@ import Foundation
 
 class PendenciesViewControllerViewModel {
     
-    private static var data : [DataProduct] = [ DataProduct(
-        productName: "Nome do Produto",
-        productNameImage: "errorImage",
-        codeTraking: "AA123456789BR",
-        productDescription: "Status da Entrega",
-        data: "DD/MM/AAAA",
-        time: "HH:MM",
-        status: "pending")
-    ]
+    private static var data : [DataProduct] = []
     
     func getLastData() -> DataProduct? {
         return PendenciesViewControllerViewModel.data.last
