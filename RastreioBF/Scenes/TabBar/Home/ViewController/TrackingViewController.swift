@@ -9,9 +9,9 @@ import UIKit
 
 class TrackingViewController: UIViewController {
     
-    var trackingView: TrackingView?
-    var alert: Alert?
-    var dataProductVM = TrackingViewControllerViewModel()
+    private var trackingView: TrackingView?
+    private var alert: Alert?
+    private var dataProductVM = TrackingViewControllerViewModel()
     
     override func loadView() {
         self.trackingView = TrackingView()

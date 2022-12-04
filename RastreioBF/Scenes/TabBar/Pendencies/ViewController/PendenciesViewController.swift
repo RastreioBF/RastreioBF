@@ -56,7 +56,6 @@ class PendenciesViewController: UIViewController {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell : ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
             cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
-            
             return cell ?? UITableViewCell()
         }
         
