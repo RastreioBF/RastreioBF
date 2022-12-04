@@ -31,7 +31,8 @@
 "fieldsMustBeFilleds" = "Os campos devem ser preenchidos";
 "allFieldsMustBeFilleds" = "Todos os campos devem ser preenchidos";
 "wrongData" = "Dados incorretos, verifique e tente novamente!";
-
+"nameTargetError" = "O nome deve conter no minimo 3 caracteres";
+"surnameTargetError" = "O sobrenome deve conter no minimo 3 caracteres";
 
 //TabBar Titles
 "homeTitle" = "Novo - RastreioBF";
@@ -56,6 +57,9 @@
 "errorOccurred" = "Um error ocorreu. Tente novamente!";
 "wrongEmailSignin" = "E-mail não verificado, caso tenha feito o sign in, por favor verifique seu e-mail. Gostaria que um novo e-mail seja enviado?";
 "tryAgainLater" = "Tivemos um problema inesperado, tente novamente mais tarde.";
+"correctlyFilled" = "Todos os campos devem estar preenchidos corretamente";
+"congrats" = "Parabéns";
+"emailSentConfirm" = "Um e-mail de confirmacao foi enviado para ativacao da sua conta";
 
 
 

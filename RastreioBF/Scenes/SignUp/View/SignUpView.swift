@@ -10,17 +10,47 @@ import Lottie
 import UIKit.UITextField
 import Foundation
 
-protocol SignUpViewProtocol: AnyObject{
-    func actionGoToLoginButton()
-    func actionSignUpButton()
-    func didTapName()
-    func didTapSurname()
-    func didTapEmail()
-    func didTapPassword()
-    func didTapConfirmPassword()
-}
-
 class SignUpView: UIView {
+    
+    var hasNameLabel: Bool {
+        get { nameErrorLabel.isHidden }
+    }
+    
+    var hasNameTextField: Bool {
+        get { nameTextField.hasText }
+    }
+    
+    var hasSurnameLabel: Bool {
+        get { surnameErrorLabel.isHidden }
+    }
+    
+    var hasSurnameTextField: Bool {
+        get { surnameTextField.hasText }
+    }
+    
+    var hasEmailLabel: Bool {
+        get { emailErrorLabel.isHidden }
+    }
+    
+    var hasEmailTextField: Bool {
+        get { emailTextField.hasText }
+    }
+    
+    var hasPasswordLabel: Bool {
+        get { passwordErrorLabel.isHidden }
+    }
+    
+    var hasPasswordTextField: Bool {
+        get { passwordTextField.hasText }
+    }
+    
+    var hasConfPasswordLabel: Bool {
+        get { confirmPasswordErrorLabel.isHidden }
+    }
+    
+    var hasConfPasswordTextField: Bool {
+        get { confirmPasswordTextField.hasText }
+    }
     
     // MARK: - Delegate
     private var shouldFocusLink: Bool = false
@@ -38,7 +68,7 @@ class SignUpView: UIView {
         return view
     }()
     
-    var animationView:AnimationView = {
+   private var animationView:AnimationView = {
         var animation = AnimationView()
         animation = .init(name: "signUpAnimation")
         animation.contentMode = .scaleAspectFit
@@ -321,13 +351,6 @@ class SignUpView: UIView {
         return self.passwordTextField.text ?? ""
     }
     
-//    public func configTextFieldDelegate(delegate:UITextFieldDelegate) {
-//        self.emailTextField.delegate = delegate
-//        self.passwordTextField.delegate = delegate
-//    }
-    
-
-    
     private func configConstraints(){
         self.setUpAnimationUIView()
         self.setUpSignLabel()
@@ -443,7 +466,6 @@ class SignUpView: UIView {
     
     private func setUpConfirmPasswordErrorLabel() {
             NSLayoutConstraint.activate([
-               // self.confirmPasswordErrorLabel.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -20),
                 self.confirmPasswordErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
                 self.confirmPasswordErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
                 ])

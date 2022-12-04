@@ -42,7 +42,8 @@ enum LocalizedConstants: String {
     case fieldsMustBeFilleds
     case allFieldsMustBeFilleds
     case wrongData
-    
+    case nameTargetError
+    case surnameTargetError
     
     //MARK: - TabBar ViewControllers
     case menuTitle
@@ -59,7 +60,6 @@ enum LocalizedConstants: String {
     case rastreioBFBt
     
     //MARK: - Alert Messages
-    
     case atentionTitle
     case insertEmailBody
     case emailSent
@@ -68,6 +68,9 @@ enum LocalizedConstants: String {
     case errorOccurred
     case wrongEmailSignin
     case tryAgainLater
+    case correctlyFilled
+    case congrats
+    case emailSentConfirm
     
     var text: String {
         return rawValue.localized(.presentation)

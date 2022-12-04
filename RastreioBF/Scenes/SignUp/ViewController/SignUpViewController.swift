@@ -8,32 +8,32 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController: UIViewController, UITextFieldDelegate, Coordinating {
+class SignUpViewController: UIViewController, Coordinating {
     
     var coordinator: Coordinator?
-    var signUpScreen: SignUpView?
+    let signUpScreen = SignUpView()
     var auth:Auth?
     var alert:Alert?
     var textfield = UITextField()
+    var viewModel: SignUpViewModel = SignUpViewModel()
     
     override func loadView() {
-        self.signUpScreen = SignUpView()
+//        self.signUpScreen = SignUpView()
         self.view = self.signUpScreen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.signUpScreen?.configTextFieldDelegate(delegate: self)
-        self.signUpScreen?.delegate(delegate: self)
+        self.signUpScreen.delegate(delegate: self)
         self.hideErrorLabels()
         self.auth = Auth.auth()
         self.alert = Alert(controller: self)
         self.setupKeyboardHiding()
-        self.signUpScreen?.nameTextField.delegate = self
-        self.signUpScreen?.surnameTextField.delegate = self
-        self.signUpScreen?.emailTextField.delegate = self
-        self.signUpScreen?.passwordTextField.delegate = self
-        self.signUpScreen?.confirmPasswordTextField.delegate = self
+        self.signUpScreen.nameTextField.delegate = self
+        self.signUpScreen.surnameTextField.delegate = self
+        self.signUpScreen.emailTextField.delegate = self
+        self.signUpScreen.passwordTextField.delegate = self
+        self.signUpScreen.confirmPasswordTextField.delegate = self
     }
     
     private func setupKeyboardHiding() {
@@ -42,33 +42,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, Coordinating 
     }
     
     func hideErrorLabels(){
-        self.signUpScreen?.nameErrorLabel.isHidden = true
-        self.signUpScreen?.surnameErrorLabel.isHidden = true
-        self.signUpScreen?.emailErrorLabel.isHidden = true
-        self.signUpScreen?.passwordErrorLabel.isHidden = true
-        self.signUpScreen?.confirmPasswordErrorLabel.isHidden = true
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case self.signUpScreen?.nameTextField:
-            self.signUpScreen?.surnameTextField.becomeFirstResponder()
-        case self.signUpScreen?.surnameTextField:
-            self.signUpScreen?.emailTextField.becomeFirstResponder()
-        case self.signUpScreen?.emailTextField:
-            self.signUpScreen?.passwordTextField.becomeFirstResponder()
-        case self.signUpScreen?.passwordTextField:
-            self.signUpScreen?.confirmPasswordTextField.becomeFirstResponder()
-        default:
-            textField.resignFirstResponder()
-        }
-        return false
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-
-        if(textField == self.signUpScreen?.confirmPasswordTextField) { self.signUpScreen?.confirmPasswordTextField.isSecureTextEntry = true }
-        if(textField == self.signUpScreen?.passwordTextField) { self.signUpScreen?.passwordTextField.isSecureTextEntry = true }
+        self.signUpScreen.nameErrorLabel.isHidden = true
+        self.signUpScreen.surnameErrorLabel.isHidden = true
+        self.signUpScreen.emailErrorLabel.isHidden = true
+        self.signUpScreen.passwordErrorLabel.isHidden = true
+        self.signUpScreen.confirmPasswordErrorLabel.isHidden = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -76,174 +54,59 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, Coordinating 
     }
 }
 
-//extension SignUpViewController:UITextFieldDelegate {
-//
-//    //chamamos a funcao de validacao sempre no didend editing, pq ele so valida quando o tecldo baixou
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//                self.signUpScreen?.validaTextFields()
-//    }
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//
-//
-//}
+extension SignUpViewController:UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.signUpScreen.nameTextField:
+            self.signUpScreen.surnameTextField.becomeFirstResponder()
+        case self.signUpScreen.surnameTextField:
+            self.signUpScreen.emailTextField.becomeFirstResponder()
+        case self.signUpScreen.emailTextField:
+            self.signUpScreen.passwordTextField.becomeFirstResponder()
+        case self.signUpScreen.passwordTextField:
+            self.signUpScreen.confirmPasswordTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if(textField == self.signUpScreen.confirmPasswordTextField) { self.signUpScreen.confirmPasswordTextField.isSecureTextEntry = true }
+        if(textField == self.signUpScreen.passwordTextField) { self.signUpScreen.passwordTextField.isSecureTextEntry = true }
+    }
+}
 
 extension SignUpViewController: SignUpViewProtocol {
-    
-    //MARK: - TextField Masks
-    
-    func isValidName(_ nameString: String) -> Bool {
-        
-        var returnValue = true
-        let mobileRegEx =  "^\\w{3,18}$"
-        
-        do {
-            let regex = try NSRegularExpression(pattern: mobileRegEx)
-            let nsString = nameString as NSString
-            let results = regex.matches(in: nameString, range: NSRange(location: 0, length: nsString.length))
-            
-            if results.count == 0
-            {
-                returnValue = false
-            }
-            
-        } catch let error as NSError {
-            print("invalid regex: \(error.localizedDescription)")
-            returnValue = false
-        }
-        return  returnValue
-    }
-    
-    public func validateName(name: String) ->Bool {
-        var returnValue = true
-        let mobileRegEx =  "^\\w{3,18}$"
-        
-        do {
-            let regex = try NSRegularExpression(pattern: mobileRegEx)
-            let nsString = name as NSString
-            let results = regex.matches(in: name, range: NSRange(location: 0, length: nsString.length))
-            
-            if results.count == 0
-            {
-                returnValue = false
-            }
-            
-        } catch let error as NSError {
-            print("invalid regex: \(error.localizedDescription)")
-            returnValue = false
-        }
-        return  returnValue
-    }
-    
-    public func validateEmailId(emailID: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
-        let trimmedString = emailID.trimmingCharacters(in: .whitespaces)
-        let validateEmail = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let isValidateEmail = validateEmail.evaluate(with: trimmedString)
-        return isValidateEmail
-    }
-    
-    func containsDigit(_ value: String) -> Bool
-    {
-        let reqularExpression = ".*[0-9]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
-        return !predicate.evaluate(with: value)
-    }
-    
-    func containsLowerCase(_ value: String) -> Bool
-    {
-        let reqularExpression = ".*[a-z]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
-        return !predicate.evaluate(with: value)
-    }
-    
-    func containsUpperCase(_ value: String) -> Bool
-    {
-        let reqularExpression = ".*[A-Z]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
-        return !predicate.evaluate(with: value)
-    }
-    
     
     //MARK: - Error Labels
     
     func didTapName() {
-        let text =  self.signUpScreen?.nameTextField.text ?? ""
-        let label =  self.signUpScreen?.nameErrorLabel
-        
-        if text.isEmpty {
-            label?.text = "Por favor, insira seu nome"
-            label?.isHidden = false
-        } else if isValidName(text) == false {
-            label?.text = "O nome deve conter no minimo 3 caracteres"
-            label?.isHidden = false
-        } else {
-            label?.isHidden = true
-        }
+        viewModel.verifyName(text: self.signUpScreen.nameTextField.text ?? "",
+                             label: self.signUpScreen.nameErrorLabel)
     }
     
     func didTapSurname() {
-        let text =  self.signUpScreen?.surnameTextField.text ?? ""
-        let label =  self.signUpScreen?.surnameErrorLabel
-        
-        if text.isEmpty {
-            label?.text = "Por favor, insira seu sobrenome"
-            label?.isHidden = false
-        } else if isValidName(text) == false {
-            label?.text = "O sobrenome deve conter no minimo 3 caracteres"
-            label?.isHidden = false
-        } else {
-            label?.isHidden = true
-        }
+        viewModel.verifySurname(text: self.signUpScreen.surnameTextField.text ?? "",
+                                label: self.signUpScreen.surnameErrorLabel)
     }
     
     func didTapEmail() {
-        let text =  self.signUpScreen?.emailTextField.text ?? ""
-        let label =  self.signUpScreen?.emailErrorLabel
-        
-        if text.isEmpty {
-            label?.text = "Por favor, insira seu e-mail"
-            label?.isHidden = false
-        } else if validateEmailId(emailID: text) == false {
-            label?.text = "O e-mail deve ter o formato: nome@exemplo.com"
-            label?.isHidden = false
-        } else {
-            label?.isHidden = true
-        }
+        viewModel.verifyEmail(text: self.signUpScreen.emailTextField.text ?? "",
+                              label: self.signUpScreen.emailErrorLabel)
     }
     
     func didTapPassword() {
-        let text =  self.signUpScreen?.passwordTextField.text ?? ""
-        let label =  self.signUpScreen?.passwordErrorLabel
-        
-        if text.isEmpty {
-            label?.text = "Por favor, insira uma senha"
-            label?.isHidden = false
-            } else if text.count < 6 {
-            label?.text = "A senha de ter no minimo 6 caracteres"
-            label?.isHidden = false
-        } else {
-            label?.isHidden = true
-        }
+        viewModel.verifyPassword(text: self.signUpScreen.passwordTextField.text ?? "",
+                                 label: self.signUpScreen.passwordErrorLabel)
     }
     
     func didTapConfirmPassword() {
-        let text =  self.signUpScreen?.confirmPasswordTextField.text ?? ""
-        let password =  self.signUpScreen?.passwordTextField.text ?? ""
-        let label =  self.signUpScreen?.confirmPasswordErrorLabel
-        
-        if text.isEmpty {
-            label?.text = "Por favor, confirme sua senha"
-            label?.isHidden = false
-            } else if text != password {
-            label?.text = "Deve ser igual a senha"
-            label?.isHidden = false
-        } else {
-            label?.isHidden = true
-        }
+        viewModel.verifyConfirmPassword(text: self.signUpScreen.confirmPasswordTextField.text ?? "",
+                                        label: self.signUpScreen.confirmPasswordErrorLabel,
+                                        password: self.signUpScreen.passwordTextField.text ?? "")
     }
     
     func registerUser(userUsername userName:String, userEmail email:String, userPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
@@ -254,7 +117,7 @@ extension SignUpViewController: SignUpViewProtocol {
             let email = user.email
             var multiFactorString = "MultiFactor: "
             for info in user.multiFactor.enrolledFactors {
-                multiFactorString += info.displayName ?? "[\(String(describing: self.signUpScreen?.nameTextField.text))]"
+                multiFactorString += info.displayName ?? "[\(String(describing: self.signUpScreen.nameTextField.text))]"
                 multiFactorString += " "
             }
         }
@@ -264,7 +127,7 @@ extension SignUpViewController: SignUpViewProtocol {
     private var authUser : User? {
         return Auth.auth().currentUser
     }
-
+    
     public func sendVerificationMail() {
         if self.authUser != nil && !self.authUser!.isEmailVerified {
             self.authUser!.sendEmailVerification(completion: { (error) in
@@ -277,55 +140,38 @@ extension SignUpViewController: SignUpViewProtocol {
     }
     
     func signUpValidation(){
-        let nameError = self.signUpScreen?.nameErrorLabel.isHidden
-        let surnameError = self.signUpScreen?.surnameErrorLabel.isHidden
-        let emailError = self.signUpScreen?.emailErrorLabel.isHidden
-        let passwordError = self.signUpScreen?.passwordErrorLabel.isHidden
-        let confPassError = self.signUpScreen?.confirmPasswordErrorLabel.isHidden
         
-        let nameText =  self.signUpScreen?.nameTextField.text ?? ""
-        let surnameText =  self.signUpScreen?.surnameTextField.text ?? ""
-        let emailText =  self.signUpScreen?.emailTextField.text ?? ""
-        let passwordText =  self.signUpScreen?.passwordTextField.text ?? ""
-        let confirmPasswordText =  self.signUpScreen?.confirmPasswordTextField.text ?? ""
-        let vc:DemoViewController = DemoViewController()
-        
-        if nameError == true && surnameError == true && emailError == true && passwordError == true && confPassError == true && !nameText.isEmpty &&  !surnameText.isEmpty && !emailText.isEmpty && !passwordText.isEmpty && !confirmPasswordText.isEmpty {
-            
-            if let email = self.signUpScreen?.emailTextField.text , let password = self.signUpScreen?.passwordTextField.text {
+        if viewModel.verifySignUp(nameError: signUpScreen.hasNameLabel,
+                                  surnameError: signUpScreen.hasSurnameLabel,
+                                  emailError: signUpScreen.hasEmailLabel,
+                                  passwordError: signUpScreen.hasPasswordLabel,
+                                  confPassError: signUpScreen.hasConfPasswordLabel,
+                                  nameText: signUpScreen.hasNameTextField,
+                                  surnameText: signUpScreen.hasSurnameTextField,
+                                  emailText: signUpScreen.hasEmailTextField,
+                                  passwordText: signUpScreen.hasPasswordTextField ,
+                                  confirmPasswordText: signUpScreen.hasConfPasswordTextField) {
 
-                   Auth.auth().createUser(withEmail: email, password: password, completion: { user, error in
+            if let email = self.signUpScreen.emailTextField.text ,
+            let password = self.signUpScreen.passwordTextField.text {
 
-                       if let firebaseError = error {
-                           print(firebaseError.localizedDescription)
-                           return
-                       }
+                Auth.auth().createUser(withEmail: email, password: password, completion: { user, error in
 
-                       self.sendVerificationMail()
-                   })
+                    if let firebaseError = error {
+                        print(firebaseError.localizedDescription)
+                        return
+                    }
+
+                    self.sendVerificationMail()
+                })
             }
-            
-            self.alert?.getAlert(titulo: "Parabéns",
-                                 mensagem: "Um e-mail de confirmacao foi enviado para ativacao da sua conta",
+            self.alert?.getAlert(titulo: LC.congrats.text,
+                                 mensagem: LC.emailSentConfirm.text,
                                  completion: {
-                let vc:LoginViewController = LoginViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.coordinator?.eventOcurred(with: .login)
             })
-//            guard let register = self.signUpScreen else {return}
-//            self.auth?.createUser(withEmail: register.getEmail(), password: register.getPassword(), completion: { (result, error) in
-//
-//                if error != nil{
-//                    self.alert?.getAlert(titulo: "Atenção", mensagem: "Erro ao cadastrar")
-//                }else{
-//                    self.alert?.getAlert(titulo: "Parabens", mensagem: "Usuario cadastrado com sucesso", completion: {
-//                        let vc:DemoViewController = DemoViewController()
-//                        self.navigationController?.pushViewController(vc, animated: true)
-//                    })
-//                }
-//            })
-            
         } else {
-            self.alert?.getAlert(titulo: "Atenção", mensagem: "Todos os campos devem estar preenchidos corretamente")
+            self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.correctlyFilled.text)
         }
     }
     
@@ -335,11 +181,11 @@ extension SignUpViewController: SignUpViewProtocol {
     }
     
     func actionGoToLoginButton() {
-        coordinator?.eventOcurred(with: .login)
+        self.coordinator?.eventOcurred(with: .login)
     }
 }
 
-// MARK: Keyboard
+// MARK: - Keyboard
 extension SignUpViewController {
     @objc func keyboardWillShow(sender: NSNotification) {
         guard let userInfo = sender.userInfo,
@@ -355,15 +201,11 @@ extension SignUpViewController {
             let newFrameY = (textBoxY - keyboardTopY / 1.7) * -1
             view.frame.origin.y = newFrameY
         }
-
-        print("foo - userInfo: \(userInfo)")
-        print("foo - keyboardFrame: \(keyboardFrame)")
-        print("foo - currentTextField: \(currentTextField)")
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-          view.frame.origin.y = 0
-      }
+        view.frame.origin.y = 0
+    }
 }
 
 

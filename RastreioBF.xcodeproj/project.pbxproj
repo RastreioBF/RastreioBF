@@ -55,6 +55,8 @@
 		099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */; };
 		09DB4EFA293CDAE9009BA93A /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4EF9293CDAE9009BA93A /* LoginProtocols.swift */; };
 		09DB4EFE293CDC91009BA93A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4EFD293CDC91009BA93A /* LoginViewModel.swift */; };
+		09DB4F01293CEFA2009BA93A /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4F00293CEFA2009BA93A /* SignUpProtocols.swift */; };
+		09DB4F03293CF0AF009BA93A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4F02293CF0AF009BA93A /* SignUpViewModel.swift */; };
 		09EAB3FD28D76D3400968827 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FC28D76D3400968827 /* DoneView.swift */; };
 		09EAB40028D76EF200968827 /* DataDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FF28D76EF200968827 /* DataDone.swift */; };
 		09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB40328D76F9900968827 /* DoneTableViewCell.swift */; };
@@ -130,6 +132,8 @@
 		099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
 		09DB4EF9293CDAE9009BA93A /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		09DB4EFD293CDC91009BA93A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		09DB4F00293CEFA2009BA93A /* SignUpProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
+		09DB4F02293CF0AF009BA93A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		09EAB3FC28D76D3400968827 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
 		09EAB3FF28D76EF200968827 /* DataDone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDone.swift; sourceTree = "<group>"; };
 		09EAB40328D76F9900968827 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
@@ -393,8 +397,10 @@
 		099BCC8A28CB86E8000DFDE6 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				09DB4EFF293CEF86009BA93A /* Protocols */,
 				099BCC8C28CB8708000DFDE6 /* View */,
 				099BCC8E28CB8742000DFDE6 /* ViewController */,
+				09DB4F04293CF0B7009BA93A /* ViewModel */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -558,6 +564,22 @@
 				09DB4EFD293CDC91009BA93A /* LoginViewModel.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		09DB4EFF293CEF86009BA93A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				09DB4F00293CEFA2009BA93A /* SignUpProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		09DB4F04293CF0B7009BA93A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09DB4F02293CF0AF009BA93A /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		09EAB3FA28D76CF200968827 /* DoneScreen */ = {
@@ -902,6 +924,7 @@
 				0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */,
 				099BCC7928CB8277000DFDE6 /* LoginView.swift in Sources */,
 				098B468128CECCE9009D08A4 /* EmailNotificationView.swift in Sources */,
+				09DB4F01293CEFA2009BA93A /* SignUpProtocols.swift in Sources */,
 				099BCC8528CB83A9000DFDE6 /* EmailConfirmationScreen.swift in Sources */,
 				3A163B0829117046005A93AA /* RequestUserDataViewCell.swift in Sources */,
 				3A163B0029117046005A93AA /* DescricaoScreen.swift in Sources */,
@@ -925,6 +948,7 @@
 				3A163B0C29117046005A93AA /* PrivacyPoliciesViewController.swift in Sources */,
 				0973238C291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift in Sources */,
 				3A3FC2AC2910A98800C12F47 /* DetailScreen.swift in Sources */,
+				09DB4F03293CF0AF009BA93A /* SignUpViewModel.swift in Sources */,
 				3A163B0D29117046005A93AA /* RemoveUserView.swift in Sources */,
 				099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */,
 				099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */,
