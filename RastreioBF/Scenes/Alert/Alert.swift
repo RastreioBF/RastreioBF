@@ -31,10 +31,7 @@ class Alert:NSObject, Coordinating{
     }
     
     func getAlertActions(titulo:String, mensagem:String, completion:(() -> Void)? = nil){
-        
-        // preferredStyle: eh como prefiro setar o alerta, como actionsheet (aparece na parte inferior da tela) ou alert
         let alertController = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        //botao que aparece no alert, de forma opcional
         let action = UIAlertAction(title: "Ok", style: .default) { acao in
             completion?()
         }
@@ -88,7 +85,7 @@ class Alert:NSObject, Coordinating{
         let alert = UIAlertController(title: "Atenção", message: "Deseja sair ?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "continuar", style: .default) { (acao) in
             completion?(_textField?.text ?? "")
-//            
+//
 //            let vc:LoginViewController = LoginViewController()
 //            self.controller.navigationController?.pushViewController(vc, animated: false)
             self.coordinator?.eventOcurred(with: .login)

@@ -178,13 +178,11 @@ extension DemoViewController {
     }
     
     @objc func skipTapped(_ sender: UIButton) {
-        let vc: MainTabBarController = MainTabBarController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.coordinator?.eventOcurred(with: .mainTabbar)
     }
     
     @objc func nextTapped(_ sender: UIButton) {
-        let vc: MainTabBarController = MainTabBarController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.coordinator?.eventOcurred(with: .mainTabbar)
     }
 }
 
