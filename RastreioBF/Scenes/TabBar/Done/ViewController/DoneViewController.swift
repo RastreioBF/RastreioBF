@@ -10,23 +10,23 @@ import Foundation
 
 class DoneViewController: UIViewController {
 
-    var doneScreen: WarningScreen?
-    var dataProductVM = DoneViewControllerViewModel()
+    private var doneView: DoneView?
+    private var dataProductVM = DoneViewControllerViewModel()
 
     override func loadView() {
-        self.doneScreen = WarningScreen()
-        self.view = self.doneScreen
+        self.doneView = DoneView()
+        self.view = self.doneView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationItem.title = LC.doneTitle.text
-        self.doneScreen?.configTableViewProtocols(delegate: self, dataSource: self)
+        self.doneView?.configTableViewProtocols(delegate: self, dataSource: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        doneScreen?.tableView.reloadData()
+        doneView?.tableView.reloadData()
     }
 }
 
@@ -51,7 +51,7 @@ extension DoneViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataProductVM.dataArraySize == 0 ? 1 : dataProductVM.dataArraySize
+        return dataProductVM.dataArraySize
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,9 +65,9 @@ extension DoneViewController: UITableViewDelegate, UITableViewDataSource{
         return dataProductVM.heightForRowAt
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : DetailScreen = DetailScreen()
-        vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
+    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc : DetailViewController = DetailViewController()
+        dataProductVM.setupDataProduct(data: dataProductVM.getDataProduct(indexPath: indexPath))
         present(vc, animated: true)
-    }
+    }*/
 }

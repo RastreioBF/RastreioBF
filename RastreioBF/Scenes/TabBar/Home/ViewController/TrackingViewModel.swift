@@ -9,9 +9,9 @@ import Foundation
 
 struct TrackingViewControllerViewModel {
     
-    var warningDataVM = WarningViewControllerViewModel()
-    var doneDataVM = DoneViewControllerViewModel()
-    var pendingDataVM  = PendenciesViewControllerViewModel()
+    private var warningDataVM = WarningViewControllerViewModel()
+    private var doneDataVM = DoneViewControllerViewModel()
+    private var pendingDataVM  = PendenciesViewControllerViewModel()
     
     private static var data : [DataProduct] = []
     
@@ -64,10 +64,6 @@ struct TrackingViewControllerViewModel {
         }
     }
     
-    func getStatus(index: Int) -> String? {
-        return TrackingViewControllerViewModel.data[index].status
-    }
-    
     func getLastData() -> DataProduct? {
         return TrackingViewControllerViewModel.data.last
     }
@@ -78,17 +74,5 @@ struct TrackingViewControllerViewModel {
     
     func getDataProduct(indexPath: IndexPath) -> DataProduct {
         return TrackingViewControllerViewModel.data[indexPath.row]
-    }
-    
-    var dataArraySize: Int {
-        return TrackingViewControllerViewModel.data.count
-    }
-    
-    mutating func removeData(indexPath: IndexPath) {
-        TrackingViewControllerViewModel.data.remove(at: indexPath.row)
-    }
-    
-    var heightForRowAt: CGFloat {
-        return 125
     }
 }

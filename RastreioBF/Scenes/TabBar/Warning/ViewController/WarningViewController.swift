@@ -10,29 +10,22 @@ import Foundation
 
 class WarningViewController: UIViewController {
     
-    //Aqui voce apresenta sua screen para a viewController
-    var warningScreen: WarningScreen?
-    var dataProductVM = WarningViewControllerViewModel()
+    private var warningView: WarningView?
+    private var dataProductVM = WarningViewControllerViewModel()
     
-    //Aqui a viewController carrega a sua screen
     override func loadView() {
-        self.warningScreen = WarningScreen()
-        self.view = self.warningScreen
+        self.warningView = WarningView()
+        self.view = self.warningView
     }
     
-    //Aqui a viewController apresenta sua screen
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = LC.warningTitle.text
-        self.warningScreen?.configTableViewProtocols(delegate: self, dataSource: self)
+        self.warningView?.configTableViewProtocols(delegate: self, dataSource: self)
     }
     
-    /*func insertRows(data: DataProduct?){
-        dataProductVM.setupDataProduct(data: data ?? DataProduct(productName: "NA", productNameImage: "NA", codeTraking: "NA", productDescription: "NA", data: "NA", time: "NA", status: ""))
-    }*/
-    
     override func viewWillAppear(_ animated: Bool) {
-        warningScreen?.tableView.reloadData()
+        warningView?.tableView.reloadData()
     }
 }
 
@@ -55,7 +48,7 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataProductVM.dataArraySize == 0 ? 1 : dataProductVM.dataArraySize
+        return dataProductVM.dataArraySize
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,15 +57,14 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
         return cell ?? UITableViewCell()
     }
     
-    // altura da cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return dataProductVM.heightForRowAt
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : DetailScreen = DetailScreen()
-        vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
+    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc : DetailViewController = DetailViewController()
+        dataProductVM.setupDataProduct(data: dataProductVM.getDataProduct(indexPath: indexPath))
         present(vc, animated: true)
-    }
+    }*/
 }
 

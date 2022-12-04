@@ -7,41 +7,34 @@
 
 import UIKit
 
-class DetailScreen: UIViewController{
+class DetailViewController: UIViewController{
     
-    
-
-    var warningScreen: WarningScreen?
-    var warningViewController: WarningViewController?
-    var data: DataProduct?
-   // var dataDone: DataDone?
-
+    private var detailView: DetailView?
+    private var dataProductVM = DetailViewControllerViewModel()
     
     override func loadView() {
-        warningScreen = WarningScreen()
-        view = warningScreen
+        detailView = DetailView()
+        view = detailView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        warningScreen?.configTableViewProtocols(delegate: self, dataSource: self)
+        detailView?.configTableViewProtocols(delegate: self, dataSource: self)
     }
-
 }
 
-extension  DetailScreen: UITableViewDataSource, UITableViewDelegate {
+extension  DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-        cell?.setupDetailCell(data: data ?? DataProduct(productName: "", productNameImage: "", codeTraking: "", productDescription: "", date: "", time: "", status: "ongoing"))
+        cell?.setupDetailCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
         return cell ?? UITableViewCell()
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return dataProductVM.heightForRowAt
     }
-    
 }

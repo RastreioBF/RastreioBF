@@ -2,13 +2,12 @@
 //  WarningView.swift
 //  RastreioBF
 //
-//  Created by Jessica Bigal on 15/09/22.
+//  Created by Anderson Sales on 03/12/22.
 //
 
 import UIKit
-import Foundation
 
-class WarningScreen: UIView {
+class WarningView: UIView {
     
     lazy var warningTitleLabel : UILabel = {
        let label = UILabel()
@@ -16,7 +15,6 @@ class WarningScreen: UIView {
         label.text = "Avisos RastreioBF"
         label.textColor = .darkGray
         label.font = UIFont.boldSystemFont(ofSize: 25)
-        
         return label
     }()
     
@@ -24,7 +22,7 @@ class WarningScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
-        tableView.register(ProductDetailTableViewCell.self, forCellReuseIdentifier: ProductDetailTableViewCell.identifier) // registrando a cell na table view
+        tableView.register(ProductDetailTableViewCell.self, forCellReuseIdentifier: ProductDetailTableViewCell.identifier)
         return tableView
     }()
 
@@ -45,10 +43,8 @@ class WarningScreen: UIView {
     }
     
     func addElement(){
-   
         self.addSubview(self.warningTitleLabel)
         self.addSubview(self.tableView)
-//        self.addSubview(self.collectionView)
     }
     
     required init?(coder: NSCoder) {
@@ -65,9 +61,6 @@ class WarningScreen: UIView {
             self.tableView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-        
         ])
     }
-    
 }
-

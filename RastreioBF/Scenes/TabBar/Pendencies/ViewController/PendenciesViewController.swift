@@ -9,23 +9,23 @@ import UIKit
 
 class PendenciesViewController: UIViewController {
     
-    var pendenciesScreen: WarningScreen?
-    var dataProductVM = PendenciesViewControllerViewModel()
+    private var pendenciesView: PendenciesView?
+    private var dataProductVM = PendenciesViewControllerViewModel()
     
     override func loadView() {
-        self.pendenciesScreen = WarningScreen()
-        self.view = self.pendenciesScreen
+        self.pendenciesView = PendenciesView()
+        self.view = self.pendenciesView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationItem.title = LC.pendenciesTitle.text
-        self.pendenciesScreen?.configTableViewProtocols(delegate: self, dataSource: self)
+        self.pendenciesView?.configTableViewProtocols(delegate: self, dataSource: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        pendenciesScreen?.tableView.reloadData()
+        pendenciesView?.tableView.reloadData()
     }
     
 }
@@ -50,7 +50,7 @@ class PendenciesViewController: UIViewController {
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return dataProductVM.dataArraySize == 0 ? 1 : dataProductVM.dataArraySize
+            return dataProductVM.dataArraySize
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,12 +61,12 @@ class PendenciesViewController: UIViewController {
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 125
+            return dataProductVM.heightForRowAt
         }
         
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let vc : DetailScreen = DetailScreen()
-            vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
+        /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let vc : DetailViewController = DetailViewController()
+            dataProductVM.setupDataProduct(data: dataProductVM.getDataProduct(indexPath: indexPath))
             present(vc, animated: true)
-        }
+        }*/
     }

@@ -125,7 +125,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         
    // }
     
-    public func setupDetailCell( data: DataProduct){
+    public func setupDetailCell(data: DataProduct){
         self.productNameLabel.text = "Seu produto: \(data.productName)\n"
         self.codeTrakingLabel.text = "Acompanhe pelo código:\(data.codeTraking)"
         self.productImageView.image = UIImage(named: data.productNameImage)
