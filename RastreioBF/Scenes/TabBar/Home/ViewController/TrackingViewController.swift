@@ -89,8 +89,9 @@ extension TrackingViewController: TrackingViewProtocol{
     func checkTextFieldsAreNotEmpty() -> Bool {
         let trackingNumber = self.trackingView?.trackingNumberTextField.text ?? ""
         let description = self.trackingView?.descriptionTextField.text ?? ""
+        let status = self.trackingView?.statusTextField.text ?? ""
         
-        if trackingNumber.isEmpty || trackingNumber.hasPrefix(" ") || description.isEmpty || description.hasPrefix(" "){
+        if trackingNumber.isEmpty || trackingNumber.hasPrefix(" ") || description.isEmpty || description.hasPrefix(" ") || status.isEmpty || status.hasPrefix(" "){
             return false
         }
         return true
