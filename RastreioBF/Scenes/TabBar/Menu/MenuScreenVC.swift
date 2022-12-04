@@ -109,19 +109,20 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         models.append(Section(title: "Sair", options: [
             
             .staticCell(model : SettingsOption(title: "Logout", icon: UIImage(systemName: "person.badge.minus"), iconBackgroundColor: .systemRed){
-                // let meusDados = MeusDadosVC() referenciar a tela logout
-                //    self.navigationController?.pushViewController(meusDados, animated: true) mudar de tela
-//                let alert : Alert = Alert(controller: self)
-//                alert.userAlertLogout()
-                self.alert?.getAlertActions(titulo: "Atenção", mensagem:"Deseja sair ?") {
-                    self.coordinator?.eventOcurred(with: .signUp)
-                    self.coordinator?.start()
-                }
-            }),
+//                 let meusDados = MeusDadosVC()
+//                    self.navigationController?.pushViewController(meusDados, animated: true) mudar de tela
+                let alert : Alert = Alert(controller: self)
+                alert.userAlertLogout()
+//                self.alert?.getAlertActions(titulo: "Atenção", mensagem:"Deseja sair ?") {
+//                    self.coordinator?.eventOcurred(with: .signUp)
+//                    self.coordinator?.start()
+//                }
+            })
             
         ]))
         
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = models[section]
         return section.title

@@ -9,10 +9,9 @@ import UIKit
 
 class TrackingViewController: UIViewController {
     
-    var trackingView: TrackingView?
-    var alert: Alert?
-    var newData: DataProduct?
-    var warningViewController: WarningViewController?
+    private var trackingView: TrackingView?
+    private var alert: Alert?
+    private var dataProductVM = TrackingViewControllerViewModel()
     
     override func loadView() {
         self.trackingView = TrackingView()
@@ -29,7 +28,7 @@ class TrackingViewController: UIViewController {
         self.alert = Alert(controller: self)
         self.configTapGesture()
     }
-    // Abaixa o teclado independente de onde eu clico
+
     private func configTapGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
@@ -66,16 +65,16 @@ extension TrackingViewController: TrackingViewProtocol{
     }
     
     func actionSubmitButton() {
-        // FUncao disparada quando o botao salvar é acionado
         if checkTextFieldsAreNotEmpty() {
             
-            self.newData = DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", data: "01/11/2022", time: "20:30")
-            let viewController = WarningViewController()
-            viewController.insertRows(data: newData)
+            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
             
+            dataProductVM.populateCorrectArray(data: dataProductVM.getLastData())
+     
             self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!")
             self.trackingView?.trackingNumberTextField.text = ""
             self.trackingView?.descriptionTextField.text = ""
+            self.trackingView?.statusTextField.text = ""
                        
         } else {
             self.alert?.getAlert(titulo: "Atenção!", mensagem: "Todos os campos precisam ser preenchidos para que os dados possam ser salvos!")
@@ -90,12 +89,11 @@ extension TrackingViewController: TrackingViewProtocol{
     func checkTextFieldsAreNotEmpty() -> Bool {
         let trackingNumber = self.trackingView?.trackingNumberTextField.text ?? ""
         let description = self.trackingView?.descriptionTextField.text ?? ""
+        let status = self.trackingView?.statusTextField.text ?? ""
         
-        if trackingNumber.isEmpty || trackingNumber.hasPrefix(" ") || description.isEmpty || description.hasPrefix(" "){
+        if trackingNumber.isEmpty || trackingNumber.hasPrefix(" ") || description.isEmpty || description.hasPrefix(" ") || status.isEmpty || status.hasPrefix(" "){
             return false
         }
         return true
     }
 }
-
-

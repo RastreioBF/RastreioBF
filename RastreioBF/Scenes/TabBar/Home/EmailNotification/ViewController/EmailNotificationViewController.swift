@@ -133,4 +133,3 @@ extension EmailNotificationViewController {
         view.endEditing(true)
     }
 }
-

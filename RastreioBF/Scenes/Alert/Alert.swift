@@ -86,9 +86,9 @@ class Alert:NSObject, Coordinating{
         let ok = UIAlertAction(title: "continuar", style: .default) { (acao) in
             completion?(_textField?.text ?? "")
 //
-//            let vc:LoginViewController = LoginViewController()
-//            self.controller.navigationController?.pushViewController(vc, animated: false)
-            self.coordinator?.eventOcurred(with: .login)
+            let vc:LoginViewController = LoginViewController()
+            self.controller.navigationController?.pushViewController(vc, animated: false)
+//            self.coordinator?.eventOcurred(with: .login)
         }
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alert.addAction(cancel)

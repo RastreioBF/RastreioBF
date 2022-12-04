@@ -85,6 +85,31 @@ class TrackingView: UIView {
         return textField
     }()
     
+    lazy var statusLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.preferredFont(forTextStyle: .callout)
+        label.font = .systemFont(ofSize: 16, weight: .light)
+        label.text = "Status da Entrega"
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var statusTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.autocorrectionType = .no
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
+        textField.keyboardType = .default
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.tag = 1
+        textField.placeholder = "Entregue ou Pendente..."
+        textField.font = UIFont.systemFont(ofSize: 14)
+        textField.textColor = .darkGray
+        return textField
+    }()
+    
     lazy var getEmailNotificationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -147,6 +172,8 @@ class TrackingView: UIView {
         self.addSubview(self.emailNotificationSwitch)
         self.addSubview(self.sendNoticationToAnotherEmailButton)
         self.addSubview(self.submitButton)
+        self.addSubview(self.statusLabel)
+        self.addSubview(self.statusTextField)
     }
         
     private func configBackground(){
@@ -222,9 +249,17 @@ class TrackingView: UIView {
             self.descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
-            self.getEmailNotificationLabel.topAnchor.constraint(equalTo: self.descriptionTextField.bottomAnchor, constant: 15),
-            self.getEmailNotificationLabel.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),
-            self.getEmailNotificationLabel.trailingAnchor.constraint(equalTo: self.descriptionTextField.trailingAnchor),
+            self.statusLabel.topAnchor.constraint(equalTo: self.descriptionTextField.bottomAnchor, constant: 10),
+            self.statusLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            
+            self.statusTextField.topAnchor.constraint(equalTo: self.statusLabel.bottomAnchor, constant: 5),
+            self.statusTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            
+            self.getEmailNotificationLabel.topAnchor.constraint(equalTo: self.statusTextField.bottomAnchor, constant: 15),
+            self.getEmailNotificationLabel.leadingAnchor.constraint(equalTo: self.statusTextField.leadingAnchor),
+            self.getEmailNotificationLabel.trailingAnchor.constraint(equalTo: self.statusTextField.trailingAnchor),
             
             self.emailNotificationSwitch.topAnchor.constraint(equalTo: self.getEmailNotificationLabel.topAnchor),
             self.emailNotificationSwitch.trailingAnchor.constraint(equalTo: self.descriptionTextField.trailingAnchor),
