@@ -335,7 +335,7 @@ extension SignUpViewController: SignUpViewProtocol {
     }
     
     func actionGoToLoginButton() {
-        coordinator?.eventOcurred(with: .goBackTapped)
+        coordinator?.eventOcurred(with: .login)
     }
 }
 

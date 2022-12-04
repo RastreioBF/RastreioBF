@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+class MainTabBarController: UITabBarController, Coordinating{
+    
+    var coordinator: Coordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,23 +20,19 @@ class MainTabBarController: UITabBarController {
     
     private func setUpTabBarController() {
         
-        //Adiciona as telas na TabBarController
         let homeViewController = UINavigationController(rootViewController: TrackingViewController())
         let warningViewController = UINavigationController(rootViewController: WarningViewController())
         let doneViewController = UINavigationController(rootViewController: DoneViewController())
         let pendenciesViewController = UINavigationController(rootViewController: PendenciesViewController())
         let menuViewController = UINavigationController(rootViewController: MenuScreenVC())
         
-        //Array com a ordem das telas
         self.setViewControllers([homeViewController, warningViewController, doneViewController, pendenciesViewController, menuViewController], animated: true)
-        
-        //Configura a visualizacao da tabBar
+
         self.tabBar.selectedImageTintColor = UIColor(named: "mainPurpleColor")
         self.tabBar.backgroundColor = .white //cor de fundo
         self.tabBar.alpha = 0.9
         self.tabBar.isTranslucent = false
-        
-        //Adiciona icone e atribui titulo de acordo com a posicao no array
+
         guard let items = tabBar.items else {return}
         
         items[0].title = "Home"
@@ -54,8 +52,6 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setUpNavigationBar(){
-//        UINavigationBar.appearance().barStyle = .default
-//        UINavigationBar.appearance().tintColor = UIColor(named: "mainPurpleColor")
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
@@ -65,26 +61,8 @@ class MainTabBarController: UITabBarController {
 
 extension UINavigationBar {
     func customNavigationBar() {
-        // color for button images, indicators and etc.
-//        self.tintColor = UIColor.red
-
-        // color for background of navigation bar
-        // but if you use larget titles, then in viewDidLoad must write
-        // navigationController?.view.backgroundColor = // your color
-//        self.barTintColor = .white
-//        self.isTranslucent = false
-
-        // for larget titles
         self.prefersLargeTitles = false
-
-        // color for large title label
         self.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
-
-        // color for standard title label
         self.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
-
-        // remove bottom line/shadow
-//        self.setBackgroundImage(UIImage(), for: .default)
-//        self.shadowImage = UIImage()
     }
 }

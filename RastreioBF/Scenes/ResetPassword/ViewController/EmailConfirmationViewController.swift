@@ -8,9 +8,10 @@
 import UIKit
 import FirebaseAuth
 
-class EmailConfirmationViewController: UIViewController {
+class EmailConfirmationViewController: UIViewController, Coordinating {
     
     var auth:Auth?
+    var coordinator: Coordinator?
     var emailConfirmationScreen:EmailConfirmationScreen?
     var alert:Alert?
     var viewModel: EmailConfirmationViewModel = EmailConfirmationViewModel()
@@ -95,7 +96,7 @@ extension EmailConfirmationViewController {
 
 extension EmailConfirmationViewController: EmailConfirmationScreenDelegate {
     func actionGoBackTapped() {
-        viewModel.actionGoBack()
+        self.coordinator?.eventOcurred(with: .goBackTapped)
     }
     
     func actionGoToCodeButtonTapped() {
@@ -121,6 +122,6 @@ extension EmailConfirmationViewController: EmailConfirmationScreenDelegate {
     }
     
     func actionSignUpButtonTapped() {
-        viewModel.actionSignUpButton()
+        self.coordinator?.eventOcurred(with: .signUp)
     }
 }

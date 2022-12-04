@@ -28,6 +28,10 @@
 "emailFormatError" = "Digite o e-mail no formato nome@exemplo.com";
 "passwordTargetError" = "Senha deve ter no mínimo 6 caracteres";
 "passwordsNotEqualError" = "Deve ser igual a senha";
+"fieldsMustBeFilleds" = "Os campos devem ser preenchidos";
+"allFieldsMustBeFilleds" = "Todos os campos devem ser preenchidos";
+"wrongData" = "Dados incorretos, verifique e tente novamente!";
+
 
 //TabBar Titles
 "homeTitle" = "Novo - RastreioBF";
@@ -50,6 +54,9 @@
 "linkSentMesageBody" = "Por favor, verifique o link enviado em seu e-mail para definir uma nova senha";
 "verifyAndTryAgain" =  "Verifique o e-mail inserido e tente novamente.";
 "errorOccurred" = "Um error ocorreu. Tente novamente!";
+"wrongEmailSignin" = "E-mail não verificado, caso tenha feito o sign in, por favor verifique seu e-mail. Gostaria que um novo e-mail seja enviado?";
+"tryAgainLater" = "Tivemos um problema inesperado, tente novamente mais tarde.";
+
 
 
 

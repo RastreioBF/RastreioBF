@@ -53,6 +53,8 @@
 		099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */; };
 		099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */; };
 		099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */; };
+		09DB4EFA293CDAE9009BA93A /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4EF9293CDAE9009BA93A /* LoginProtocols.swift */; };
+		09DB4EFE293CDC91009BA93A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4EFD293CDC91009BA93A /* LoginViewModel.swift */; };
 		09EAB3FD28D76D3400968827 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FC28D76D3400968827 /* DoneView.swift */; };
 		09EAB40028D76EF200968827 /* DataDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB3FF28D76EF200968827 /* DataDone.swift */; };
 		09EAB40428D76F9900968827 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAB40328D76F9900968827 /* DoneTableViewCell.swift */; };
@@ -126,6 +128,8 @@
 		099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesViewController.swift; sourceTree = "<group>"; };
 		099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
+		09DB4EF9293CDAE9009BA93A /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		09DB4EFD293CDC91009BA93A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		09EAB3FC28D76D3400968827 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
 		09EAB3FF28D76EF200968827 /* DataDone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDone.swift; sourceTree = "<group>"; };
 		09EAB40328D76F9900968827 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
@@ -439,8 +443,10 @@
 		099BCC9328CB887C000DFDE6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				09DB4EFC293CDC75009BA93A /* ViewModel */,
 				099BCC9428CB889D000DFDE6 /* View */,
 				099BCC7428CB8216000DFDE6 /* ViewController */,
+				09DB4EFB293CDAF1009BA93A /* Protocols */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -536,6 +542,22 @@
 				096CA8E328D5525A00C459B0 /* TableView */,
 			);
 			path = Warning;
+			sourceTree = "<group>";
+		};
+		09DB4EFB293CDAF1009BA93A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				09DB4EF9293CDAE9009BA93A /* LoginProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		09DB4EFC293CDC75009BA93A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09DB4EFD293CDC91009BA93A /* LoginViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		09EAB3FA28D76CF200968827 /* DoneScreen */ = {
@@ -896,6 +918,7 @@
 				099BCC7D28CB82EF000DFDE6 /* DemoViewController.swift in Sources */,
 				090D841C28D33DFB00198D69 /* APIHelper.swift in Sources */,
 				0974F63028CB77A7004E8716 /* SceneDelegate.swift in Sources */,
+				09DB4EFA293CDAE9009BA93A /* LoginProtocols.swift in Sources */,
 				09EAB40028D76EF200968827 /* DataDone.swift in Sources */,
 				3A163B0629117046005A93AA /* SettingsTableViewCell.swift in Sources */,
 				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
@@ -917,6 +940,7 @@
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
 				3A163B0E29117046005A93AA /* RemoveUserViewController.swift in Sources */,
 				099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */,
+				09DB4EFE293CDC91009BA93A /* LoginViewModel.swift in Sources */,
 				3A163B0529117046005A93AA /* CadastroScreen.swift in Sources */,
 				098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */,
 				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,

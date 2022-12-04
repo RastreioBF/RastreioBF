@@ -9,17 +9,17 @@ import UIKit
 import FirebaseAuth
 import GoogleSignIn
 
-class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDelegate, Coordinating {
+class LoginViewController: UIViewController, Coordinating {
+    
     var coordinator: Coordinator?
     var auth:Auth?
     var loginScreen:LoginView?
     var alert:Alert?
+    var viewModel: LoginViewModel = LoginViewModel()
     let signInConfig = GIDConfiguration(clientID: "614878693717-p6uad96i9eltvcigv9o8o589su8flt41.apps.googleusercontent.com")
     
-    //LoadView eh responsavel para quando estamos criando uma view
     override func loadView() {
         self.loginScreen = LoginView()
-        //aqui dizemos que a nossa view eh igual a login screen
         self.view = self.loginScreen
     }
     
@@ -28,8 +28,6 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
         self.loginScreen?.loginErrorLabel.isHidden = true
         self.loginScreen?.delegate(delegate: self)
         self.validationFields()
-        //coloca a responsabilidade do delegate na viewController
-        //        self.loginScreen?.configTextFieldDelegate(delegate: self)
         self.auth = Auth.auth()
         self.alert = Alert(controller: self)
         self.loginScreen?.emailTextField.delegate = self
@@ -48,7 +46,6 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //retira a sombra da navigationController
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -58,11 +55,9 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
     }
     
     func signIn(sender: Any) {
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { [self] user, error in
             guard error == nil else { return }
-            
-            let vc: DemoViewController = DemoViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.coordinator?.eventOcurred(with: .onboarding)
         }
     }
     
@@ -72,8 +67,7 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
     
     
     func tappedMockado() {
-        let vc: MainTabBarController = MainTabBarController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.coordinator?.eventOcurred(with: .mainTabbar)
     }
     
     private var authUser : User? {
@@ -81,125 +75,56 @@ class LoginViewController: UIViewController, LoginViewProtocol, UITextFieldDeleg
     }
     
     func actionLoginButton() {
-        
-        let email = self.loginScreen?.emailTextField.text ?? ""
-        let password = self.loginScreen?.passwordTextField.text ?? ""
-        
         guard let login = self.loginScreen else {return}
         
-        if email.isEmpty || password.isEmpty {
-            self.loginScreen?.loginErrorLabel.text = "Todos os campos devem ser preenchidos"
+        if viewModel.emptyTextField(text: self.loginScreen?.emailTextField.text ?? "") || viewModel.emptyTextField(text: self.loginScreen?.passwordTextField.text ?? "") {
+            self.loginScreen?.loginErrorLabel.text = LC.allFieldsMustBeFilleds.text
             self.loginScreen?.loginErrorLabel.isHidden = false
         } else {
             self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
                 if error != nil{
-                    self.loginScreen?.loginErrorLabel.text = "Dados incorretos, verifique e tente novamente!"
+                    self.loginScreen?.loginErrorLabel.text = LC.wrongData.text
                     self.loginScreen?.loginErrorLabel.isHidden = false
                 } else if !Auth.auth().currentUser!.isEmailVerified {
-                    self.alert?.getAlertActions(titulo: "Atenção", mensagem: "E-mail não verificado, caso tenha feito o sign in, por favor verifique seu e-mail. Gostaria que um novo e-mail seja enviado?", completion: {
+                    self.alert?.getAlertActions(titulo: LC.atentionTitle.text, mensagem: LC.wrongEmailSignin.text, completion: {
                         self.authUser!.sendEmailVerification(completion: { (error) in
-                            // Notify the user that the mail has sent or couldn't because of an error.
                         })
                     })
                 } else if usuario == nil{
-                    self.alert?.getAlert(titulo: "Atenção", mensagem: "Tivemos um problema inesperado, tente novamente mais tarde.")
+                    self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.tryAgainLater.text)
                 }else{
                     if (self.auth?.currentUser?.metadata.creationDate == self.auth?.currentUser?.metadata.lastSignInDate
                     ) {
-                        let vc: DemoViewController = DemoViewController()
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        self.coordinator?.eventOcurred(with: .onboarding)
                     } else {
-                        let vc: MainTabBarController = MainTabBarController()
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        self.coordinator?.eventOcurred(with: .mainTabbar)
                     }
                 }
             })
         }
     }
-    
-    //Cria o metodo que ira baixar o teclado ao clicar em "done"
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case self.loginScreen?.emailTextField:
-            self.loginScreen?.passwordTextField.becomeFirstResponder()
-        default:
-            textField.resignFirstResponder()
-        }
-        return false
-    }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     func actionGoogleButton() {
-        let vc: DemoViewController = DemoViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.coordinator?.eventOcurred(with: .onboarding)
     }
     
     func actionSignUpButton() {
-//        let vc: SignUpViewController = SignUpViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-        coordinator?.eventOcurred(with: .buttonTapped)
+        self.coordinator?.eventOcurred(with: .signUp)
     }
     
     func actionForgotPassword() {
+        self.coordinator?.eventOcurred(with: .resetPassword)
         
-        let coordinator = EmailConfirmationCoordinator(
-            navigationController: self.navigationController ?? UINavigationController()
-        )
-        coordinator.start()
-        
-    }
-    
-    func checkLogin(){
-        self.loginScreen?.loginButton.isEnabled = false
-        
-        self.loginScreen?.loginErrorLabel.isHidden = true
     }
     
     func validationFields(){
-        
-        if self.loginScreen?.loginButton.isSelected == true {
-            if self.loginScreen?.passwordTextField.state.isEmpty == false || self.loginScreen?.emailTextField.state.isEmpty == false {
-                self.loginScreen?.loginErrorLabel.text = ""
-            } else {
-                self.loginScreen?.loginErrorLabel.text = "Os campos devem ser preenchidos"
-                self.loginScreen?.loginButton.isEnabled = false
-            }
-            
-        }
+        viewModel.validateFields(button: loginScreen?.loginButton ?? UIButton(), password: loginScreen?.passwordTextField ?? UITextField(), errorLabel: loginScreen?.loginErrorLabel ?? UILabel(), email: loginScreen?.emailTextField ?? UITextField())
     }
     
-}
-
-extension String {
-    
-    public func validaPhoneNumber(phoneNumber: String) -> Bool {
-        //      let phoneNumberRegex = "^[6-9]\d{9}$"
-        let phoneNumberRegex = ""
-        let trimmedString = phoneNumber.trimmingCharacters(in: .whitespaces)
-        let validatePhone = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegex)
-        let isValidPhone = validatePhone.evaluate(with: trimmedString)
-        return isValidPhone
-    }
-    
-    public func validatePassword(password: String) -> Bool {
-        //Minimum 8 characters at least 1 Alphabet and 1 Number:
-        //      let passRegEx = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-        let passRegEx = ""
-        let trimmedString = password.trimmingCharacters(in: .whitespaces)
-        let validatePassord = NSPredicate(format:"SELF MATCHES %@", passRegEx)
-        let isvalidatePass = validatePassord.evaluate(with: trimmedString)
-        return isvalidatePass
-    }
-    public func validateAnyOtherTextField(otherField: String) -> Bool {
-        let otherRegexString = "Your regex String"
-        let trimmedString = otherField.trimmingCharacters(in: .whitespaces)
-        let validateOtherString = NSPredicate(format: "SELF MATCHES %@", otherRegexString)
-        let isValidateOtherString = validateOtherString.evaluate(with: trimmedString)
-        return isValidateOtherString
-    }
 }
 
 extension LoginViewController {
@@ -217,13 +142,25 @@ extension LoginViewController {
             let newFrameY = (textBoxY - keyboardTopY / 1.7) * -1
             view.frame.origin.y = newFrameY
         }
-        
-        print("foo - userInfo: \(userInfo)")
-        print("foo - keyboardFrame: \(keyboardFrame)")
-        print("foo - currentTextField: \(currentTextField)")
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         view.frame.origin.y = 0
     }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.loginScreen?.emailTextField:
+            self.loginScreen?.passwordTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+}
+
+extension LoginViewController: LoginViewProtocol {
+    
 }

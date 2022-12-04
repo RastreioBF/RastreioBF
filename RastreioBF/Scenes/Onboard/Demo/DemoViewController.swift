@@ -7,8 +7,9 @@
 
 import UIKit
 
-class DemoViewController: UIPageViewController {
+class DemoViewController: UIPageViewController, Coordinating {
     
+    var coordinator: Coordinator?
     var pages = [UIViewController]()
     let skipButton = UIButton()
     let nextButton = UIButton()

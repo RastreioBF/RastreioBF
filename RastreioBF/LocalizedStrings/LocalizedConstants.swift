@@ -39,6 +39,10 @@ enum LocalizedConstants: String {
     case emailFormatError
     case passwordTargetError
     case passwordsNotEqualError
+    case fieldsMustBeFilleds
+    case allFieldsMustBeFilleds
+    case wrongData
+    
     
     //MARK: - TabBar ViewControllers
     case menuTitle
@@ -62,6 +66,8 @@ enum LocalizedConstants: String {
     case linkSentMesageBody
     case verifyAndTryAgain
     case errorOccurred
+    case wrongEmailSignin
+    case tryAgainLater
     
     var text: String {
         return rawValue.localized(.presentation)

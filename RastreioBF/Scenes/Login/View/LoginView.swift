@@ -11,28 +11,16 @@ import Foundation
 import Lottie
 import GoogleSignIn
 
-//Protocolos com as funcoes de acao dos botoes
-protocol LoginViewProtocol:AnyObject {
-    func actionLoginButton()
-    func actionSignUpButton()
-    func signIn(sender: Any)
-    func actionForgotPassword()
-    func tappedMockado()
-}
-
-//A viewController eh responsavel por saber que exitem os elementos, nela contem as ligacoes que referenciam ao elemento, a view eh responsavel por conter todos os elementos e suas configuracoes
 class LoginView: UIView {
 
-//    var viewModel: LoginViewModel
     private var shouldFocusLink: Bool = false
-    //acessa o protocolo
+
     weak var delegate:LoginViewProtocol?
-    //funcao para configurar o delegate
+
     func delegate(delegate:LoginViewProtocol?){
         self.delegate = delegate
     }
-    
-    //Boa pratica: criar os elementos sempre com lazy para nao ocupar memoria persistente
+
     //MARK: Properties
     
     var animationUIView:UIView = {

@@ -32,7 +32,7 @@ struct SettingsOption {
     let handler: (() -> Void)
 }
 
-class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource,Coordinating {
     
     
     private let tablewView: UITableView = {
@@ -43,9 +43,12 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }()
     
     var models = [Section]()
+    var alert:Alert?
+    var coordinator: Coordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.alert = Alert(controller: self)
         configure()
         title = "Settings"
         view.addSubview(tablewView)
@@ -108,8 +111,12 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             .staticCell(model : SettingsOption(title: "Logout", icon: UIImage(systemName: "person.badge.minus"), iconBackgroundColor: .systemRed){
                 // let meusDados = MeusDadosVC() referenciar a tela logout
                 //    self.navigationController?.pushViewController(meusDados, animated: true) mudar de tela
-                let alert : Alert = Alert(controller: self)
-                alert.userAlertLogout()
+//                let alert : Alert = Alert(controller: self)
+//                alert.userAlertLogout()
+                self.alert?.getAlertActions(titulo: "Atenção", mensagem:"Deseja sair ?") {
+                    self.coordinator?.eventOcurred(with: .signUp)
+                    self.coordinator?.start()
+                }
             }),
             
         ]))

@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class Alert:NSObject{
+class Alert:NSObject, Coordinating{
 
     var controller:UIViewController
+    var coordinator: Coordinator?
     
     init(controller:UIViewController) {
         self.controller = controller
@@ -87,9 +88,10 @@ class Alert:NSObject{
         let alert = UIAlertController(title: "Atenção", message: "Deseja sair ?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "continuar", style: .default) { (acao) in
             completion?(_textField?.text ?? "")
-            
-            let vc:LoginViewController = LoginViewController()
-            self.controller.navigationController?.pushViewController(vc, animated: false)
+//            
+//            let vc:LoginViewController = LoginViewController()
+//            self.controller.navigationController?.pushViewController(vc, animated: false)
+            self.coordinator?.eventOcurred(with: .login)
         }
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alert.addAction(cancel)

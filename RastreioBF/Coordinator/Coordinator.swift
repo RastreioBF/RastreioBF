@@ -9,8 +9,13 @@ import Foundation
 import UIKit
 
 enum Event {
-    case buttonTapped
+    case signUp
     case goBackTapped
+    case onboarding
+    case login
+    case resetPassword
+    case mainTabbar
+    
 }
 
 protocol Coordinator {
