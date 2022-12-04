@@ -11,7 +11,6 @@ class TrackingViewController: UIViewController {
     
     var trackingView: TrackingView?
     var alert: Alert?
-    var warningViewController: WarningViewController?
     var dataProductVM = TrackingViewControllerViewModel()
     
     override func loadView() {

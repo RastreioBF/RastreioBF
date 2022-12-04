@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailWarningViewController: UIViewController{
+class DetailWarningViewController: UIViewController {
     
     private var detailWarningView: DetailWarningView?
     private var dataProductVM = DetailWarningViewControllerViewModel()
@@ -25,6 +25,7 @@ class DetailWarningViewController: UIViewController{
 }
 
 extension  DetailWarningViewController: UITableViewDataSource, UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
