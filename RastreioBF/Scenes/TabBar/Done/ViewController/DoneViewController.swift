@@ -66,7 +66,7 @@ extension DoneViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : DetailViewController = DetailViewController()
+        let vc : DetailDoneViewController = DetailDoneViewController()
         vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
         present(vc, animated: true)
     }

@@ -62,7 +62,7 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : DetailViewController = DetailViewController()
+        let vc : DetailWarningViewController = DetailWarningViewController()
         vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
         present(vc, animated: true)
     }

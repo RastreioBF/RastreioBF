@@ -1,13 +1,13 @@
 //
-//  WarningView.swift
+//  DetailDoneView.swift
 //  RastreioBF
 //
-//  Created by Jessica Bigal on 15/09/22.
+//  Created by Anderson Sales on 04/12/22.
 //
 
 import UIKit
 
-class DetailView: UIView {
+class DetailDoneView: UIView {
     
     lazy var detailTitleLabel : UILabel = {
        let label = UILabel()
@@ -64,4 +64,3 @@ class DetailView: UIView {
         ])
     }
 }
-

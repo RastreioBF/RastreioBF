@@ -1,34 +1,30 @@
 //
-//  DetailViewController.swift
+//  DetailDoneViewController.swift
 //  RastreioBF
 //
-//  Created by Wesley Prado on 01/11/2022.
+//  Created by Anderson Sales on 04/12/22.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController{
+class DetailDoneViewController: UIViewController{
     
-    private var detailView: DetailView?
-    private var dataProductVM = DetailViewControllerViewModel()
+    private var detailDoneView: DetailDoneView?
+    private var dataProductVM = DetailDoneControllerViewModel()
     var data: DataProduct?
     
     override func loadView() {
-        detailView = DetailView()
-        view = detailView
+        detailDoneView = DetailDoneView()
+        view = detailDoneView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailView?.configTableViewProtocols(delegate: self, dataSource: self)
-    }
-    
-    func displayProperData(data: DataProduct) -> DataProduct {
-        return data
+        detailDoneView?.configTableViewProtocols(delegate: self, dataSource: self)
     }
 }
 
-extension  DetailViewController: UITableViewDataSource, UITableViewDelegate {
+extension  DetailDoneViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -37,8 +33,8 @@ extension  DetailViewController: UITableViewDataSource, UITableViewDelegate {
         let cell: ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
         cell?.setupDetailCell(data: data ?? DataProduct(productName: "", productNameImage: "", codeTraking: "", productDescription: "", date: "", time: "", status: ""))
         return cell ?? UITableViewCell()
-        
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return dataProductVM.heightForRowAt
     }
