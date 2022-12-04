@@ -64,9 +64,9 @@ class PendenciesViewController: UIViewController {
             return dataProductVM.heightForRowAt
         }
         
-        /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let vc : DetailViewController = DetailViewController()
-            dataProductVM.setupDataProduct(data: dataProductVM.getDataProduct(indexPath: indexPath))
+            vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
             present(vc, animated: true)
-        }*/
+        }
     }

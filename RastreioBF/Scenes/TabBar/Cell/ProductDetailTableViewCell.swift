@@ -25,7 +25,6 @@ class ProductDetailTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Playstation"
-        //   label.font = UIFont(name: CustomFont.poppinsMedium, size: 16)
         label.textColor = .darkGray
         label.numberOfLines = 1
         return label
@@ -104,26 +103,14 @@ class ProductDetailTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setupCell( data: DataProduct){
+    public func setupCell(data: DataProduct){
         self.productNameLabel.text = data.productName
         self.codeTrakingLabel.text = data.codeTraking
         self.productImageView.image = UIImage(named: data.productNameImage)
         self.productDescriptionLabel.text = data.productDescription
         self.productDateLabel.text = data.date
         self.productTimeLabel.text = data.time
-       
     }
-  
-//    public func setupCell2( data: DataDone){
-//        self.productNameLabel.text = data.productName
-//        self.codeTrakingLabel.text = data.codeTraking
-//        self.productImageView.image = UIImage(named: data.productNameImage)
-//        self.productDescriptionLabel.text = data.productDescription
-//        self.productStatusImage.image = UIImage(named: data.productStatusImage)
-//        self.productDateLabel.text = data.data
-//        self.productTimeLabel.text = data.time
-        
-   // }
     
     public func setupDetailCell(data: DataProduct){
         self.productNameLabel.text = "Seu produto: \(data.productName)\n"

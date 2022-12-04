@@ -11,10 +11,6 @@ class WarningViewControllerViewModel {
     
     private static var data : [DataProduct] = []
     
-    func getLastData() -> DataProduct? {
-        return WarningViewControllerViewModel.data.last
-    }
-    
     func setupDataProduct(data: DataProduct) {
         WarningViewControllerViewModel.data.append(data)
     }

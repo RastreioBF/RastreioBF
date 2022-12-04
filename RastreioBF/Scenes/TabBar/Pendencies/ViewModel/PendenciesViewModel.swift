@@ -11,10 +11,6 @@ class PendenciesViewControllerViewModel {
     
     private static var data : [DataProduct] = []
     
-    func getLastData() -> DataProduct? {
-        return PendenciesViewControllerViewModel.data.last
-    }
-    
     func setupDataProduct(data: DataProduct) {
         PendenciesViewControllerViewModel.data.append(data)
     }

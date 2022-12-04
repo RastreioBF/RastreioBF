@@ -71,8 +71,4 @@ struct TrackingViewControllerViewModel {
     mutating func setupDataProduct(data: DataProduct) {
         TrackingViewControllerViewModel.data.append(data)
     }
-    
-    func getDataProduct(indexPath: IndexPath) -> DataProduct {
-        return TrackingViewControllerViewModel.data[indexPath.row]
-    }
 }

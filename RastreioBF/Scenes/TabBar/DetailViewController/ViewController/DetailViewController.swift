@@ -11,6 +11,7 @@ class DetailViewController: UIViewController{
     
     private var detailView: DetailView?
     private var dataProductVM = DetailViewControllerViewModel()
+    var data: DataProduct?
     
     override func loadView() {
         detailView = DetailView()
@@ -21,6 +22,10 @@ class DetailViewController: UIViewController{
         super.viewDidLoad()
         detailView?.configTableViewProtocols(delegate: self, dataSource: self)
     }
+    
+    func displayProperData(data: DataProduct) -> DataProduct {
+        return data
+    }
 }
 
 extension  DetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -30,7 +35,7 @@ extension  DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-        cell?.setupDetailCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
+        cell?.setupDetailCell(data: data ?? DataProduct(productName: "", productNameImage: "", codeTraking: "", productDescription: "", date: "", time: "", status: ""))
         return cell ?? UITableViewCell()
         
     }

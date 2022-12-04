@@ -11,10 +11,6 @@ class DoneViewControllerViewModel {
     
     private static var data: [DataProduct] = []
     
-    func getLastData() -> DataProduct? {
-        return DoneViewControllerViewModel.data.last
-    }
-    
     func setupDataProduct(data: DataProduct) {
         DoneViewControllerViewModel.data.append(data)
     }
