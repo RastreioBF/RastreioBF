@@ -30,18 +30,8 @@ class EmailConfirmationCoordinator: EmailConfirmationCoordinatorProtocol, Coordi
     }
     
     func actionSignUpButton() {
-//        let vc: SignUpViewController = SignUpViewController()
-//        self.navigationController.pushViewController(vc, animated: true)
-        coordinator?.eventOcurred(with: .buttonTapped)
-//        coordinations?.eventOcurred(with: .buttonTapped)
-    }
-    
-    func actionGoToCodeButton() {
-        
-    }
-    
-    func didTapEmail() {
-        
+        let vc: SignUpViewController = SignUpViewController()
+        self.navigationController.pushViewController(vc, animated: true)
     }
     
 }

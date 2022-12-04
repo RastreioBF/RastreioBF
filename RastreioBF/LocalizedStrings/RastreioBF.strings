@@ -42,3 +42,14 @@
 "thirdSubtitle" = "Planeje-se para sua entrega";
 "skipIntroductionBt" = "Pular Introdução";
 "rastreioBFBt" = "RastreioBF";
+
+//Alert
+"atentionTitle" = "Atenção";
+"insertEmailBody" = "Insira um e-mail";
+"emailSent" = "E-mail enviado";
+"linkSentMesageBody" = "Por favor, verifique o link enviado em seu e-mail para definir uma nova senha";
+"verifyAndTryAgain" =  "Verifique o e-mail inserido e tente novamente.";
+"errorOccurred" = "Um error ocorreu. Tente novamente!";
+
+
+

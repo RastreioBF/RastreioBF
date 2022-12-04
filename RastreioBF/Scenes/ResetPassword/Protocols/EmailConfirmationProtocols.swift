@@ -15,15 +15,11 @@ protocol EmailConfirmationScreenDelegate: AnyObject {
 }
 
 protocol EmailConfirmationViewModelProtocol: AnyObject {
-    func actionGoToCodeButton()
-    func didTapEmail()
     func actionGoBack()
     func actionSignUpButton()
 }
 
 protocol EmailConfirmationCoordinatorProtocol: AnyObject {
-    func actionGoToCodeButton()
-    func didTapEmail()
     func actionGoBack()
     func actionSignUpButton()
 }

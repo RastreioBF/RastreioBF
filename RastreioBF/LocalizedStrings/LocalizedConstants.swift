@@ -54,6 +54,15 @@ enum LocalizedConstants: String {
     case skipIntroductionBt
     case rastreioBFBt
     
+    //MARK: - Alert Messages
+    
+    case atentionTitle
+    case insertEmailBody
+    case emailSent
+    case linkSentMesageBody
+    case verifyAndTryAgain
+    case errorOccurred
+    
     var text: String {
         return rawValue.localized(.presentation)
     }

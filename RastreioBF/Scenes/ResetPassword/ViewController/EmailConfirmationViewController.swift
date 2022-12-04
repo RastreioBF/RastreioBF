@@ -8,13 +8,12 @@
 import UIKit
 import FirebaseAuth
 
-class EmailConfirmationViewController: UIViewController, UITextFieldDelegate {
+class EmailConfirmationViewController: UIViewController {
     
     var auth:Auth?
     var emailConfirmationScreen:EmailConfirmationScreen?
     var alert:Alert?
-    
-    let viewModel: EmailConfirmationViewModelProtocol
+    var viewModel: EmailConfirmationViewModel = EmailConfirmationViewModel()
     
     override func loadView() {
         self.emailConfirmationScreen = EmailConfirmationScreen()
@@ -24,7 +23,6 @@ class EmailConfirmationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         emailConfirmationScreen?.delegate = self
         emailConfirmationScreen?.emailErrorLabel.isHidden = true
-        //coloca a responsabilidade do delegate na viewController
         auth = Auth.auth()
         alert = Alert(controller: self)
         emailConfirmationScreen?.emailTextField.delegate = self
@@ -32,7 +30,7 @@ class EmailConfirmationViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    init(viewModel: EmailConfirmationViewModelProtocol) {
+    init(viewModel: EmailConfirmationViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -46,6 +44,20 @@ class EmailConfirmationViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    func resetPasswordAuth(email: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage:String) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if error == nil {
+                onSuccess()
+            } else {
+                self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.errorOccurred.text)
+            }
+        }
+    }
+}
+
+//MARK: Extensions
+
+extension EmailConfirmationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         default:
@@ -57,71 +69,8 @@ class EmailConfirmationViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    public func validateEmailId(emailID: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
-        let trimmedString = emailID.trimmingCharacters(in: .whitespaces)
-        let validateEmail = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let isValidateEmail = validateEmail.evaluate(with: trimmedString)
-        return isValidateEmail
-    }
-    
-    func didTapEmail() {
-        let text =  self.emailConfirmationScreen?.emailTextField.text ?? ""
-        let label =  self.emailConfirmationScreen?.emailErrorLabel
-        
-        if text.isEmpty {
-            label?.text = "Por favor, insira seu e-mail"
-            label?.isHidden = false
-        } else if validateEmailId(emailID: text) == false {
-            label?.text = "O e-mail deve ter o formato: nome@exemplo.com"
-            label?.isHidden = false
-        } else {
-            label?.isHidden = true
-        }
-    }
-    
-    func actionGoBack() {
-        self.navigationController?.popToRootViewController(animated: false)
-    }
-    
-    func actionSignUpButton() {
-        let vc: SignUpViewController = SignUpViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func resetPasswordAuth(email: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage:String) -> Void) {
-        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
-            if error == nil {
-                onSuccess()
-            } else {
-                self.alert?.getAlert(titulo: "Atenção", mensagem: "Um error ocorreu. Tente novamente!")
-            }
-        }
-        
-    }
-    
-    func actionGoToCodeButton() {
-        guard let email = self.emailConfirmationScreen?.emailTextField.text else {return}
-        
-        if email.isEmpty {
-            self.alert?.getAlert(titulo: "Atenção", mensagem: "Insira um e-mail")
-        } else {
-            resetPasswordAuth(email: email, onSuccess: {
-                
-                self.view.endEditing(true)
-                self.alert?.getAlert(titulo: "E-mail enviado", mensagem: "Por favor, verifique o link enviado em seu e-mail para definir uma nova senha", completion: {
-                    self.navigationController?.popViewController(animated: true)
-                })
-            })
-            { (errorMessage) in
-                self.alert?.getAlert(titulo: "Atenção", mensagem: "Verifique o e-mail inserido e tente novamente.")
-            }
-        }
-    }
 }
 
-// MARK: Keyboard
 extension EmailConfirmationViewController {
     @objc func keyboardWillShow(sender: NSNotification) {
         guard let userInfo = sender.userInfo,
@@ -137,15 +86,11 @@ extension EmailConfirmationViewController {
             let newFrameY = (textBoxY - keyboardTopY / 1.23) * -1
             view.frame.origin.y = newFrameY
         }
-
-        print("foo - userInfo: \(userInfo)")
-        print("foo - keyboardFrame: \(keyboardFrame)")
-        print("foo - currentTextField: \(currentTextField)")
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-          view.frame.origin.y = 0
-      }
+        view.frame.origin.y = 0
+    }
 }
 
 extension EmailConfirmationViewController: EmailConfirmationScreenDelegate {
@@ -154,11 +99,25 @@ extension EmailConfirmationViewController: EmailConfirmationScreenDelegate {
     }
     
     func actionGoToCodeButtonTapped() {
-        viewModel.actionGoToCodeButton()
+        guard let email = self.emailConfirmationScreen?.emailTextField.text else {return}
+        
+        if email.isEmpty {
+            self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.insertEmailBody.text)
+        } else {
+            resetPasswordAuth(email: email, onSuccess: {
+                self.view.endEditing(true)
+                self.alert?.getAlert(titulo: LC.emailSent.text, mensagem: LC.linkSentMesageBody.text, completion: {
+                    self.navigationController?.popViewController(animated: true)
+                })
+            })
+            { (errorMessage) in
+                self.alert?.getAlert(titulo:  LC.atentionTitle.text, mensagem: LC.verifyAndTryAgain.text)
+            }
+        }
     }
     
     func didTapEmailTapped() {
-        viewModel.didTapEmail()
+        viewModel.emailMaskVerify(text: self.emailConfirmationScreen?.emailTextField.text ?? "", label: self.emailConfirmationScreen?.emailErrorLabel ?? UILabel(), messageEmpty: LC.emptyEmailError.text, messageEmailError: LC.emailFormatError.text)
     }
     
     func actionSignUpButtonTapped() {
