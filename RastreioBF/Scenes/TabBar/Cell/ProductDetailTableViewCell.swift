@@ -150,7 +150,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         ])
     }
     
-    func prepareCell(model: Evento, model2: UnidadeEndereco) {
+//    func prepareCell(model: Evento, model2: UnidadeEndereco) {
 //        self.viewModel = WarningCellViewModel(object: model, test: model2)
 //        self.productDateLabel.text = viewModel?.descricao ?? ""
 //        self.codeTrakingLabel.text = viewModel?.unidade
@@ -174,5 +174,5 @@ class ProductDetailTableViewCell: UITableViewCell {
 //        }
         
         
-    }
+//    }
 }
