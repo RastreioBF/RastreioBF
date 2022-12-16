@@ -11,7 +11,6 @@ import Foundation
 class ProductDetailTableViewCell: UITableViewCell {
     
     static let identifier : String = "ProductDetailTableViewCell"
-//    var viewModel: WarningCellViewModel?
     
     lazy var  productImageView : UIImageView = {
         let image = UIImageView()
@@ -26,7 +25,6 @@ class ProductDetailTableViewCell: UITableViewCell {
     lazy var  productNameLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Playstation"
         label.textColor = .darkGray
         label.numberOfLines = 1
         return label
@@ -35,7 +33,6 @@ class ProductDetailTableViewCell: UITableViewCell {
     lazy var  codeTrakingLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "23948KJSD"
         label.textColor = .black
         label.numberOfLines = 1
         return label
@@ -44,7 +41,6 @@ class ProductDetailTableViewCell: UITableViewCell {
     lazy var  productDescriptionLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = ""
         label.textColor = .black
         label.numberOfLines = 2
         return label
@@ -53,7 +49,6 @@ class ProductDetailTableViewCell: UITableViewCell {
     lazy var  productDateLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = ""
         label.textColor = .black
         label.numberOfLines = 1
         return label
@@ -62,7 +57,6 @@ class ProductDetailTableViewCell: UITableViewCell {
     lazy var  productTimeLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = ""
         label.textColor = .black
         label.numberOfLines = 1
         return label
@@ -150,29 +144,5 @@ class ProductDetailTableViewCell: UITableViewCell {
         ])
     }
     
-//    func prepareCell(model: Evento, model2: UnidadeEndereco) {
-//        self.viewModel = WarningCellViewModel(object: model, test: model2)
-//        self.productDateLabel.text = viewModel?.descricao ?? ""
-//        self.codeTrakingLabel.text = viewModel?.unidade
-//        var dataFormatada = viewModel?.data.replacingOccurrences(of: "-", with: "/")
-//
-//        self.productDateLabel.text = dataFormatada
-//        self.productDescriptionLabel.text = viewModel!.cidade + "-" + (viewModel?.uf ?? "")
-
-//        DispatchQueue.global().async {
-//            if let imageUrl = URL(string: "https://proxyapp.correios.com.br" + (self.viewModel!.image)) {
-//                do {
-//                    let data = try Data(contentsOf: imageUrl)
-//                    let img = UIImage(data: data)
-//                    DispatchQueue.main.async {
-//                        self.productImageView.image = img
-//                    }
-//                } catch {
-//                    print("Error")
-//                }
-//            }
-//        }
-        
-        
-//    }
 }
+

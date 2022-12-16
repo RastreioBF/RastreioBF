@@ -11,7 +11,7 @@ target 'RastreioBF' do
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'GoogleSignIn'
-  pod 'FirebaseCore'
   pod 'Firebase/Core'
+  pod 'Alamofire'
   
 end

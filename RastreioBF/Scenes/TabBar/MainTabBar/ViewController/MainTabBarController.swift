@@ -17,9 +17,7 @@ class MainTabBarController: UITabBarController, Coordinating{
         setUpNavigationBar()
     }
     
-    
     private func setUpTabBarController() {
-        
         let homeViewController = UINavigationController(rootViewController: TrackingViewController())
         let warningViewController = UINavigationController(rootViewController: WarningViewController())
         let doneViewController = UINavigationController(rootViewController: DoneViewController())

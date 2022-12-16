@@ -8,8 +8,9 @@
 import UIKit
 import Foundation
 
-class DoneViewController: UIViewController {
-
+class DoneViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
+    
     private var doneView: DoneView?
     private var dataProductVM = DoneViewControllerViewModel()
 

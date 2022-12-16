@@ -10,6 +10,7 @@ import Foundation
 class WarningViewControllerViewModel {
     
     private static var data : [DataProduct] = []
+    var dataSelf: DataProduct?
     
     func setupDataProduct(data: DataProduct) {
         WarningViewControllerViewModel.data.append(data)
@@ -21,6 +22,14 @@ class WarningViewControllerViewModel {
     
     var dataArraySize: Int {
         return WarningViewControllerViewModel.data.count
+    }
+    
+    var productName: String {
+        return dataSelf?.productName.text ?? ""
+    }
+    
+    var codeTracking: String {
+        return dataSelf?.codeTraking.text ?? ""
     }
     
     func removeData(indexPath: IndexPath) {

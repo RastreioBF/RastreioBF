@@ -8,21 +8,11 @@
 import UIKit
 
 class DetailWarningView: UIView {
-    
-    lazy var detailTitleLabel : UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Avisos RastreioBF"
-        label.textColor = .darkGray
-        label.font = UIFont.boldSystemFont(ofSize: 25)
-        return label
-    }()
-    
     lazy var tableView : UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
-        tableView.register(ProductDetailTableViewCell.self, forCellReuseIdentifier: ProductDetailTableViewCell.identifier)
+        tableView.register(PackageCell.self, forCellReuseIdentifier: PackageCell.identifier)
         return tableView
     }()
 
@@ -37,13 +27,12 @@ class DetailWarningView: UIView {
         self.setupConstraints()
     }
     
-    public func configTableViewProtocols( delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
+    public func configTableViewProtocols( delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         self.tableView.delegate = delegate
         self.tableView.dataSource = dataSource
     }
     
     func addElement(){
-        self.addSubview(self.detailTitleLabel)
         self.addSubview(self.tableView)
     }
     
@@ -53,14 +42,10 @@ class DetailWarningView: UIView {
     
      func setupConstraints() {
         NSLayoutConstraint.activate([
-        
-            self.detailTitleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: -25),
-            self.detailTitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-            self.tableView.topAnchor.constraint(equalTo: self.detailTitleLabel.bottomAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             self.tableView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
-            self.tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

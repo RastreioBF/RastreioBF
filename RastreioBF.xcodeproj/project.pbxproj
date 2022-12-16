@@ -18,6 +18,13 @@
 		094E247528CE85B300C6DDC8 /* email-sent.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247428CE85B300C6DDC8 /* email-sent.json */; };
 		094E247928CE87A800C6DDC8 /* email-with-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247828CE87A700C6DDC8 /* email-with-blue.json */; };
 		094E247B28CE881400C6DDC8 /* receiveEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247A28CE881400C6DDC8 /* receiveEmail.json */; };
+		096BFC2129489DCC003C1945 /* GenericService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2029489DCC003C1945 /* GenericService.swift */; };
+		096BFC2429489EC5003C1945 /* RastreioTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BFC2329489EC5003C1945 /* RastreioTemplate.json */; };
+		096BFC2629489F93003C1945 /* RastreioAPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2529489F93003C1945 /* RastreioAPIViewModel.swift */; };
+		096BFC282948E30F003C1945 /* RastreioPackageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC272948E30F003C1945 /* RastreioPackageViewModel.swift */; };
+		096BFC2A2948E534003C1945 /* RastreioPackageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC292948E534003C1945 /* RastreioPackageCellViewModel.swift */; };
+		096BFC2F2948E70E003C1945 /* PackageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2E2948E70E003C1945 /* PackageCell.swift */; };
+		096BFC38294A89A3003C1945 /* DataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC37294A89A3003C1945 /* DataTracking.swift */; };
 		09732389291D19A500E44BB7 /* EmailConfirmationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09732388291D19A500E44BB7 /* EmailConfirmationProtocols.swift */; };
 		0973238C291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0973238B291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift */; };
 		0973238F291D1A6200E44BB7 /* EmailConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0973238E291D1A6200E44BB7 /* EmailConfirmationViewModel.swift */; };
@@ -31,8 +38,6 @@
 		0974F64728CB7883004E8716 /* unlocked.json in Resources */ = {isa = PBXBuildFile; fileRef = 0974F64428CB7883004E8716 /* unlocked.json */; };
 		098B467528CECA28009D08A4 /* TrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467428CECA28009D08A4 /* TrackingView.swift */; };
 		098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467C28CECB1E009D08A4 /* TrackingViewController.swift */; };
-		098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */; };
-		098B468128CECCE9009D08A4 /* EmailNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B468028CECCE9009D08A4 /* EmailNotificationView.swift */; };
 		099BCC6328CB7CEF000DFDE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */; };
 		099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6528CB80D6000DFDE6 /* Constants.swift */; };
 		099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC6728CB80EB000DFDE6 /* Bundle+.swift */; };
@@ -57,7 +62,7 @@
 		09DB4F01293CEFA2009BA93A /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4F00293CEFA2009BA93A /* SignUpProtocols.swift */; };
 		09DB4F03293CF0AF009BA93A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4F02293CF0AF009BA93A /* SignUpViewModel.swift */; };
 		0FE1F1180BC19C91F504AC14 /* Pods_RastreioBF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F222AA0DAB02B0FA791F1471 /* Pods_RastreioBF.framework */; };
-		3A163B0329117046005A93AA /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		3A163B0329117046005A93AA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3A163B0629117046005A93AA /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A163AE929117046005A93AA /* SettingsTableViewCell.swift */; };
 		3A163B0729117046005A93AA /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A163AEA29117046005A93AA /* SwitchTableViewCell.swift */; };
 		3A163B0829117046005A93AA /* RequestUserDataViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A163AEF29117046005A93AA /* RequestUserDataViewCell.swift */; };
@@ -102,6 +107,13 @@
 		094E247428CE85B300C6DDC8 /* email-sent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-sent.json"; sourceTree = "<group>"; };
 		094E247828CE87A700C6DDC8 /* email-with-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-with-blue.json"; sourceTree = "<group>"; };
 		094E247A28CE881400C6DDC8 /* receiveEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = receiveEmail.json; sourceTree = "<group>"; };
+		096BFC2029489DCC003C1945 /* GenericService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericService.swift; sourceTree = "<group>"; };
+		096BFC2329489EC5003C1945 /* RastreioTemplate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RastreioTemplate.json; sourceTree = "<group>"; };
+		096BFC2529489F93003C1945 /* RastreioAPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioAPIViewModel.swift; sourceTree = "<group>"; };
+		096BFC272948E30F003C1945 /* RastreioPackageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioPackageViewModel.swift; sourceTree = "<group>"; };
+		096BFC292948E534003C1945 /* RastreioPackageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioPackageCellViewModel.swift; sourceTree = "<group>"; };
+		096BFC2E2948E70E003C1945 /* PackageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCell.swift; sourceTree = "<group>"; };
+		096BFC37294A89A3003C1945 /* DataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTracking.swift; sourceTree = "<group>"; };
 		09732388291D19A500E44BB7 /* EmailConfirmationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationProtocols.swift; sourceTree = "<group>"; };
 		0973238B291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationCoordinator.swift; sourceTree = "<group>"; };
 		0973238E291D1A6200E44BB7 /* EmailConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationViewModel.swift; sourceTree = "<group>"; };
@@ -117,8 +129,6 @@
 		0974F64428CB7883004E8716 /* unlocked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unlocked.json; sourceTree = "<group>"; };
 		098B467428CECA28009D08A4 /* TrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingView.swift; sourceTree = "<group>"; };
 		098B467C28CECB1E009D08A4 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
-		098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationViewController.swift; sourceTree = "<group>"; };
-		098B468028CECCE9009D08A4 /* EmailNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotificationView.swift; sourceTree = "<group>"; };
 		099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		099BCC6528CB80D6000DFDE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		099BCC6728CB80EB000DFDE6 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
@@ -193,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				090D841B28D33DFB00198D69 /* APIHelper.swift */,
+				096BFC2029489DCC003C1945 /* GenericService.swift */,
 				093F937E2926DC9C00DA697B /* RastreioBFService.swift */,
 				093F93802926DD0D00DA697B /* ModelService.swift */,
 			);
@@ -203,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				0918AD4728D6958B00E95DFB /* DataProduct.swift */,
+				096BFC37294A89A3003C1945 /* DataTracking.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,29 +264,40 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		094E246928CE71C400C6DDC8 /* EmailNotification */ = {
+		096BFC2229489E5F003C1945 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				094E246B28CE71DE00C6DDC8 /* View */,
-				094E246A28CE71D100C6DDC8 /* ViewController */,
+				096BFC2329489EC5003C1945 /* RastreioTemplate.json */,
+				096BFC2529489F93003C1945 /* RastreioAPIViewModel.swift */,
 			);
-			path = EmailNotification;
+			path = JSON;
 			sourceTree = "<group>";
 		};
-		094E246A28CE71D100C6DDC8 /* ViewController */ = {
+		096BFC2B2948E542003C1945 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				098B467E28CECB6D009D08A4 /* EmailNotificationViewController.swift */,
+				096BFC272948E30F003C1945 /* RastreioPackageViewModel.swift */,
+				096BFC292948E534003C1945 /* RastreioPackageCellViewModel.swift */,
 			);
-			path = ViewController;
+			name = ViewModel;
+			path = ../Service;
 			sourceTree = "<group>";
 		};
-		094E246B28CE71DE00C6DDC8 /* View */ = {
+		096BFC2C2948E6B8003C1945 /* Package */ = {
 			isa = PBXGroup;
 			children = (
-				098B468028CECCE9009D08A4 /* EmailNotificationView.swift */,
+				096BFC2D2948E6E1003C1945 /* Cell */,
+				096BFC2B2948E542003C1945 /* ViewModel */,
 			);
-			path = View;
+			name = Package;
+			sourceTree = "<group>";
+		};
+		096BFC2D2948E6E1003C1945 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				096BFC2E2948E70E003C1945 /* PackageCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		096CA8E328D5525A00C459B0 /* Cell */ = {
@@ -332,6 +355,7 @@
 			children = (
 				093F93D7292D7FC600DA697B /* Coordinator */,
 				6C0DCC63293D1EB2001A5EF2 /* Data */,
+				096BFC2229489E5F003C1945 /* JSON */,
 				090D841A28D33DD900198D69 /* Service */,
 				0974F64128CB786D004E8716 /* Assets */,
 				099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */,
@@ -447,6 +471,7 @@
 		099BCC9228CB881B000DFDE6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				096BFC2C2948E6B8003C1945 /* Package */,
 				099BCC7028CB81AA000DFDE6 /* Alert */,
 				099BCC9328CB887C000DFDE6 /* Login */,
 				099BCC9528CB88B7000DFDE6 /* Onboard */,
@@ -537,7 +562,6 @@
 		099BCCA328CB8AE5000DFDE6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				094E246928CE71C400C6DDC8 /* EmailNotification */,
 				094E246828CE718D00C6DDC8 /* Tracking */,
 			);
 			path = Home;
@@ -993,6 +1017,7 @@
 				0974F64528CB7883004E8716 /* loginAnimation.json in Resources */,
 				099BCC6328CB7CEF000DFDE6 /* GoogleService-Info.plist in Resources */,
 				0974F64628CB7883004E8716 /* signUpAnimation.json in Resources */,
+				096BFC2429489EC5003C1945 /* RastreioTemplate.json in Resources */,
 				094E247928CE87A800C6DDC8 /* email-with-blue.json in Resources */,
 				0974F64728CB7883004E8716 /* unlocked.json in Resources */,
 				0974F63728CB77A8004E8716 /* Assets.xcassets in Resources */,
@@ -1058,14 +1083,16 @@
 				0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */,
 				099BCC7928CB8277000DFDE6 /* LoginView.swift in Sources */,
 				6CFFA7FD293C5CF8006DAF62 /* DetailDoneView.swift in Sources */,
-				098B468128CECCE9009D08A4 /* EmailNotificationView.swift in Sources */,
+				096BFC2F2948E70E003C1945 /* PackageCell.swift in Sources */,
 				09DB4F01293CEFA2009BA93A /* SignUpProtocols.swift in Sources */,
+				096BFC2629489F93003C1945 /* RastreioAPIViewModel.swift in Sources */,
 				099BCC8528CB83A9000DFDE6 /* EmailConfirmationScreen.swift in Sources */,
 				6CFFA7C0293BBC64006DAF62 /* TrackingViewModel.swift in Sources */,
 				099BCC8528CB83A9000DFDE6 /* EmailConfirmationScreen.swift in Sources */,
 				6C0DCC6A293D1FB0001A5EF2 /* DataProduct+CoreDataClass.swift in Sources */,
 				3A163B0829117046005A93AA /* RequestUserDataViewCell.swift in Sources */,
 				3A163B0B29117046005A93AA /* PrivacyPoliciesView.swift in Sources */,
+				096BFC2129489DCC003C1945 /* GenericService.swift in Sources */,
 				6CFFA7F3293C59C7006DAF62 /* DetailWarningViewController.swift in Sources */,
 				6CFFA7CD293C3760006DAF62 /* DoneView.swift in Sources */,
 				3A163B0929117046005A93AA /* RequestUserDataView.swift in Sources */,
@@ -1090,6 +1117,7 @@
 				0973238C291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift in Sources */,
 				09DB4F03293CF0AF009BA93A /* SignUpViewModel.swift in Sources */,
 				6C0DCC6B293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift in Sources */,
+				096BFC38294A89A3003C1945 /* DataTracking.swift in Sources */,
 				3A163B0629117046005A93AA /* SettingsTableViewCell.swift in Sources */,
 				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
 				3A163B0C29117046005A93AA /* PrivacyPoliciesViewController.swift in Sources */,
@@ -1100,10 +1128,9 @@
 				099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */,
 				099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */,
 				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
-				3A163B0329117046005A93AA /* BuildFile in Sources */,
+				3A163B0329117046005A93AA /* (null) in Sources */,
 				093F93812926DD0D00DA697B /* ModelService.swift in Sources */,
 				6CFFA7BA293B9159006DAF62 /* WarningViewModel.swift in Sources */,
-				098B467F28CECB6D009D08A4 /* EmailNotificationViewController.swift in Sources */,
 				6CFFA7F7293C5B8A006DAF62 /* DetailPendenciesView.swift in Sources */,
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
 				3A163B0E29117046005A93AA /* RemoveUserViewController.swift in Sources */,
@@ -1112,6 +1139,7 @@
 				09DB4EFE293CDC91009BA93A /* LoginViewModel.swift in Sources */,
 				098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */,
 				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,
+				096BFC2A2948E534003C1945 /* RastreioPackageCellViewModel.swift in Sources */,
 				6CFFA7D3293C38B6006DAF62 /* WarningView.swift in Sources */,
 				0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */,
 				093F93D6292D7FB700DA697B /* Coordinator.swift in Sources */,
@@ -1122,6 +1150,7 @@
 				6CFFA7D0293C37F1006DAF62 /* PendenciesView.swift in Sources */,
 				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,
 				6CFFA7BD293BBC37006DAF62 /* PendenciesViewModel.swift in Sources */,
+				096BFC282948E30F003C1945 /* RastreioPackageViewModel.swift in Sources */,
 				099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */,
 				6CFFA7F1293C59A9006DAF62 /* DetailWarningView.swift in Sources */,
 				3A163B0F29117046005A93AA /* MenuScreenVC.swift in Sources */,

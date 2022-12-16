@@ -7,7 +7,8 @@
 
 import UIKit
 
-class WarningViewController: UIViewController {
+class WarningViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
     
     private var warningView: WarningView?
     private var dataProductVM = WarningViewControllerViewModel()
@@ -21,6 +22,7 @@ class WarningViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = LC.warningTitle.text
         self.warningView?.configTableViewProtocols(delegate: self, dataSource: self)
+        warningView?.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +53,9 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-        cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
-        return cell ?? UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return UITableViewCell() }
+        cell.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -61,9 +63,13 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : DetailWarningViewController = DetailWarningViewController()
+        let cell : ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
+        cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
+    
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return }
+        let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
         vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -7,7 +7,8 @@
 
 import UIKit
 
-class TrackingViewController: UIViewController {
+class TrackingViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
     
     private var trackingView: TrackingView?
     private var alert: Alert?
@@ -56,13 +57,6 @@ extension TrackingViewController: UITextFieldDelegate {
 }
 
 extension TrackingViewController: TrackingViewProtocol{
-    func actionEmailNotificationSwitch() {
-    }
-    
-    func actionSendNoticationToAnotherEmailButton() {
-        let viewController = EmailNotificationViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
     
     func actionSubmitButton() {
         if checkTextFieldsAreNotEmpty() {
@@ -70,6 +64,8 @@ extension TrackingViewController: TrackingViewProtocol{
             dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
             
             dataProductVM.populateCorrectArray(data: dataProductVM.getLastData())
+            
+            dataProductVM.addFunc(code: self.trackingView?.trackingNumberTextField.text ?? "", description: self.trackingView?.descriptionTextField.text ?? "")
      
             self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!")
             self.trackingView?.trackingNumberTextField.text = ""

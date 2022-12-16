@@ -11,8 +11,6 @@ import Lottie
 protocol TrackingViewProtocol: AnyObject {
     func actionBackButton()
     func actionSubmitButton()
-    func actionEmailNotificationSwitch()
-    func actionSendNoticationToAnotherEmailButton()
 }
 
 class TrackingView: UIView {
@@ -110,37 +108,6 @@ class TrackingView: UIView {
         return textField
     }()
     
-    lazy var getEmailNotificationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .callout)
-        label.font = .systemFont(ofSize: 16, weight: .medium)
-        label.textColor = .darkGray
-        label.text = "Notificação por email"
-        label.textAlignment = .left
-        return label
-    }()
-    
-    lazy var emailNotificationSwitch: UISwitch = {
-        let mySwitch = UISwitch()
-        mySwitch.translatesAutoresizingMaskIntoConstraints = false
-        mySwitch.isOn = false
-        mySwitch.onTintColor = .green
-        mySwitch.addTarget(self, action: #selector(self.tappedEmailNotificationSwitch(sender:)), for: .touchUpInside)
-        return mySwitch
-    }()
-    
-    lazy var sendNoticationToAnotherEmailButton: UIButton = {
-        var button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Enviar notificação para outro email", for: .normal)
-        button.titleLabel?.textAlignment = .left
-        button.setTitleColor(UIColor.systemBlue, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(self.tappedSendNoticationToAnotherEmailButton), for: .touchUpInside)
-        return button
-    }()
-    
     lazy var submitButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -168,9 +135,6 @@ class TrackingView: UIView {
         self.addSubview(self.trackingNumberTextField)
         self.addSubview(self.descriptionLabel)
         self.addSubview(self.descriptionTextField)
-        self.addSubview(self.getEmailNotificationLabel)
-        self.addSubview(self.emailNotificationSwitch)
-        self.addSubview(self.sendNoticationToAnotherEmailButton)
         self.addSubview(self.submitButton)
         self.addSubview(self.statusLabel)
         self.addSubview(self.statusTextField)
@@ -191,14 +155,6 @@ class TrackingView: UIView {
     
     @objc private func tappedSubmitButton(){
         self.delegate?.actionSubmitButton()
-    }
-    
-    @objc func tappedEmailNotificationSwitch(sender: UISwitch) {
-        self.delegate?.actionEmailNotificationSwitch()
-    }
-    
-    @objc private func tappedSendNoticationToAnotherEmailButton(){
-        self.delegate?.actionSendNoticationToAnotherEmailButton()
     }
     
     public func validateTextFields(){
@@ -256,16 +212,6 @@ class TrackingView: UIView {
             self.statusTextField.topAnchor.constraint(equalTo: self.statusLabel.bottomAnchor, constant: 5),
             self.statusTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            
-            self.getEmailNotificationLabel.topAnchor.constraint(equalTo: self.statusTextField.bottomAnchor, constant: 15),
-            self.getEmailNotificationLabel.leadingAnchor.constraint(equalTo: self.statusTextField.leadingAnchor),
-            self.getEmailNotificationLabel.trailingAnchor.constraint(equalTo: self.statusTextField.trailingAnchor),
-            
-            self.emailNotificationSwitch.topAnchor.constraint(equalTo: self.getEmailNotificationLabel.topAnchor),
-            self.emailNotificationSwitch.trailingAnchor.constraint(equalTo: self.descriptionTextField.trailingAnchor),
-            
-            self.sendNoticationToAnotherEmailButton.topAnchor.constraint(equalTo: self.getEmailNotificationLabel.bottomAnchor, constant: 0),
-            self.sendNoticationToAnotherEmailButton.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),
             
             self.submitButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.submitButton.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),

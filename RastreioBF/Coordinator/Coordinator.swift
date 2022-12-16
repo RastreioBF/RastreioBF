@@ -15,7 +15,11 @@ enum Event {
     case login
     case resetPassword
     case mainTabbar
-    
+    case menu
+    case tracking
+    case warning
+    case done
+    case pendencies
 }
 
 protocol Coordinator {

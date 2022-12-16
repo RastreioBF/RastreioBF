@@ -63,4 +63,8 @@ class DetailDoneView: UIView {
             self.tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+    
+    public func setupCell(data: DataProduct){
+        self.detailTitleLabel.text = data.productName
+    }
 }

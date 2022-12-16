@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
+class SettingsTableViewCell: UITableViewCell, Coordinating {
+    var coordinator: Coordinator?
+    
     static let identifier = "SettingTableViewCell"
     
     private let iconContainer: UIView = {

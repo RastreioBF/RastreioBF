@@ -7,8 +7,9 @@
 
 import UIKit
 
-class PendenciesViewController: UIViewController {
-    
+class PendenciesViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
+
     private var pendenciesView: PendenciesView?
     private var dataProductVM = PendenciesViewControllerViewModel()
     

@@ -28,13 +28,41 @@ class MainCoordinator: Coordinator {
             navigationController?.pushViewController(vc, animated: true)
             children?.removeAll()
         case .login:
-            navigationController?.popToRootViewController(animated: false)
+            var vc: UIViewController & Coordinating = LoginViewController()
+            vc.coordinator = self
+            navigationController?.pushViewController(vc, animated: true)
+            children?.removeAll()
         case .resetPassword:
             var vc: UIViewController & Coordinating = EmailConfirmationViewController(viewModel: emailConfirmationViewModel)
             vc.coordinator = self
             navigationController?.pushViewController(vc, animated: true)
         case .mainTabbar:
             var vc: UIViewController & Coordinating = MainTabBarController()
+            vc.coordinator = self
+            navigationController?.pushViewController(vc, animated: true)
+            children?.removeAll()
+        case .menu:
+            var vc: UIViewController & Coordinating = MenuScreenVC()
+            vc.coordinator = self
+            navigationController?.pushViewController(vc, animated: true)
+            children?.removeAll()
+        case .tracking:
+            var vc: UIViewController & Coordinating = TrackingViewController()
+            vc.coordinator = self
+            navigationController?.pushViewController(vc, animated: true)
+            children?.removeAll()
+        case .warning:
+            var vc: UIViewController & Coordinating = WarningViewController()
+            vc.coordinator = self
+            navigationController?.pushViewController(vc, animated: true)
+            children?.removeAll()
+        case .done:
+            var vc: UIViewController & Coordinating = DoneViewController()
+            vc.coordinator = self
+            navigationController?.pushViewController(vc, animated: true)
+            children?.removeAll()
+        case .pendencies:
+            var vc: UIViewController & Coordinating = PendenciesViewController()
             vc.coordinator = self
             navigationController?.pushViewController(vc, animated: true)
             children?.removeAll()

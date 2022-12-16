@@ -12,8 +12,10 @@ struct TrackingViewControllerViewModel {
     private var warningDataVM = WarningViewControllerViewModel()
     private var doneDataVM = DoneViewControllerViewModel()
     private var pendingDataVM  = PendenciesViewControllerViewModel()
+    private var detailDataVM  = DetailWarningViewControllerViewModel()
     
     private static var data : [DataProduct] = []
+    var trackingData: [DataTracking] = []
     
     func populateCorrectArray(data: DataProduct?){
         if data?.status.lowercased() == "entregue" {
@@ -34,6 +36,17 @@ struct TrackingViewControllerViewModel {
                 date: data?.date ?? "DD/MM/AAAA",
                 time: data?.time ?? "HH:MM",
                 status: data?.status ?? ""))
+            
+            detailDataVM.setupDataProduct(data: DataProduct(
+                productName: data?.productName ?? "",
+                productNameImage: "new",
+                codeTraking: data?.codeTraking ?? "",
+                productDescription: data?.productDescription ?? "",
+                date: data?.date ?? "DD/MM/AAAA",
+                time: data?.time ?? "HH:MM",
+                status: data?.status ?? ""))
+            
+            
         } else if data?.status.lowercased() == "pendente" {
             pendingDataVM.setupDataProduct(data: DataProduct(
                 productName: data?.productName ?? "",
@@ -52,8 +65,27 @@ struct TrackingViewControllerViewModel {
                 date: data?.date ?? "DD/MM/AAAA",
                 time: data?.time ?? "HH:MM",
                 status: data?.status ?? ""))
+            
+            detailDataVM.setupDataProduct(data: DataProduct(
+                productName: data?.productName ?? "",
+                productNameImage: "new",
+                codeTraking: data?.codeTraking ?? "",
+                productDescription: data?.productDescription ?? "",
+                date: data?.date ?? "DD/MM/AAAA",
+                time: data?.time ?? "HH:MM",
+                status: data?.status ?? ""))
+            
         } else {
             warningDataVM.setupDataProduct(data: DataProduct(
+                productName: data?.productName ?? "",
+                productNameImage: "new",
+                codeTraking: data?.codeTraking ?? "",
+                productDescription: data?.productDescription ?? "",
+                date: data?.date ?? "DD/MM/AAAA",
+                time: data?.time ?? "HH:MM",
+                status: data?.status ?? ""))
+            
+            detailDataVM.setupDataProduct(data: DataProduct(
                 productName: data?.productName ?? "",
                 productNameImage: "new",
                 codeTraking: data?.codeTraking ?? "",
@@ -70,5 +102,9 @@ struct TrackingViewControllerViewModel {
     
     mutating func setupDataProduct(data: DataProduct) {
         TrackingViewControllerViewModel.data.append(data)
+    }
+    
+    mutating func addFunc(code: String, description: String){
+        self.trackingData.append(DataTracking(code: code, description: description))
     }
 }

@@ -35,17 +35,17 @@ import Foundation
 //    let logradouro: String?
 //}
 
-// MARK: - Header
-struct Package: Codable {
-    let codigo, servico, host: String?
-    let quantidade: Int?
-    let eventos: [Eventos]?
-}
-
-// MARK: - Eventos
-struct Eventos: Codable {
-    let data, hora: String?
-    let local: String?
-    let status: String?
-    let subStatus: [String]?
-}
+//// MARK: - Header
+//struct Package: Codable {
+//    let codigo, servico, host: String?
+//    let quantidade: Int?
+//    let eventos: [Eventos]?
+//}
+//
+//// MARK: - Eventos
+//struct Eventos: Codable {
+//    let data, hora: String?
+//    let local: String?
+//    let status: String?
+//    let subStatus: [String]?
+//}
