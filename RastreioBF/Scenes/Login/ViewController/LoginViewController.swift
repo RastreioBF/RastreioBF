@@ -77,33 +77,35 @@ class LoginViewController: UIViewController, Coordinating {
     }
     
     func actionLoginButton() {
-        guard let login = self.loginScreen else {return}
-        
-        if viewModel.emptyTextField(text: self.loginScreen?.emailTextField.text ?? "") || viewModel.emptyTextField(text: self.loginScreen?.passwordTextField.text ?? "") {
-            self.loginScreen?.loginErrorLabel.text = LC.allFieldsMustBeFilleds.text
-            self.loginScreen?.loginErrorLabel.isHidden = false
-        } else {
-            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
-                if error != nil{
-                    self.loginScreen?.loginErrorLabel.text = LC.wrongData.text
-                    self.loginScreen?.loginErrorLabel.isHidden = false
-                } else if !Auth.auth().currentUser!.isEmailVerified {
-                    self.alert?.getAlertActions(titulo: LC.atentionTitle.text, mensagem: LC.wrongEmailSignin.text, completion: {
-                        self.authUser!.sendEmailVerification(completion: { (error) in
-                        })
-                    })
-                } else if usuario == nil{
-                    self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.tryAgainLater.text)
-                }else{
-                    if (self.auth?.currentUser?.metadata.creationDate == self.auth?.currentUser?.metadata.lastSignInDate
-                    ) {
-                        self.coordinator?.eventOcurred(with: .onboarding)
-                    } else {
-                        self.coordinator?.eventOcurred(with: .mainTabbar)
-                    }
-                }
-            })
-        }
+//        guard let login = self.loginScreen else {return}
+//
+//        if viewModel.emptyTextField(text: self.loginScreen?.emailTextField.text ?? "") || viewModel.emptyTextField(text: self.loginScreen?.passwordTextField.text ?? "") {
+//            self.loginScreen?.loginErrorLabel.text = LC.allFieldsMustBeFilleds.text
+//            self.loginScreen?.loginErrorLabel.isHidden = false
+//        } else {
+//            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
+//                if error != nil{
+//                    self.loginScreen?.loginErrorLabel.text = LC.wrongData.text
+//                    self.loginScreen?.loginErrorLabel.isHidden = false
+//                } else if !Auth.auth().currentUser!.isEmailVerified {
+//                    self.alert?.getAlertActions(titulo: LC.atentionTitle.text, mensagem: LC.wrongEmailSignin.text, completion: {
+//                        self.authUser!.sendEmailVerification(completion: { (error) in
+//                        })
+//                    })
+//                } else if usuario == nil{
+//                    self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.tryAgainLater.text)
+//                }else{
+//                    if (self.auth?.currentUser?.metadata.creationDate == self.auth?.currentUser?.metadata.lastSignInDate
+//                    ) {
+//                        self.coordinator?.eventOcurred(with: .onboarding)
+//                    } else {
+//                        self.coordinator?.eventOcurred(with: .mainTabbar)
+//                    }
+//                }
+//            })
+//        }
+        let vc: MainTabBarController = MainTabBarController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

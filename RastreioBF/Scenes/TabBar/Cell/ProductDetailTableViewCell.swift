@@ -99,13 +99,13 @@ class ProductDetailTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setupCell(data: DataProduct){
+    public func setupCell(data: DataProduct, model: Eventos){
         self.productNameLabel.text = data.productName
         self.codeTrakingLabel.text = data.codeTraking
-        self.productImageView.image = UIImage(named: data.productNameImage)
-        self.productDescriptionLabel.text = data.productDescription
-        self.productDateLabel.text = data.date
-        self.productTimeLabel.text = data.time
+//        self.productImageView.image = UIImage(named: data.productNameImage)
+        self.productDescriptionLabel.text = model.status
+        self.productDateLabel.text = model.data
+        self.productTimeLabel.text = model.hora
     }
     
     public func setupDetailCell(data: DataProduct){

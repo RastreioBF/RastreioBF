@@ -57,7 +57,7 @@ class PendenciesViewController: UIViewController, Coordinating {
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell : ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-            cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
+            cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath), model: model ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""]))
             return cell ?? UITableViewCell()
         }
         

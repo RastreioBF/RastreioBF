@@ -77,7 +77,7 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return UITableViewCell() }
-        cell.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
+        cell.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath), model: model ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""]))
         return cell
     }
     
@@ -87,9 +87,8 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell : ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-        cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
+        cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath), model: model ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""]))
     
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return }
         let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
         vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
         navigationController?.pushViewController(vc, animated: true)
