@@ -12,7 +12,8 @@ class DetailWarningViewController: UIViewController {
     private var detailWarningView: DetailWarningView?
     private var viewModel = DetailWarningViewControllerViewModel()
     var data: DataProduct?
-    var dataTracking: DataTracking?
+    var dataHeader: DataTracking?
+    var alert:Alert?
     
     var codigo: String
     var descriptionClient: String
@@ -34,16 +35,21 @@ class DetailWarningViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.detailWarningView?.configTableViewProtocols(delegate: self, dataSource: self)
-        self.detailWarningView?.tableView.separatorStyle = .none
+        self.alert = Alert(controller: self)
         self.title = codigo.text
+        viewModel.delegate = self
+        configTableView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         viewModel.fetchPackage()
-//        viewModel.fetchPackageAlamofire(code: codigo.text)
-//        viewModel.fetchPackageURLSession(code: codigo.text)
-//        viewModel.fetchPackageURLSessionNoLink()
+        viewModel.fetchPackageAlamofire(code: codigo.text)
+    }
+    
+    func configTableView(){
+        detailWarningView?.tableView.delegate = self
+        detailWarningView?.tableView.dataSource = self
+        detailWarningView?.tableView.separatorStyle = .none
     }
     
 }
@@ -67,11 +73,14 @@ extension  DetailWarningViewController: UITableViewDataSource, UITableViewDelega
 
 extension DetailWarningViewController: DetailWarningViewModelProtocols {
     func success() {
-        self.detailWarningView?.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.configTableView()
+            self.detailWarningView?.tableView.reloadData()
+        }
     }
 
     func failure() {
-        print("Error")
+        alert?.getAlert(titulo: "Atencao", mensagem: "Um erro ocorreu, verifique o codigo digitado e/ou sua conexao com a internet.")
 
     }
 }

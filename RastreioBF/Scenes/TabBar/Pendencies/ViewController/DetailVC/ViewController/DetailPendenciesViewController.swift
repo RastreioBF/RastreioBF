@@ -12,6 +12,8 @@ class DetailPendenciesViewController: UIViewController{
     private var detailPendenciesView: DetailPendenciesView?
     private var dataProductVM = DetailPendenciesControllerViewModel()
     var data: DataProduct?
+    var dataHeader: DataTracking?
+    var model: Eventos?
     
     override func loadView() {
         detailPendenciesView = DetailPendenciesView()

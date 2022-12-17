@@ -10,6 +10,7 @@ import Foundation
 class DoneViewControllerViewModel {
     
     private static var data: [DataProduct] = []
+    private static var dataHeader : [DataTracking] = []
     
     func setupDataProduct(data: DataProduct) {
         DoneViewControllerViewModel.data.append(data)
@@ -18,6 +19,10 @@ class DoneViewControllerViewModel {
     func getDataProduct(indexPath: IndexPath) -> DataProduct {
         return DoneViewControllerViewModel.data[indexPath.row]
     }
+    
+//    func getDataProduct(indexPath: IndexPath) -> DataTracking {
+//        return DoneViewControllerViewModel.dataHeader[indexPath.row]
+//    }
     
     var dataArraySize: Int {
         return DoneViewControllerViewModel.data.count

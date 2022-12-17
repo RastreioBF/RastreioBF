@@ -16,7 +16,6 @@ class DemoViewController: UIPageViewController, Coordinating {
     let pageControl = UIPageControl()
     let initialPage = 0
     
-    // animations
     var pageControlBottomAnchor: NSLayoutConstraint?
     var skipButtonTopAnchor: NSLayoutConstraint?
     var nextButtonTopAnchor: NSLayoutConstraint?
@@ -111,9 +110,9 @@ extension DemoViewController: UIPageViewControllerDataSource {
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
         
         if currentIndex == 0 {
-            return pages.last               // wrap last
+            return pages.last
         } else {
-            return pages[currentIndex - 1]  // go previous
+            return pages[currentIndex - 1]  
         }
     }
     
@@ -122,9 +121,9 @@ extension DemoViewController: UIPageViewControllerDataSource {
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
         
         if currentIndex < pages.count - 1 {
-            return pages[currentIndex + 1]  // go next
+            return pages[currentIndex + 1]
         } else {
-            return pages.first              // wrap first
+            return pages.first
         }
     }
 }
@@ -132,8 +131,7 @@ extension DemoViewController: UIPageViewControllerDataSource {
 // MARK: - Delegates
 
 extension DemoViewController: UIPageViewControllerDelegate {
-    
-    // How we keep our pageControl in sync with viewControllers
+
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         guard let viewControllers = pageViewController.viewControllers else { return }
@@ -178,11 +176,13 @@ extension DemoViewController {
     }
     
     @objc func skipTapped(_ sender: UIButton) {
-        self.coordinator?.eventOcurred(with: .mainTabbar)
+        let vc : MainTabBarController = MainTabBarController()
+        navigationController?.pushViewController(vc, animated: false)
     }
     
     @objc func nextTapped(_ sender: UIButton) {
-        self.coordinator?.eventOcurred(with: .mainTabbar)
+        let vc : MainTabBarController = MainTabBarController()
+        navigationController?.pushViewController(vc, animated: false)
     }
 }
 

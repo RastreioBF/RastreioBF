@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol DetailWarningViewModelProtocols: AnyObject {
     func success()

@@ -57,7 +57,9 @@ class LoginViewController: UIViewController, Coordinating {
     func signIn(sender: Any) {
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { [self] user, error in
             guard error == nil else { return }
-            self.coordinator?.eventOcurred(with: .onboarding)
+//            self.coordinator?.eventOcurred(with: .onboarding)
+            let vc: DemoViewController = DemoViewController()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -113,11 +115,14 @@ class LoginViewController: UIViewController, Coordinating {
     }
     
     func actionSignUpButton() {
-        self.coordinator?.eventOcurred(with: .signUp)
+        let vc: SignUpViewController = SignUpViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func actionForgotPassword() {
-        self.coordinator?.eventOcurred(with: .resetPassword)
+        let viewModel = EmailConfirmationViewModel()
+        let vc: EmailConfirmationViewController = EmailConfirmationViewController(viewModel: viewModel)
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     

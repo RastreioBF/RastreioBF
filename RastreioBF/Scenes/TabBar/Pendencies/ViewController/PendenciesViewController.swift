@@ -12,6 +12,7 @@ class PendenciesViewController: UIViewController, Coordinating {
 
     private var pendenciesView: PendenciesView?
     private var dataProductVM = PendenciesViewControllerViewModel()
+    var model: Eventos?
     
     override func loadView() {
         self.pendenciesView = PendenciesView()

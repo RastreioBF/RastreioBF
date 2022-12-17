@@ -113,16 +113,14 @@ class PackageCell: UITableViewCell {
             self.dataLabel.topAnchor.constraint(equalTo: self.cidadeLabel.bottomAnchor),
             self.dataLabel.leftAnchor.constraint(equalTo: self.cidadeLabel.leftAnchor),
             self.dataLabel.widthAnchor.constraint(equalToConstant: 120)
-//            self.dataLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10)
-            
         ])
     }
     
     
     func prepareCell(model: Eventos) {
         self.descriptionLabel.text = model.status
-        self.dataLabel.text = "Data:\(model.data)"
-        self.cidadeLabel.text = "Local:\(model.local)"
+        self.dataLabel.text = "Data:\(model.data ?? "")"
+        self.cidadeLabel.text = "Local:\(model.local ?? "")"
         var image = ""
         var status = model.status ?? ""
         

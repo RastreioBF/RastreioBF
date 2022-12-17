@@ -10,6 +10,7 @@ import Foundation
 class PendenciesViewControllerViewModel {
     
     private static var data : [DataProduct] = []
+    private static var dataHeader : [DataTracking] = []
     
     func setupDataProduct(data: DataProduct) {
         PendenciesViewControllerViewModel.data.append(data)
@@ -18,7 +19,11 @@ class PendenciesViewControllerViewModel {
     func getDataProduct(indexPath: IndexPath) -> DataProduct {
         return PendenciesViewControllerViewModel.data[indexPath.row]
     }
-    
+//
+//    func getDataProduct(indexPath: IndexPath) -> DataTracking {
+//        return PendenciesViewControllerViewModel.dataHeader[indexPath.row]
+//    }
+//    
     var dataArraySize: Int {
         return PendenciesViewControllerViewModel.data.count
     }

@@ -12,6 +12,8 @@ class DetailDoneViewController: UIViewController{
     private var detailDoneView: DetailDoneView?
     private var dataProductVM = DetailDoneControllerViewModel()
     var data: DataProduct?
+    var dataHeader: DataTracking?
+    var model: Eventos?
     
     override func loadView() {
         detailDoneView = DetailDoneView()

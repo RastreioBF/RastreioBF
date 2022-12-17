@@ -20,9 +20,3 @@ struct Eventos: Codable {
     let status: String?
     let subStatus: [String]?
 }
-
-// MARK: - Eventos Completos
-struct DataEvent {
-    let code: String?
-    let description: String?
-}

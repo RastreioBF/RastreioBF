@@ -17,19 +17,9 @@ class RastreioPackageCellViewModel {
     }
     
     var object: Eventos
-    var data: DataEvent
     
-    init(object: Eventos, data: DataEvent) {
+    init(object: Eventos) {
         self.object = object
-        self.data = data
-    }
-    
-    var description: String {
-        return data.description ?? "Error"
-    }
-    
-    var code: String {
-        return data.code ?? "Error"
     }
     
     var date: String {

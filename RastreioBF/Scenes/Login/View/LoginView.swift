@@ -12,15 +12,15 @@ import Lottie
 import GoogleSignIn
 
 class LoginView: UIView {
-
+    
     private var shouldFocusLink: Bool = false
-
+    
     weak var delegate:LoginViewProtocol?
-
+    
     func delegate(delegate:LoginViewProtocol?){
         self.delegate = delegate
     }
-
+    
     //MARK: Properties
     
     var animationUIView:UIView = {
@@ -152,7 +152,7 @@ class LoginView: UIView {
         button.addTarget(self, action: #selector(tappedGoogleBbutton), for: .touchUpInside)
         return button
     }()
-
+    
     lazy var registerLabel: UITextView = {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -199,7 +199,6 @@ class LoginView: UIView {
         let email:String = self.emailTextField.text ?? ""
         let password:String = self.passwordTextField.text ?? ""
         
-        //nao podem ser vazios
         if !email.isEmpty && !password.isEmpty {
             self.configButtonEnabled(true)
         } else {
@@ -226,7 +225,6 @@ class LoginView: UIView {
     }
     
     public func configTextFieldDelegate(delegate:UITextFieldDelegate) {
-        //aqui definimos que o responsavel pelo textField eh o delegate
         self.emailTextField.delegate = delegate
         self.passwordTextField.delegate = delegate
     }
@@ -254,7 +252,7 @@ class LoginView: UIView {
     @objc
     func mockado(){
         self.delegate?.tappedMockado()
-        }
+    }
     
     private func setUpConstraints(){
         self.setUpAnimationUIView()
@@ -276,13 +274,12 @@ class LoginView: UIView {
             self.scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             self.scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-            ])
+        ])
     }
     
     private func setUpAnimationUIView() {
         NSLayoutConstraint.activate([
             self.animationUIView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-//            self.animationUIView.bottomAnchor.constraint(equalTo: loginLabel.topAnchor, constant: -15),
             self.animationUIView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             self.animationUIView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             self.animationUIView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3),
@@ -291,111 +288,111 @@ class LoginView: UIView {
             self.animationView.bottomAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.bottomAnchor),
             self.animationView.leadingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.leadingAnchor),
             self.animationView.trailingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.trailingAnchor)
-            ])
+        ])
     }
     
     
-private func setUpLoginLabel() {
-    NSLayoutConstraint.activate([
-        self.loginLabel.topAnchor.constraint(equalTo: animationUIView.bottomAnchor, constant: 15),
-        self.loginLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-        self.loginLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+    private func setUpLoginLabel() {
+        NSLayoutConstraint.activate([
+            self.loginLabel.topAnchor.constraint(equalTo: animationUIView.bottomAnchor, constant: 15),
+            self.loginLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            self.loginLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
-}
-
+    }
+    
     private func setUpLoginErrorLabel() {
         NSLayoutConstraint.activate([
             self.loginErrorLabel.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 1),
             self.loginErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
             self.loginErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
-            ])
+        ])
     }
     
-private func setUpEmailText() {
-    NSLayoutConstraint.activate([
-        self.emailTextField.topAnchor.constraint(equalTo: loginErrorLabel.bottomAnchor, constant: 1),
-        self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-        self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+    private func setUpEmailText() {
+        NSLayoutConstraint.activate([
+            self.emailTextField.topAnchor.constraint(equalTo: loginErrorLabel.bottomAnchor, constant: 1),
+            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
-}
-
-private func setUpPasswordText() {
-    NSLayoutConstraint.activate([
-        self.passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-        self.passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-        self.passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10)
+    }
+    
+    private func setUpPasswordText() {
+        NSLayoutConstraint.activate([
+            self.passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            self.passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            self.passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10)
         ])
-}
-
-private func setUpRecoverBt() {
-    NSLayoutConstraint.activate([
-        self.recoverPasswordButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-        self.recoverPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5)
+    }
+    
+    private func setUpRecoverBt() {
+        NSLayoutConstraint.activate([
+            self.recoverPasswordButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.recoverPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5)
         ])
-}
-
-private func setUpLoginBt() {
-    NSLayoutConstraint.activate([
-        self.loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-        self.loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-        self.loginButton.topAnchor.constraint(equalTo: recoverPasswordButton.bottomAnchor, constant: 20),
-        self.loginButton.heightAnchor.constraint(equalToConstant: 40)
+    }
+    
+    private func setUpLoginBt() {
+        NSLayoutConstraint.activate([
+            self.loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.loginButton.topAnchor.constraint(equalTo: recoverPasswordButton.bottomAnchor, constant: 20),
+            self.loginButton.heightAnchor.constraint(equalToConstant: 40)
         ])
-}
-
-private func setUpOptionalLogin() {
-    NSLayoutConstraint.activate([
-        self.optionalLoginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-        self.optionalLoginLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+    }
+    
+    private func setUpOptionalLogin() {
+        NSLayoutConstraint.activate([
+            self.optionalLoginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.optionalLoginLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
         ])
-}
-
-private func setUpGoogleBt() {
-    NSLayoutConstraint.activate([
-        self.googleBT.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-        self.googleBT.heightAnchor.constraint(equalToConstant: 40),
-        self.googleBT.topAnchor.constraint(equalTo: optionalLoginLabel.bottomAnchor, constant: 20)
+    }
+    
+    private func setUpGoogleBt() {
+        NSLayoutConstraint.activate([
+            self.googleBT.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.googleBT.heightAnchor.constraint(equalToConstant: 40),
+            self.googleBT.topAnchor.constraint(equalTo: optionalLoginLabel.bottomAnchor, constant: 20)
         ])
-}
-
+    }
+    
     
     private func setUpRegisterLabel() {
         NSLayoutConstraint.activate([
             self.registerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.registerLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25)
-            ])
-}
-
-
-fileprivate func setUpRegister() {
-    let paragraphStyle = NSMutableParagraphStyle()
-    paragraphStyle.lineHeightMultiple = 1.34
+        ])
+    }
     
-    let font: UIFont = .systemFont(ofSize: 12)
-    let boldFont: UIFont = .boldSystemFont(ofSize: 12)
     
-    let baseString = NSMutableAttributedString(string: LC.newHere.text,
-                                               attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle,
-                                                NSAttributedString.Key.font : font])
-    
-    let linkString = NSMutableAttributedString(string: LC.signUp.text, attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle,
-         NSAttributedString.Key.font : boldFont,
-         NSAttributedString.Key.link : tappedRegisterButton()
-                                                                                ])
-    
-    let tapButton = UITapGestureRecognizer(target: self, action: #selector(tappedRegisterButton))
-    registerLabel.addGestureRecognizer(tapButton)
-    
-    baseString.append(linkString)
-    
-    registerLabel.linkTextAttributes = [
-        NSAttributedString.Key.foregroundColor: UIColor.systemBlue,
-        NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
-        NSAttributedString.Key.underlineColor: UIColor.systemBlue
-    ]
-
-    registerLabel.attributedText = baseString
-}
+    fileprivate func setUpRegister() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.34
+        
+        let font: UIFont = .systemFont(ofSize: 12)
+        let boldFont: UIFont = .boldSystemFont(ofSize: 12)
+        
+        let baseString = NSMutableAttributedString(string: LC.newHere.text,
+                                                   attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle,
+                                                                NSAttributedString.Key.font : font])
+        
+        let linkString = NSMutableAttributedString(string: LC.signUp.text, attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle,
+                                                                                        NSAttributedString.Key.font : boldFont,
+                                                                                        NSAttributedString.Key.link : tappedRegisterButton()
+                                                                                       ])
+        
+        let tapButton = UITapGestureRecognizer(target: self, action: #selector(tappedRegisterButton))
+        registerLabel.addGestureRecognizer(tapButton)
+        
+        baseString.append(linkString)
+        
+        registerLabel.linkTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.systemBlue,
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+            NSAttributedString.Key.underlineColor: UIColor.systemBlue
+        ]
+        
+        registerLabel.attributedText = baseString
+    }
     
 }
 

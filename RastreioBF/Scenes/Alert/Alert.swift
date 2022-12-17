@@ -19,10 +19,7 @@ class Alert:NSObject, Coordinating{
     }
     
     func getAlert(titulo:String, mensagem:String, completion:(() -> Void)? = nil){
-        
-        // preferredStyle: eh como prefiro setar o alerta, como actiomsheet (aparece na parte inferior da tela) ou alert
         let alertController = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        //botao que aparece no alert, de forma opcional
         let action = UIAlertAction(title: "OK", style: .cancel) { acao in
             completion?()
         }

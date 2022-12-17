@@ -7,129 +7,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CE62EE89-5A64-4247-9B27-2CA961D6F5B7"
+            uuid = "CF591BCB-32BC-4753-B5BC-2D20D90E51EE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/DetailVC/ViewController/DetailWarningViewController.swift"
+            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/WarningViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "success()"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "30675FFB-AB35-41D8-831F-C366AD766C7B"
+            uuid = "974E9EAC-570A-498C-9B3A-178475C2F2BB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/DetailVC/ViewModel/DetailWarningViewModel.swift"
+            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/WarningViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "fetchPackageURLSession(code:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "73D4A70D-8B73-4710-99F7-38ACB1F7E82B"
+            uuid = "B625F7B4-66C0-41CB-A7B9-65FADAFD2618"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/DetailVC/ViewModel/DetailWarningViewModel.swift"
+            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/WarningViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "fetchPackageURLSession(code:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "51118D24-B1AD-4C58-B3E5-E25C1591D984"
+            uuid = "99E0FFF1-0381-478C-8756-7C51427514F6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/DetailVC/ViewModel/DetailWarningViewModel.swift"
+            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewModel/WarningViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "fetchPackageURLSessionNoLink()"
-            landmarkType = "7">
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "WarningViewControllerViewModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B13CE1F-A3E2-4FC3-B780-1887EACF169F"
+            uuid = "B21BF825-61E1-4DB8-B29F-C69A73D60A4B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/DetailVC/ViewModel/DetailWarningViewModel.swift"
+            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewModel/WarningViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "fetchPackageURLSessionNoLink()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C8C55DE6-4B3E-4C36-B289-70CDCE08E826"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/DetailVC/ViewModel/DetailWarningViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "fetchPackage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7483F02E-0601-468E-9664-F9E134CB9812"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/DetailVC/ViewModel/DetailWarningViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "fetchPackage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "078FD575-CEBA-4785-B380-070BF2A34DC8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewController/DetailVC/ViewController/DetailWarningViewController.swift"
-            startingColumnNumber = "21"
-            endingColumnNumber = "21"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "WarningViewControllerViewModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -13,6 +13,7 @@ class DoneViewController: UIViewController, Coordinating {
     
     private var doneView: DoneView?
     private var dataProductVM = DoneViewControllerViewModel()
+    var model: Eventos?
 
     override func loadView() {
         self.doneView = DoneView()

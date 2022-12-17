@@ -26,7 +26,7 @@ class EmailConfirmationCoordinator: EmailConfirmationCoordinatorProtocol, Coordi
     }
     
     func actionGoBack() {
-        self.navigationController.popToRootViewController(animated: false)
+        self.navigationController.dismiss(animated: false)
     }
     
     func actionSignUpButton() {

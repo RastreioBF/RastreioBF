@@ -37,11 +37,6 @@ class WarningView: UIView {
         self.setupConstraints()
     }
     
-    public func configTableViewProtocols( delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableView.delegate = delegate
-        self.tableView.dataSource = dataSource
-    }
-    
     func addElement(){
         self.addSubview(self.warningTitleLabel)
         self.addSubview(self.tableView)

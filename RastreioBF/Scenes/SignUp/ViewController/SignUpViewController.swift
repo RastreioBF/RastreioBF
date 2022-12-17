@@ -82,7 +82,6 @@ extension SignUpViewController:UITextFieldDelegate {
 extension SignUpViewController: SignUpViewProtocol {
     
     //MARK: - Error Labels
-    
     func didTapName() {
         viewModel.verifyName(text: self.signUpScreen.nameTextField.text ?? "",
                              label: self.signUpScreen.nameErrorLabel)
@@ -181,7 +180,8 @@ extension SignUpViewController: SignUpViewProtocol {
     }
     
     func actionGoToLoginButton() {
-        self.coordinator?.eventOcurred(with: .login)
+        let vc: LoginViewController = LoginViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

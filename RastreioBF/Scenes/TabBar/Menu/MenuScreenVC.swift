@@ -110,15 +110,15 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             .staticCell(model : SettingsOption(title: "Logout", icon: UIImage(systemName: "person.badge.minus"), iconBackgroundColor: .systemRed){
 //                 let meusDados = MeusDadosVC()
 //                    self.navigationController?.pushViewController(meusDados, animated: true) mudar de tela
-//                let alert : Alert = Alert(controller: self)
-//                alert.userAlertLogout()
+                let alert : Alert = Alert(controller: self)
+                alert.userAlertLogout()
 //                self.alert?.getAlertActions(titulo: "Atenção", mensagem:"Deseja sair ?") {
 //                    self.coordinator?.eventOcurred(with: .login)
                     
-//                    self.alert?.getAlert(titulo: LC.congrats.text,
-//                                         mensagem: LC.emailSentConfirm.text,
-//                                         completion: {
-                self.coordinator?.eventOcurred(with: .login)
+////                    self.alert?.getAlert(titulo: LC.congrats.text,
+////                                         mensagem: LC.emailSentConfirm.text,
+////                                         completion: {
+//                self.coordinator?.eventOcurred(with: .login)
 //                    })
                     
 //                    self.coordinator?.start()

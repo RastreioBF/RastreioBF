@@ -52,7 +52,7 @@ class MainCoordinator: Coordinator {
             navigationController?.pushViewController(vc, animated: true)
             children?.removeAll()
         case .warning:
-            var vc: UIViewController & Coordinating = WarningViewController()
+            var vc: UIViewController & Coordinating = DoneViewController()
             vc.coordinator = self
             navigationController?.pushViewController(vc, animated: true)
             children?.removeAll()

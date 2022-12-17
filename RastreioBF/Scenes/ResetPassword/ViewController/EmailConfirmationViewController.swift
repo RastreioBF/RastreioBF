@@ -96,7 +96,7 @@ extension EmailConfirmationViewController {
 
 extension EmailConfirmationViewController: EmailConfirmationScreenDelegate {
     func actionGoBackTapped() {
-        self.coordinator?.eventOcurred(with: .goBackTapped)
+        self.navigationController?.popViewController(animated: false)
     }
     
     func actionGoToCodeButtonTapped() {
@@ -122,6 +122,7 @@ extension EmailConfirmationViewController: EmailConfirmationScreenDelegate {
     }
     
     func actionSignUpButtonTapped() {
-        self.coordinator?.eventOcurred(with: .signUp)
+        let vc: SignUpViewController = SignUpViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -19,7 +19,7 @@ class RastreioBFService: RastreioBFServiceProtocol {
     
     static let sharedObjc = RastreioBFService()
     
-//    let urlString: String = "https://api.linketrack.com/track/json?user=teste&token=1abcd00b2731640e886fb41a8a9671ad1434c599dbaa0a0de9a5aa619f29a83f&codigo="
+//    let urlString: String = "https://api.linketrack.com/track/json?user=jessicabigal21@outlook.com&token=af29d01cc3d2a0d9d25b7d560bdf671416e9055b6f1f087c091c015fe8c7ec1d&codigo=
     
     //link completo https://run.mocky.io/v3/aa32440f-359d-49ae-9a20-6d3bb3ea2edf
     let urlString: String = "https://run.mocky.io/v3/aa32440f-359d-49ae-9a20-"

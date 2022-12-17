@@ -63,11 +63,18 @@ extension TrackingViewController: TrackingViewProtocol{
             
             dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
             
-            dataProductVM.populateCorrectArray(data: dataProductVM.getLastData())
+            dataProductVM.addData(code: self.trackingView?.trackingNumberTextField.text ?? "", description: self.trackingView?.descriptionTextField.text ?? "")
             
-            dataProductVM.addFunc(code: self.trackingView?.trackingNumberTextField.text ?? "", description: self.trackingView?.descriptionTextField.text ?? "")
+            dataProductVM.populateCorrectArray(data: dataProductVM.getLastData())
      
+    
+//            self.alert?.getAlert(titulo: "", mensagem: "", completion: {
+//                let vc: WarningViewController = WarningViewController()
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            })
+            
             self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!")
+            
             self.trackingView?.trackingNumberTextField.text = ""
             self.trackingView?.descriptionTextField.text = ""
             self.trackingView?.statusTextField.text = ""

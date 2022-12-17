@@ -8,11 +8,28 @@
 import UIKit
 
 class WarningViewController: UIViewController, Coordinating {
-    var coordinator: Coordinator?
     
+    private var viewModel = WarningViewControllerViewModel()
+    var coordinator: Coordinator?
+    var alert:Alert?
+    var model: Eventos?
+    var dataTRA: DataTracking?
     private var warningView: WarningView?
     private var dataProductVM = WarningViewControllerViewModel()
+    
+//    var codigo: String?
+//    var descriptionClient: String?
 
+//    init(codigo: String?, descriptionClient: String?) {
+//        self.codigo = codigo
+//        self.descriptionClient = descriptionClient
+//        super.init(nibName: nil, bundle: nil)
+//    }
+    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     override func loadView() {
         self.warningView = WarningView()
         self.view = self.warningView
@@ -20,13 +37,19 @@ class WarningViewController: UIViewController, Coordinating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.alert = Alert(controller: self)
         self.navigationItem.title = LC.warningTitle.text
-        self.warningView?.configTableViewProtocols(delegate: self, dataSource: self)
-        warningView?.tableView.reloadData()
+        viewModel.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        warningView?.tableView.reloadData()
+        viewModel.fetchPackageAlamofire(code: "6d3bb3ea2edf")
+    }
+    
+    func configTableView(){
+        warningView?.tableView.delegate = self
+        warningView?.tableView.dataSource = self
+        warningView?.tableView.separatorStyle = .none
     }
 }
 
@@ -70,6 +93,19 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
         let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
         vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension WarningViewController: WarningViewModelProtocols {
+    func success() {
+        DispatchQueue.main.async {
+            self.configTableView()
+            self.warningView?.tableView.reloadData()
+        }
+    }
+    
+    func failure() {
+        alert?.getAlert(titulo: "Atencao", mensagem: "Um erro ocorreu, verifique o codigo digitado e/ou sua conexao com a internet.")
     }
 }
 

@@ -61,11 +61,6 @@ extension OnboardingViewController {
                 stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
 
                 imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-
-
-                
-                imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-
                 
                 subtitleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
                 view.trailingAnchor.constraint(equalToSystemSpacingAfter: subtitleLabel.trailingAnchor, multiplier: 2),

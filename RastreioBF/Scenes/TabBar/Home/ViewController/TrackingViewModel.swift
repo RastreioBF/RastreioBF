@@ -15,7 +15,8 @@ struct TrackingViewControllerViewModel {
     private var detailDataVM  = DetailWarningViewControllerViewModel()
     
     private static var data : [DataProduct] = []
-    var trackingData: [DataTracking] = []
+    var dataHeader: [DataTracking] = []
+    var model: Eventos?
     
     func populateCorrectArray(data: DataProduct?){
         if data?.status.lowercased() == "entregue" {
@@ -27,7 +28,7 @@ struct TrackingViewControllerViewModel {
                 date: data?.date ?? "DD/MM/AAAA",
                 time: data?.time ?? "HH:MM",
                 status: data?.status ?? "pending"))
-            
+
             warningDataVM.setupDataProduct(data: DataProduct(
                 productName: data?.productName ?? "",
                 productNameImage: "new",
@@ -36,7 +37,7 @@ struct TrackingViewControllerViewModel {
                 date: data?.date ?? "DD/MM/AAAA",
                 time: data?.time ?? "HH:MM",
                 status: data?.status ?? ""))
-            
+
             detailDataVM.setupDataProduct(data: DataProduct(
                 productName: data?.productName ?? "",
                 productNameImage: "new",
@@ -45,8 +46,8 @@ struct TrackingViewControllerViewModel {
                 date: data?.date ?? "DD/MM/AAAA",
                 time: data?.time ?? "HH:MM",
                 status: data?.status ?? ""))
-            
-            
+
+
         } else if data?.status.lowercased() == "pendente" {
             pendingDataVM.setupDataProduct(data: DataProduct(
                 productName: data?.productName ?? "",
@@ -56,7 +57,7 @@ struct TrackingViewControllerViewModel {
                 date: data?.date ?? "DD/MM/AAAA",
                 time: data?.time ?? "HH:MM",
                 status: data?.status ?? "pending"))
-            
+
             warningDataVM.setupDataProduct(data: DataProduct(
                 productName: data?.productName ?? "",
                 productNameImage: "new",
@@ -65,7 +66,7 @@ struct TrackingViewControllerViewModel {
                 date: data?.date ?? "DD/MM/AAAA",
                 time: data?.time ?? "HH:MM",
                 status: data?.status ?? ""))
-            
+
             detailDataVM.setupDataProduct(data: DataProduct(
                 productName: data?.productName ?? "",
                 productNameImage: "new",
@@ -100,11 +101,12 @@ struct TrackingViewControllerViewModel {
         return TrackingViewControllerViewModel.data.last
     }
     
+    mutating func addData(code: String, description: String){
+        self.dataHeader.append(DataTracking(code: code, description: description))
+    }
+    
     mutating func setupDataProduct(data: DataProduct) {
         TrackingViewControllerViewModel.data.append(data)
     }
     
-    mutating func addFunc(code: String, description: String){
-        self.trackingData.append(DataTracking(code: code, description: description))
-    }
 }
