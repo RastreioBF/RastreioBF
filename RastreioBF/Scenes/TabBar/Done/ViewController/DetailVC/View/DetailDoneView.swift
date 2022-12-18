@@ -65,6 +65,6 @@ class DetailDoneView: UIView {
     }
     
     public func setupCell(data: DataProduct){
-        self.detailTitleLabel.text = data.productName
+        self.detailTitleLabel.text = data.productDescription
     }
 }

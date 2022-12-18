@@ -15,7 +15,7 @@ protocol WarningViewModelProtocols: AnyObject {
 class WarningViewControllerViewModel {
     
     private let service: RastreioBFService = RastreioBFService()
-    private var package: Package?
+    var package: Package?
     weak var delegate: WarningViewModelProtocols?
     
     public func delegate(delegate: WarningViewModelProtocols?){
@@ -39,13 +39,32 @@ class WarningViewControllerViewModel {
         return WarningViewControllerViewModel.data[indexPath.row]
     }
     
-//    func getDataProduct(indexPath: IndexPath) -> DataTracking {
-//        return WarningViewControllerViewModel.dataHeader[indexPath.row]
+//    func loadCurrentDetailAccountList(indexPath: IndexPath) -> Eventos {
+//        var newPackage = Eventos(
+//            data: nil,
+//            hora: nil,
+//            local: nil,
+//            status: nil,
+//            subStatus: nil
+//        )
+//        if let currentPackage = package?.eventos?[indexPath.row] {
+//            let lastEvent = package?.eventos?.first
+//            newPackage = Eventos(
+//                data: lastEvent?.data,
+//                hora: lastEvent?.hora,
+//                local: lastEvent?.local,
+//                status: lastEvent?.status,
+//                subStatus: nil
+//            )
+//        }
+//
+//        return newPackage
 //    }
     
-//    func getDataProduct(indexPath: IndexPath) -> Eventos {
-//        return WarningViewControllerViewModel.dataHeader[indexPath.row]
-//    }
+    
+    func loadCurrentDetailAccountList() -> Eventos {
+        return package?.eventos?[0] ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""])
+    }
     
     var dataArraySize: Int {
         return WarningViewControllerViewModel.data.count
@@ -69,5 +88,47 @@ class WarningViewControllerViewModel {
             }
         }
     }
+    
+//    func updatePackages() {
+//        packages = CoreDataManager.shared.fetchPackages()
+//        let dispatchGroup = DispatchGroup()
+//
+//        packages.forEach { (package) in
+//            dispatchGroup.enter()
+//            guard let trackingNumber = package.trackingNumber else { return }
+//            guard let carrier        = package.carrier else { return }
+//
+//            BackendService.shared.getTrackingInfo(for: trackingNumber, carrier: carrier) { (trackingResponseJSON, error) in
+//                if let error = error {
+//                    fatalError("error updating package \(error)")
+//                }
+//                guard let trackingResponseJSON = trackingResponseJSON else { return }
+//                CoreDataManager.shared.updatePackage(package: package, trackingJson: trackingResponseJSON)
+//
+//                (package.trackingHistory?.array as! [TrackingStatus]).forEach { (trackingStatus) in
+//                    let location      = trackingStatus.location
+//                    guard let city    = location?.city else { return }
+//                    guard let state   = location?.state else { return }
+//                    guard let country = location?.country else { return }
+//
+//                    GeocodingService.shared.getGeocode(city: city, state: state, country: country) { (coordinate, error) in
+//                        if let err = error {
+//                            print(err)
+//                        }
+//
+//                        guard let coordinate = coordinate else { return }
+//                        CoreDataManager.shared.updateGeolocation(for: trackingStatus, latitude: coordinate.latitude, longitude: coordinate.longitude)
+//                    }
+//                }
+//
+//                dispatchGroup.leave()
+//            }
+//        }
+//
+//        dispatchGroup.notify(queue: .main) {
+//            self.delegate?.didUpdatePackages()
+//        }
+//    }
+//
 
 }

@@ -15,20 +15,6 @@ class WarningViewController: UIViewController, Coordinating {
     var model: Eventos?
     var dataTRA: DataTracking?
     private var warningView: WarningView?
-    private var dataProductVM = WarningViewControllerViewModel()
-    
-//    var codigo: String?
-//    var descriptionClient: String?
-
-//    init(codigo: String?, descriptionClient: String?) {
-//        self.codigo = codigo
-//        self.descriptionClient = descriptionClient
-//        super.init(nibName: nil, bundle: nil)
-//    }
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     override func loadView() {
         self.warningView = WarningView()
@@ -40,16 +26,25 @@ class WarningViewController: UIViewController, Coordinating {
         self.alert = Alert(controller: self)
         self.navigationItem.title = LC.warningTitle.text
         viewModel.delegate = self
+        self.configTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.fetchPackageAlamofire(code: "6d3bb3ea2edf")
+//        viewModel.fetchPackageAlamofire(code: "6d3bb3ea2edf")
+//        viewModel.fetchPackageAlamofire(code: dataTableView(<#T##tableView: UITableView##UITableView#>, cellForRowAt: <#T##IndexPath#>))
+        fetchInfosAPI()
     }
     
     func configTableView(){
         warningView?.tableView.delegate = self
         warningView?.tableView.dataSource = self
         warningView?.tableView.separatorStyle = .none
+    }
+    
+    private func fetchInfosAPI() {
+        let defaults = UserDefaults.standard
+        let code = defaults.object(forKey: "myKey") as? [String] ?? []
+        viewModel.fetchPackageAlamofire(code: code.last ?? "")
     }
 }
 
@@ -66,31 +61,34 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            dataProductVM.removeData(indexPath: indexPath)
+            viewModel.removeData(indexPath: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataProductVM.dataArraySize
+        return viewModel.dataArraySize
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return UITableViewCell() }
-        cell.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath), model: model ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""]))
+        let lastEvent = viewModel.loadCurrentDetailAccountList()
+        
+        cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: lastEvent)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return dataProductVM.heightForRowAt
+        return viewModel.heightForRowAt
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell : ProductDetailTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-        cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath), model: model ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""]))
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
+        cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: viewModel.loadCurrentDetailAccountList())
+        viewModel.fetchPackageAlamofire(code: cell?.codeTrakingLabel.text ?? "")
     
         let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
-        vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
+        vc.data = viewModel.getDataProduct(indexPath: indexPath)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

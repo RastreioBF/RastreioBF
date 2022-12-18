@@ -22,7 +22,8 @@ class RastreioBFService: RastreioBFServiceProtocol {
 //    let urlString: String = "https://api.linketrack.com/track/json?user=jessicabigal21@outlook.com&token=af29d01cc3d2a0d9d25b7d560bdf671416e9055b6f1f087c091c015fe8c7ec1d&codigo=
     
     //link completo https://run.mocky.io/v3/aa32440f-359d-49ae-9a20-6d3bb3ea2edf
-    let urlString: String = "https://run.mocky.io/v3/aa32440f-359d-49ae-9a20-"
+    // link 2 https://run.mocky.io/v3/eaf1d197-5ad6-4bcd-bc54-b3c76ac7611f
+    let urlString: String = "https://run.mocky.io/v3/"
     
     init() { }
     
@@ -126,4 +127,32 @@ class RastreioBFService: RastreioBFServiceProtocol {
         }
     }
     
+    func getTrackingInfo(for trackingNumber: String, completion: @escaping (Package?, Error?) -> Void) {
+        
+        
+        guard let urlString: URL = URL(string: urlString + trackingNumber) else { return }
+        let request = URLRequest(url: urlString)
+    
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Failed to fetch json: ", error)
+                completion(nil, error)
+            }
+            
+            guard let data = data else { return }
+            
+            let jsonDecoder = JSONDecoder()
+            do {
+                let trackingInfo = try jsonDecoder.decode(Package.self, from: data)
+                completion(trackingInfo, nil)
+                
+            } catch let decodeErr {
+                print("Failed to decode json: ", decodeErr)
+                completion(nil, decodeErr)
+            }
+        }.resume()
+        
+    }
+     
 }
+

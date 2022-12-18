@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol TrackingDelegate {
+    func didAddPackage(name: String, trackingNumber: String)
+}
+
 class TrackingViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     
+    var delegate: TrackingDelegate?
     private var trackingView: TrackingView?
     private var alert: Alert?
     private var dataProductVM = TrackingViewControllerViewModel()
@@ -38,6 +43,17 @@ class TrackingViewController: UIViewController, Coordinating {
     @objc func handleTap(){
         view.endEditing(true)
     }
+    
+    private func saveCodeTracking(code: String) {
+//        let defaults = UserDefaults.standard
+//        defaults.set(code, forKey: "codeTracking")
+        // Access Shared Defaults Object
+        let userDefaults = UserDefaults.standard
+
+        var strings: [String] = userDefaults.object(forKey: "myKey") as? [String] ?? []
+        strings.append(code)
+        userDefaults.set(strings, forKey: "myKey")
+    }
 }
 
 extension TrackingViewController: UITextFieldDelegate {
@@ -58,16 +74,27 @@ extension TrackingViewController: UITextFieldDelegate {
 
 extension TrackingViewController: TrackingViewProtocol{
     
+//    func didAddPackage(name: String, trackingNumber: String) {
+//        viewModel?.addPackage(name: name, trackingNumber: trackingNumber)
+//    }
+    
     func actionSubmitButton() {
         if checkTextFieldsAreNotEmpty() {
+
+            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
             
             dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
+            
+            self.delegate?.didAddPackage(name: self.trackingView?.trackingNumberTextField.text ?? "", trackingNumber: self.trackingView?.descriptionTextField.text ?? "")
             
             dataProductVM.setupDataTracking(dataTracking: DataTracking(code: self.trackingView?.trackingNumberTextField.text ?? "", description: self.trackingView?.descriptionTextField.text ?? ""))
             
             dataProductVM.populateCorrectArray(data: dataProductVM.getLastData(), model: dataProductVM.getLastDataHeader())
+            
+            dataProductVM.addPackage(name: self.trackingView?.descriptionTextField.text ?? "", trackingNumber: self.trackingView?.trackingNumberTextField.text ?? "")
      
     
+            saveCodeTracking(code: self.trackingView?.trackingNumberTextField.text ?? "")
             self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!", completion: {
                 let vc: WarningViewController = WarningViewController()
                 self.navigationController?.pushViewController(vc, animated: true)

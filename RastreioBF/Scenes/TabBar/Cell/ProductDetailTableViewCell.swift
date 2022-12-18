@@ -100,7 +100,7 @@ class ProductDetailTableViewCell: UITableViewCell {
     }
     
     public func setupCell(data: DataProduct, model: Eventos){
-        self.productNameLabel.text = data.productName
+        self.productNameLabel.text = data.productDescription
         self.codeTrakingLabel.text = data.codeTraking
 //        self.productImageView.image = UIImage(named: data.productNameImage)
         self.productDescriptionLabel.text = model.status
@@ -109,12 +109,12 @@ class ProductDetailTableViewCell: UITableViewCell {
     }
     
     public func setupDetailCell(data: DataProduct){
-        self.productNameLabel.text = "Seu produto: \(data.productName)\n"
+        self.productNameLabel.text = "Seu produto: \(data.productDescription)\n"
         self.codeTrakingLabel.text = "Acompanhe pelo código:\(data.codeTraking)"
-        self.productImageView.image = UIImage(named: data.productNameImage)
-        self.productDescriptionLabel.text = data.productDescription
-        self.productDateLabel.text = data.date
-        self.productTimeLabel.text = data.time
+//        self.productImageView.image = UIImage(named: data.productNameImage)
+//        self.productDescriptionLabel.text = data.productDescription
+//        self.productDateLabel.text = data.date
+//        self.productTimeLabel.text = data.time
     }
     
     func setupConstraints(){
