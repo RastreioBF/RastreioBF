@@ -6,18 +6,14 @@
 //
 //
 
-/*import Foundation
+import Foundation
 import CoreData
 
 @objc(DataProduct)
 public class DataProduct: NSManagedObject {
-
-//    public override var description: String {
-//           return "DataProduct"
-//       }
     
     public static var entityName: String {
-            let className = NSStringFromClass(self) // As alternative can be used `self.description()` or `String(describing: self)`
+            let className = NSStringFromClass(self)
             let entityName = className.components(separatedBy: ".").last!
             return entityName
         }
@@ -26,4 +22,4 @@ public class DataProduct: NSManagedObject {
             let className = NSStringFromClass(self)
             return className
         }
-}*/
+}

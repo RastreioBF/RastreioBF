@@ -15,6 +15,7 @@ class WarningViewController: UIViewController, Coordinating {
     var model: Eventos?
     var dataTRA: DataTracking?
     private var warningView: WarningView?
+    var coreData = DataProduct()
     
     override func loadView() {
         self.warningView = WarningView()
@@ -32,7 +33,8 @@ class WarningViewController: UIViewController, Coordinating {
     override func viewWillAppear(_ animated: Bool) {
 //        viewModel.fetchPackageAlamofire(code: "6d3bb3ea2edf")
 //        viewModel.fetchPackageAlamofire(code: dataTableView(<#T##tableView: UITableView##UITableView#>, cellForRowAt: <#T##IndexPath#>))
-        fetchInfosAPI()
+//        fetchInfosAPI()
+        viewModel.updatePackages()
     }
     
     func configTableView(){
@@ -85,8 +87,7 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
         cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: viewModel.loadCurrentDetailAccountList())
-        viewModel.fetchPackageAlamofire(code: cell?.codeTrakingLabel.text ?? "")
-    
+        
         let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
         vc.data = viewModel.getDataProduct(indexPath: indexPath)
         navigationController?.pushViewController(vc, animated: true)
@@ -94,6 +95,13 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension WarningViewController: WarningViewModelProtocols {
+    func didUpdatePackages() {
+        DispatchQueue.main.async {
+            self.configTableView()
+            self.warningView?.tableView.reloadData()
+        }
+    }
+    
     func success() {
         DispatchQueue.main.async {
             self.configTableView()

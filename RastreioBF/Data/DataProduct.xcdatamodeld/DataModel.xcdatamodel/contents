@@ -2,6 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DataProduct" representedClassName="RastreioBF.DataProduct" syncable="YES">
         <attribute name="codeTraking" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="productDescription" attributeType="String"/>
+        <attribute name="productLocal" optional="YES" attributeType="String"/>
+        <attribute name="productName" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
     </entity>
 </model>

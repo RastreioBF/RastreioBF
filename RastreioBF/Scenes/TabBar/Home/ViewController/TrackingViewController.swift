@@ -81,15 +81,15 @@ extension TrackingViewController: TrackingViewProtocol{
     func actionSubmitButton() {
         if checkTextFieldsAreNotEmpty() {
 
-            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
+//            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
             
-            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
+//            dataProductVM.setupDataProduct(data: DataProduct(productName: self.trackingView?.descriptionTextField.text ?? "", productNameImage: "new", codeTraking: self.trackingView?.trackingNumberTextField.text ?? "", productDescription: "Novo(a) \(self.trackingView?.descriptionTextField.text ?? "")", date: "01/11/2022", time: "20:30", status: self.trackingView?.statusTextField.text ?? ""))
             
             self.delegate?.didAddPackage(name: self.trackingView?.trackingNumberTextField.text ?? "", trackingNumber: self.trackingView?.descriptionTextField.text ?? "")
             
             dataProductVM.setupDataTracking(dataTracking: DataTracking(code: self.trackingView?.trackingNumberTextField.text ?? "", description: self.trackingView?.descriptionTextField.text ?? ""))
             
-            dataProductVM.populateCorrectArray(data: dataProductVM.getLastData(), model: dataProductVM.getLastDataHeader())
+//            dataProductVM.populateCorrectArray(data: dataProductVM.getLastData(), model: dataProductVM.getLastDataHeader())
             
             dataProductVM.addPackage(name: self.trackingView?.descriptionTextField.text ?? "", trackingNumber: self.trackingView?.trackingNumberTextField.text ?? "")
      

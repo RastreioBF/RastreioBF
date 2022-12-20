@@ -12,7 +12,6 @@
 		0918AD4828D6958B00E95DFB /* DataProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918AD4728D6958B00E95DFB /* DataProduct.swift */; };
 		0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0937E43328CFD58400920D18 /* UIResponder+Utils.swift */; };
 		093F937F2926DC9C00DA697B /* RastreioBFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F937E2926DC9C00DA697B /* RastreioBFService.swift */; };
-		093F93812926DD0D00DA697B /* ModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93802926DD0D00DA697B /* ModelService.swift */; };
 		093F93D6292D7FB700DA697B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93D5292D7FB700DA697B /* Coordinator.swift */; };
 		093F93D9292D81C200DA697B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93D8292D81C200DA697B /* MainCoordinator.swift */; };
 		094E247528CE85B300C6DDC8 /* email-sent.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247428CE85B300C6DDC8 /* email-sent.json */; };
@@ -26,6 +25,7 @@
 		096BFC2F2948E70E003C1945 /* PackageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2E2948E70E003C1945 /* PackageCell.swift */; };
 		096BFC38294A89A3003C1945 /* DataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC37294A89A3003C1945 /* DataTracking.swift */; };
 		096BFC3A294EA779003C1945 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC39294EA779003C1945 /* CoreDataManager.swift */; };
+		096BFC3C29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC3B29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift */; };
 		09732389291D19A500E44BB7 /* EmailConfirmationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09732388291D19A500E44BB7 /* EmailConfirmationProtocols.swift */; };
 		0973238C291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0973238B291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift */; };
 		0973238F291D1A6200E44BB7 /* EmailConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0973238E291D1A6200E44BB7 /* EmailConfirmationViewModel.swift */; };
@@ -102,7 +102,6 @@
 		0918AD4728D6958B00E95DFB /* DataProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProduct.swift; sourceTree = "<group>"; };
 		0937E43328CFD58400920D18 /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
 		093F937E2926DC9C00DA697B /* RastreioBFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioBFService.swift; sourceTree = "<group>"; };
-		093F93802926DD0D00DA697B /* ModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelService.swift; sourceTree = "<group>"; };
 		093F93D5292D7FB700DA697B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		093F93D8292D81C200DA697B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		094E247428CE85B300C6DDC8 /* email-sent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-sent.json"; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		096BFC2E2948E70E003C1945 /* PackageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCell.swift; sourceTree = "<group>"; };
 		096BFC37294A89A3003C1945 /* DataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTracking.swift; sourceTree = "<group>"; };
 		096BFC39294EA779003C1945 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		096BFC3B29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackingStatus+CoreDataClass.swift"; sourceTree = "<group>"; };
 		09732388291D19A500E44BB7 /* EmailConfirmationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationProtocols.swift; sourceTree = "<group>"; };
 		0973238B291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationCoordinator.swift; sourceTree = "<group>"; };
 		0973238E291D1A6200E44BB7 /* EmailConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationViewModel.swift; sourceTree = "<group>"; };
@@ -207,7 +207,6 @@
 				090D841B28D33DFB00198D69 /* APIHelper.swift */,
 				096BFC2029489DCC003C1945 /* GenericService.swift */,
 				093F937E2926DC9C00DA697B /* RastreioBFService.swift */,
-				093F93802926DD0D00DA697B /* ModelService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -765,6 +764,7 @@
 			isa = PBXGroup;
 			children = (
 				6C0DCC68293D1FB0001A5EF2 /* DataProduct+CoreDataClass.swift */,
+				096BFC3B29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift */,
 				6C0DCC69293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift */,
 				096BFC39294EA779003C1945 /* CoreDataManager.swift */,
 				6C0DCC60293D1A28001A5EF2 /* DataProduct.xcdatamodeld */,
@@ -1103,6 +1103,7 @@
 				6CFFA7FB293C5BA9006DAF62 /* DetailPendenciesViewModel.swift in Sources */,
 				6C0DCC62293D1A28001A5EF2 /* DataProduct.xcdatamodeld in Sources */,
 				3A163B1029117046005A93AA /* Menu.swift in Sources */,
+				096BFC3C29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift in Sources */,
 				0918AD4828D6958B00E95DFB /* DataProduct.swift in Sources */,
 				6CFFA7F9293C5B98006DAF62 /* DetailPendenciesViewController.swift in Sources */,
 				0974F62E28CB77A7004E8716 /* AppDelegate.swift in Sources */,
@@ -1133,7 +1134,6 @@
 				099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */,
 				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
 				3A163B0329117046005A93AA /* (null) in Sources */,
-				093F93812926DD0D00DA697B /* ModelService.swift in Sources */,
 				6CFFA7BA293B9159006DAF62 /* WarningViewModel.swift in Sources */,
 				6CFFA7F7293C5B8A006DAF62 /* DetailPendenciesView.swift in Sources */,
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
