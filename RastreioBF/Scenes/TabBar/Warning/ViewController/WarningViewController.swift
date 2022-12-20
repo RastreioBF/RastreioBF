@@ -14,7 +14,6 @@ class WarningViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     var alert:Alert?
     var model: Eventos?
-    var dataTRA: DataTracking?
     private var warningView: WarningView?
     var coreData = DataProduct()
     var eventArray = [DataProduct]()
@@ -37,6 +36,7 @@ class WarningViewController: UIViewController, Coordinating {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.updatePackages()
+        self.configTableView()
     }
     
     func loadSaveData()  {
@@ -103,7 +103,7 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier) as? ProductDetailTableViewCell
         cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
         
         let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")

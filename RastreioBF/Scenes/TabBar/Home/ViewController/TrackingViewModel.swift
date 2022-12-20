@@ -24,22 +24,12 @@ class TrackingViewControllerViewModel {
     var coreData = [DataProduct]()
     var delegate: TrackingViewModelDelegate?
     
-    func addData(data: DataTracking?){
-        warningDataVM.setupDataTracking(data: DataTracking(
-            code: data?.code ?? "",
-            description: data?.description ?? ""))
-    }
-    
     func getLastData() -> DataProduct? {
         return TrackingViewControllerViewModel.data.last
     }
     
     func getLastDataHeader() -> Eventos? {
         return TrackingViewControllerViewModel.model.last
-    }
-    
-    func setupDataTracking(dataTracking: DataTracking){
-        TrackingViewControllerViewModel.dataHeader.append(dataTracking)
     }
     
     func setupDataProduct(data: DataProduct) {
@@ -70,9 +60,7 @@ class TrackingViewControllerViewModel {
                 }
                 guard let trackingResponseJSON = trackingResponseJSON else { return }
                 CoreDataManager.shared.updatePackage(package: coreData, trackingJson: trackingResponseJSON)
-                
-                
-                
+    
                 dispatchGroup.leave()
             }})
         
@@ -83,7 +71,6 @@ class TrackingViewControllerViewModel {
     
     private func updatePackage(package: DataProduct) {
         guard let trackingNumber = package.codeTraking else { return }
-        guard let name        = package.productDescription else { return }
 
         RastreioBFService.sharedObjc.getTrackingInfo(for: trackingNumber) { (trackingResponseJSON, error) in
             if let error = error {

@@ -109,15 +109,6 @@ class ProductDetailTableViewCell: UITableViewCell {
         self.productTimeLabel.text = data.time
     }
     
-    public func setupDetailCell(data: DataProduct){
-        self.productNameLabel.text = "Seu produto: \(data.productDescription)\n"
-        self.codeTrakingLabel.text = "Acompanhe pelo código:\(data.codeTraking)"
-//        self.productImageView.image = UIImage(named: data.productNameImage)
-//        self.productDescriptionLabel.text = data.productDescription
-//        self.productDateLabel.text = data.date
-//        self.productTimeLabel.text = data.time
-    }
-    
     func setupConstraints(){
         NSLayoutConstraint.activate([
             

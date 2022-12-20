@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		090D841C28D33DFB00198D69 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D841B28D33DFB00198D69 /* APIHelper.swift */; };
 		0918AD4628D6953F00E95DFB /* ProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */; };
-		0918AD4828D6958B00E95DFB /* DataProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918AD4728D6958B00E95DFB /* DataProduct.swift */; };
 		0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0937E43328CFD58400920D18 /* UIResponder+Utils.swift */; };
 		093F937F2926DC9C00DA697B /* RastreioBFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F937E2926DC9C00DA697B /* RastreioBFService.swift */; };
 		093F93D6292D7FB700DA697B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93D5292D7FB700DA697B /* Coordinator.swift */; };
@@ -99,7 +98,6 @@
 /* Begin PBXFileReference section */
 		090D841B28D33DFB00198D69 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewCell.swift; sourceTree = "<group>"; };
-		0918AD4728D6958B00E95DFB /* DataProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProduct.swift; sourceTree = "<group>"; };
 		0937E43328CFD58400920D18 /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
 		093F937E2926DC9C00DA697B /* RastreioBFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioBFService.swift; sourceTree = "<group>"; };
 		093F93D5292D7FB700DA697B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 		0918AD4928D696E600E95DFB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0918AD4728D6958B00E95DFB /* DataProduct.swift */,
 				096BFC37294A89A3003C1945 /* DataTracking.swift */,
 			);
 			path = Model;
@@ -1104,7 +1101,6 @@
 				6C0DCC62293D1A28001A5EF2 /* DataProduct.xcdatamodeld in Sources */,
 				3A163B1029117046005A93AA /* Menu.swift in Sources */,
 				096BFC3C29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift in Sources */,
-				0918AD4828D6958B00E95DFB /* DataProduct.swift in Sources */,
 				6CFFA7F9293C5B98006DAF62 /* DetailPendenciesViewController.swift in Sources */,
 				0974F62E28CB77A7004E8716 /* AppDelegate.swift in Sources */,
 				0973238F291D1A6200E44BB7 /* EmailConfirmationViewModel.swift in Sources */,

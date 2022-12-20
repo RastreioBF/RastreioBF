@@ -11,6 +11,7 @@ class DoneViewControllerViewModel {
     
     private static var data: [DataProduct] = []
     private static var dataHeader : [DataTracking] = []
+    var coreData = [DataProduct]()
     
     func setupDataProduct(data: DataProduct) {
         DoneViewControllerViewModel.data.append(data)
@@ -25,14 +26,16 @@ class DoneViewControllerViewModel {
 //    }
     
     var dataArraySize: Int {
-        return DoneViewControllerViewModel.data.count
+        return coreData.count
     }
     
     func removeData(indexPath: IndexPath) {
-        DoneViewControllerViewModel.data.remove(at: indexPath.row)
+        coreData.remove(at: indexPath.row)
     }
     
     var heightForRowAt: CGFloat {
         return 125
     }
+    
+    
 }

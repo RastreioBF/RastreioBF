@@ -33,17 +33,13 @@ class WarningViewControllerViewModel {
         WarningViewControllerViewModel.data.append(data)
     }
     
-    func setupDataTracking(data: DataTracking) {
-        WarningViewControllerViewModel.dataHeader.append(data)
-    }
-    
     func getDataProduct(indexPath: IndexPath) -> DataProduct {
         return coreData[indexPath.row]
     }
     
-    func loadCurrentDetailAccountList() -> Eventos {
-        return package?.eventos?[0] ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""])
-    }
+//    func loadCurrentDetailAccountList() -> Eventos {
+//        return package?.eventos?[0] ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""])
+//    }
     
     var dataArraySize: Int {
         return coreData.count

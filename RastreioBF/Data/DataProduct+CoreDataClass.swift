@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(DataProduct)
+//@objc(DataProduct)
 public class DataProduct: NSManagedObject {
     
     public static var entityName: String {
