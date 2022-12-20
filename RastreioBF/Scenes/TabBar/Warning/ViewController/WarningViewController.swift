@@ -8,8 +8,6 @@
 import UIKit
 import CoreData
 
-let appDelegate = UIApplication.shared.delegate as? AppDelegate
-
 class WarningViewController: UIViewController, Coordinating {
     
     private var viewModel = WarningViewControllerViewModel()
@@ -19,7 +17,8 @@ class WarningViewController: UIViewController, Coordinating {
     var dataTRA: DataTracking?
     private var warningView: WarningView?
     var coreData = DataProduct()
-    var dataDelete: [DataProduct] = []
+    var eventArray = [DataProduct]()
+    var manageObjectContext: NSManagedObjectContext!
     
     override func loadView() {
         self.warningView = WarningView()
@@ -30,19 +29,25 @@ class WarningViewController: UIViewController, Coordinating {
         super.viewDidLoad()
         self.alert = Alert(controller: self)
         self.navigationItem.title = LC.warningTitle.text
+        manageObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        self.loadSaveData()
         viewModel.delegate = self
         self.configTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        viewModel.fetchPackageAlamofire(code: "6d3bb3ea2edf")
-//        viewModel.fetchPackageAlamofire(code: dataTableView(<#T##tableView: UITableView##UITableView#>, cellForRowAt: <#T##IndexPath#>))
-//        fetchInfosAPI()
         viewModel.updatePackages()
     }
     
-    func fecthCoreDataObjects(){
-//        se
+    func loadSaveData()  {
+        let eventRequest: NSFetchRequest<DataProduct> = DataProduct.fetchRequest()
+        do{
+            eventArray = try manageObjectContext.fetch(eventRequest)
+            warningView?.tableView.reloadData()
+        }catch
+        {
+            print("Could not load save data: \(error.localizedDescription)")
+        }
     }
     
     func configTableView(){
@@ -63,37 +68,23 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-//
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//
-//        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
-//            self.removeCoreData(atIndexPath: indexPath)
-//            self.fetchInfosAPI()
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//
-//        }
-//
-//        return deleteAction
-//    }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
-            self.removeCoreData(atIndexPath: indexPath)
-            self.fetchInfosAPI()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            
-        }
-        
-        return [deleteAction]
-    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let eventArrayItem = eventArray[indexPath.row]
+        
         if editingStyle == .delete {
+            manageObjectContext.delete(eventArrayItem)
             tableView.beginUpdates()
             viewModel.removeData(indexPath: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
-        }
+        do {
+                    try manageObjectContext.save()
+                } catch let error as NSError {
+                    print("Error While Deleting Note: \(error.userInfo)")
+                }
+            }
+            self.loadSaveData()
     }
 
 
@@ -103,9 +94,6 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return UITableViewCell() }
-        let lastEvent = viewModel.loadCurrentDetailAccountList()
-        
-//        cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: lastEvent)
         cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
         return cell
     }
@@ -116,7 +104,6 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-//        cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: viewModel.loadCurrentDetailAccountList())
         cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
         
         let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
@@ -142,18 +129,5 @@ extension WarningViewController: WarningViewModelProtocols {
     
     func failure() {
         alert?.getAlert(titulo: "Atencao", mensagem: "Um erro ocorreu, verifique o codigo digitado e/ou sua conexao com a internet.")
-    }
-}
-
-extension WarningViewController{
-    func removeCoreData(atIndexPath indexpath: IndexPath){
-        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
-        
-        managedContext.delete(viewModel.getDataProduct(indexPath: indexpath))
-        do {
-            try managedContext.save()
-        } catch {
-            debugPrint("could not remove: \(error.localizedDescription)")
-        }
     }
 }

@@ -76,12 +76,11 @@ extension TrackingViewController: TrackingViewProtocol{
             
             self.delegate?.didAddPackage(name: self.trackingView?.trackingNumberTextField.text ?? "", trackingNumber: self.trackingView?.descriptionTextField.text ?? "")
             
-            dataProductVM.setupDataTracking(dataTracking: DataTracking(code: self.trackingView?.trackingNumberTextField.text ?? "", description: self.trackingView?.descriptionTextField.text ?? ""))
-            
             dataProductVM.addPackage(name: self.trackingView?.descriptionTextField.text ?? "", trackingNumber: self.trackingView?.trackingNumberTextField.text ?? "")
             
             
             saveCodeTracking(code: self.trackingView?.trackingNumberTextField.text ?? "")
+            
             self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!", completion: {
                 let vc: WarningViewController = WarningViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
