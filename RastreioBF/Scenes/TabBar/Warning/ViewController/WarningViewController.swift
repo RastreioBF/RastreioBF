@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class WarningViewController: UIViewController, Coordinating {
     
@@ -16,6 +19,7 @@ class WarningViewController: UIViewController, Coordinating {
     var dataTRA: DataTracking?
     private var warningView: WarningView?
     var coreData = DataProduct()
+    var dataDelete: [DataProduct] = []
     
     override func loadView() {
         self.warningView = WarningView()
@@ -37,6 +41,10 @@ class WarningViewController: UIViewController, Coordinating {
         viewModel.updatePackages()
     }
     
+    func fecthCoreDataObjects(){
+//        se
+    }
+    
     func configTableView(){
         warningView?.tableView.delegate = self
         warningView?.tableView.dataSource = self
@@ -55,9 +63,28 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+//
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//
+//        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
+//            self.removeCoreData(atIndexPath: indexPath)
+//            self.fetchInfosAPI()
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//
+//        }
+//
+//        return deleteAction
+//    }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
+            self.removeCoreData(atIndexPath: indexPath)
+            self.fetchInfosAPI()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
+        
+        return [deleteAction]
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -68,6 +95,8 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
             tableView.endUpdates()
         }
     }
+
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.dataArraySize
     }
@@ -76,7 +105,8 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return UITableViewCell() }
         let lastEvent = viewModel.loadCurrentDetailAccountList()
         
-        cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: lastEvent)
+//        cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: lastEvent)
+        cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
         return cell
     }
     
@@ -86,7 +116,8 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell
-        cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: viewModel.loadCurrentDetailAccountList())
+//        cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath), model: viewModel.loadCurrentDetailAccountList())
+        cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
         
         let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
         vc.data = viewModel.getDataProduct(indexPath: indexPath)
@@ -114,3 +145,15 @@ extension WarningViewController: WarningViewModelProtocols {
     }
 }
 
+extension WarningViewController{
+    func removeCoreData(atIndexPath indexpath: IndexPath){
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        managedContext.delete(viewModel.getDataProduct(indexPath: indexpath))
+        do {
+            try managedContext.save()
+        } catch {
+            debugPrint("could not remove: \(error.localizedDescription)")
+        }
+    }
+}

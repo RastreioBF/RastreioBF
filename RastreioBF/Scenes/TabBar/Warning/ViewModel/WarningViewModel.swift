@@ -41,35 +41,11 @@ class WarningViewControllerViewModel {
         return coreData[indexPath.row]
     }
     
-//        func loadCurrentDetailAccountList(indexPath: IndexPath) -> Eventos {
-//            var newPackage = Eventos(
-//                data: nil,
-//                hora: nil,
-//                local: nil,
-//                status: nil,
-//                subStatus: nil
-//            )
-//            if let currentPackage = package?.eventos?[indexPath.row] {
-//                let lastEvent = package?.eventos?.first
-//                newPackage = Eventos(
-//                    data: lastEvent?.data,
-//                    hora: lastEvent?.hora,
-//                    local: lastEvent?.local,
-//                    status: lastEvent?.status,
-//                    subStatus: nil
-//                )
-//            }
-//    
-//            return newPackage
-//        }
-    
-    
     func loadCurrentDetailAccountList() -> Eventos {
         return package?.eventos?[0] ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""])
     }
     
     var dataArraySize: Int {
-//        return WarningViewControllerViewModel.data.count
         return coreData.count
     }
     
@@ -116,12 +92,6 @@ class WarningViewControllerViewModel {
                 }
                 guard let trackingResponseJSON = trackingResponseJSON else { return }
                 CoreDataManager.shared.updatePackage(package: coreData, trackingJson: trackingResponseJSON)
-                
-//                (package?.eventos?.array as! [TrackingStatus]).forEach { (trackingStatus) in
-//                    let location      = trackingStatus.location
-//                    guard let city    = location?.city else { return }
-//                    guard let state   = location?.state else { return }
-//                    guard let country = location?.country else { return }
                 
                 dispatchGroup.leave()
             }})

@@ -84,6 +84,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview()
         self.setupConstraints()
+        self.selectionStyle = .none
     }
     
      func addSubview() {
@@ -99,13 +100,13 @@ class ProductDetailTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setupCell(data: DataProduct, model: Eventos){
+    public func setupCell(data: DataProduct){
         self.productNameLabel.text = data.productDescription
         self.codeTrakingLabel.text = data.codeTraking
 //        self.productImageView.image = UIImage(named: data.productNameImage)
-        self.productDescriptionLabel.text = model.status
-        self.productDateLabel.text = model.data
-        self.productTimeLabel.text = model.hora
+        self.productDescriptionLabel.text = data.status
+        self.productDateLabel.text = data.productLocal
+        self.productTimeLabel.text = data.time
     }
     
     public func setupDetailCell(data: DataProduct){

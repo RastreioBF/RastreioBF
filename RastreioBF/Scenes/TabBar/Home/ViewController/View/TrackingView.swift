@@ -83,31 +83,6 @@ class TrackingView: UIView {
         return textField
     }()
     
-    lazy var statusLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .callout)
-        label.font = .systemFont(ofSize: 16, weight: .light)
-        label.text = "Status da Entrega"
-        label.textAlignment = .left
-        return label
-    }()
-    
-    lazy var statusTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.autocorrectionType = .no
-        textField.backgroundColor = .white
-        textField.borderStyle = .roundedRect
-        textField.keyboardType = .default
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.tag = 1
-        textField.placeholder = "Entregue ou Pendente..."
-        textField.font = UIFont.systemFont(ofSize: 14)
-        textField.textColor = .darkGray
-        return textField
-    }()
-    
     lazy var submitButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -136,8 +111,6 @@ class TrackingView: UIView {
         self.addSubview(self.descriptionLabel)
         self.addSubview(self.descriptionTextField)
         self.addSubview(self.submitButton)
-        self.addSubview(self.statusLabel)
-        self.addSubview(self.statusTextField)
     }
         
     private func configBackground(){
@@ -185,7 +158,7 @@ class TrackingView: UIView {
     private func setUpConstraints(){
         NSLayoutConstraint.activate([
             
-            self.instructionLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 80),
+            self.instructionLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
             self.instructionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             self.instructionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             
@@ -204,14 +177,6 @@ class TrackingView: UIView {
             self.descriptionTextField.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 5),
             self.descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            
-            self.statusLabel.topAnchor.constraint(equalTo: self.descriptionTextField.bottomAnchor, constant: 10),
-            self.statusLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            
-            self.statusTextField.topAnchor.constraint(equalTo: self.statusLabel.bottomAnchor, constant: 5),
-            self.statusTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             self.submitButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.submitButton.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),

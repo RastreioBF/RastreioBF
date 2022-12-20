@@ -55,20 +55,6 @@ struct CoreDataManager {
         let package = DataProduct(context: context)
         package.productDescription = name
         package.codeTraking = trackingNumber
-//        package.status = trackingJson?.eventos?.last?.status
-//        package.date = trackingJson?.eventos?.last?.data
-//        package.time = trackingJson?.eventos?.last?.hora
-//        package.productName = trackingJson?.eventos?.last?.local
-        
-//        trackingJson?.eventos?.forEach({ (eventos) in
-//            let context = persistentContainer.viewContext
-//
-//            let trackingStatus = Package(context: context)
-//            trackingStatus.status = eventos.status
-//            trackingStatus.statusDetails = checkpoint.message
-//            if let dateString = eventos.hora {
-//                trackingStatus. = getDate(date: dateString)
-//            })
         
         saveContext()
         return package
@@ -76,7 +62,7 @@ struct CoreDataManager {
     
     func updatePackage(package: DataProduct, trackingJson: Package) {
         
-        var api = trackingJson.eventos?.last
+        var api = trackingJson.eventos?.first
         
         trackingJson.eventos?.forEach({ (eventos) in
             let context = persistentContainer.viewContext

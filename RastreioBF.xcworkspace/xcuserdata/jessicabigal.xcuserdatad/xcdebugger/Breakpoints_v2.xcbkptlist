@@ -7,113 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "375227EE-E0A9-461E-8CBE-0FD61B1A1D5C"
+            uuid = "89C0887A-B934-415F-A183-CCA1D39C22A8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Warning/ViewModel/WarningViewModel.swift"
+            filePath = "RastreioBF/Scenes/TabBar/Home/ViewController/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "updatePackages()"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "checkTextFieldsAreNotEmpty()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CAF0AB58-A0EB-4EAB-A769-AF2FB987DF72"
+            uuid = "C30AAC0E-3D55-4A7C-AE01-2C295F7F96BD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Home/ViewController/TrackingViewModel.swift"
+            filePath = "RastreioBF/Scenes/TabBar/Home/ViewController/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "updatePackage(package:)"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "checkTextFieldsAreNotEmpty()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CAF0AB58-A0EB-4EAB-A769-AF2FB987DF72 - e79ea1093c569981"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;RastreioBF.Package&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in RastreioBF.TrackingViewControllerViewModel.updatePackage(package: RastreioBF.DataProduct) -&gt; ()"
-                  moduleName = "RastreioBF"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessicabigal/RastreioBF/RastreioBF/Scenes/TabBar/Home/ViewController/TrackingViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "264">
-               </Location>
-               <Location
-                  uuid = "CAF0AB58-A0EB-4EAB-A769-AF2FB987DF72 - e79ea1093c569981"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;RastreioBF.Package&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in RastreioBF.TrackingViewControllerViewModel.updatePackage(package: RastreioBF.DataProduct) -&gt; ()"
-                  moduleName = "RastreioBF"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessicabigal/RastreioBF/RastreioBF/Scenes/TabBar/Home/ViewController/TrackingViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "632">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "24CD0F5E-3A22-4708-9E43-79F33697C761"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RastreioBF/Scenes/TabBar/Home/ViewController/TrackingViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "updatePackage(package:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "24CD0F5E-3A22-4708-9E43-79F33697C761 - e79ea1093c56993c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;RastreioBF.Package&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in RastreioBF.TrackingViewControllerViewModel.updatePackage(package: RastreioBF.DataProduct) -&gt; ()"
-                  moduleName = "RastreioBF"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessicabigal/RastreioBF/RastreioBF/Scenes/TabBar/Home/ViewController/TrackingViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "684">
-               </Location>
-               <Location
-                  uuid = "24CD0F5E-3A22-4708-9E43-79F33697C761 - 61f2fab40a9907ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;RastreioBF.Package&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in RastreioBF.TrackingViewControllerViewModel.updatePackage(package: RastreioBF.DataProduct) -&gt; ()"
-                  moduleName = "RastreioBF"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessicabigal/RastreioBF/RastreioBF/Scenes/TabBar/Home/ViewController/TrackingViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
