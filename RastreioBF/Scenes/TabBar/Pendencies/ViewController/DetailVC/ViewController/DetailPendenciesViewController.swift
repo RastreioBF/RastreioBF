@@ -22,7 +22,13 @@ class DetailPendenciesViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailPendenciesView?.configTableViewProtocols(delegate: self, dataSource: self)
+//        detailPendenciesView?.configTableViewProtocols(delegate: self, dataSource: self)
+    }
+    
+    func configTableView(){
+        detailPendenciesView?.tableView.delegate = self
+        detailPendenciesView?.tableView.dataSource = self
+        detailPendenciesView?.tableView.separatorStyle = .none
     }
 }
 

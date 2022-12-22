@@ -115,11 +115,11 @@ struct CoreDataManager {
             }
         }
                                       
-                                      private func getDate(date: String) -> Date? {
-            var newDateString = date.components(separatedBy: ".")[0]
-            newDateString.append("Z")
-            
-            let dateFormatter = ISO8601DateFormatter()
-            return dateFormatter.date(from: newDateString)
-        }
-                                      }
+    private func getDate(date: String) -> Date? {
+        var newDateString = date.components(separatedBy: ".")[0]
+        newDateString.append("Z")
+        
+        let dateFormatter = ISO8601DateFormatter()
+        return dateFormatter.date(from: newDateString)
+    }
+}

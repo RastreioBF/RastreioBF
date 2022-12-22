@@ -12,7 +12,7 @@ class PendenciesView: UIView {
     lazy var pendenciesTitleLabel : UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Avisos RastreioBF"
+        label.text = "Pendencias RastreioBF"
         label.textColor = .darkGray
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label
@@ -35,11 +35,6 @@ class PendenciesView: UIView {
         self.setupBackgroundColor()
         self.addElement()
         self.setupConstraints()
-    }
-    
-    public func configTableViewProtocols( delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableView.delegate = delegate
-        self.tableView.dataSource = dataSource
     }
     
     func addElement(){

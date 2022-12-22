@@ -13,7 +13,7 @@ protocol WarningViewModelProtocols: AnyObject {
     func didUpdatePackages()
 }
 
-class WarningViewControllerViewModel {
+class WarningViewModel {
     
     private let service: RastreioBFService = RastreioBFService()
     var package: Package?
@@ -30,7 +30,7 @@ class WarningViewControllerViewModel {
     
     
     func setupDataProduct(data: DataProduct) {
-        WarningViewControllerViewModel.data.append(data)
+        WarningViewModel.data.append(data)
     }
     
     func getDataProduct(indexPath: IndexPath) -> DataProduct {

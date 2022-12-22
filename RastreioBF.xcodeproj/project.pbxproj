@@ -220,7 +220,6 @@
 		0918AD4B28D6970E00E95DFB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6CFFA7D4293C5866006DAF62 /* DetailVC */,
 				099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */,
 			);
 			path = ViewController;
@@ -529,6 +528,7 @@
 			children = (
 				099BCC9D28CB8A20000DFDE6 /* MainTabBar */,
 				099BCCA328CB8AE5000DFDE6 /* Home */,
+				6CFFA7D4293C5866006DAF62 /* DetailVC */,
 				099BCCAC28CB8BAD000DFDE6 /* Warning */,
 				099BCCA028CB8A9D000DFDE6 /* Done */,
 				099BCCA928CB8B6B000DFDE6 /* Pendencies */,

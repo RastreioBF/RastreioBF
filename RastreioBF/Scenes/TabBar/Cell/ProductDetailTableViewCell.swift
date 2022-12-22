@@ -49,13 +49,6 @@ class ProductDetailTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var  lineLabel : UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .darkGray
-        return label
-    }()
-    
     lazy var  productDateLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -106,7 +99,6 @@ class ProductDetailTableViewCell: UITableViewCell {
          self.contentView.addSubview(self.productDescriptionLabel)
          self.contentView.addSubview(self.productTimeDateLabel)
          self.contentView.addSubview(self.productLocalLabel)
-         self.contentView.addSubview(self.lineLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -132,12 +124,7 @@ class ProductDetailTableViewCell: UITableViewCell {
             
             self.productLocalLabel.topAnchor.constraint(equalTo: self.productImageView.bottomAnchor, constant: 5 ),
             self.productLocalLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 2),
-            
-            self.lineLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.lineLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.lineLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.lineLabel.heightAnchor.constraint(equalToConstant: 0.5),
-            
+
             self.productNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             self.productNameLabel.leadingAnchor.constraint(equalTo: self.productImageView.trailingAnchor, constant: 15),
             self.productNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),

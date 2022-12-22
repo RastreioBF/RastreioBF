@@ -27,14 +27,6 @@ class TrackingViewControllerViewModel {
         getCoreDataPackages()
     }
     
-    func getLastData() -> DataProduct? {
-        return TrackingViewControllerViewModel.data.last
-    }
-    
-    func setupDataProduct(data: DataProduct) {
-        TrackingViewControllerViewModel.data.append(data)
-    }
-    
     func getCoreDataPackages() {
         coreData = CoreDataManager.shared.fetchPackages()
         delegate?.didUpdatePackages()

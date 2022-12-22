@@ -10,10 +10,9 @@ import CoreData
 
 class WarningViewController: UIViewController, Coordinating {
     
-    private var viewModel = WarningViewControllerViewModel()
+    private var viewModel = WarningViewModel()
     var coordinator: Coordinator?
     var alert:Alert?
-    var model: Eventos?
     private var warningView: WarningView?
     var coreData = DataProduct()
     var eventArray = [DataProduct]()
@@ -31,12 +30,12 @@ class WarningViewController: UIViewController, Coordinating {
         manageObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         self.loadSaveData()
         viewModel.delegate = self
-        self.configTableView()
+        configTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.updatePackages()
-        self.configTableView()
+        configTableView()
     }
     
     func loadSaveData()  {
@@ -53,14 +52,8 @@ class WarningViewController: UIViewController, Coordinating {
     func configTableView(){
         warningView?.tableView.delegate = self
         warningView?.tableView.dataSource = self
-        warningView?.tableView.separatorStyle = .none
     }
-    
-    private func fetchInfosAPI() {
-        let defaults = UserDefaults.standard
-        let code = defaults.object(forKey: "myKey") as? [String] ?? []
-        viewModel.fetchPackageAlamofire(code: code.last ?? "")
-    }
+
 }
 
 extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
