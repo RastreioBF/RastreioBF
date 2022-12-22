@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol TrackingViewModelDelegate {
     func didUpdatePackages()
@@ -103,6 +104,8 @@ class TrackingViewControllerViewModel {
             return true
         }
     }
+    
+
 
     
     func addPackage(name: String, trackingNumber: String) {

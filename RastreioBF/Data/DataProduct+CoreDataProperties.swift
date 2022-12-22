@@ -23,6 +23,7 @@ extension DataProduct {
     @NSManaged public var date: String?
     @NSManaged public var time: String?
     @NSManaged public var status: String?
+    @NSManaged public var image: String?
 }
 
 extension DataProduct {

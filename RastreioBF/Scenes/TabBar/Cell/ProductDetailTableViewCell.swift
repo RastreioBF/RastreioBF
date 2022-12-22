@@ -118,6 +118,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         self.codeTrakingLabel.text = data.codeTraking
         self.productDescriptionLabel.text = data.status
         self.productLocalLabel.text = data.productLocal
+        self.productImageView.image = UIImage(named: data.image ?? "")
         self.productTimeDateLabel.text = "\(data.date ?? "") - \(data.time ?? "")"
     }
     

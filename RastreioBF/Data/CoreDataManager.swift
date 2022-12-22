@@ -13,7 +13,7 @@ struct CoreDataManager {
     
     let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DataProduct")
-
+        
         container.loadPersistentStores { (_, err) in
             if let err = err {
                 fatalError("Failed to load persistent store: \(err)")
@@ -21,6 +21,20 @@ struct CoreDataManager {
         }
         return container
     }()
+    
+    func updateData(codeTracking:String)-> Bool {
+        let context = persistentContainer.viewContext
+        let request = NSFetchRequest<DataProduct>(entityName: "DataProduct")
+        
+        request.predicate = NSPredicate(format: "codeTraking == %@", codeTracking)
+        
+        let result = try? context.fetch(request)
+        if (result ?? []).isEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
     
     
     func fetchPackages() -> [DataProduct] {
@@ -62,33 +76,50 @@ struct CoreDataManager {
     
     func updatePackage(package: DataProduct, trackingJson: Package) {
         
-        var api = trackingJson.eventos?.first
+        let api = trackingJson.eventos?.first
         
         trackingJson.eventos?.forEach({ (eventos) in
             let context = persistentContainer.viewContext
-            package.status = api?.status
+            package.status = api?.status ?? ""
             package.time = api?.hora
             package.date = api?.data
             package.productLocal = api?.local
+            package.image = ""
+            
+            let errorImage:Bool = package.status?.contains("pagamento") ?? false ||
+            package.status?.contains("análise")  ?? false ||
+            package.status?.contains("aduaneira") ?? false ||
+            package.status?.contains("faltam") ?? false
+            
+            let doneImage:Bool = package.status?.contains("entregue") ?? false ||
+            package.status?.contains("entrega") ?? false
+            
+            if  errorImage {
+                package.image = "errorImage"
+            } else if doneImage {
+                package.image = "done"
+            } else {
+                package.image = "truck"
+            }
+            print(package)
+            saveContext()
         })
-        print(package)
-        saveContext()
     }
-    
+                                      
     private func saveContext() {
-        let context = persistentContainer.viewContext
-        do {
-            try context.save()
-        } catch let saveErr {
-            fatalError("Failed to save package: \(saveErr)")
+            let context = persistentContainer.viewContext
+            do {
+                try context.save()
+            } catch let saveErr {
+                fatalError("Failed to save package: \(saveErr)")
+            }
         }
-    }
-    
-    private func getDate(date: String) -> Date? {
-        var newDateString = date.components(separatedBy: ".")[0]
-        newDateString.append("Z")
-        
-        let dateFormatter = ISO8601DateFormatter()
-        return dateFormatter.date(from: newDateString)
-    }
-}
+                                      
+                                      private func getDate(date: String) -> Date? {
+            var newDateString = date.components(separatedBy: ".")[0]
+            newDateString.append("Z")
+            
+            let dateFormatter = ISO8601DateFormatter()
+            return dateFormatter.date(from: newDateString)
+        }
+                                      }

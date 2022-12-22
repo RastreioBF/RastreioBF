@@ -43,10 +43,6 @@ class TrackingViewController: UIViewController{
 
 extension TrackingViewController: UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-//        self.trackingView?.validateTextFields()
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = self.trackingView?.viewWithTag(textField.tag + 1) as? UITextField {
             nextTextField.becomeFirstResponder()
@@ -62,10 +58,15 @@ extension TrackingViewController: TrackingViewProtocol{
     func actionSubmitButton() {
         let trackingNumber = trackingView?.trackingNumberTextField.text ?? ""
         let name = trackingView?.descriptionTextField.text ?? ""
-        if viewModel.checkTextFieldsAreNotEmpty(name: name, trackingNumber: trackingNumber){
-        viewModel.fetchHistory(code: trackingNumber)
+        
+        if CoreDataManager.shared.updateData(codeTracking: trackingNumber){
+            if viewModel.checkTextFieldsAreNotEmpty(name: name, trackingNumber: trackingNumber){
+                viewModel.fetchHistory(code: trackingNumber)
+            } else {
+                self.alert?.getAlert(titulo: "Atenção!", mensagem: "Todos os campos precisam ser preenchidos para que os dados possam ser salvos!")
+            }
         } else {
-            self.alert?.getAlert(titulo: "Atenção!", mensagem: "Todos os campos precisam ser preenchidos para que os dados possam ser salvos!")
+            self.alert?.getAlert(titulo: "Atenção!", mensagem: "Rastreio já cadastrado, insira um novo código.")
         }
     }
     

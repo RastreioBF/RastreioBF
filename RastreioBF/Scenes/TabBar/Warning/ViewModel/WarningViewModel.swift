@@ -37,10 +37,6 @@ class WarningViewControllerViewModel {
         return coreData[indexPath.row]
     }
     
-//    func loadCurrentDetailAccountList() -> Eventos {
-//        return package?.eventos?[0] ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""])
-//    }
-    
     var dataArraySize: Int {
         return coreData.count
     }
@@ -80,9 +76,9 @@ class WarningViewControllerViewModel {
         coreData.forEach ({ coreData in
             dispatchGroup.enter()
             guard let code = coreData.codeTraking else { return }
-            guard let name = coreData.productName else { return }
+            guard coreData.productName != nil else { return }
             
-            RastreioBFService.sharedObjc.getTrackingInfo(for: code ?? "") { (trackingResponseJSON, error) in
+            RastreioBFService.sharedObjc.getTrackingInfo(for: code ) { (trackingResponseJSON, error) in
                 if let error = error {
                     fatalError("error updating package \(error)")
                 }
