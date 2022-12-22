@@ -7,18 +7,12 @@
 
 import UIKit
 
-protocol TrackingDelegate {
-    func didAddPackage(name: String, trackingNumber: String)
-}
-
-class TrackingViewController: UIViewController, Coordinating {
-    var coordinator: Coordinator?
+class TrackingViewController: UIViewController{
     
-    var delegate: TrackingDelegate?
     private var trackingView: TrackingView?
     private var alert: Alert?
-    private var dataProductVM = TrackingViewControllerViewModel()
-    
+    private var viewModel = TrackingViewControllerViewModel()
+
     override func loadView() {
         self.trackingView = TrackingView()
         self.view = self.trackingView
@@ -33,6 +27,7 @@ class TrackingViewController: UIViewController, Coordinating {
         self.trackingView?.delegate(delegate: self)
         self.alert = Alert(controller: self)
         self.configTapGesture()
+        self.viewModel.delegate = self
     }
 
     private func configTapGesture(){
@@ -43,20 +38,13 @@ class TrackingViewController: UIViewController, Coordinating {
     @objc func handleTap(){
         view.endEditing(true)
     }
-    
-    private func saveCodeTracking(code: String) {
-        let userDefaults = UserDefaults.standard
 
-        var strings: [String] = userDefaults.object(forKey: "myKey") as? [String] ?? []
-        strings.append(code)
-        userDefaults.set(strings, forKey: "myKey")
-    }
 }
 
 extension TrackingViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.trackingView?.validateTextFields()
+//        self.trackingView?.validateTextFields()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -72,23 +60,10 @@ extension TrackingViewController: UITextFieldDelegate {
 extension TrackingViewController: TrackingViewProtocol{
     
     func actionSubmitButton() {
-        if checkTextFieldsAreNotEmpty() {
-            
-            self.delegate?.didAddPackage(name: self.trackingView?.trackingNumberTextField.text ?? "", trackingNumber: self.trackingView?.descriptionTextField.text ?? "")
-            
-            dataProductVM.addPackage(name: self.trackingView?.descriptionTextField.text ?? "", trackingNumber: self.trackingView?.trackingNumberTextField.text ?? "")
-            
-            
-            saveCodeTracking(code: self.trackingView?.trackingNumberTextField.text ?? "")
-            
-            self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!", completion: {
-                let vc: WarningViewController = WarningViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-            
-            self.trackingView?.trackingNumberTextField.text = ""
-            self.trackingView?.descriptionTextField.text = ""
-            
+        let trackingNumber = trackingView?.trackingNumberTextField.text ?? ""
+        let name = trackingView?.descriptionTextField.text ?? ""
+        if viewModel.checkTextFieldsAreNotEmpty(name: name, trackingNumber: trackingNumber){
+        viewModel.fetchHistory(code: trackingNumber)
         } else {
             self.alert?.getAlert(titulo: "Atenção!", mensagem: "Todos os campos precisam ser preenchidos para que os dados possam ser salvos!")
         }
@@ -98,15 +73,30 @@ extension TrackingViewController: TrackingViewProtocol{
         let viewController = LoginViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+
+}
+
+extension TrackingViewController: TrackingViewModelDelegate {
     
-    func checkTextFieldsAreNotEmpty() -> Bool {
-        let trackingNumber = self.trackingView?.trackingNumberTextField.text ?? ""
-        let description = self.trackingView?.descriptionTextField.text ?? ""
+    func didUpdatePackages() {
+        //to be implemented
         
-        if trackingNumber.isEmpty || trackingNumber.hasPrefix(" ") || description.isEmpty || description.hasPrefix(" "){
-            return false
-        } else {
-            return true
-        }
+    }
+    
+    func success() {
+        let trackingNumber = self.trackingView?.trackingNumberTextField.text ?? ""
+        let name = self.trackingView?.descriptionTextField.text ?? ""
+        
+            viewModel.addPackage(name:name, trackingNumber: trackingNumber)
+            self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!", completion: {
+                let vc: WarningViewController = WarningViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            self.trackingView?.trackingNumberTextField.text = ""
+            self.trackingView?.descriptionTextField.text = ""
+    }
+    
+    func failure() {
+        self.alert?.getAlert(titulo: "Atenção!", mensagem:"Verique o codigo de rastreio inserido e/ou sua conexao com a internet.")
     }
 }

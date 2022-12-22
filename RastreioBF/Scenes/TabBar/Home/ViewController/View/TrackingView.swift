@@ -101,7 +101,7 @@ class TrackingView: UIView {
         self.configBackground()
         self.configSuperView()
         self.setUpConstraints()
-        configButtonEnabled(false)
+//        configButtonEnabled(false)
     }
     
     private func configSuperView(){
@@ -162,21 +162,21 @@ class TrackingView: UIView {
             self.instructionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             self.instructionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             
-            self.trackingNumberLabel.topAnchor.constraint(equalTo: self.instructionLabel.bottomAnchor, constant: 50),
-            self.trackingNumberLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.trackingNumberLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            
-            self.trackingNumberTextField.topAnchor.constraint(equalTo: self.trackingNumberLabel.bottomAnchor, constant: 5),
-            self.trackingNumberTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.trackingNumberTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.trackingNumberTextField.bottomAnchor, constant: 10),
+            self.descriptionLabel.topAnchor.constraint(equalTo: self.instructionLabel.bottomAnchor, constant: 50),
             self.descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             self.descriptionTextField.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 5),
             self.descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            
+            self.trackingNumberLabel.topAnchor.constraint(equalTo: self.descriptionTextField.bottomAnchor, constant: 10),
+            self.trackingNumberLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.trackingNumberLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            
+            self.trackingNumberTextField.topAnchor.constraint(equalTo: self.trackingNumberLabel.bottomAnchor, constant: 5),
+            self.trackingNumberTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.trackingNumberTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             self.submitButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.submitButton.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),

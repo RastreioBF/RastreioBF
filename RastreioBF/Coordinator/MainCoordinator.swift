@@ -47,7 +47,7 @@ class MainCoordinator: Coordinator {
             navigationController?.pushViewController(vc, animated: true)
             children?.removeAll()
         case .tracking:
-            var vc: UIViewController & Coordinating = TrackingViewController()
+            var vc: UIViewController & Coordinating = DoneViewController()
             vc.coordinator = self
             navigationController?.pushViewController(vc, animated: true)
             children?.removeAll()

@@ -50,7 +50,7 @@ class WarningViewControllerViewModel {
     }
     
     var heightForRowAt: CGFloat {
-        return 125
+        return 115
     }
     
     func fetchPackageAlamofire(code: String){

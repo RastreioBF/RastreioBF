@@ -9,18 +9,17 @@ import Foundation
 
 protocol TrackingViewModelDelegate {
     func didUpdatePackages()
+    func success()
+    func failure()
 }
 
 class TrackingViewControllerViewModel {
-    
-    private var warningDataVM = WarningViewControllerViewModel()
-    private var doneDataVM = DoneViewControllerViewModel()
-    private var pendingDataVM  = PendenciesViewControllerViewModel()
-    private var detailDataVM  = DetailWarningViewControllerViewModel()
-    
+
+    private let service: RastreioBFService = RastreioBFService()
     private static var data : [DataProduct] = []
     private static var dataHeader: [DataTracking] = []
     private static var model: [Eventos] = []
+    private var package: Package?
     var coreData = [DataProduct]()
     var delegate: TrackingViewModelDelegate?
     
@@ -85,6 +84,26 @@ class TrackingViewControllerViewModel {
             }
         }
     }
+    
+    func fetchHistory(code: String){
+        service.getPackageAlamofire(packageCode: code) { result, failure in
+            if let result = result {
+                self.package =  result
+                self.delegate?.success()
+            } else {
+                self.delegate?.failure()
+            }
+        }
+    }
+    
+    func checkTextFieldsAreNotEmpty(name:String, trackingNumber: String ) -> Bool {
+        if trackingNumber.isEmpty || trackingNumber.hasPrefix(" ") || name.isEmpty || name.hasPrefix(" ") {
+            return false
+        } else {
+            return true
+        }
+    }
+
     
     func addPackage(name: String, trackingNumber: String) {
         let package = CoreDataManager.shared.addPackage(name: name, trackingNumber: trackingNumber)

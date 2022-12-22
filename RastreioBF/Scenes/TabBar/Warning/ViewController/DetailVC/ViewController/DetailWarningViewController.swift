@@ -50,7 +50,6 @@ class DetailWarningViewController: UIViewController {
     func configTableView(){
         detailWarningView?.tableView.delegate = self
         detailWarningView?.tableView.dataSource = self
-        detailWarningView?.tableView.separatorStyle = .none
     }
     
 }

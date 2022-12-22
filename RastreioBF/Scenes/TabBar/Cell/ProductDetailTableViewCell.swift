@@ -18,14 +18,15 @@ class ProductDetailTableViewCell: UITableViewCell {
         image.contentMode = .scaleToFill
         image.clipsToBounds = false
         image.layer.cornerRadius = 15
-        image.image = UIImage( systemName: "truck")
+        image.image = UIImage(named: "truck")
         return image
     }()
     
     lazy var  productNameLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
+        label.textColor = .black
+        label.font = .boldSystemFont(ofSize: 15)
         label.numberOfLines = 1
         return label
     }()
@@ -34,7 +35,8 @@ class ProductDetailTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 12)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -42,7 +44,15 @@ class ProductDetailTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        label.numberOfLines = 2
+        label.font = .systemFont(ofSize: 16)
+        label.numberOfLines = 0 
+        return label
+    }()
+    
+    lazy var  lineLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .darkGray
         return label
     }()
     
@@ -51,25 +61,27 @@ class ProductDetailTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     
-    lazy var  productTimeLabel : UILabel = {
+    
+    lazy var  productTimeDateLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 10)
         return label
     }()
     
-    lazy var productStatusImage: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleToFill
-        image.clipsToBounds = false
-        image.layer.cornerRadius = 15
-        image.image = UIImage(named: "done")
-        return image
+    lazy var  productLocalLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 12)
+        return label
     }()
     
     private func configBackground(){
@@ -92,8 +104,9 @@ class ProductDetailTableViewCell: UITableViewCell {
          self.contentView.addSubview(self.productNameLabel)
          self.contentView.addSubview(self.codeTrakingLabel)
          self.contentView.addSubview(self.productDescriptionLabel)
-         self.contentView.addSubview(self.productDateLabel)
-         self.contentView.addSubview(self.productTimeLabel)
+         self.contentView.addSubview(self.productTimeDateLabel)
+         self.contentView.addSubview(self.productLocalLabel)
+         self.contentView.addSubview(self.lineLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -103,36 +116,43 @@ class ProductDetailTableViewCell: UITableViewCell {
     public func setupCell(data: DataProduct){
         self.productNameLabel.text = data.productDescription
         self.codeTrakingLabel.text = data.codeTraking
-//        self.productImageView.image = UIImage(named: data.productNameImage)
         self.productDescriptionLabel.text = data.status
-        self.productDateLabel.text = data.productLocal
-        self.productTimeLabel.text = data.time
+        self.productLocalLabel.text = data.productLocal
+        self.productTimeDateLabel.text = "\(data.date ?? "") - \(data.time ?? "")"
     }
     
     func setupConstraints(){
         NSLayoutConstraint.activate([
             
-            self.productImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.productImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            self.productImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            self.productImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 2),
             self.productImageView.heightAnchor.constraint(equalToConstant: 80),
             self.productImageView.widthAnchor.constraint(equalToConstant: 80),
             
-            self.productNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            self.productNameLabel.leadingAnchor.constraint(equalTo: self.productImageView.trailingAnchor, constant: 10),
-            self.productNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
+            self.productLocalLabel.topAnchor.constraint(equalTo: self.productImageView.bottomAnchor, constant: 5 ),
+            self.productLocalLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 2),
             
-            self.codeTrakingLabel.topAnchor.constraint(equalTo: self.productNameLabel.bottomAnchor ),
-            self.codeTrakingLabel.leadingAnchor.constraint(equalTo: self.productImageView.trailingAnchor, constant: 10),
+            self.lineLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.lineLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.lineLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.lineLabel.heightAnchor.constraint(equalToConstant: 0.5),
             
-            self.productDescriptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor , constant: 20),
-            self.productDescriptionLabel.leadingAnchor.constraint(equalTo: self.productImageView.trailingAnchor, constant: 10),
+            self.productNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            self.productNameLabel.leadingAnchor.constraint(equalTo: self.productImageView.trailingAnchor, constant: 15),
+            self.productNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
+            
+            self.codeTrakingLabel.topAnchor.constraint(equalTo: self.productNameLabel.bottomAnchor,constant: 2 ),
+            self.codeTrakingLabel.leadingAnchor.constraint(equalTo: self.productImageView.trailingAnchor, constant: 15),
+            self.codeTrakingLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
+            
+            self.productDescriptionLabel.topAnchor.constraint(equalTo: self.codeTrakingLabel.bottomAnchor,constant: 2 ),
+            self.productDescriptionLabel.leadingAnchor.constraint(equalTo: self.productImageView.trailingAnchor, constant: 15),
             self.productDescriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            self.productDescriptionLabel.bottomAnchor.constraint(equalTo: self.productTimeDateLabel.topAnchor),
             
-            self.productDateLabel.topAnchor.constraint(equalTo: self.productImageView.bottomAnchor),
-            self.productDateLabel.leadingAnchor.constraint(equalTo: self.productImageView.leadingAnchor),
+            self.productTimeDateLabel.centerYAnchor.constraint(equalTo: self.productLocalLabel.centerYAnchor),
+            self.productTimeDateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
             
-            self.productTimeLabel.topAnchor.constraint(equalTo: self.productDescriptionLabel.bottomAnchor ),
-            self.productTimeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
         ])
     }
     
