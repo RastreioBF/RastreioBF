@@ -76,7 +76,7 @@ struct CoreDataManager {
     
     func updatePackage(package: DataProduct, trackingJson: Package) {
         
-        let api = trackingJson.eventos?.first
+        let api = trackingJson.eventos?.last
         
         trackingJson.eventos?.forEach({ (eventos) in
             let context = persistentContainer.viewContext

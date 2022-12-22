@@ -95,7 +95,7 @@ class WarningViewControllerViewModel {
     
   func updatePackage(package: DataProduct) {
         guard let trackingNumber = package.codeTraking else { return }
-        guard let name        = package.productDescription else { return }
+        guard package.productDescription != nil else { return }
         
         RastreioBFService.sharedObjc.getTrackingInfo(for: trackingNumber) { (trackingResponseJSON, error) in
             if let error = error {
