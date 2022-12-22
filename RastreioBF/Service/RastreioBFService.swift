@@ -128,8 +128,6 @@ class RastreioBFService: RastreioBFServiceProtocol {
     }
     
     func getTrackingInfo(for trackingNumber: String, completion: @escaping (Package?, Error?) -> Void) {
-        
-        
         guard let urlString: URL = URL(string: urlString + trackingNumber) else { return }
         let request = URLRequest(url: urlString)
     

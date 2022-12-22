@@ -75,8 +75,7 @@ struct CoreDataManager {
     }
     
     func updatePackage(package: DataProduct, trackingJson: Package) {
-        
-        let api = trackingJson.eventos?.last
+        let api = trackingJson.eventos?.first
         
         trackingJson.eventos?.forEach({ (eventos) in
             let context = persistentContainer.viewContext
@@ -92,7 +91,8 @@ struct CoreDataManager {
             package.status?.contains("faltam") ?? false
             
             let doneImage:Bool = package.status?.contains("entregue") ?? false ||
-            package.status?.contains("entrega") ?? false
+            package.status?.contains("entrega") ?? false ||
+            package.status?.contains("Entrega") ?? false
             
             if  errorImage {
                 package.image = "errorImage"

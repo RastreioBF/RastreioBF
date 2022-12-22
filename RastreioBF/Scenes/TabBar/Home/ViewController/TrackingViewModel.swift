@@ -18,26 +18,21 @@ class TrackingViewControllerViewModel {
 
     private let service: RastreioBFService = RastreioBFService()
     private static var data : [DataProduct] = []
-    private static var dataHeader: [DataTracking] = []
     private static var model: [Eventos] = []
     private var package: Package?
     var coreData = [DataProduct]()
     var delegate: TrackingViewModelDelegate?
     
+    init() {
+        getCoreDataPackages()
+    }
+    
     func getLastData() -> DataProduct? {
         return TrackingViewControllerViewModel.data.last
     }
     
-    func getLastDataHeader() -> Eventos? {
-        return TrackingViewControllerViewModel.model.last
-    }
-    
     func setupDataProduct(data: DataProduct) {
         TrackingViewControllerViewModel.data.append(data)
-    }
-    
-    init() {
-        getCoreDataPackages()
     }
     
     func getCoreDataPackages() {
@@ -104,9 +99,6 @@ class TrackingViewControllerViewModel {
             return true
         }
     }
-    
-
-
     
     func addPackage(name: String, trackingNumber: String) {
         let package = CoreDataManager.shared.addPackage(name: name, trackingNumber: trackingNumber)
