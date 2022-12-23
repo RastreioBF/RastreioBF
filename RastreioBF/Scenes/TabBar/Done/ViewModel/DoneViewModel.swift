@@ -21,9 +21,9 @@ class DoneViewControllerViewModel {
         return DoneViewControllerViewModel.data[indexPath.row]
     }
     
-//    func getDataProduct(indexPath: IndexPath) -> DataTracking {
-//        return DoneViewControllerViewModel.dataHeader[indexPath.row]
-//    }
+    func getDataProduct(indexPath: IndexPath) -> DataTracking {
+        return DoneViewControllerViewModel.dataHeader[indexPath.row]
+    }
     
     var dataArraySize: Int {
         return coreData.count

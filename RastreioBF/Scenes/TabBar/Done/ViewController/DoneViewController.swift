@@ -69,8 +69,11 @@ extension DoneViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : DetailDoneViewController = DetailDoneViewController()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier) as? ProductDetailTableViewCell
+        cell?.setupCell(data: dataProductVM.getDataProduct(indexPath: indexPath))
+        
+        let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
         vc.data = dataProductVM.getDataProduct(indexPath: indexPath)
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

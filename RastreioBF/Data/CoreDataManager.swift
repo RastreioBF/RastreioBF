@@ -105,21 +105,57 @@ struct CoreDataManager {
             saveContext()
         })
     }
-                                      
+    
     private func saveContext() {
-            let context = persistentContainer.viewContext
-            do {
-                try context.save()
-            } catch let saveErr {
-                fatalError("Failed to save package: \(saveErr)")
-            }
+        let context = persistentContainer.viewContext
+        do {
+            try context.save()
+        } catch let saveErr {
+            fatalError("Failed to save package: \(saveErr)")
         }
-                                      
+    }
+    
     private func getDate(date: String) -> Date? {
         var newDateString = date.components(separatedBy: ".")[0]
         newDateString.append("Z")
         
         let dateFormatter = ISO8601DateFormatter()
         return dateFormatter.date(from: newDateString)
+    }
+    
+    func filterData(status: String) -> [DataProduct] {
+        var data: [DataProduct]?
+//        let context = persistentContainer.viewContext
+//        let request = NSFetchRequest<DataProduct>(entityName: "DataProduct")
+//
+//        request.predicate = NSPredicate(format: "image == %@", status)
+//
+//        do {
+//           data = try context.fetch(request)
+//            return data ?? [DataProduct]()
+//        } catch {
+//            return data ?? [DataProduct]()
+//        }
+        
+        let fetchRequest: NSFetchRequest<DataProduct>
+        fetchRequest = DataProduct.fetchRequest()
+
+        fetchRequest.predicate = NSPredicate(
+            format: "image", status
+        )
+
+        // Get a reference to a NSManagedObjectContext
+        let context = persistentContainer.viewContext
+
+        // Perform the fetch request to get the objects
+        // matching the predicate
+//        let objects = try context.fetch(fetchRequest)
+        do {
+                   data = try context.fetch(fetchRequest)
+                    return data ?? [DataProduct]()
+                } catch {
+                    return data ?? [DataProduct]()
+                }
+        
     }
 }

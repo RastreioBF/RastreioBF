@@ -7,13 +7,30 @@
 
 import Foundation
 
-class RastreioPackageCellViewModel {
+class PackageCellViewModel {
     
     enum trackingStatus {
         case customs
         case onWay
         case delivered
         case empty
+    }
+    
+    private let service: RastreioBFService = RastreioBFService()
+    private var package: Package?
+    
+    var event: [Eventos] = []
+    var test: [Eventos] = []
+    
+    
+    func GetData(code: String) {
+        RastreioBFService.sharedObjc.getPackage(packageCode: code) { pack, error in
+            if error != nil {
+            } else {
+                self.event.append(contentsOf: pack!)
+
+            }
+        }
     }
     
     var object: Eventos

@@ -77,10 +77,6 @@ class ProductDetailTableViewCell: UITableViewCell {
         return label
     }()
     
-    private func configBackground(){
-        self.backgroundColor = .red
-    }
-    
     override func setSelected(_ selected : Bool, animated : Bool){
         super.setSelected(selected, animated: animated)
     }
@@ -92,6 +88,10 @@ class ProductDetailTableViewCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
      func addSubview() {
          self.contentView.addSubview(self.productImageView)
          self.contentView.addSubview(self.productNameLabel)
@@ -99,10 +99,6 @@ class ProductDetailTableViewCell: UITableViewCell {
          self.contentView.addSubview(self.productDescriptionLabel)
          self.contentView.addSubview(self.productTimeDateLabel)
          self.contentView.addSubview(self.productLocalLabel)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     public func setupCell(data: DataProduct){

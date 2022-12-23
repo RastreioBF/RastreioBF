@@ -15,6 +15,8 @@ class PendenciesViewController: UIViewController, Coordinating {
     private var viewModel = PendenciesViewModel()
     var coreData = DataProduct()
     var eventArray = [DataProduct]()
+    var data: [DataProduct]?
+    let context = NSManagedObjectContext()
     var manageObjectContext: NSManagedObjectContext!
     
     override func loadView() {
@@ -30,20 +32,40 @@ class PendenciesViewController: UIViewController, Coordinating {
         self.loadSaveData()
         viewModel.delegate = self
         configTableView()
+//        fetchStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.updatePackages()
         configTableView()
+//        fetchStatus()
+    }
+    
+    func fetchStatus(){
+        
+        do {
+            let request = DataProduct.fetchRequest() as NSFetchRequest<DataProduct>
+            let pred = NSPredicate(format: "image CONTAINS 'errorImage'")
+            request.predicate = pred
+            
+            self.data = try context.fetch(request)
+            
+            DispatchQueue.main.async {
+                self.pendenciesView?.tableView.reloadData()
+            }
+        }
+        catch {
+            
+        }
+        
     }
     
     func loadSaveData()  {
         let eventRequest: NSFetchRequest<DataProduct> = DataProduct.fetchRequest()
-        do{
+        do {
             eventArray = try manageObjectContext.fetch(eventRequest)
             pendenciesView?.tableView.reloadData()
-        }catch
-        {
+        } catch {
             print("Could not load save data: \(error.localizedDescription)")
         }
     }
