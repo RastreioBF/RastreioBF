@@ -28,7 +28,7 @@ class TrackingView: UIView {
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.text = "Preencha os campos abaixo com as informações do objeto que deseja rastrear"
+        label.text = LC.fillDataMessage.text
         label.numberOfLines = 0
         return label
     }()
@@ -38,7 +38,7 @@ class TrackingView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.font = .systemFont(ofSize: 16, weight: .light)
-        label.text = "Código de Rastreio"
+        label.text = LC.trackingCode.text
         label.textAlignment = .left
         return label
     }()
@@ -52,7 +52,7 @@ class TrackingView: UIView {
         textField.keyboardType = .default
         textField.returnKeyType = UIReturnKeyType.continue
         textField.tag = 0
-        textField.placeholder = "Insira seu número de rastreio..."
+        textField.placeholder = LC.topMessage.text
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .darkGray
         return textField
@@ -63,7 +63,7 @@ class TrackingView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.font = .systemFont(ofSize: 16, weight: .light)
-        label.text = "Descrição"
+        label.text = LC.descriptionTracking.text
         label.textAlignment = .left
         return label
     }()
@@ -77,7 +77,7 @@ class TrackingView: UIView {
         textField.keyboardType = .default
         textField.returnKeyType = UIReturnKeyType.done
         textField.tag = 1
-        textField.placeholder = "Insira uma descrição..."
+        textField.placeholder = LC.insertDescription.text
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .darkGray
         return textField

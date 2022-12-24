@@ -8,9 +8,8 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController: UIViewController, Coordinating {
+class SignUpViewController: UIViewController{
     
-    var coordinator: Coordinator?
     let signUpScreen = SignUpView()
     var auth:Auth?
     var alert:Alert?
@@ -18,7 +17,6 @@ class SignUpViewController: UIViewController, Coordinating {
     var viewModel: SignUpViewModel = SignUpViewModel()
     
     override func loadView() {
-//        self.signUpScreen = SignUpView()
         self.view = self.signUpScreen
     }
     
@@ -167,7 +165,8 @@ extension SignUpViewController: SignUpViewProtocol {
             self.alert?.getAlert(titulo: LC.congrats.text,
                                  mensagem: LC.emailSentConfirm.text,
                                  completion: {
-                self.coordinator?.eventOcurred(with: .login)
+                let vc: LoginViewController = LoginViewController()
+                self.navigationController?.pushViewController(vc, animated: false)
             })
         } else {
             self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.correctlyFilled.text)

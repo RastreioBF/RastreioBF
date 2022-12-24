@@ -63,10 +63,10 @@ extension TrackingViewController: TrackingViewProtocol{
             if viewModel.checkTextFieldsAreNotEmpty(name: name, trackingNumber: trackingNumber){
                 viewModel.fetchHistory(code: trackingNumber)
             } else {
-                self.alert?.getAlert(titulo: "Atenção!", mensagem: "Todos os campos precisam ser preenchidos para que os dados possam ser salvos!")
+                self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.dataMustBeFilledMessage.text)
             }
         } else {
-            self.alert?.getAlert(titulo: "Atenção!", mensagem: "Rastreio já cadastrado, insira um novo código.")
+            self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.alreadyRegisteredMessage.text)
         }
     }
     
@@ -88,8 +88,8 @@ extension TrackingViewController: TrackingViewModelDelegate {
         let trackingNumber = self.trackingView?.trackingNumberTextField.text ?? ""
         let name = self.trackingView?.descriptionTextField.text ?? ""
         
-            viewModel.addPackage(name:name, trackingNumber: trackingNumber)
-            self.alert?.getAlert(titulo: "Dados Salvos!", mensagem: "Seus dados de rastreio foram salvos com sucesso!", completion: {
+            viewModel.addPackage(name: name, trackingNumber: trackingNumber)
+            self.alert?.getAlert(titulo: LC.dataSalvedTitle.text, mensagem: LC.dataSavedMessage.text, completion: {
                 let vc: WarningViewController = WarningViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
             })
@@ -98,6 +98,6 @@ extension TrackingViewController: TrackingViewModelDelegate {
     }
     
     func failure() {
-        self.alert?.getAlert(titulo: "Atenção!", mensagem:"Verique o codigo de rastreio inserido e/ou sua conexao com a internet.")
+        self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem:LC.wrongCodeMessage.text)
     }
 }

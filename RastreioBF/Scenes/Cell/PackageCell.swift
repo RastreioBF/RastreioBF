@@ -11,6 +11,8 @@ class PackageCell: UITableViewCell {
     
     static let identifier = "PackageCell"
     
+    var viewModel: PackageCellViewModel?
+    
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +26,6 @@ class PackageCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.text = "Carregando"
         label.numberOfLines = 2
         label.textColor = .black
         return label
@@ -33,7 +34,6 @@ class PackageCell: UITableViewCell {
     lazy var cidadeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Carregando"
         label.textAlignment = .left
         label.textColor =  .black
         label.font = UIFont.systemFont(ofSize: 11)
@@ -121,7 +121,7 @@ class PackageCell: UITableViewCell {
         self.descriptionLabel.text = model.status
         self.dataLabel.text = "Data:\(model.data ?? "")"
         self.cidadeLabel.text = "Local:\(model.local ?? "")"
-        var image = ""
+        var image = viewModel?.imageSelection(evento: model)
         var status = model.status ?? ""
         
         if status.contains("pagamento") ||
@@ -135,7 +135,8 @@ class PackageCell: UITableViewCell {
         } else {
             image = "truck"
         }
-        self.iconImageView.image = UIImage(named: image)
+        
+        self.iconImageView.image = UIImage(named: image ?? "")
     }
 }
 

@@ -12,5 +12,4 @@ protocol LoginViewProtocol: AnyObject {
     func actionSignUpButton()
     func signIn(sender: Any)
     func actionForgotPassword()
-    func tappedMockado()
 }

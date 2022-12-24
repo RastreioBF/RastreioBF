@@ -9,10 +9,17 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class Alert:NSObject, Coordinating{
+enum TypeStateSelected {
+    case onWay
+    case pendencie
+    case done
+    case all
+    case cancel
+}
+
+class Alert:NSObject {
 
     var controller:UIViewController
-    var coordinator: Coordinator?
     
     init(controller:UIViewController) {
         self.controller = controller
@@ -85,11 +92,41 @@ class Alert:NSObject, Coordinating{
 //
             let vc:LoginViewController = LoginViewController()
             self.controller.navigationController?.pushViewController(vc, animated: false)
-//            self.coordinator?.eventOcurred(with: .login)
         }
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alert.addAction(cancel)
         alert.addAction(ok)
         self.controller.present(alert, animated: true, completion: nil)
+    }
+    
+    func filterState(completion: @escaping (_ option: TypeStateSelected) -> Void) {
+        let alertController: UIAlertController = UIAlertController(title: "Filtro", message: nil, preferredStyle: .actionSheet)
+        
+        let pendencies = UIAlertAction(title: "Pendencias", style: .default) { action in
+            completion(.pendencie)
+        }
+        
+        let onItsWay = UIAlertAction(title: "Em Rota", style: .default) { action in
+            completion(.onWay)
+        }
+        
+        let delivered = UIAlertAction(title: "Entregue", style: .default) { action in
+            completion(.done)
+        }
+        
+        let all = UIAlertAction(title: "Todos", style: .default) { action in
+            completion(.done)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            completion(.cancel)
+        }
+        
+        alertController.addAction(pendencies)
+        alertController.addAction(onItsWay)
+        alertController.addAction(delivered)
+        alertController.addAction(all)
+        alertController.addAction(cancel)
+        controller.present(alertController, animated: true)
     }
 }

@@ -8,10 +8,9 @@
 import UIKit
 import FirebaseAuth
 
-class EmailConfirmationViewController: UIViewController, Coordinating {
+class EmailConfirmationViewController: UIViewController {
     
     var auth:Auth?
-    var coordinator: Coordinator?
     var emailConfirmationScreen:EmailConfirmationScreen?
     var alert:Alert?
     var viewModel: EmailConfirmationViewModel = EmailConfirmationViewModel()

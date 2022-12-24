@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		090D841C28D33DFB00198D69 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D841B28D33DFB00198D69 /* APIHelper.swift */; };
 		0918AD4628D6953F00E95DFB /* ProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */; };
-		0924A6A929553DDF007802AF /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0924A6A829553DDF007802AF /* EmptyStateTableViewCell.swift */; };
 		0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0937E43328CFD58400920D18 /* UIResponder+Utils.swift */; };
 		093F937F2926DC9C00DA697B /* RastreioBFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F937E2926DC9C00DA697B /* RastreioBFService.swift */; };
-		093F93D6292D7FB700DA697B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93D5292D7FB700DA697B /* Coordinator.swift */; };
-		093F93D9292D81C200DA697B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F93D8292D81C200DA697B /* MainCoordinator.swift */; };
 		094E247528CE85B300C6DDC8 /* email-sent.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247428CE85B300C6DDC8 /* email-sent.json */; };
 		094E247928CE87A800C6DDC8 /* email-with-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247828CE87A700C6DDC8 /* email-with-blue.json */; };
 		094E247B28CE881400C6DDC8 /* receiveEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247A28CE881400C6DDC8 /* receiveEmail.json */; };
+		0960A0C7295674E700D2FC37 /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0C6295674E700D2FC37 /* EmptyStateTableViewCell.swift */; };
+		0960A0C9295682E900D2FC37 /* CoreDataFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0C8295682E900D2FC37 /* CoreDataFilter.swift */; };
+		0960A0CB29568E2600D2FC37 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0CA29568E2600D2FC37 /* UIWindow+.swift */; };
+		0960A0CD29568ECE00D2FC37 /* SAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0CC29568ECE00D2FC37 /* SAlertController.swift */; };
 		096BFC2129489DCC003C1945 /* GenericService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2029489DCC003C1945 /* GenericService.swift */; };
 		096BFC2429489EC5003C1945 /* RastreioTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BFC2329489EC5003C1945 /* RastreioTemplate.json */; };
 		096BFC2629489F93003C1945 /* RastreioAPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2529489F93003C1945 /* RastreioAPIViewModel.swift */; };
@@ -92,14 +93,15 @@
 /* Begin PBXFileReference section */
 		090D841B28D33DFB00198D69 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewCell.swift; sourceTree = "<group>"; };
-		0924A6A829553DDF007802AF /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
 		0937E43328CFD58400920D18 /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
 		093F937E2926DC9C00DA697B /* RastreioBFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioBFService.swift; sourceTree = "<group>"; };
-		093F93D5292D7FB700DA697B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		093F93D8292D81C200DA697B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		094E247428CE85B300C6DDC8 /* email-sent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-sent.json"; sourceTree = "<group>"; };
 		094E247828CE87A700C6DDC8 /* email-with-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-with-blue.json"; sourceTree = "<group>"; };
 		094E247A28CE881400C6DDC8 /* receiveEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = receiveEmail.json; sourceTree = "<group>"; };
+		0960A0C6295674E700D2FC37 /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
+		0960A0C8295682E900D2FC37 /* CoreDataFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFilter.swift; sourceTree = "<group>"; };
+		0960A0CA29568E2600D2FC37 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
+		0960A0CC29568ECE00D2FC37 /* SAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAlertController.swift; sourceTree = "<group>"; };
 		096BFC2029489DCC003C1945 /* GenericService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericService.swift; sourceTree = "<group>"; };
 		096BFC2329489EC5003C1945 /* RastreioTemplate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RastreioTemplate.json; sourceTree = "<group>"; };
 		096BFC2529489F93003C1945 /* RastreioAPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioAPIViewModel.swift; sourceTree = "<group>"; };
@@ -216,7 +218,7 @@
 		0924A6A729553DA5007802AF /* EmptyStateCell */ = {
 			isa = PBXGroup;
 			children = (
-				0924A6A829553DDF007802AF /* EmptyStateTableViewCell.swift */,
+				0960A0C6295674E700D2FC37 /* EmptyStateTableViewCell.swift */,
 			);
 			path = EmptyStateCell;
 			sourceTree = "<group>";
@@ -229,15 +231,6 @@
 				096CA8E328D5525A00C459B0 /* ProductDetailCell */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		093F93D7292D7FC600DA697B /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				093F93D5292D7FB700DA697B /* Coordinator.swift */,
-				093F93D8292D81C200DA697B /* MainCoordinator.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		094E246428CE6D5900C6DDC8 /* ViewController */ = {
@@ -356,7 +349,6 @@
 		0974F62C28CB77A7004E8716 /* RastreioBF */ = {
 			isa = PBXGroup;
 			children = (
-				093F93D7292D7FC600DA697B /* Coordinator */,
 				6C0DCC63293D1EB2001A5EF2 /* Data */,
 				096BFC2229489E5F003C1945 /* JSON */,
 				090D841A28D33DD900198D69 /* Service */,
@@ -366,6 +358,7 @@
 				0974F62F28CB77A7004E8716 /* SceneDelegate.swift */,
 				0974F63128CB77A7004E8716 /* UITextField+SecureToggle.swift */,
 				0937E43328CFD58400920D18 /* UIResponder+Utils.swift */,
+				0960A0CA29568E2600D2FC37 /* UIWindow+.swift */,
 				099BCC9028CB877E000DFDE6 /* LocalizedStrings */,
 				099BCC9228CB881B000DFDE6 /* Scenes */,
 				0974F63828CB77A8004E8716 /* LaunchScreen.storyboard */,
@@ -392,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				099BCC7128CB81CA000DFDE6 /* Alert.swift */,
+				0960A0CC29568ECE00D2FC37 /* SAlertController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -768,6 +762,7 @@
 				096BFC3B29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift */,
 				6C0DCC69293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift */,
 				096BFC39294EA779003C1945 /* CoreDataManager.swift */,
+				0960A0C8295682E900D2FC37 /* CoreDataFilter.swift */,
 				6C0DCC60293D1A28001A5EF2 /* DataProduct.xcdatamodeld */,
 			);
 			path = Data;
@@ -1015,6 +1010,7 @@
 				099BCC6F28CB817A000DFDE6 /* LocalizedConstants.swift in Sources */,
 				6CFFA7C3293BBCDE006DAF62 /* DoneViewModel.swift in Sources */,
 				098B467528CECA28009D08A4 /* TrackingView.swift in Sources */,
+				0960A0C9295682E900D2FC37 /* CoreDataFilter.swift in Sources */,
 				0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */,
 				099BCC7928CB8277000DFDE6 /* LoginView.swift in Sources */,
 				096BFC2F2948E70E003C1945 /* PackageCell.swift in Sources */,
@@ -1042,6 +1038,7 @@
 				090D841C28D33DFB00198D69 /* APIHelper.swift in Sources */,
 				096BFC3A294EA779003C1945 /* CoreDataManager.swift in Sources */,
 				0974F63028CB77A7004E8716 /* SceneDelegate.swift in Sources */,
+				0960A0CD29568ECE00D2FC37 /* SAlertController.swift in Sources */,
 				09DB4EFA293CDAE9009BA93A /* LoginProtocols.swift in Sources */,
 				3A163B0629117046005A93AA /* SettingsTableViewCell.swift in Sources */,
 				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
@@ -1057,7 +1054,7 @@
 				099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */,
 				099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */,
 				3A163B0729117046005A93AA /* SwitchTableViewCell.swift in Sources */,
-				0924A6A929553DDF007802AF /* EmptyStateTableViewCell.swift in Sources */,
+				0960A0C7295674E700D2FC37 /* EmptyStateTableViewCell.swift in Sources */,
 				099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */,
 				099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */,
 				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
@@ -1072,14 +1069,13 @@
 				096BFC2A2948E534003C1945 /* PackageCellViewModel.swift in Sources */,
 				6CFFA7D3293C38B6006DAF62 /* WarningView.swift in Sources */,
 				0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */,
-				093F93D6292D7FB700DA697B /* Coordinator.swift in Sources */,
 				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,
 				093F937F2926DC9C00DA697B /* RastreioBFService.swift in Sources */,
 				099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */,
-				093F93D9292D81C200DA697B /* MainCoordinator.swift in Sources */,
 				6CFFA7D0293C37F1006DAF62 /* PendenciesView.swift in Sources */,
 				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,
 				6CFFA7BD293BBC37006DAF62 /* PendenciesViewModel.swift in Sources */,
+				0960A0CB29568E2600D2FC37 /* UIWindow+.swift in Sources */,
 				099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */,
 				6CFFA7F1293C59A9006DAF62 /* DetailWarningView.swift in Sources */,
 				3A163B0F29117046005A93AA /* MenuScreenVC.swift in Sources */,

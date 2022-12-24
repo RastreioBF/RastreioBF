@@ -2,14 +2,14 @@
 //  EmptyStateTableViewCell.swift
 //  RastreioBF
 //
-//  Created by Jessica Bigal on 22/12/22.
+//  Created by Jessica Bigal on 23/12/22.
 //
 
 import UIKit
 
 class EmptyStateTableViewCell: UITableViewCell {
-
-    static let identifier : String = "EmptyStateTableViewCell"
+    
+    static let identifier = "EmptyStateTableViewCell"
     
     lazy var  statusLabel : UILabel = {
         let label = UILabel()
@@ -18,6 +18,8 @@ class EmptyStateTableViewCell: UITableViewCell {
         label.font = .boldSystemFont(ofSize: 15)
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.text = LC.nothingHere.text
+        label.backgroundColor = .systemRed
         return label
     }()
     
@@ -25,15 +27,15 @@ class EmptyStateTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview()
         self.setupConstraints()
-        self.selectionStyle = .none
+        self.backgroundColor = .yellow
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
-     func addSubview() {
-         self.contentView.addSubview(self.statusLabel)
+    func addSubview() {
+        self.contentView.addSubview(statusLabel)
     }
     
     public func setupCell(status: String){
@@ -50,3 +52,4 @@ class EmptyStateTableViewCell: UITableViewCell {
     }
     
 }
+

@@ -8,15 +8,14 @@
 import UIKit
 import CoreData
 
-class WarningViewController: UIViewController, Coordinating {
+class WarningViewController: UIViewController{
     
+    private var alert:Alert?
+    private var coreData = DataProduct()
+    private var eventArray = [DataProduct]()
+    private var manageObjectContext: NSManagedObjectContext!
     private var viewModel = WarningViewModel()
-    var coordinator: Coordinator?
-    var alert:Alert?
     private var warningView: WarningView?
-    var coreData = DataProduct()
-    var eventArray = [DataProduct]()
-    var manageObjectContext: NSManagedObjectContext!
     
     override func loadView() {
         self.warningView = WarningView()
@@ -27,23 +26,23 @@ class WarningViewController: UIViewController, Coordinating {
         super.viewDidLoad()
         self.alert = Alert(controller: self)
         self.navigationItem.title = LC.warningTitle.text
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: LC.filter.text, style: .plain, target: self, action: #selector(filter))
         manageObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         self.loadSaveData()
         viewModel.delegate = self
-        configTableView()
+        self.warningView?.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "EmptyStateTableViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.updatePackages()
-        configTableView()
     }
     
     func loadSaveData()  {
         let eventRequest: NSFetchRequest<DataProduct> = DataProduct.fetchRequest()
-        do{
+        do {
             eventArray = try manageObjectContext.fetch(eventRequest)
             warningView?.tableView.reloadData()
-        }catch
+        } catch
         {
             print("Could not load save data: \(error.localizedDescription)")
         }
@@ -52,6 +51,41 @@ class WarningViewController: UIViewController, Coordinating {
     func configTableView(){
         warningView?.tableView.delegate = self
         warningView?.tableView.dataSource = self
+    }
+    
+    func handle(_ result: Result<[DataProduct], Error>) {
+        switch result {
+        case .success(let eventArray):
+            self.eventArray = eventArray
+            self.warningView?.tableView.reloadData()
+        case .failure(let err):
+            SAlertController.showError(message: err.localizedDescription)
+        }
+    }
+
+   @objc
+   func filter() {
+        alert?.filterState(completion: { option in
+            switch option {
+            case .onWay:
+                self.fetchRequestWithTemplate(named: "FetchRequestOnItsWay")
+            case .pendencie:
+                self.fetchRequestWithTemplate(named: "FetchRequestError")
+            case .done:
+                self.fetchRequestWithTemplate(named: "FetchRequestDone")
+            case .all:
+                self.fetchRequestWithTemplate(named: "FetchRequestAll")
+            case .cancel:
+                break
+            }
+        })
+    
+    }
+    
+    func fetchRequestWithTemplate(named: String) {
+        CoreDataManager.shared.fetch(requestName: named, ofType: DataProduct.self) { (result) in
+            self.handle(result)
+        }
     }
 
 }
@@ -86,9 +120,16 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return UITableViewCell() }
-        cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
-        return cell
+//        if viewModel.hasData {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return UITableViewCell() }
+            cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
+            return cell
+//        } else {
+//            guard let cell =  tableView.dequeueReusableCell(withIdentifier: EmptyStateTableViewCell.identifier, for: indexPath) as? EmptyStateTableViewCell else { return UITableViewCell() }
+//                    cell.setupCell(status: "Nada por aqui")
+//            return cell
+//        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -121,6 +162,6 @@ extension WarningViewController: WarningViewModelProtocols {
     }
     
     func failure() {
-        alert?.getAlert(titulo: "Atencao", mensagem: "Um erro ocorreu, verifique o codigo digitado e/ou sua conexao com a internet.")
+        alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.wrongCodeMessage.text)
     }
 }

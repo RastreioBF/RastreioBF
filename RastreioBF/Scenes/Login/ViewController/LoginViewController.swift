@@ -9,9 +9,8 @@ import UIKit
 import FirebaseAuth
 import GoogleSignIn
 
-class LoginViewController: UIViewController, Coordinating {
+class LoginViewController: UIViewController {
     
-    var coordinator: Coordinator?
     var auth:Auth?
     var loginScreen:LoginView?
     var alert:Alert?
@@ -54,78 +53,18 @@ class LoginViewController: UIViewController, Coordinating {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func signIn(sender: Any) {
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { [self] user, error in
-            guard error == nil else { return }
-//            self.coordinator?.eventOcurred(with: .onboarding)
-            let vc: DemoViewController = DemoViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        }
-    }
     
     func signOut(sender: Any) {
         GIDSignIn.sharedInstance.signOut()
     }
-    
-    
-    func tappedMockado() {
-        self.coordinator?.eventOcurred(with: .mainTabbar)
-    }
+
     
     private var authUser : User? {
         return Auth.auth().currentUser
     }
     
-    func actionLoginButton() {
-//        guard let login = self.loginScreen else {return}
-//
-//        if viewModel.emptyTextField(text: self.loginScreen?.emailTextField.text ?? "") || viewModel.emptyTextField(text: self.loginScreen?.passwordTextField.text ?? "") {
-//            self.loginScreen?.loginErrorLabel.text = LC.allFieldsMustBeFilleds.text
-//            self.loginScreen?.loginErrorLabel.isHidden = false
-//        } else {
-//            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
-//                if error != nil{
-//                    self.loginScreen?.loginErrorLabel.text = LC.wrongData.text
-//                    self.loginScreen?.loginErrorLabel.isHidden = false
-//                } else if !Auth.auth().currentUser!.isEmailVerified {
-//                    self.alert?.getAlertActions(titulo: LC.atentionTitle.text, mensagem: LC.wrongEmailSignin.text, completion: {
-//                        self.authUser!.sendEmailVerification(completion: { (error) in
-//                        })
-//                    })
-//                } else if usuario == nil{
-//                    self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.tryAgainLater.text)
-//                }else{
-//                    if (self.auth?.currentUser?.metadata.creationDate == self.auth?.currentUser?.metadata.lastSignInDate
-//                    ) {
-//                        self.coordinator?.eventOcurred(with: .onboarding)
-//                    } else {
-//                        self.coordinator?.eventOcurred(with: .mainTabbar)
-//                    }
-//                }
-//            })
-//        }
-        let vc: MainTabBarController = MainTabBarController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    func actionGoogleButton() {
-        self.coordinator?.eventOcurred(with: .onboarding)
-    }
-    
-    func actionSignUpButton() {
-        let vc: SignUpViewController = SignUpViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func actionForgotPassword() {
-        let viewModel = EmailConfirmationViewModel()
-        let vc: EmailConfirmationViewController = EmailConfirmationViewController(viewModel: viewModel)
-        navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     func validationFields(){
@@ -169,5 +108,58 @@ extension LoginViewController: UITextFieldDelegate {
 }
 
 extension LoginViewController: LoginViewProtocol {
+    
+    func signIn(sender: Any) {
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { [self] user, error in
+            guard error == nil else { return }
+            let vc: DemoViewController = DemoViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func actionLoginButton() {
+//        guard let login = self.loginScreen else {return}
+//
+//        if viewModel.emptyTextField(text: self.loginScreen?.emailTextField.text ?? "") || viewModel.emptyTextField(text: self.loginScreen?.passwordTextField.text ?? "") {
+//            self.loginScreen?.loginErrorLabel.text = LC.allFieldsMustBeFilleds.text
+//            self.loginScreen?.loginErrorLabel.isHidden = false
+//        } else {
+//            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
+//                if error != nil{
+//                    self.loginScreen?.loginErrorLabel.text = LC.wrongData.text
+//                    self.loginScreen?.loginErrorLabel.isHidden = false
+//                } else if !Auth.auth().currentUser!.isEmailVerified {
+//                    self.alert?.getAlertActions(titulo: LC.atentionTitle.text, mensagem: LC.wrongEmailSignin.text, completion: {
+//                        self.authUser!.sendEmailVerification(completion: { (error) in
+//                        })
+//                    })
+//                } else if usuario == nil{
+//                    self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.tryAgainLater.text)
+//                }else{
+//                    if (self.auth?.currentUser?.metadata.creationDate == self.auth?.currentUser?.metadata.lastSignInDate
+//                    ) {
+//                        self.coordinator?.eventOcurred(with: .onboarding)
+//                    } else {
+//                        self.coordinator?.eventOcurred(with: .mainTabbar)
+//                    }
+//                }
+//            })
+//        }
+        let vc: MainTabBarController = MainTabBarController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func actionSignUpButton() {
+        let vc: SignUpViewController = SignUpViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func actionForgotPassword() {
+        let viewModel = EmailConfirmationViewModel()
+        let vc: EmailConfirmationViewController = EmailConfirmationViewController(viewModel: viewModel)
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
     
 }

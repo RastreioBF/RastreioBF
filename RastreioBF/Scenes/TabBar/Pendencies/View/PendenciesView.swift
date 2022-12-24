@@ -12,7 +12,7 @@ class PendenciesView: UIView {
     lazy var pendenciesTitleLabel : UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Pendencias RastreioBF"
+        label.text = LC.pendenciesTitle.text
         label.textColor = .darkGray
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label

@@ -55,8 +55,8 @@ class PackageCellViewModel {
         return object.status ?? "Error"
     }
     
-    func imageSelection(model: Eventos) -> String {
-        let status:String = object.status ?? ""
+    func imageSelection(evento: Eventos) -> String {
+        let status:String = evento.status ?? ""
 
         if  status == "Devolução autorizada pela Receita Federal" || status.contains("pagamento") || status.contains("análise"){
             return "errorImage"

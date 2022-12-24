@@ -71,6 +71,28 @@ enum LocalizedConstants: String {
     case correctlyFilled
     case congrats
     case emailSentConfirm
+    case dataMustBeFilledMessage
+    case alreadyRegisteredMessage
+    case dataSalvedTitle
+    case dataSavedMessage
+    case wrongCodeMessage
+    
+    //MARK: - Forgot Password
+    case insertRegisteredEmail
+    case sendEmailTextButton
+    
+    //MARK: - EmptyState
+    case nothingHere
+    
+    //MARK: - Tracking
+    case fillDataMessage
+    case trackingCode
+    case topMessage
+    case descriptionTracking
+    case insertDescription
+    
+    //MARK: - Warning
+    case filter
     
     var text: String {
         return rawValue.localized(.presentation)

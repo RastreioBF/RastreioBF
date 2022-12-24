@@ -37,8 +37,13 @@ class WarningViewModel {
         return coreData[indexPath.row]
     }
     
+    var hasData: Bool {
+        return coreData.count > 0
+    }
+    
     var dataArraySize: Int {
-        return coreData.count
+        var rows = hasData ? coreData.count : 0
+        return rows
     }
     
     func removeData(indexPath: IndexPath) {

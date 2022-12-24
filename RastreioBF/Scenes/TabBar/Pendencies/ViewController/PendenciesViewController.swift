@@ -8,16 +8,15 @@
 import UIKit
 import CoreData
 
-class PendenciesViewController: UIViewController, Coordinating {
-    var coordinator: Coordinator?
+class PendenciesViewController: UIViewController {
     
+    private var data: [DataProduct]?
+    private var coreData = DataProduct()
+    private var eventArray = [DataProduct]()
+    private var context = NSManagedObjectContext()
     private var pendenciesView: PendenciesView?
-    private var viewModel = PendenciesViewModel()
-    var coreData = DataProduct()
-    var eventArray = [DataProduct]()
-    var data: [DataProduct]?
-    let context = NSManagedObjectContext()
-    var manageObjectContext: NSManagedObjectContext!
+    private var manageObjectContext: NSManagedObjectContext!
+    private let viewModel = PendenciesViewModel()
     
     override func loadView() {
         self.pendenciesView = PendenciesView()
@@ -32,17 +31,14 @@ class PendenciesViewController: UIViewController, Coordinating {
         self.loadSaveData()
         viewModel.delegate = self
         configTableView()
-//        fetchStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.updatePackages()
         configTableView()
-//        fetchStatus()
     }
     
     func fetchStatus(){
-        
         do {
             let request = DataProduct.fetchRequest() as NSFetchRequest<DataProduct>
             let pred = NSPredicate(format: "image CONTAINS 'errorImage'")
@@ -135,7 +131,7 @@ extension PendenciesViewController: PendenciesViewModelProtocols {
     }
     
     func failure() {
-        //code
+        //Dont need to be implemented
     }
     
     func didUpdatePackages() {

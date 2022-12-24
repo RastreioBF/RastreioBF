@@ -32,7 +32,7 @@ struct SettingsOption {
     let handler: (() -> Void)
 }
 
-class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Coordinating {
+class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let tablewView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -43,7 +43,6 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var models = [Section]()
     var alert:Alert?
-    var coordinator: Coordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

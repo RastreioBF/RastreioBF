@@ -80,7 +80,7 @@ extension DetailWarningViewController: DetailWarningViewModelProtocols {
     }
 
     func failure() {
-        alert?.getAlert(titulo: "Atencao", mensagem: "Um erro ocorreu, verifique o codigo digitado e/ou sua conexao com a internet.")
+        alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.wrongCodeMessage.text)
 
     }
 }

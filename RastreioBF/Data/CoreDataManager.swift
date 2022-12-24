@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 struct CoreDataManager {
+    
     static let shared = CoreDataManager()
     
     let persistentContainer: NSPersistentContainer = {
@@ -123,39 +124,80 @@ struct CoreDataManager {
         return dateFormatter.date(from: newDateString)
     }
     
-    func filterData(status: String) -> [DataProduct] {
-        var data: [DataProduct]?
-//        let context = persistentContainer.viewContext
-//        let request = NSFetchRequest<DataProduct>(entityName: "DataProduct")
-//
-//        request.predicate = NSPredicate(format: "image == %@", status)
-//
-//        do {
-//           data = try context.fetch(request)
-//            return data ?? [DataProduct]()
-//        } catch {
-//            return data ?? [DataProduct]()
-//        }
-        
-        let fetchRequest: NSFetchRequest<DataProduct>
-        fetchRequest = DataProduct.fetchRequest()
+    var storeContainer: NSPersistentContainer = {
 
-        fetchRequest.predicate = NSPredicate(
-            format: "image", status
-        )
-
-        // Get a reference to a NSManagedObjectContext
-        let context = persistentContainer.viewContext
-
-        // Perform the fetch request to get the objects
-        // matching the predicate
-//        let objects = try context.fetch(fetchRequest)
-        do {
-                   data = try context.fetch(fetchRequest)
-                    return data ?? [DataProduct]()
-                } catch {
-                    return data ?? [DataProduct]()
+                let container = NSPersistentContainer(name: "DataProduct")
+                container.loadPersistentStores { (storeDescription, error) in
+//                    self.handle(error)
                 }
-        
+                return container
+    
+        }()
+    
+   var managedContext: NSManagedObjectContext!
+    
+    public func fetch<T: NSManagedObject>(_ fetchRequest: NSFetchRequest<T>, ofType _: T.Type, async: Bool = true, completion: @escaping (Result<[T], Error>) -> ()) {
+
+        if async {
+
+            let asyncFetchRequest = NSAsynchronousFetchRequest<T>(fetchRequest: fetchRequest) { (result: NSAsynchronousFetchResult) in
+
+                guard let finalResult = result.finalResult else {
+                    self.handle(CoreDataStackError.noFinalResult) {
+                        completion(.failure(CoreDataStackError.noFinalResult))
+                    }
+                    return
+                }
+                completion(.success(finalResult))
+            }
+
+            do {
+                try managedContext.execute(asyncFetchRequest)
+            } catch let error as NSError {
+                handle(error) {
+                    completion(.failure(error))
+                }
+            }
+
+        } else {
+
+            do {
+                let result = try managedContext.fetch(fetchRequest)
+                completion(.success(result))
+            } catch let error as NSError {
+                handle(error) {
+                    completion(.failure(error))
+                }
+            }
+
+        }
     }
+
+    
+    func fetch<T: NSManagedObject>(requestName: String, ofType _: T.Type, async: Bool = true, completion: @escaping (Result<[T], Error>) -> ()) {
+        guard let fetchRequest = managedContext.persistentStoreCoordinator?.managedObjectModel.fetchRequestTemplate(forName: requestName) as? NSFetchRequest<T> else {
+            self.handle(CoreDataStackError.noFetchRequest) {
+                completion(.failure(CoreDataStackError.noFetchRequest))
+            }
+            return
+        }
+        fetch(fetchRequest, ofType: T.self, async: async, completion: completion)
+    }
+
+    private func handle(_ error: Error?, completion: @escaping () -> () = {}) {
+        if let error = error as NSError? {
+            let message = "CoreDataStack -> \(#function): Unresolved error: \(error), \(error.userInfo)"
+//            if usesFatalError {
+//                fatalError(message)
+//            } else {
+//                print(message)
+//            }
+            completion()
+        }
+    }
+}
+
+struct CoreDataStackError {
+    static let noFetchRequest = NSError(domain: "No Fetch Request", code: 1, userInfo: nil)
+    static let noFinalResult = NSError(domain: "No Final Result", code: 1, userInfo: nil)
 }

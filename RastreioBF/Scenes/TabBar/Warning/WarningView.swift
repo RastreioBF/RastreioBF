@@ -12,7 +12,7 @@ class WarningView: UIView {
     lazy var warningTitleLabel : UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Avisos RastreioBF"
+        label.text = LC.warningTitle.text
         label.textColor = .darkGray
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label

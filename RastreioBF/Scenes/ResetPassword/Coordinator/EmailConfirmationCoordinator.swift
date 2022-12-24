@@ -8,10 +8,8 @@
 import Foundation
 import UIKit
 
-class EmailConfirmationCoordinator: EmailConfirmationCoordinatorProtocol, Coordinating {
+class EmailConfirmationCoordinator: EmailConfirmationCoordinatorProtocol{
     
-    var coordinator: Coordinator?
-    var coordinations: MainCoordinator?
     var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {

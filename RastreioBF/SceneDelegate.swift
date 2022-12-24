@@ -11,26 +11,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        //Viabiliza o ajuste do layout da NavigationBar
+
         if #available(iOS 15, *){
             UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
         }
         
-        let navVC = UINavigationController()
-        
-        let coordinator = MainCoordinator()
-        coordinator.navigationController = navVC
-        
         let window = UIWindow(windowScene: windowScene)
+        let vc: LoginViewController = LoginViewController()
+        let navVC = UINavigationController(rootViewController: vc)
         window.rootViewController = navVC
         window.makeKeyAndVisible()
         self.window = window
-        
-        coordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -52,7 +52,7 @@ class EmailConfirmationScreen: UIView {
         label.textColor = UIColor(named: "titlesColor")
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.font = .systemFont(ofSize: 25, weight: .semibold)
-        label.text = "Insira o e-mail cadastrado"
+        label.text = LC.insertRegisteredEmail.text
         label.textAlignment = .left
         return label
     }()
@@ -87,7 +87,7 @@ class EmailConfirmationScreen: UIView {
     lazy var confirmationCodeButton: UIButton = {
         var button = UIButton(type: .roundedRect)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Enviar e-mail", for: .normal)
+        button.setTitle(LC.sendEmailTextButton.text, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8

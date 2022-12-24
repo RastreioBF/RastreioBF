@@ -12,7 +12,7 @@ class DoneView: UIView {
     lazy var doneTitleLabel : UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Avisos RastreioBF"
+        label.text = LC.doneTitle.text
         label.textColor = .darkGray
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label

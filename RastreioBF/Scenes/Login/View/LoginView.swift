@@ -249,11 +249,6 @@ class LoginView: UIView {
         self.delegate?.actionForgotPassword()
     }
     
-    @objc
-    func mockado(){
-        self.delegate?.tappedMockado()
-    }
-    
     private func setUpConstraints(){
         self.setUpAnimationUIView()
         self.setUpLoginLabel()

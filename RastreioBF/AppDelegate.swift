@@ -27,19 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             }
           }
         
-        
-        let navVC = UINavigationController()
-        
-        let coordinator = MainCoordinator()
-        coordinator.navigationController = navVC
-        
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = navVC
-        window.makeKeyAndVisible()
-        self.window = window
-        
-        coordinator.start()
-        
         return true
     }
     

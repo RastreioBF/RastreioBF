@@ -16,13 +16,13 @@ protocol PendenciesViewModelProtocols: AnyObject {
 
 class PendenciesViewModel {
     
-    private static var data : [DataProduct] = []
-    private let service: RastreioBFService = RastreioBFService()
-    var package: Package?
+    private var coreData = [DataProduct]()
     private static var events : [Eventos] = []
-    var coreData = [DataProduct]()
+    private static var data : [DataProduct] = []
     weak var delegate: PendenciesViewModelProtocols?
-    
+    private var package: Package?
+    private let service: RastreioBFService = RastreioBFService()
+  
     public func delegate(delegate: PendenciesViewModelProtocols?){
         self.delegate = delegate
     }

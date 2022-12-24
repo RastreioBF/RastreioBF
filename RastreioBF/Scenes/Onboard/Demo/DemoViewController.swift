@@ -7,9 +7,8 @@
 
 import UIKit
 
-class DemoViewController: UIPageViewController, Coordinating {
+class DemoViewController: UIPageViewController{
     
-    var coordinator: Coordinator?
     var pages = [UIViewController]()
     let skipButton = UIButton()
     let nextButton = UIButton()
@@ -61,14 +60,14 @@ extension DemoViewController {
         skipButton.setTitleColor(.white, for: .normal)
         skipButton.layer.cornerRadius = 8
         skipButton.backgroundColor = .lightGray
-        skipButton.setTitle("Pular Introdução", for: .normal)
+        skipButton.setTitle(LC.skipIntroductionBt.text, for: .normal)
         skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.setTitleColor(.white, for: .normal)
         nextButton.layer.cornerRadius = 8
         nextButton.backgroundColor = UIColor(named: "mainPurpleColor")
-        nextButton.setTitle("RastreioBF", for: .normal)
+        nextButton.setTitle(LC.rastreioBFBt.text, for: .normal)
         nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
     }
     
