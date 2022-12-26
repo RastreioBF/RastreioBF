@@ -34,39 +34,6 @@ class DetailWarningViewControllerViewModel {
         }
     }
     
-    func fetchPackageURLSession(code: String){
-        service.getPackageURLSession(packageCode: code) { result, failure in
-            if let result = result {
-                self.package =  result
-                self.delegate?.success()
-            } else {
-                self.delegate?.failure()
-            }
-        }
-    }
-    
-    func fetchPackage(){
-        service.getPackageFromJson { result, failure in
-            if let result = result {
-                self.package =  result
-                self.delegate?.success()
-            } else {
-                self.delegate?.failure()
-            }
-        }
-    }
-    
-    func fetchPackageURLSessionNoLink(){
-        service.getPackageURLSessionNoLink { result, failure in
-            if let result = result {
-                self.package =  result
-                self.delegate?.success()
-            } else {
-                self.delegate?.failure()
-            }
-        }
-    }
-    
     var numberaOfRowsInSection: Int {
         return package?.eventos?.count ?? 0
     }

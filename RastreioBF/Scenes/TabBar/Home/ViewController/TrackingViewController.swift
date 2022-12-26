@@ -90,8 +90,6 @@ extension TrackingViewController: TrackingViewModelDelegate {
         
             viewModel.addPackage(name: name, trackingNumber: trackingNumber)
             self.alert?.getAlert(titulo: LC.dataSalvedTitle.text, mensagem: LC.dataSavedMessage.text, completion: {
-                let vc: WarningViewController = WarningViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
             })
             self.trackingView?.trackingNumberTextField.text = ""
             self.trackingView?.descriptionTextField.text = ""

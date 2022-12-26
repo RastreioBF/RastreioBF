@@ -15,35 +15,22 @@ protocol WarningViewModelProtocols: AnyObject {
 
 class WarningViewModel {
     
-    private let service: RastreioBFService = RastreioBFService()
-    var package: Package?
+    var coreDataStack = CoreDataStack(modelName: LC.dataProduct.text)
+    var coreData = [DataProduct]()
     weak var delegate: WarningViewModelProtocols?
+    var package: Package?
+    private let service: RastreioBFService = RastreioBFService()
     
     public func delegate(delegate: WarningViewModelProtocols?){
         self.delegate = delegate
-    }
-    
-    private static var data : [DataProduct] = []
-    private static var dataHeader : [DataTracking] = []
-    private static var events : [Eventos] = []
-    var coreData = [DataProduct]()
-    
-    
-    func setupDataProduct(data: DataProduct) {
-        WarningViewModel.data.append(data)
     }
     
     func getDataProduct(indexPath: IndexPath) -> DataProduct {
         return coreData[indexPath.row]
     }
     
-    var hasData: Bool {
-        return coreData.count > 0
-    }
-    
     var dataArraySize: Int {
-        var rows = hasData ? coreData.count : 0
-        return rows
+        return coreData.count
     }
     
     func removeData(indexPath: IndexPath) {
@@ -53,6 +40,25 @@ class WarningViewModel {
     var heightForRowAt: CGFloat {
         return 115
     }
+    
+    func handle(_ result: Result<[DataProduct], Error>) {
+        switch result {
+        case .success(let coreData):
+            DispatchQueue.main.async {
+                self.coreData = coreData
+                self.delegate?.success()
+            }
+        case .failure(_):
+            self.delegate?.failure()
+        }
+    }
+    
+    func fetchRequestWithTemplate(named: String) {
+        coreDataStack.fetch(requestName: named, ofType: DataProduct.self) { (result) in
+            self.handle(result)
+        }
+    }
+    
     
     func fetchPackageAlamofire(code: String){
         service.getPackageAlamofire(packageCode: code) { result, failure in
@@ -97,7 +103,7 @@ class WarningViewModel {
         }
     }
     
-  func updatePackage(package: DataProduct) {
+    func updatePackage(package: DataProduct) {
         guard let trackingNumber = package.codeTraking else { return }
         guard package.productDescription != nil else { return }
         

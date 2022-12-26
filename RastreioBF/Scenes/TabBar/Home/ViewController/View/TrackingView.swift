@@ -50,9 +50,10 @@ class TrackingView: UIView {
         textField.backgroundColor = .white
         textField.borderStyle = .roundedRect
         textField.keyboardType = .default
-        textField.returnKeyType = UIReturnKeyType.continue
+        textField.returnKeyType = UIReturnKeyType.done
         textField.tag = 0
         textField.placeholder = LC.topMessage.text
+        textField.clearButtonMode = .whileEditing
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .darkGray
         return textField
@@ -79,6 +80,7 @@ class TrackingView: UIView {
         textField.tag = 1
         textField.placeholder = LC.insertDescription.text
         textField.font = UIFont.systemFont(ofSize: 14)
+        textField.clearButtonMode = .whileEditing
         textField.textColor = .darkGray
         return textField
     }()
@@ -88,7 +90,7 @@ class TrackingView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Salvar", for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.backgroundColor = UIColor(named: "mainPurpleColor")
+        button.backgroundColor = UIColor(named: LC.mainPurpleColor.text)
         button.layer.cornerRadius = 8
         button.titleLabel?.font = UIFont(name: "", size: 12)
         button.setTitleColor(.white, for: .normal)
@@ -101,7 +103,6 @@ class TrackingView: UIView {
         self.configBackground()
         self.configSuperView()
         self.setUpConstraints()
-//        configButtonEnabled(false)
     }
     
     private func configSuperView(){

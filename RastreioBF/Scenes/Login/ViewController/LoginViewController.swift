@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     var loginScreen:LoginView?
     var alert:Alert?
     var viewModel: LoginViewModel = LoginViewModel()
-    let signInConfig = GIDConfiguration(clientID: "614878693717-p6uad96i9eltvcigv9o8o589su8flt41.apps.googleusercontent.com")
+    let signInConfig = GIDConfiguration(clientID: LC.signInConfig.text)
     
     override func loadView() {
         self.loginScreen = LoginView()
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
     func signOut(sender: Any) {
         GIDSignIn.sharedInstance.signOut()
     }
-
+    
     
     private var authUser : User? {
         return Auth.auth().currentUser
@@ -118,35 +118,35 @@ extension LoginViewController: LoginViewProtocol {
     }
     
     func actionLoginButton() {
-//        guard let login = self.loginScreen else {return}
-//
-//        if viewModel.emptyTextField(text: self.loginScreen?.emailTextField.text ?? "") || viewModel.emptyTextField(text: self.loginScreen?.passwordTextField.text ?? "") {
-//            self.loginScreen?.loginErrorLabel.text = LC.allFieldsMustBeFilleds.text
-//            self.loginScreen?.loginErrorLabel.isHidden = false
-//        } else {
-//            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
-//                if error != nil{
-//                    self.loginScreen?.loginErrorLabel.text = LC.wrongData.text
-//                    self.loginScreen?.loginErrorLabel.isHidden = false
-//                } else if !Auth.auth().currentUser!.isEmailVerified {
-//                    self.alert?.getAlertActions(titulo: LC.atentionTitle.text, mensagem: LC.wrongEmailSignin.text, completion: {
-//                        self.authUser!.sendEmailVerification(completion: { (error) in
-//                        })
-//                    })
-//                } else if usuario == nil{
-//                    self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.tryAgainLater.text)
-//                }else{
-//                    if (self.auth?.currentUser?.metadata.creationDate == self.auth?.currentUser?.metadata.lastSignInDate
-//                    ) {
-//                        self.coordinator?.eventOcurred(with: .onboarding)
-//                    } else {
-//                        self.coordinator?.eventOcurred(with: .mainTabbar)
-//                    }
-//                }
-//            })
-//        }
-        let vc: MainTabBarController = MainTabBarController()
-        navigationController?.pushViewController(vc, animated: true)
+        guard let login = self.loginScreen else {return}
+        
+        if viewModel.emptyTextField(text: self.loginScreen?.emailTextField.text ?? "") || viewModel.emptyTextField(text: self.loginScreen?.passwordTextField.text ?? "") {
+            self.loginScreen?.loginErrorLabel.text = LC.allFieldsMustBeFilleds.text
+            self.loginScreen?.loginErrorLabel.isHidden = false
+        } else {
+            self.auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
+                if error != nil{
+                    self.loginScreen?.loginErrorLabel.text = LC.wrongData.text
+                    self.loginScreen?.loginErrorLabel.isHidden = false
+                } else if !Auth.auth().currentUser!.isEmailVerified {
+                    self.alert?.getAlertActions(titulo: LC.atentionTitle.text, mensagem: LC.wrongEmailSignin.text, completion: {
+                        self.authUser!.sendEmailVerification(completion: { (error) in
+                        })
+                    })
+                } else if usuario == nil{
+                    self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.tryAgainLater.text)
+                }else{
+                    if (self.auth?.currentUser?.metadata.creationDate == self.auth?.currentUser?.metadata.lastSignInDate
+                    ) {
+                        let vc: DemoViewController = DemoViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    } else {
+                        let vc: MainTabBarController = MainTabBarController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            })
+        }
     }
     
     func actionSignUpButton() {
@@ -160,6 +160,5 @@ extension LoginViewController: LoginViewProtocol {
         navigationController?.pushViewController(vc, animated: true)
         
     }
-    
     
 }

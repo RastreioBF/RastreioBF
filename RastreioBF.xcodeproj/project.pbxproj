@@ -15,13 +15,11 @@
 		094E247928CE87A800C6DDC8 /* email-with-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247828CE87A700C6DDC8 /* email-with-blue.json */; };
 		094E247B28CE881400C6DDC8 /* receiveEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 094E247A28CE881400C6DDC8 /* receiveEmail.json */; };
 		0960A0C7295674E700D2FC37 /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0C6295674E700D2FC37 /* EmptyStateTableViewCell.swift */; };
-		0960A0C9295682E900D2FC37 /* CoreDataFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0C8295682E900D2FC37 /* CoreDataFilter.swift */; };
+		0960A0C9295682E900D2FC37 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0C8295682E900D2FC37 /* CoreDataStack.swift */; };
 		0960A0CB29568E2600D2FC37 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0CA29568E2600D2FC37 /* UIWindow+.swift */; };
-		0960A0CD29568ECE00D2FC37 /* SAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0CC29568ECE00D2FC37 /* SAlertController.swift */; };
 		096BFC2129489DCC003C1945 /* GenericService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2029489DCC003C1945 /* GenericService.swift */; };
 		096BFC2429489EC5003C1945 /* RastreioTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BFC2329489EC5003C1945 /* RastreioTemplate.json */; };
 		096BFC2629489F93003C1945 /* RastreioAPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2529489F93003C1945 /* RastreioAPIViewModel.swift */; };
-		096BFC2A2948E534003C1945 /* PackageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC292948E534003C1945 /* PackageCellViewModel.swift */; };
 		096BFC2F2948E70E003C1945 /* PackageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC2E2948E70E003C1945 /* PackageCell.swift */; };
 		096BFC38294A89A3003C1945 /* DataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC37294A89A3003C1945 /* DataTracking.swift */; };
 		096BFC3A294EA779003C1945 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BFC39294EA779003C1945 /* CoreDataManager.swift */; };
@@ -55,8 +53,6 @@
 		099BCC9928CB89B5000DFDE6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9828CB89B5000DFDE6 /* SignUpView.swift */; };
 		099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */; };
 		099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */; };
-		099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */; };
-		099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */; };
 		099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */; };
 		09DB4EFA293CDAE9009BA93A /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4EF9293CDAE9009BA93A /* LoginProtocols.swift */; };
 		09DB4EFE293CDC91009BA93A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB4EFD293CDC91009BA93A /* LoginViewModel.swift */; };
@@ -79,11 +75,7 @@
 		6C0DCC6A293D1FB0001A5EF2 /* DataProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0DCC68293D1FB0001A5EF2 /* DataProduct+CoreDataClass.swift */; };
 		6C0DCC6B293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0DCC69293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift */; };
 		6CFFA7BA293B9159006DAF62 /* WarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7B9293B9159006DAF62 /* WarningViewModel.swift */; };
-		6CFFA7BD293BBC37006DAF62 /* PendenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7BC293BBC37006DAF62 /* PendenciesViewModel.swift */; };
 		6CFFA7C0293BBC64006DAF62 /* TrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7BF293BBC64006DAF62 /* TrackingViewModel.swift */; };
-		6CFFA7C3293BBCDE006DAF62 /* DoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7C2293BBCDE006DAF62 /* DoneViewModel.swift */; };
-		6CFFA7CD293C3760006DAF62 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7CC293C3760006DAF62 /* DoneView.swift */; };
-		6CFFA7D0293C37F1006DAF62 /* PendenciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7CF293C37F1006DAF62 /* PendenciesView.swift */; };
 		6CFFA7D3293C38B6006DAF62 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7D2293C38B6006DAF62 /* WarningView.swift */; };
 		6CFFA7F1293C59A9006DAF62 /* DetailWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7F0293C59A9006DAF62 /* DetailWarningView.swift */; };
 		6CFFA7F3293C59C7006DAF62 /* DetailWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7F2293C59C7006DAF62 /* DetailWarningViewController.swift */; };
@@ -99,13 +91,11 @@
 		094E247828CE87A700C6DDC8 /* email-with-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-with-blue.json"; sourceTree = "<group>"; };
 		094E247A28CE881400C6DDC8 /* receiveEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = receiveEmail.json; sourceTree = "<group>"; };
 		0960A0C6295674E700D2FC37 /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
-		0960A0C8295682E900D2FC37 /* CoreDataFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFilter.swift; sourceTree = "<group>"; };
+		0960A0C8295682E900D2FC37 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0960A0CA29568E2600D2FC37 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
-		0960A0CC29568ECE00D2FC37 /* SAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAlertController.swift; sourceTree = "<group>"; };
 		096BFC2029489DCC003C1945 /* GenericService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericService.swift; sourceTree = "<group>"; };
 		096BFC2329489EC5003C1945 /* RastreioTemplate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RastreioTemplate.json; sourceTree = "<group>"; };
 		096BFC2529489F93003C1945 /* RastreioAPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioAPIViewModel.swift; sourceTree = "<group>"; };
-		096BFC292948E534003C1945 /* PackageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCellViewModel.swift; sourceTree = "<group>"; };
 		096BFC2E2948E70E003C1945 /* PackageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCell.swift; sourceTree = "<group>"; };
 		096BFC37294A89A3003C1945 /* DataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTracking.swift; sourceTree = "<group>"; };
 		096BFC39294EA779003C1945 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -141,8 +131,6 @@
 		099BCC9828CB89B5000DFDE6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		099BCC9A28CB89D3000DFDE6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
-		099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesViewController.swift; sourceTree = "<group>"; };
 		099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
 		09DB4EF9293CDAE9009BA93A /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		09DB4EFD293CDC91009BA93A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -164,11 +152,7 @@
 		6C0DCC68293D1FB0001A5EF2 /* DataProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C0DCC69293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6CFFA7B9293B9159006DAF62 /* WarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewModel.swift; sourceTree = "<group>"; };
-		6CFFA7BC293BBC37006DAF62 /* PendenciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesViewModel.swift; sourceTree = "<group>"; };
 		6CFFA7BF293BBC64006DAF62 /* TrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewModel.swift; sourceTree = "<group>"; };
-		6CFFA7C2293BBCDE006DAF62 /* DoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewModel.swift; sourceTree = "<group>"; };
-		6CFFA7CC293C3760006DAF62 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
-		6CFFA7CF293C37F1006DAF62 /* PendenciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendenciesView.swift; sourceTree = "<group>"; };
 		6CFFA7D2293C38B6006DAF62 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		6CFFA7F0293C59A9006DAF62 /* DetailWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWarningView.swift; sourceTree = "<group>"; };
 		6CFFA7F2293C59C7006DAF62 /* DetailWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWarningViewController.swift; sourceTree = "<group>"; };
@@ -269,31 +253,13 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		096BFC2B2948E542003C1945 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				096BFC292948E534003C1945 /* PackageCellViewModel.swift */,
-			);
-			name = ViewModel;
-			path = ../Service;
-			sourceTree = "<group>";
-		};
 		096BFC2C2948E6B8003C1945 /* PackageCell */ = {
-			isa = PBXGroup;
-			children = (
-				096BFC2D2948E6E1003C1945 /* Cell */,
-				096BFC2B2948E542003C1945 /* ViewModel */,
-			);
-			name = PackageCell;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		096BFC2D2948E6E1003C1945 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				096BFC2E2948E70E003C1945 /* PackageCell.swift */,
 			);
-			path = Cell;
+			name = PackageCell;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		096CA8E328D5525A00C459B0 /* ProductDetailCell */ = {
@@ -385,7 +351,6 @@
 			isa = PBXGroup;
 			children = (
 				099BCC7128CB81CA000DFDE6 /* Alert.swift */,
-				0960A0CC29568ECE00D2FC37 /* SAlertController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -530,8 +495,6 @@
 				099BCCA328CB8AE5000DFDE6 /* Home */,
 				6CFFA7D4293C5866006DAF62 /* DetailVC */,
 				099BCCAC28CB8BAD000DFDE6 /* Warning */,
-				099BCCA028CB8A9D000DFDE6 /* Done */,
-				099BCCA928CB8B6B000DFDE6 /* Pendencies */,
 				3A163ADD29117046005A93AA /* Menu */,
 				0918AD4928D696E600E95DFB /* Model */,
 			);
@@ -546,32 +509,12 @@
 			path = MainTabBar;
 			sourceTree = "<group>";
 		};
-		099BCCA028CB8A9D000DFDE6 /* Done */ = {
-			isa = PBXGroup;
-			children = (
-				6CFFA7CB293C3731006DAF62 /* View */,
-				09EAB3FB28D76D0F00968827 /* ViewController */,
-				6CFFA7C1293BBCC2006DAF62 /* ViewModel */,
-			);
-			path = Done;
-			sourceTree = "<group>";
-		};
 		099BCCA328CB8AE5000DFDE6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				094E246828CE718D00C6DDC8 /* Tracking */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		099BCCA928CB8B6B000DFDE6 /* Pendencies */ = {
-			isa = PBXGroup;
-			children = (
-				6CFFA7CE293C37DF006DAF62 /* View */,
-				6CFFA7C4293BFF56006DAF62 /* ViewController */,
-				6CFFA7BB293BBC1E006DAF62 /* ViewModel */,
-			);
-			path = Pendencies;
 			sourceTree = "<group>";
 		};
 		099BCCAC28CB8BAD000DFDE6 /* Warning */ = {
@@ -614,14 +557,6 @@
 				09DB4F02293CF0AF009BA93A /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		09EAB3FB28D76D0F00968827 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				099BCCA128CB8ABF000DFDE6 /* DoneViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		3A163ADD29117046005A93AA /* Menu */ = {
@@ -762,7 +697,7 @@
 				096BFC3B29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift */,
 				6C0DCC69293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift */,
 				096BFC39294EA779003C1945 /* CoreDataManager.swift */,
-				0960A0C8295682E900D2FC37 /* CoreDataFilter.swift */,
+				0960A0C8295682E900D2FC37 /* CoreDataStack.swift */,
 				6C0DCC60293D1A28001A5EF2 /* DataProduct.xcdatamodeld */,
 			);
 			path = Data;
@@ -776,14 +711,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		6CFFA7BB293BBC1E006DAF62 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				6CFFA7BC293BBC37006DAF62 /* PendenciesViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		6CFFA7BE293BBC52006DAF62 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -792,44 +719,12 @@
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
-		6CFFA7C1293BBCC2006DAF62 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				6CFFA7C2293BBCDE006DAF62 /* DoneViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		6CFFA7C4293BFF56006DAF62 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				099BCCAA28CB8B82000DFDE6 /* PendenciesViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		6CFFA7C5293BFFCF006DAF62 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				099BCC9E28CB8A70000DFDE6 /* MainTabBarController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		6CFFA7CB293C3731006DAF62 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6CFFA7CC293C3760006DAF62 /* DoneView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		6CFFA7CE293C37DF006DAF62 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6CFFA7CF293C37F1006DAF62 /* PendenciesView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		6CFFA7D1293C3895006DAF62 /* View */ = {
@@ -1008,9 +903,8 @@
 				09732389291D19A500E44BB7 /* EmailConfirmationProtocols.swift in Sources */,
 				099BCC7628CB8231000DFDE6 /* LoginViewController.swift in Sources */,
 				099BCC6F28CB817A000DFDE6 /* LocalizedConstants.swift in Sources */,
-				6CFFA7C3293BBCDE006DAF62 /* DoneViewModel.swift in Sources */,
 				098B467528CECA28009D08A4 /* TrackingView.swift in Sources */,
-				0960A0C9295682E900D2FC37 /* CoreDataFilter.swift in Sources */,
+				0960A0C9295682E900D2FC37 /* CoreDataStack.swift in Sources */,
 				0974F63228CB77A7004E8716 /* UITextField+SecureToggle.swift in Sources */,
 				099BCC7928CB8277000DFDE6 /* LoginView.swift in Sources */,
 				096BFC2F2948E70E003C1945 /* PackageCell.swift in Sources */,
@@ -1024,7 +918,6 @@
 				3A163B0B29117046005A93AA /* PrivacyPoliciesView.swift in Sources */,
 				096BFC2129489DCC003C1945 /* GenericService.swift in Sources */,
 				6CFFA7F3293C59C7006DAF62 /* DetailWarningViewController.swift in Sources */,
-				6CFFA7CD293C3760006DAF62 /* DoneView.swift in Sources */,
 				3A163B0929117046005A93AA /* RequestUserDataView.swift in Sources */,
 				099BCC9928CB89B5000DFDE6 /* SignUpView.swift in Sources */,
 				6C0DCC62293D1A28001A5EF2 /* DataProduct.xcdatamodeld in Sources */,
@@ -1038,7 +931,6 @@
 				090D841C28D33DFB00198D69 /* APIHelper.swift in Sources */,
 				096BFC3A294EA779003C1945 /* CoreDataManager.swift in Sources */,
 				0974F63028CB77A7004E8716 /* SceneDelegate.swift in Sources */,
-				0960A0CD29568ECE00D2FC37 /* SAlertController.swift in Sources */,
 				09DB4EFA293CDAE9009BA93A /* LoginProtocols.swift in Sources */,
 				3A163B0629117046005A93AA /* SettingsTableViewCell.swift in Sources */,
 				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
@@ -1062,19 +954,13 @@
 				6CFFA7BA293B9159006DAF62 /* WarningViewModel.swift in Sources */,
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
 				3A163B0E29117046005A93AA /* RemoveUserViewController.swift in Sources */,
-				099BCCAB28CB8B82000DFDE6 /* PendenciesViewController.swift in Sources */,
 				09DB4EFE293CDC91009BA93A /* LoginViewModel.swift in Sources */,
 				098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */,
 				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,
-				096BFC2A2948E534003C1945 /* PackageCellViewModel.swift in Sources */,
 				6CFFA7D3293C38B6006DAF62 /* WarningView.swift in Sources */,
 				0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */,
-				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,
 				093F937F2926DC9C00DA697B /* RastreioBFService.swift in Sources */,
 				099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */,
-				6CFFA7D0293C37F1006DAF62 /* PendenciesView.swift in Sources */,
-				099BCCA228CB8ABF000DFDE6 /* DoneViewController.swift in Sources */,
-				6CFFA7BD293BBC37006DAF62 /* PendenciesViewModel.swift in Sources */,
 				0960A0CB29568E2600D2FC37 /* UIWindow+.swift in Sources */,
 				099BCC9F28CB8A70000DFDE6 /* MainTabBarController.swift in Sources */,
 				6CFFA7F1293C59A9006DAF62 /* DetailWarningView.swift in Sources */,

@@ -18,7 +18,7 @@ enum TypeStateSelected {
 }
 
 class Alert:NSObject {
-
+    
     var controller:UIViewController
     
     init(controller:UIViewController) {
@@ -27,7 +27,7 @@ class Alert:NSObject {
     
     func getAlert(titulo:String, mensagem:String, completion:(() -> Void)? = nil){
         let alertController = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel) { acao in
+        let action = UIAlertAction(title: LC.okButton.text, style: .cancel) { acao in
             completion?()
         }
         alertController.addAction(action)
@@ -36,10 +36,10 @@ class Alert:NSObject {
     
     func getAlertActions(titulo:String, mensagem:String, completion:(() -> Void)? = nil){
         let alertController = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default) { acao in
+        let action = UIAlertAction(title: LC.okButton.text, style: .default) { acao in
             completion?()
         }
-        let cancel = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: LC.calcelButton.text, style: .default, handler: nil)
         alertController.addAction(action)
         alertController.addAction(cancel)
         self.controller.present(alertController, animated: true, completion: nil)
@@ -47,28 +47,28 @@ class Alert:NSObject {
     
     func addContact(completion:((_ value:String) -> Void)? = nil){
         var _textField:UITextField?
-        let alert = UIAlertController(title: "Solicitar dados", message: "Em qual endereço de e-mail você deseja receber o relatório dos seus dados?", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "enviar", style: .default) { (acao) in
+        let alert = UIAlertController(title: LC.requestDataTitle.text, message: LC.requestDataMessage.text, preferredStyle: .alert)
+        let ok = UIAlertAction(title: LC.sendTitle.text, style: .default) { (acao) in
             completion?(_textField?.text ?? "")
         }
-        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: LC.calcelButton.text, style: .cancel, handler: nil)
         alert.addAction(cancel)
         alert.addAction(ok)
         alert.addTextField(configurationHandler: {(textField: UITextField) in
             _textField = textField
-            textField.placeholder = "Email:"
+            textField.placeholder = LC.emailTitle.text
         })
         self.controller.present(alert, animated: true, completion: nil)
     }
     
     func deleteDataUser(completion:((_ value:String) -> Void)? = nil){
         var _textField:UITextField?
-        let alert = UIAlertController(title: "Remover Dados", message: "Essa opção irá apagar todos os seus dados (rastreios, conta de login, desse e dos demais dispositivos que você fez login com a sua conta (caso tenha feito), e também os apagará do servidor. Os dados serão removidos permanentemente sem opção de backup. Deseja prosseguir?", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "enviar", style: .default) { (acao) in
+        let alert = UIAlertController(title: LC.removeDataTitle.text, message: LC.removeDataMessage.text, preferredStyle: .alert)
+        let ok = UIAlertAction(title: LC.sendTitle.text, style: .default) { (acao) in
             completion?(_textField?.text ?? "")
             let user = Auth.auth().currentUser
             user?.delete { error in
-                if let error = error {
+                if error != nil {
                     // An error happened.
                 } else {
                     let vc:LoginViewController = LoginViewController()
@@ -76,55 +76,52 @@ class Alert:NSObject {
                 }
             }
         }
-        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: LC.calcelButton.text, style: .cancel, handler: nil)
         alert.addAction(cancel)
         alert.addAction(ok)
         self.controller.present(alert, animated: true, completion: nil)
     }
     
-    
-    
     func userAlertLogout(completion:((_ value:String) -> Void)? = nil){
         var _textField:UITextField?
-        let alert = UIAlertController(title: "Atenção", message: "Deseja sair ?", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "continuar", style: .default) { (acao) in
+        let alert = UIAlertController(title: LC.atentionTitle.text, message: LC.leaveConfirmation.text, preferredStyle: .alert)
+        let ok = UIAlertAction(title: LC.continueButton.text, style: .default) { (acao) in
             completion?(_textField?.text ?? "")
-//
             let vc:LoginViewController = LoginViewController()
             self.controller.navigationController?.pushViewController(vc, animated: false)
         }
-        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: LC.calcelButton.text, style: .cancel, handler: nil)
         alert.addAction(cancel)
         alert.addAction(ok)
         self.controller.present(alert, animated: true, completion: nil)
     }
     
     func filterState(completion: @escaping (_ option: TypeStateSelected) -> Void) {
-        let alertController: UIAlertController = UIAlertController(title: "Filtro", message: nil, preferredStyle: .actionSheet)
+        let alertController: UIAlertController = UIAlertController(title: nil , message: nil, preferredStyle: .actionSheet)
         
-        let pendencies = UIAlertAction(title: "Pendencias", style: .default) { action in
+        let pendencies = UIAlertAction(title: LC.pendenciesFilter.text, style: .default) { action in
             completion(.pendencie)
         }
         
-        let onItsWay = UIAlertAction(title: "Em Rota", style: .default) { action in
+        let onItsWay = UIAlertAction(title: LC.onItsWayFilter.text, style: .default) { action in
             completion(.onWay)
         }
         
-        let delivered = UIAlertAction(title: "Entregue", style: .default) { action in
+        let delivered = UIAlertAction(title: LC.deliveredFilter.text, style: .default) { action in
             completion(.done)
         }
         
-        let all = UIAlertAction(title: "Todos", style: .default) { action in
-            completion(.done)
+        let all = UIAlertAction(title: LC.allFilter.text, style: .default) { action in
+            completion(.all)
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { action in
+        let cancel = UIAlertAction(title: LC.calcelButton.text, style: .cancel) { action in
             completion(.cancel)
         }
         
-        alertController.addAction(pendencies)
         alertController.addAction(onItsWay)
         alertController.addAction(delivered)
+        alertController.addAction(pendencies)
         alertController.addAction(all)
         alertController.addAction(cancel)
         controller.present(alertController, animated: true)

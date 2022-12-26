@@ -15,10 +15,11 @@ class ProductDetailTableViewCell: UITableViewCell {
     lazy var  productImageView : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleToFill
+        image.contentMode = .scaleAspectFit
         image.clipsToBounds = false
         image.layer.cornerRadius = 15
-        image.image = UIImage(named: "truck")
+        image.image = UIImage(systemName: "truck")
+        image.tintColor = UIColor(named: "orangeColor")
         return image
     }()
     
@@ -107,19 +108,20 @@ class ProductDetailTableViewCell: UITableViewCell {
         self.codeTrakingLabel.text = data.codeTraking
         self.productDescriptionLabel.text = data.status
         self.productLocalLabel.text = data.productLocal
-        self.productImageView.image = UIImage(named: data.image ?? "")
+        self.productImageView.image = UIImage(systemName: data.image ?? "")
+        self.productImageView.tintColor = UIColor(named: data.tintColor ?? "")
         self.productTimeDateLabel.text = "\(data.date ?? "") - \(data.time ?? "")"
     }
     
     func setupConstraints(){
         NSLayoutConstraint.activate([
             
-            self.productImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            self.productImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             self.productImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 2),
-            self.productImageView.heightAnchor.constraint(equalToConstant: 80),
-            self.productImageView.widthAnchor.constraint(equalToConstant: 80),
+            self.productImageView.heightAnchor.constraint(equalToConstant: 70),
+            self.productImageView.widthAnchor.constraint(equalToConstant: 70),
             
-            self.productLocalLabel.topAnchor.constraint(equalTo: self.productImageView.bottomAnchor, constant: 5 ),
+            self.productLocalLabel.topAnchor.constraint(equalTo: self.productImageView.bottomAnchor, constant: 10 ),
             self.productLocalLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 2),
 
             self.productNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),

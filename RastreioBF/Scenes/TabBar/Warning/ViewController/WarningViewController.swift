@@ -12,7 +12,8 @@ class WarningViewController: UIViewController{
     
     private var alert:Alert?
     private var coreData = DataProduct()
-    private var eventArray = [DataProduct]()
+    var coreDataStack = CoreDataStack(modelName: LC.dataProduct.text)
+    var eventArray = [DataProduct]()
     private var manageObjectContext: NSManagedObjectContext!
     private var viewModel = WarningViewModel()
     private var warningView: WarningView?
@@ -24,24 +25,30 @@ class WarningViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.alert = Alert(controller: self)
-        self.navigationItem.title = LC.warningTitle.text
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: LC.filter.text, style: .plain, target: self, action: #selector(filter))
+        alert = Alert(controller: self)
+        naviagtionSetup()
         manageObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        self.loadSaveData()
         viewModel.delegate = self
-        self.warningView?.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "EmptyStateTableViewCell")
+        hideTableViewData()
+        warningView?.tableViewEmpty.separatorStyle = .none
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        configTableView()
         viewModel.updatePackages()
+        hideTableViewData()
+    }
+    
+    func naviagtionSetup(){
+        navigationItem.title = LC.warningTitle.text
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: LC.filterIcon.text), style: .plain, target: self, action: #selector(filter))
     }
     
     func loadSaveData()  {
         let eventRequest: NSFetchRequest<DataProduct> = DataProduct.fetchRequest()
         do {
             eventArray = try manageObjectContext.fetch(eventRequest)
-            warningView?.tableView.reloadData()
+            warningView?.tableViewData.reloadData()
         } catch
         {
             print("Could not load save data: \(error.localizedDescription)")
@@ -49,45 +56,40 @@ class WarningViewController: UIViewController{
     }
     
     func configTableView(){
-        warningView?.tableView.delegate = self
-        warningView?.tableView.dataSource = self
+        warningView?.tableViewData.delegate = self
+        warningView?.tableViewData.dataSource = self
+        warningView?.tableViewEmpty.delegate = self
+        warningView?.tableViewEmpty.dataSource = self
     }
     
-    func handle(_ result: Result<[DataProduct], Error>) {
-        switch result {
-        case .success(let eventArray):
-            self.eventArray = eventArray
-            self.warningView?.tableView.reloadData()
-        case .failure(let err):
-            SAlertController.showError(message: err.localizedDescription)
-        }
-    }
-
-   @objc
-   func filter() {
+    @objc
+    func filter() {
         alert?.filterState(completion: { option in
             switch option {
             case .onWay:
-                self.fetchRequestWithTemplate(named: "FetchRequestOnItsWay")
+                self.viewModel.fetchRequestWithTemplate(named: "FetchRequestOnItsWay")
             case .pendencie:
-                self.fetchRequestWithTemplate(named: "FetchRequestError")
+                self.viewModel.fetchRequestWithTemplate(named: "FetchRequestError")
             case .done:
-                self.fetchRequestWithTemplate(named: "FetchRequestDone")
+                self.viewModel.fetchRequestWithTemplate(named: "FetchRequestDone")
             case .all:
-                self.fetchRequestWithTemplate(named: "FetchRequestAll")
+                self.viewModel.fetchRequestWithTemplate(named: "FetchRequestAll")
             case .cancel:
                 break
             }
         })
-    
     }
     
-    func fetchRequestWithTemplate(named: String) {
-        CoreDataManager.shared.fetch(requestName: named, ofType: DataProduct.self) { (result) in
-            self.handle(result)
+    func hideTableViewData(){
+        if viewModel.dataArraySize != 0 {
+            self.warningView?.tableViewData.isHidden = false
+            self.warningView?.tableViewEmpty.isHidden = true
+        } else {
+            self.warningView?.tableViewData.isHidden = true
+            self.warningView?.tableViewEmpty.isHidden = false
         }
     }
-
+    
 }
 
 extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
@@ -105,30 +107,31 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
             viewModel.removeData(indexPath: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
-        do {
-                    try manageObjectContext.save()
-                } catch let error as NSError {
-                    print("Error While Deleting Note: \(error.userInfo)")
-                }
+            do {
+                try manageObjectContext.save()
+            } catch let error as NSError {
+                print("Error While Deleting Note: \(error.userInfo)")
             }
-            self.loadSaveData()
+        }
+        self.loadSaveData()
+        hideTableViewData()
     }
-
-
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.dataArraySize
+        let checks = tableView == warningView?.tableViewData ? viewModel.dataArraySize : 1
+        return checks
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if viewModel.hasData {
+        if tableView != warningView?.tableViewData {
+            guard let cell =  tableView.dequeueReusableCell(withIdentifier: EmptyStateTableViewCell.identifier, for: indexPath) as? EmptyStateTableViewCell else { return UITableViewCell() }
+            return cell
+        } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier, for: indexPath) as? ProductDetailTableViewCell else { return UITableViewCell() }
             cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
             return cell
-//        } else {
-//            guard let cell =  tableView.dequeueReusableCell(withIdentifier: EmptyStateTableViewCell.identifier, for: indexPath) as? EmptyStateTableViewCell else { return UITableViewCell() }
-//                    cell.setupCell(status: "Nada por aqui")
-//            return cell
-//        }
+        }
         
     }
     
@@ -137,12 +140,14 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier) as? ProductDetailTableViewCell
-        cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
-        
-        let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
-        vc.data = viewModel.getDataProduct(indexPath: indexPath)
-        navigationController?.pushViewController(vc, animated: true)
+        if tableView == warningView?.tableViewData {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier) as? ProductDetailTableViewCell
+            cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
+            
+            let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
+            vc.data = viewModel.getDataProduct(indexPath: indexPath)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -150,14 +155,16 @@ extension WarningViewController: WarningViewModelProtocols {
     func didUpdatePackages() {
         DispatchQueue.main.async {
             self.configTableView()
-            self.warningView?.tableView.reloadData()
+            self.loadSaveData()
+            self.warningView?.tableViewData.reloadData()
         }
     }
     
     func success() {
         DispatchQueue.main.async {
             self.configTableView()
-            self.warningView?.tableView.reloadData()
+            self.hideTableViewData()
+            self.warningView?.tableViewData.reloadData()
         }
     }
     

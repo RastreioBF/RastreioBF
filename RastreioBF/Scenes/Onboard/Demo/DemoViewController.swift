@@ -51,7 +51,7 @@ extension DemoViewController {
     
     func style() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.currentPageIndicatorTintColor = UIColor(named: "mainPurpleColor")
+        pageControl.currentPageIndicatorTintColor = UIColor(named: LC.mainPurpleColor.text)
         pageControl.pageIndicatorTintColor = .systemGray2
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = initialPage
@@ -66,7 +66,7 @@ extension DemoViewController {
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.setTitleColor(.white, for: .normal)
         nextButton.layer.cornerRadius = 8
-        nextButton.backgroundColor = UIColor(named: "mainPurpleColor")
+        nextButton.backgroundColor = UIColor(named: LC.mainPurpleColor.text)
         nextButton.setTitle(LC.rastreioBFBt.text, for: .normal)
         nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
     }

@@ -11,12 +11,10 @@ class PackageCell: UITableViewCell {
     
     static let identifier = "PackageCell"
     
-    var viewModel: PackageCellViewModel?
-    
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 7
         return imageView
@@ -80,7 +78,7 @@ class PackageCell: UITableViewCell {
         NSLayoutConstraint.activate([
             
             self.iconImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
-            self.iconImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30),
+            self.iconImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
             self.iconImageView.heightAnchor.constraint(equalToConstant: 50),
             self.iconImageView.widthAnchor.constraint(equalToConstant: 50),
             
@@ -89,7 +87,6 @@ class PackageCell: UITableViewCell {
     
     private func configTestLabel() {
         NSLayoutConstraint.activate([
-            
             self.descriptionLabel.topAnchor.constraint(equalTo: self.iconImageView.topAnchor, constant: -5),
             self.descriptionLabel.leftAnchor.constraint(equalTo: self.iconImageView.rightAnchor, constant: 10),
             self.descriptionLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5),
@@ -115,28 +112,33 @@ class PackageCell: UITableViewCell {
             self.dataLabel.widthAnchor.constraint(equalToConstant: 120)
         ])
     }
-    
-    
+
     func prepareCell(model: Eventos) {
         self.descriptionLabel.text = model.status
         self.dataLabel.text = "Data:\(model.data ?? "")"
         self.cidadeLabel.text = "Local:\(model.local ?? "")"
-        var image = viewModel?.imageSelection(evento: model)
+        var image = ""
         var status = model.status ?? ""
+        var tintColor = ""
         
-        if status.contains("pagamento") ||
-            status.contains("análise") ||
-            status.contains("aduaneira") ||
-            status.contains("faltam"){
-            image = "errorImage"
-        } else if status.contains("entregue") ||
-                    status.contains("entrega"){
-            image = "done"
+        if status.contains(LC.payment.text) ||
+            status.contains(LC.analysis.text) ||
+            status.contains(LC.customs.text) ||
+            status.contains(LC.missing.text){
+            image = LC.errorImage.text
+            tintColor = LC.redColor.text
+        } else if status.contains(LC.delivered.text) ||
+                    status.contains(LC.toBeDelivered.text) ||
+                    status.contains(LC.deliveredCaps.text){
+            image = LC.doneImage.text
+            tintColor = LC.greenColor.text
         } else {
-            image = "truck"
+            image = LC.onItsWayImage.text
+            tintColor = LC.orangeColor.text
         }
         
-        self.iconImageView.image = UIImage(named: image ?? "")
+        self.iconImageView.image = UIImage(systemName: image)
+        self.iconImageView.tintColor = UIColor(named: tintColor)
     }
 }
 

@@ -35,8 +35,8 @@
 "surnameTargetError" = "O sobrenome deve conter no minimo 3 caracteres";
 
 //TabBar Titles
-"homeTitle" = "Novo - RastreioBF";
-"warningTitle" = "Avisos - RastreioBF";
+"homeTitle" = "Cadastro Rastreio";
+"warningTitle" = "Rastreios";
 "pendenciesTitle" = "Pendências - RastreioBF";
 "doneTitle" = "Finalizados - RastreioBF";
 "menuTitle" = "Menu";
@@ -65,13 +65,27 @@
 "dataSalvedTitle" = "Dados Salvos!";
 "dataSavedMessage" = "Seus dados de rastreio foram salvos com sucesso!";
 "wrongCodeMessage"= "Verique o codigo de rastreio inserido e/ou sua conexao com a internet.";
+"okButton" = "Ok";
+"calcelButton" = "Cancelar";
+"requestDataTitle" = "Solicitar dados";
+"requestDataMessage" = "Em qual endereço de e-mail você deseja receber o relatório dos seus dados?";
+"sendTitle" = "enviar";
+"emailTitle" = "Email:";
+"removeDataTitle" = "Remover Dados";
+"removeDataMessage" = "Essa opção irá apagar todos os seus dados (rastreios, conta de login, desse e dos demais dispositivos que você fez login com a sua conta (caso tenha feito), e também os apagará do servidor. Os dados serão removidos permanentemente sem opção de backup. Deseja prosseguir?";
+"leaveConfirmation" = "Deseja sair?";
+"continueButton" = "Continuar";
+"pendenciesFilter" = "Pendências";
+"onItsWayFilter" = "Em Rota";
+"deliveredFilter" = "Entregue";
+"allFilter" = "Todos";
 
 //ForgotPassword
 "insertRegisteredEmail" = "Insira o e-mail cadastrado";
 "sendEmailTextButton" = "Enviar e-mail";
 
 //EmptyStateStatus
-"nothingHere" = "Nada por aqui. Adicione um novo rastreamento.";
+"nothingHere" = "Nada por aqui... \nAdicione um novo rastreio";
 
 //Tracking
 "fillDataMessage" = "Preencha os campos abaixo com as informações do objeto que deseja rastrear";
@@ -83,5 +97,41 @@
 //Warning
 "filter" = "filtro";
 
+//AssetsHelper
+"errorImage" = "exclamationmark.triangle";
+"doneImage" = "checkmark.circle";
+"onItsWayImage" = "box.truck.badge.clock";
+"redColor" = "redColor";
+"greenColor" = "greenColor";
+"orangeColor" = "orangeColor";
+"mainPurpleColor" = "mainPurpleColor";
+"homeIcon" = "plus.app";
+"trackingIcon" = "box.truck";
+"menuIcon" = "filemenu.and.cursorarrow";
+"filterIcon" = "line.3.horizontal.decrease.circle.fill";
+
+//Keywords Image
+"payment" = "pagamento";
+"analysis" = "análise";
+"customs" = "aduaneira";
+"missing" = "faltam";
+"delivered" = "entregue";
+"toBeDelivered" = "entrega";
+"deliveredCaps" = "Entrega";
+
+//Tabbar titles
+"homeTitleTab" = "Home";
+"trackingTitleTab" = "Rastreio";
+"menuTitleTab" = "Menu";
+
+//CoreData
+"dataProduct" = "DataProduct";
+"dataModel" = "DataModel";
+
+//Settings Helper
+
+"signInConfig" = "614878693717-p6uad96i9eltvcigv9o8o589su8flt41.apps.googleusercontent.com";
+"urlAPI" = "https://api.linketrack.com/track/json?user=jessicabigal21@outlook.com&token=af29d01cc3d2a0d9d25b7d560bdf671416e9055b6f1f087c091c015fe8c7ec1d&codigo=";
+"urlAPIMock" = "https://run.mocky.io/v3/";
 
 

@@ -18,33 +18,25 @@ class MainTabBarController: UITabBarController{
     private func setUpTabBarController() {
         let homeViewController = UINavigationController(rootViewController: TrackingViewController())
         let warningViewController = UINavigationController(rootViewController: WarningViewController())
-        let doneViewController = UINavigationController(rootViewController: DoneViewController())
-        let pendenciesViewController = UINavigationController(rootViewController: PendenciesViewController())
         let menuViewController = UINavigationController(rootViewController: MenuScreenVC())
         
-        self.setViewControllers([homeViewController, warningViewController, doneViewController, pendenciesViewController, menuViewController], animated: true)
+        self.setViewControllers([homeViewController, warningViewController, menuViewController], animated: true)
 
-        self.tabBar.selectedImageTintColor = UIColor(named: "mainPurpleColor")
-        self.tabBar.backgroundColor = .white //cor de fundo
+        self.tabBar.selectedImageTintColor = UIColor(named: LC.mainPurpleColor.text)
+        self.tabBar.backgroundColor = .white
         self.tabBar.alpha = 0.9
         self.tabBar.isTranslucent = false
 
         guard let items = tabBar.items else {return}
         
-        items[0].title = "Home"
-        items[0].image = UIImage(named: "home")
+        items[0].title = LC.homeTitleTab.text
+        items[0].image = UIImage(systemName: LC.homeIcon.text)
         
-        items[1].title = "Avisos"
-        items[1].image = UIImage(named: "avisos")
+        items[1].title = LC.trackingTitleTab.text
+        items[1].image = UIImage(systemName: LC.trackingIcon.text)
         
-        items[2].title = "Finalizados"
-        items[2].image = UIImage(named: "finalizados")
-        
-        items[3].title = "Pendências"
-        items[3].image = UIImage(named: "pendencias")
-        
-        items[4].title = "Menu"
-        items[4].image = UIImage(named: "menu")
+        items[2].title = LC.menuTitleTab.text
+        items[2].image = UIImage(systemName: LC.menuIcon.text)
     }
     
     private func setUpNavigationBar(){

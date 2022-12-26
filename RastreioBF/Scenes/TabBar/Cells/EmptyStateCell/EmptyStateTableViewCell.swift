@@ -15,11 +15,10 @@ class EmptyStateTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGray
-        label.font = .boldSystemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 15)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.text = LC.nothingHere.text
-        label.backgroundColor = .systemRed
         return label
     }()
     
@@ -27,7 +26,6 @@ class EmptyStateTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview()
         self.setupConstraints()
-        self.backgroundColor = .yellow
     }
     
     required init?(coder: NSCoder) {
@@ -36,10 +34,6 @@ class EmptyStateTableViewCell: UITableViewCell {
     
     func addSubview() {
         self.contentView.addSubview(statusLabel)
-    }
-    
-    public func setupCell(status: String){
-        self.statusLabel.text =  status
     }
     
     func setupConstraints(){

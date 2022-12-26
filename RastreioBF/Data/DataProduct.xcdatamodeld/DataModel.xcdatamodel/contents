@@ -9,9 +9,10 @@
         <attribute name="productName" optional="YES" attributeType="String"/>
         <attribute name="status" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>
+        <attribute name="tintColor" optional="YES" attributeType="String"/>
     </entity>
     <fetchRequest name="FetchRequestAll" entity="DataProduct"/>
-    <fetchRequest name="FetchRequestDone" entity="DataProduct" predicateString="image CONTAINS &quot;done&quot;"/>
-    <fetchRequest name="FetchRequestError" entity="DataProduct" predicateString="image == &quot;done&quot;"/>
-    <fetchRequest name="FetchRequestOnItsWay" entity="DataProduct" predicateString="image == &quot;errorImage&quot;"/>
+    <fetchRequest name="FetchRequestDone" entity="DataProduct" predicateString="image CONTAINS &quot;checkmark.circle&quot;"/>
+    <fetchRequest name="FetchRequestError" entity="DataProduct" predicateString="image == &quot;exclamationmark.triangle&quot;"/>
+    <fetchRequest name="FetchRequestOnItsWay" entity="DataProduct" predicateString="image == &quot;box.truck.badge.clock&quot;"/>
 </model>

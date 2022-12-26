@@ -37,7 +37,7 @@ class DetailWarningViewController: UIViewController {
     
     override func viewDidLoad() {
         self.alert = Alert(controller: self)
-        self.title = codigo.text
+        self.title = descriptionClient.text
         viewModel.delegate = self
         configTableView()
         
@@ -81,6 +81,5 @@ extension DetailWarningViewController: DetailWarningViewModelProtocols {
 
     func failure() {
         alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.wrongCodeMessage.text)
-
     }
 }

@@ -13,7 +13,7 @@ import CoreData
 extension DataProduct {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<DataProduct> {
-        return NSFetchRequest<DataProduct>(entityName: "DataProduct")
+        return NSFetchRequest<DataProduct>(entityName: LC.dataProduct.text)
     }
 
     @NSManaged public var productName: String?
@@ -24,6 +24,7 @@ extension DataProduct {
     @NSManaged public var time: String?
     @NSManaged public var status: String?
     @NSManaged public var image: String?
+    @NSManaged public var tintColor: String?
 }
 
 extension DataProduct {

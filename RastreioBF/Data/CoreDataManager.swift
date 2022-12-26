@@ -13,7 +13,7 @@ struct CoreDataManager {
     static let shared = CoreDataManager()
     
     let persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "DataProduct")
+        let container = NSPersistentContainer(name: LC.dataProduct.text)
         
         container.loadPersistentStores { (_, err) in
             if let err = err {
@@ -25,7 +25,7 @@ struct CoreDataManager {
     
     func updateData(codeTracking:String)-> Bool {
         let context = persistentContainer.viewContext
-        let request = NSFetchRequest<DataProduct>(entityName: "DataProduct")
+        let request = NSFetchRequest<DataProduct>(entityName: LC.dataProduct.text)
         
         request.predicate = NSPredicate(format: "codeTraking == %@", codeTracking)
         
@@ -39,7 +39,7 @@ struct CoreDataManager {
     
     
     func fetchPackages() -> [DataProduct] {
-        let fetchRequest = NSFetchRequest<DataProduct>(entityName: "DataProduct")
+        let fetchRequest = NSFetchRequest<DataProduct>(entityName: LC.dataProduct.text)
         let context = persistentContainer.viewContext
         
         do {
@@ -52,7 +52,7 @@ struct CoreDataManager {
     }
     
     func deleteAllPackages() {
-        let fetchRequest = NSFetchRequest<DataProduct>(entityName: "DataProduct")
+        let fetchRequest = NSFetchRequest<DataProduct>(entityName: LC.dataProduct.text)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
         let context = persistentContainer.viewContext
         
@@ -85,22 +85,26 @@ struct CoreDataManager {
             package.date = api?.data
             package.productLocal = api?.local
             package.image = ""
+            package.tintColor = ""
             
-            let errorImage:Bool = package.status?.contains("pagamento") ?? false ||
-            package.status?.contains("análise")  ?? false ||
-            package.status?.contains("aduaneira") ?? false ||
-            package.status?.contains("faltam") ?? false
+            let errorImage:Bool = package.status?.contains(LC.payment.text) ?? false ||
+            package.status?.contains(LC.analysis.text)  ?? false ||
+            package.status?.contains(LC.customs.text) ?? false ||
+            package.status?.contains(LC.missing.text) ?? false
             
-            let doneImage:Bool = package.status?.contains("entregue") ?? false ||
-            package.status?.contains("entrega") ?? false ||
-            package.status?.contains("Entrega") ?? false
+            let doneImage:Bool = package.status?.contains(LC.delivered.text) ?? false ||
+            package.status?.contains(LC.deliveredCaps.text) ?? false ||
+            package.status?.contains(LC.toBeDelivered.text) ?? false
             
             if  errorImage {
-                package.image = "errorImage"
+                package.image = LC.errorImage.text
+                package.tintColor = LC.redColor.text
             } else if doneImage {
-                package.image = "done"
+                package.image = LC.doneImage.text
+                package.tintColor = LC.greenColor.text
             } else {
-                package.image = "truck"
+                package.image = LC.onItsWayImage.text
+                package.tintColor = LC.orangeColor.text
             }
             print(package)
             saveContext()
@@ -124,80 +128,4 @@ struct CoreDataManager {
         return dateFormatter.date(from: newDateString)
     }
     
-    var storeContainer: NSPersistentContainer = {
-
-                let container = NSPersistentContainer(name: "DataProduct")
-                container.loadPersistentStores { (storeDescription, error) in
-//                    self.handle(error)
-                }
-                return container
-    
-        }()
-    
-   var managedContext: NSManagedObjectContext!
-    
-    public func fetch<T: NSManagedObject>(_ fetchRequest: NSFetchRequest<T>, ofType _: T.Type, async: Bool = true, completion: @escaping (Result<[T], Error>) -> ()) {
-
-        if async {
-
-            let asyncFetchRequest = NSAsynchronousFetchRequest<T>(fetchRequest: fetchRequest) { (result: NSAsynchronousFetchResult) in
-
-                guard let finalResult = result.finalResult else {
-                    self.handle(CoreDataStackError.noFinalResult) {
-                        completion(.failure(CoreDataStackError.noFinalResult))
-                    }
-                    return
-                }
-                completion(.success(finalResult))
-            }
-
-            do {
-                try managedContext.execute(asyncFetchRequest)
-            } catch let error as NSError {
-                handle(error) {
-                    completion(.failure(error))
-                }
-            }
-
-        } else {
-
-            do {
-                let result = try managedContext.fetch(fetchRequest)
-                completion(.success(result))
-            } catch let error as NSError {
-                handle(error) {
-                    completion(.failure(error))
-                }
-            }
-
-        }
-    }
-
-    
-    func fetch<T: NSManagedObject>(requestName: String, ofType _: T.Type, async: Bool = true, completion: @escaping (Result<[T], Error>) -> ()) {
-        guard let fetchRequest = managedContext.persistentStoreCoordinator?.managedObjectModel.fetchRequestTemplate(forName: requestName) as? NSFetchRequest<T> else {
-            self.handle(CoreDataStackError.noFetchRequest) {
-                completion(.failure(CoreDataStackError.noFetchRequest))
-            }
-            return
-        }
-        fetch(fetchRequest, ofType: T.self, async: async, completion: completion)
-    }
-
-    private func handle(_ error: Error?, completion: @escaping () -> () = {}) {
-        if let error = error as NSError? {
-            let message = "CoreDataStack -> \(#function): Unresolved error: \(error), \(error.userInfo)"
-//            if usesFatalError {
-//                fatalError(message)
-//            } else {
-//                print(message)
-//            }
-            completion()
-        }
-    }
-}
-
-struct CoreDataStackError {
-    static let noFetchRequest = NSError(domain: "No Fetch Request", code: 1, userInfo: nil)
-    static let noFinalResult = NSError(domain: "No Final Result", code: 1, userInfo: nil)
 }

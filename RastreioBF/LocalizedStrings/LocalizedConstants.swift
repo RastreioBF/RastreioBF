@@ -76,6 +76,21 @@ enum LocalizedConstants: String {
     case dataSalvedTitle
     case dataSavedMessage
     case wrongCodeMessage
+    case okButton
+    case calcelButton
+    case requestDataTitle
+    case requestDataMessage
+    case sendTitle
+    case emailTitle
+    case removeDataTitle
+    case removeDataMessage
+    case leaveConfirmation
+    case continueButton
+    case pendenciesFilter
+    case onItsWayFilter
+    case deliveredFilter
+    case allFilter
+    
     
     //MARK: - Forgot Password
     case insertRegisteredEmail
@@ -91,8 +106,41 @@ enum LocalizedConstants: String {
     case descriptionTracking
     case insertDescription
     
+    //MARK: - Assets Helper
+    case errorImage
+    case doneImage
+    case onItsWayImage
+    case redColor
+    case greenColor
+    case orangeColor
+    case mainPurpleColor
+    case homeIcon
+    case trackingIcon
+    case menuIcon
+    case filterIcon
+    
     //MARK: - Warning
-    case filter
+    case payment
+    case analysis
+    case customs
+    case missing
+    case delivered
+    case toBeDelivered
+    case deliveredCaps
+    
+    //MARK: - Tabbar
+    case homeTitleTab
+    case trackingTitleTab
+    case menuTitleTab
+    
+    //MARK: - Coredata
+    case dataProduct
+    case dataModel
+    
+    //MARK: - Settings Helper
+    case signInConfig
+    case urlAPI
+    case urlAPIMock
     
     var text: String {
         return rawValue.localized(.presentation)
