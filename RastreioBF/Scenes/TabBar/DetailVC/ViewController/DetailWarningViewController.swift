@@ -12,7 +12,6 @@ class DetailWarningViewController: UIViewController {
     private var detailWarningView: DetailWarningView?
     private var viewModel = DetailWarningViewControllerViewModel()
     var data: DataProduct?
-    var dataHeader: DataTracking?
     var alert:Alert?
     var coreData = [DataProduct]()
     
