@@ -14,7 +14,6 @@ class WarningViewController: UIViewController{
     private var manageObjectContext: NSManagedObjectContext!
     private var viewModel = WarningViewModel()
     private var warningView: WarningView?
-    private var trackingVM = TrackingViewControllerViewModel()
     
     override func loadView() {
         warningView = WarningView()
@@ -143,7 +142,7 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
             
             let vc = DetailWarningViewController(code: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
             vc.setData(data: viewModel.getDataProduct(indexPath: indexPath))
-            vc.title = trackingVM.getPackageName(indexPath: indexPath)
+            vc.title = viewModel.getDataProduct(indexPath: indexPath).productDescription
             navigationController?.pushViewController(vc, animated: true)
         }
     }

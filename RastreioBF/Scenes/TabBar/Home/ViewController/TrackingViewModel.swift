@@ -102,7 +102,4 @@ class TrackingViewControllerViewModel {
         updatePackage(package: package)
     }
     
-    func getPackageName(indexPath: IndexPath) -> String? {
-        return coreData[indexPath.row].productDescription
-    }
 }
