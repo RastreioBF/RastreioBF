@@ -64,16 +64,10 @@
 		6C0DCC6B293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0DCC69293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift */; };
 		6CD163FD295A702E00B963A8 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163E0295A702E00B963A8 /* MenuViewModel.swift */; };
 		6CD163FE295A702E00B963A8 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163E3295A702E00B963A8 /* MenuTableViewCell.swift */; };
-		6CD163FF295A702E00B963A8 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163E5295A702E00B963A8 /* SwitchTableViewCell.swift */; };
 		6CD16400295A702E00B963A8 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163E7295A702E00B963A8 /* MenuModel.swift */; };
 		6CD16401295A702E00B963A8 /* MenuScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163E9295A702E00B963A8 /* MenuScreenVC.swift */; };
-		6CD16402295A702E00B963A8 /* RequestUserDataViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163EE295A702E00B963A8 /* RequestUserDataViewCell.swift */; };
-		6CD16403295A702E00B963A8 /* RequestUserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163F0295A702E00B963A8 /* RequestUserDataView.swift */; };
-		6CD16404295A702E00B963A8 /* RequestUserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163F2295A702E00B963A8 /* RequestUserDataViewController.swift */; };
 		6CD16405295A702E00B963A8 /* PrivacyPoliciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163F5295A702E00B963A8 /* PrivacyPoliciesView.swift */; };
 		6CD16406295A702E00B963A8 /* PrivacyPoliciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163F7295A702E00B963A8 /* PrivacyPoliciesViewController.swift */; };
-		6CD16407295A702E00B963A8 /* RemoveUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163FA295A702E00B963A8 /* RemoveUserView.swift */; };
-		6CD16408295A702E00B963A8 /* RemoveUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD163FC295A702E00B963A8 /* RemoveUserViewController.swift */; };
 		6CD1640C295A7A9F00B963A8 /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD1640B295A7A9F00B963A8 /* PrivacyViewModel.swift */; };
 		6CFFA7BA293B9159006DAF62 /* WarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7B9293B9159006DAF62 /* WarningViewModel.swift */; };
 		6CFFA7C0293BBC64006DAF62 /* TrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFA7BF293BBC64006DAF62 /* TrackingViewModel.swift */; };
@@ -142,16 +136,10 @@
 		6C0DCC69293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6CD163E0295A702E00B963A8 /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		6CD163E3295A702E00B963A8 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		6CD163E5295A702E00B963A8 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		6CD163E7295A702E00B963A8 /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		6CD163E9295A702E00B963A8 /* MenuScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreenVC.swift; sourceTree = "<group>"; };
-		6CD163EE295A702E00B963A8 /* RequestUserDataViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestUserDataViewCell.swift; sourceTree = "<group>"; };
-		6CD163F0295A702E00B963A8 /* RequestUserDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestUserDataView.swift; sourceTree = "<group>"; };
-		6CD163F2295A702E00B963A8 /* RequestUserDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestUserDataViewController.swift; sourceTree = "<group>"; };
 		6CD163F5295A702E00B963A8 /* PrivacyPoliciesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPoliciesView.swift; sourceTree = "<group>"; };
 		6CD163F7295A702E00B963A8 /* PrivacyPoliciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPoliciesViewController.swift; sourceTree = "<group>"; };
-		6CD163FA295A702E00B963A8 /* RemoveUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserView.swift; sourceTree = "<group>"; };
-		6CD163FC295A702E00B963A8 /* RemoveUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserViewController.swift; sourceTree = "<group>"; };
 		6CD1640B295A7A9F00B963A8 /* PrivacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModel.swift; sourceTree = "<group>"; };
 		6CFFA7B9293B9159006DAF62 /* WarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewModel.swift; sourceTree = "<group>"; };
 		6CFFA7BF293BBC64006DAF62 /* TrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewModel.swift; sourceTree = "<group>"; };
@@ -614,7 +602,6 @@
 			isa = PBXGroup;
 			children = (
 				6CD163E2295A702E00B963A8 /* MenuCell */,
-				6CD163E4295A702E00B963A8 /* SwitchCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -625,14 +612,6 @@
 				6CD163E3295A702E00B963A8 /* MenuTableViewCell.swift */,
 			);
 			path = MenuCell;
-			sourceTree = "<group>";
-		};
-		6CD163E4295A702E00B963A8 /* SwitchCell */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163E5295A702E00B963A8 /* SwitchTableViewCell.swift */,
-			);
-			path = SwitchCell;
 			sourceTree = "<group>";
 		};
 		6CD163E6295A702E00B963A8 /* Model */ = {
@@ -654,53 +633,9 @@
 		6CD163EA295A702E00B963A8 /* PrivacyGroup */ = {
 			isa = PBXGroup;
 			children = (
-				6CD163EB295A702E00B963A8 /* PrivacyGroup */,
-			);
-			path = PrivacyGroup;
-			sourceTree = "<group>";
-		};
-		6CD163EB295A702E00B963A8 /* PrivacyGroup */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163EC295A702E00B963A8 /* RequestUserData */,
 				6CD163F3295A702E00B963A8 /* PrivacyPolicies */,
-				6CD163F8295A702E00B963A8 /* RemoveUserData */,
 			);
 			path = PrivacyGroup;
-			sourceTree = "<group>";
-		};
-		6CD163EC295A702E00B963A8 /* RequestUserData */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163ED295A702E00B963A8 /* Cell */,
-				6CD163EF295A702E00B963A8 /* View */,
-				6CD163F1295A702E00B963A8 /* ViewController */,
-			);
-			path = RequestUserData;
-			sourceTree = "<group>";
-		};
-		6CD163ED295A702E00B963A8 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163EE295A702E00B963A8 /* RequestUserDataViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		6CD163EF295A702E00B963A8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163F0295A702E00B963A8 /* RequestUserDataView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		6CD163F1295A702E00B963A8 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163F2295A702E00B963A8 /* RequestUserDataViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		6CD163F3295A702E00B963A8 /* PrivacyPolicies */ = {
@@ -729,43 +664,10 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		6CD163F8295A702E00B963A8 /* RemoveUserData */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163F9295A702E00B963A8 /* View */,
-				6CD163FB295A702E00B963A8 /* ViewController */,
-				6CD1640A295A7A3100B963A8 /* ViewModel */,
-			);
-			path = RemoveUserData;
-			sourceTree = "<group>";
-		};
-		6CD163F9295A702E00B963A8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163FA295A702E00B963A8 /* RemoveUserView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		6CD163FB295A702E00B963A8 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				6CD163FC295A702E00B963A8 /* RemoveUserViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		6CD16409295A7A0600B963A8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				6CD1640B295A7A9F00B963A8 /* PrivacyViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		6CD1640A295A7A3100B963A8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -977,7 +879,6 @@
 				096BFC2F2948E70E003C1945 /* PackageCell.swift in Sources */,
 				09DB4F01293CEFA2009BA93A /* SignUpProtocols.swift in Sources */,
 				096BFC2629489F93003C1945 /* RastreioAPIViewModel.swift in Sources */,
-				6CD16402295A702E00B963A8 /* RequestUserDataViewCell.swift in Sources */,
 				099BCC8528CB83A9000DFDE6 /* EmailConfirmationScreen.swift in Sources */,
 				6CFFA7C0293BBC64006DAF62 /* TrackingViewModel.swift in Sources */,
 				099BCC8528CB83A9000DFDE6 /* EmailConfirmationScreen.swift in Sources */,
@@ -990,7 +891,6 @@
 				096BFC3C29512AE3003C1945 /* TrackingStatus+CoreDataClass.swift in Sources */,
 				0974F62E28CB77A7004E8716 /* AppDelegate.swift in Sources */,
 				0973238F291D1A6200E44BB7 /* EmailConfirmationViewModel.swift in Sources */,
-				6CD16408295A702E00B963A8 /* RemoveUserViewController.swift in Sources */,
 				0918AD4628D6953F00E95DFB /* ProductDetailTableViewCell.swift in Sources */,
 				099BCC7D28CB82EF000DFDE6 /* DemoViewController.swift in Sources */,
 				6CD163FD295A702E00B963A8 /* MenuViewModel.swift in Sources */,
@@ -1004,7 +904,6 @@
 				0973238C291D1A3A00E44BB7 /* EmailConfirmationCoordinator.swift in Sources */,
 				09DB4F03293CF0AF009BA93A /* SignUpViewModel.swift in Sources */,
 				6C0DCC6B293D1FB0001A5EF2 /* DataProduct+CoreDataProperties.swift in Sources */,
-				6CD16403295A702E00B963A8 /* RequestUserDataView.swift in Sources */,
 				6CD163FE295A702E00B963A8 /* MenuTableViewCell.swift in Sources */,
 				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
 				099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */,
@@ -1014,14 +913,11 @@
 				099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */,
 				099BCC6A28CB8103000DFDE6 /* String+.swift in Sources */,
 				099BCC7228CB81CA000DFDE6 /* Alert.swift in Sources */,
-				6CD16407295A702E00B963A8 /* RemoveUserView.swift in Sources */,
-				6CD16404295A702E00B963A8 /* RequestUserDataViewController.swift in Sources */,
 				3A163B0329117046005A93AA /* (null) in Sources */,
 				6CFFA7BA293B9159006DAF62 /* WarningViewModel.swift in Sources */,
 				099BCC8728CB83CA000DFDE6 /* EmailConfirmationViewController.swift in Sources */,
 				09DB4EFE293CDC91009BA93A /* LoginViewModel.swift in Sources */,
 				098B467D28CECB1E009D08A4 /* TrackingViewController.swift in Sources */,
-				6CD163FF295A702E00B963A8 /* SwitchTableViewCell.swift in Sources */,
 				099BCC6828CB80EB000DFDE6 /* Bundle+.swift in Sources */,
 				6CFFA7D3293C38B6006DAF62 /* WarningView.swift in Sources */,
 				0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */,

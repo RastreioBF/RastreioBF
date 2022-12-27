@@ -23,7 +23,7 @@ class PrivacyPoliciesView: UIView {
     lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "back"), for: .normal)
+        button.setImage(UIImage(named: LC.backButton.text), for: .normal)
         button.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
         return button
     }()
@@ -31,24 +31,9 @@ class PrivacyPoliciesView: UIView {
     lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(named: "mainPurpleColor")
-        label.font = UIFont.boldSystemFont(ofSize: 35)
-        label.text = ""
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
-    }()
-
-    lazy var cardTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .white
-        tableView.layer.shadowOffset = CGSize(width: 2, height: 6)
-        tableView.layer.masksToBounds=false
-        tableView.layer.shadowRadius = 4.0
-        tableView.layer.shadowOpacity = 1.0
-        tableView.layer.shadowColor=UIColor.gray.cgColor
-        tableView.isScrollEnabled = false
-        tableView.layer.cornerRadius = 15
-        return tableView
     }()
     
     lazy var privacyLabel: UILabel = {
@@ -56,9 +41,9 @@ class PrivacyPoliciesView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.backgroundColor = .white
-        label.numberOfLines = 22
-        label.textAlignment = NSTextAlignment.justified
-        label.text = ""
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -83,11 +68,10 @@ override init(frame: CGRect) {
     
     private func configSuperView() {
         addSubview(backButton)
-        addSubview(cardTableView)
         addSubview(privacyLabel)
         addSubview(loginLabel)
-        cardTableView.addSubview(loginLabel)
-        cardTableView.addSubview(privacyLabel)
+        addSubview(loginLabel)
+        addSubview(privacyLabel)
     }
     
     private func setupConstraints() {
@@ -97,19 +81,14 @@ override init(frame: CGRect) {
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 20),
         
-            loginLabel.topAnchor.constraint(equalTo: cardTableView.topAnchor, constant: 20),
+            loginLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loginLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            cardTableView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            cardTableView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            cardTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            cardTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            cardTableView.heightAnchor.constraint(equalToConstant: 600),
-            
-            privacyLabel.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 20),
+            privacyLabel.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 10),
             privacyLabel.centerXAnchor.constraint(equalTo: privacyLabel.centerXAnchor),
-            privacyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
-            privacyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
+            privacyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            privacyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ])
     }
 }

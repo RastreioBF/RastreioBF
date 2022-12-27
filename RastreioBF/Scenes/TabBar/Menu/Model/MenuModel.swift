@@ -14,7 +14,6 @@ struct Section {
 
 enum SettingsOptionsType {
     case staticCell(model: SettingsOption)
-    case switchCell(model: SettingsSwitchOption)
 }
 
 struct SettingsSwitchOption {

@@ -16,7 +16,7 @@ class MenuViewModel {
     }
     
     var numberOfSections: Int {
-        return MenuViewModel.models.count
+        return 2
     }
     
     func loadCurrentOption(indexPath: IndexPath) -> SettingsOptionsType {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 
 class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -16,7 +17,6 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     private let tablewView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
-        table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
         return table
     }()
     
@@ -24,7 +24,7 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         alert = Alert(controller: self)
         configSections()
-        title = "Menu"
+        title = LC.menuTitle.text
         view.addSubview(tablewView)
         tablewView.delegate = self
         tablewView.dataSource = self
@@ -33,32 +33,43 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func configSections(){
-        menuVM.addSectionToArray(section: Section(title: "Notificações", options:
-                                                    [
-                                                        .switchCell(model: SettingsSwitchOption(title: "Notificações", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemOrange, handler: {
-                                                        }, isOn: true)),
+        menuVM.addSectionToArray(section: Section(title: LC.privacyButton.text, options:
+                                                    [.staticCell(model: SettingsOption(title: LC.privacyTitle.text, icon: UIImage(systemName: LC.airplaneIcon.text), iconBackgroundColor: .systemPurple) {
+            let privacyPolicy = PrivacyPoliciesViewController()
+            self.navigationController?.pushViewController(privacyPolicy, animated: true)
+        }),
+                                                     .staticCell(model: SettingsOption(title: LC.removeDataButton.text, icon: UIImage(systemName: LC.personIcon.text), iconBackgroundColor: .systemCyan){
+                                                         self.alert?.getAlertActions(
+                                                            titulo:  LC.removeDataTitle.text,
+                                                            mensagem: LC.removeDataMessage.text,completion: {
+                                                                let user = Auth.auth().currentUser
+                                                                user?.delete { error in
+                                                                    if error != nil {
+                                                                        // An error happened.
+                                                                    } else {
+                                                                        let vc:LoginViewController = LoginViewController()
+                                                                        self.navigationController?.pushViewController(vc, animated: false)
+                                                                    }
+                                                                }
+                                                            })
+                                                     }),
                                                     ]))
-        menuVM.addSectionToArray(section: Section(title: "Privacidade", options:
+        menuVM.addSectionToArray(section: Section(title: LC.leaveButton.text, options:
                                                     [
-                                                        .staticCell(model: SettingsOption(title: "Solicitar Meus Dados", icon: UIImage(systemName: "person.text.rectangle"), iconBackgroundColor: .systemGreen){
-                                                            let myData = RequestUserDataViewController()
-                                                            self.navigationController?.pushViewController(myData, animated: true)
+                                                        .staticCell(model : SettingsOption(title: LC.logoutButton.text, icon: UIImage(systemName: LC.logoutIcon.text), iconBackgroundColor: .systemRed){
+                                                            self.alert?.getAlertActions(
+                                                                titulo:  LC.atentionTitle.text,
+                                                                mensagem: LC.leaveConfirmation.text,completion: {
+                                                                    let firebaseAuth = Auth.auth()
+                                                                    do {
+                                                                        try firebaseAuth.signOut()
+                                                                        let vc:LoginViewController = LoginViewController()
+                                                                        self.navigationController?.pushViewController(vc, animated: false)
+                                                                    } catch let signOutError as NSError {
+                                                                        print("Error signing out: %@", signOutError)
+                                                                    }
+                                                                })
                                                         }),
-                                                        .staticCell(model: SettingsOption(title: "Politica de Privacidade", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemPurple) {
-                                                            let privacyPolicy = PrivacyPoliciesViewController()
-                                                            self.navigationController?.pushViewController(privacyPolicy, animated: true)
-                                                        }),
-                                                        .staticCell(model: SettingsOption(title: "Remover meus Dados", icon: UIImage(systemName: "person.crop.circle.badge.xmark"), iconBackgroundColor: .systemCyan){
-                                                            let removeUser = RemoveUserViewController()
-                                                            self.navigationController?.pushViewController(removeUser, animated: true)
-                                                        }),
-                                                    ]))
-        menuVM.addSectionToArray(section: Section(title: "Sair", options:
-                                                    [
-                                                        .staticCell(model : SettingsOption(title: "Logout", icon: UIImage(systemName: "person.badge.minus"), iconBackgroundColor: .systemRed){
-                                                            let alert: Alert = Alert(controller: self)
-                                                            alert.userAlertLogout()
-                                                        })
                                                     ]))
     }
     
@@ -85,12 +96,6 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
             cell.configCell(width: model)
             return cell
-        case .switchCell(let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath ) as? SwitchTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.configCell(width: model)
-            return cell
         }
     }
     
@@ -99,8 +104,6 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let type = menuVM.loadCurrentOption(indexPath: indexPath)
         switch type.self {
         case .staticCell(let model):
-            model.handler()
-        case .switchCell(let model):
             model.handler()
         }
     }

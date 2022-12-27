@@ -10,8 +10,8 @@ import Foundation
 class PrivacyViewModel {
     
     private var localizedConstant: LocalizedConstants?
-    private var policy: String? = LC.policy.text
-    private var title: String? = LC.title.text
+    private var policy: String? = LC.privacyMessage.text
+    private var title: String? = LC.privacyTitle.text
     
     func setPrivacyPolicy(policy: String?) {
         self.policy = policy

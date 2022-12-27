@@ -45,57 +45,6 @@ class Alert:NSObject {
         self.controller.present(alertController, animated: true, completion: nil)
     }
     
-    func addContact(completion:((_ value:String) -> Void)? = nil){
-        var _textField:UITextField?
-        let alert = UIAlertController(title: LC.requestDataTitle.text, message: LC.requestDataMessage.text, preferredStyle: .alert)
-        let ok = UIAlertAction(title: LC.sendTitle.text, style: .default) { (acao) in
-            completion?(_textField?.text ?? "")
-        }
-        let cancel = UIAlertAction(title: LC.calcelButton.text, style: .cancel, handler: nil)
-        alert.addAction(cancel)
-        alert.addAction(ok)
-        alert.addTextField(configurationHandler: {(textField: UITextField) in
-            _textField = textField
-            textField.placeholder = LC.emailTitle.text
-        })
-        self.controller.present(alert, animated: true, completion: nil)
-    }
-    
-    func deleteDataUser(completion:((_ value:String) -> Void)? = nil){
-        var _textField:UITextField?
-        let alert = UIAlertController(title: LC.removeDataTitle.text, message: LC.removeDataMessage.text, preferredStyle: .alert)
-        let ok = UIAlertAction(title: LC.sendTitle.text, style: .default) { (acao) in
-            completion?(_textField?.text ?? "")
-            let user = Auth.auth().currentUser
-            user?.delete { error in
-                if error != nil {
-                    // An error happened.
-                } else {
-                    let vc:LoginViewController = LoginViewController()
-                    self.controller.navigationController?.pushViewController(vc, animated: false)
-                }
-            }
-        }
-        let cancel = UIAlertAction(title: LC.calcelButton.text, style: .cancel, handler: nil)
-        alert.addAction(cancel)
-        alert.addAction(ok)
-        self.controller.present(alert, animated: true, completion: nil)
-    }
-    
-    func userAlertLogout(completion:((_ value:String) -> Void)? = nil){
-        var _textField:UITextField?
-        let alert = UIAlertController(title: LC.atentionTitle.text, message: LC.leaveConfirmation.text, preferredStyle: .alert)
-        let ok = UIAlertAction(title: LC.continueButton.text, style: .default) { (acao) in
-            completion?(_textField?.text ?? "")
-            let vc:LoginViewController = LoginViewController()
-            self.controller.navigationController?.pushViewController(vc, animated: false)
-        }
-        let cancel = UIAlertAction(title: LC.calcelButton.text, style: .cancel, handler: nil)
-        alert.addAction(cancel)
-        alert.addAction(ok)
-        self.controller.present(alert, animated: true, completion: nil)
-    }
-    
     func filterState(completion: @escaping (_ option: TypeStateSelected) -> Void) {
         let alertController: UIAlertController = UIAlertController(title: nil , message: nil, preferredStyle: .actionSheet)
         

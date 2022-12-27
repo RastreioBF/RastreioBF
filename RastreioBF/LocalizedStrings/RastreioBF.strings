@@ -10,7 +10,6 @@
 "signUpLabel" = "Sign Up RastreioBF";
 "alreadyMember" = "Já é um membro?";
 
-
 //PlaceHolder
 "emailPlaceHolder" = "E-mail";
 "passwordPlaceHolder" = "Senha";
@@ -60,7 +59,7 @@
 "correctlyFilled" = "Todos os campos devem estar preenchidos corretamente";
 "congrats" = "Parabéns";
 "emailSentConfirm" = "Um e-mail de confirmacao foi enviado para ativacao da sua conta";
-"dataMustBeFilledMessage" = "Todos os campos precisam ser preenchidos para que os dados possam ser salvos!";
+"dataMustBeFilledMessage" = "Todos os campos precisam ser preenchidos corretamente para que os dados possam ser salvos!";
 "alreadyRegisteredMessage" = "Rastreio já cadastrado, insira um novo código.";
 "dataSalvedTitle" = "Dados Salvos!";
 "dataSavedMessage" = "Seus dados de rastreio foram salvos com sucesso!";
@@ -108,7 +107,11 @@
 "homeIcon" = "plus.app";
 "trackingIcon" = "box.truck";
 "menuIcon" = "filemenu.and.cursorarrow";
+"backButton" = "back";
 "filterIcon" = "line.3.horizontal.decrease.circle.fill";
+"airplaneIcon" = "airplane";
+"personIcon" = "person.crop.circle.badge.xmark";
+"logoutIcon" = "person.badge.minus";
 
 //Keywords Image
 "payment" = "pagamento";
@@ -135,7 +138,11 @@
 "urlAPIMock" = "https://run.mocky.io/v3/";
 
 //Privacy Policy
-"policy" = "A política de privacidade (ou declaração de política de privacidade) é o documento por meio do qual a pessoa física ou jurídica que mantém um site ou aplicativo expõe e explica a todos os interessados a forma como os dados pessoais dos usuários da plataforma serão tratados. O assunto é regulamentado, no Brasil, principalmente pela Lei Geral de Proteção de Dados Pessoais (LGPD), lei que estabeleceu uma série de exigências àqueles que realizam operações de tratamento de dados pessoais. A lei se aplica: se a operação de tratamento é realizada no território nacional; se a atividade de tratamento tem por objetivo a oferta de produtos ou serviços ou o tratamento de dados de indivíduos localizados no território nacional; se os dados pessoais são coletados no território nacional.";
-"title" = "Privacidade";
+"privacyMessage" = "  A política de privacidade (ou declaração de política de privacidade) é o documento por meio do qual a pessoa física ou jurídica que mantém um site ou aplicativo expõe e explica a todos os interessados a forma como os dados pessoais dos usuários da plataforma serão tratados.\n  O assunto é regulamentado, no Brasil, principalmente pela Lei Geral de Proteção de Dados Pessoais (LGPD), lei que estabeleceu uma série de exigências àqueles que realizam operações de tratamento de dados pessoais.\n\n A lei se aplica:\n\n * Se a operação de tratamento é realizada no território nacional;\n * Se a atividade de tratamento tem por objetivo a oferta de produtos ou serviços ou o tratamento de dados de indivíduos localizados no território nacional;\n * Se os dados pessoais são coletados no território nacional.";
+"privacyTitle" = "Política de Privacidade";
 
-
+//Menu
+"privacyButton" = "Privacidade";
+"removeDataButton" = "Remover meus Dados";
+"leaveButton" = "Sair";
+"logoutButton" = "Lougout";

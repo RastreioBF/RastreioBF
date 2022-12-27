@@ -89,7 +89,7 @@ class TrackingViewControllerViewModel {
     }
     
     func checkTextFieldsAreNotEmpty(name:String, trackingNumber: String ) -> Bool {
-        if trackingNumber.isEmpty || trackingNumber.hasPrefix(" ") || name.isEmpty || name.hasPrefix(" ") {
+        if trackingNumber.isEmpty || trackingNumber.hasPrefix(" ") || name.isEmpty || name.hasPrefix(" ") || trackingNumber.contains(" ") {
             return false
         } else {
             return true
