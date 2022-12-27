@@ -8,39 +8,40 @@
 import UIKit
 
 class DetailWarningView: UIView {
-    lazy var tableView : UITableView = {
+    
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.register(PackageCell.self, forCellReuseIdentifier: PackageCell.identifier)
         return tableView
     }()
-
-    func setupBackgroundColor(){
+    
+    private func configBackground() {
         backgroundColor = .white
     }
     
-    override init(frame : CGRect) {
-        super.init( frame : frame)
-        self.setupBackgroundColor()
-        self.addElement()
-        self.setupConstraints()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configBackground()
+        addElement()
+        configConstraints()
     }
     
-    func addElement(){
-        self.addSubview(self.tableView)
+    private func addElement(){
+        addSubview(tableView)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-     func setupConstraints() {
+    func configConstraints() {
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            self.tableView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
-            self.tableView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
-            self.tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

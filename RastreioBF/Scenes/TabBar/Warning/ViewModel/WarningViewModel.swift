@@ -15,11 +15,21 @@ protocol WarningViewModelProtocols: AnyObject {
 
 class WarningViewModel {
     
-    var coreDataStack = CoreDataStack(modelName: LC.dataProduct.text)
-    var coreData = [DataProduct]()
-    weak var delegate: WarningViewModelProtocols?
-    var package: Package?
+    private var coreData = [DataProduct]()
+    private var coreDataDP = DataProduct()
+    private var eventArray = [DataProduct]()
+    private var package: Package?
+    private weak var delegate: WarningViewModelProtocols?
     private let service: RastreioBFService = RastreioBFService()
+    private var coreDataStack = CoreDataStack(modelName: LC.dataProduct.text)
+    
+    func setEventArray(eventArray: [DataProduct]) {
+        self.eventArray = eventArray
+    }
+    
+    func getEventArray(indexPath: IndexPath) -> DataProduct {
+        return eventArray[indexPath.row]
+    }
     
     public func delegate(delegate: WarningViewModelProtocols?){
         self.delegate = delegate
@@ -59,7 +69,6 @@ class WarningViewModel {
         }
     }
     
-    
     func fetchPackageAlamofire(code: String){
         service.getPackageAlamofire(packageCode: code) { result, failure in
             if let result = result {
@@ -75,7 +84,7 @@ class WarningViewModel {
         getCoreDataPackages()
     }
     
-    func getCoreDataPackages() {
+    private func getCoreDataPackages() {
         coreData = CoreDataManager.shared.fetchPackages()
         delegate?.didUpdatePackages()
     }
@@ -119,6 +128,5 @@ class WarningViewModel {
             }
         }
     }
-    
 }
 

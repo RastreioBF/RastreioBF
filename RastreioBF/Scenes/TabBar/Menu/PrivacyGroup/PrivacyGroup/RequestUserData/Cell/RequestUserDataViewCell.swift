@@ -9,20 +9,17 @@ import UIKit
 
 class RequestUserDataViewCell: UITableViewCell {
 
-    static let identifier:String = "RequestUserDataViewCell"
+    static let identifier: String = String(describing: RequestUserDataViewCell.self)
     
-    lazy var userImageView : UIImageView = {
+    lazy var userImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-            //image.image = UIImage( named: "addUserIcon")
         image.contentMode = .scaleAspectFit
         image.backgroundColor = .white
-        
-        
         return image
     }()
     
-    lazy var emailTextField : UITextField = {
+    lazy var emailTextField: UITextField = {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.autocorrectionType = .no
@@ -30,25 +27,20 @@ class RequestUserDataViewCell: UITableViewCell {
         email.borderStyle = .roundedRect
         email.keyboardType = .emailAddress
         email.placeholder = "digite seu e-mail:"
-        email.font = UIFont.systemFont( ofSize: 14)
+        email.font = UIFont.systemFont(ofSize: 14)
         email.textColor = .darkGray
-        
         return email
     }()
     
-    
-    lazy var passwordTextField : UITextField = {
+    lazy var passwordTextField: UITextField = {
         let password = UITextField()
         password.translatesAutoresizingMaskIntoConstraints = false
         password.autocorrectionType = .no
         password.backgroundColor = .white
         password.borderStyle = .roundedRect
-        //password.keyboardType = .default
-        //password.isSecureTextEntry = true
         password.placeholder = "digite sua senha:"
         password.font = UIFont.systemFont( ofSize: 14)
         password.textColor = .darkGray
-        
         return password
     }()
     
@@ -60,17 +52,13 @@ class RequestUserDataViewCell: UITableViewCell {
         button.clipsToBounds = true
         button.layer.cornerRadius = 7.5
         button.backgroundColor = UIColor( red: 102/255, green: 103/255, blue: 171/255, alpha: 1.0)
-     //   button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
-        
         return button
     }()
 
- 
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.addSubview()
-        self.setupConstraints()
+        addSubview()
+        configConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -79,33 +67,31 @@ class RequestUserDataViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func addSubview() {
-       self.addSubview(self.userImageView)
-       self.addSubview(self.emailTextField)
-       self.addSubview(self.passwordTextField)
-       self.addSubview(self.registerButton)
+       addSubview(userImageView)
+       addSubview(emailTextField)
+       addSubview(passwordTextField)
+       addSubview(registerButton)
    }
     
-    private func setupConstraints(){
+    private func configConstraints() {
+        
         NSLayoutConstraint.activate([
-            self.userImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.userImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.userImageView.heightAnchor.constraint(equalToConstant: 80),
-            self.userImageView.widthAnchor.constraint(equalToConstant: 80),
             
-            self.emailTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.self.userImageView.trailingAnchor, constant: 20),
+            userImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            userImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            userImageView.heightAnchor.constraint(equalToConstant: 80),
+            userImageView.widthAnchor.constraint(equalToConstant: 80),
+            
+            emailTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
+            emailTextField.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 20)
             
         ])
     }
-
 }

@@ -11,17 +11,11 @@ class DetailWarningViewController: UIViewController {
     
     private var detailWarningView: DetailWarningView?
     private var viewModel = DetailWarningViewControllerViewModel()
-    var data: DataProduct?
-    var alert:Alert?
-    var coreData = [DataProduct]()
+    private var alert: Alert?
     
-    var codigo: String
-    var descriptionClient: String
-    
-    init(codigo: String, descriptionClient: String) {
-        self.codigo = codigo
-        self.descriptionClient = descriptionClient
+    init(code: String, descriptionClient: String) {
         super.init(nibName: nil, bundle: nil)
+        viewModel.setTrackingInformation(code: code, description: description)
         hidesBottomBarWhenPushed = true
     }
     
@@ -35,15 +29,13 @@ class DetailWarningViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.alert = Alert(controller: self)
-        self.title = descriptionClient.text
-        viewModel.delegate = self
+        alert = Alert(controller: self)
+        viewModel.delegate(delegate: self)
         configTableView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.fetchPackageAlamofire(code: codigo.text)
+        viewModel.fetchPackageAlamofire(code: viewModel.trackingCode)
     }
     
     func configTableView(){
@@ -51,22 +43,25 @@ class DetailWarningViewController: UIViewController {
         detailWarningView?.tableView.dataSource = self
     }
     
+    func setData(data: DataProduct?) {
+        viewModel.setData(data: data)
+    }
 }
 
-extension  DetailWarningViewController: UITableViewDataSource, UITableViewDelegate {
-
+extension DetailWarningViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.numberaOfRowsInSection
+        return viewModel.numberaOfRowsInSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PackageCell? = tableView.dequeueReusableCell(withIdentifier: PackageCell.identifier, for: indexPath) as? PackageCell
-        cell?.prepareCell(model: self.viewModel.loadCurrentDetailAccountList(indexPath: indexPath))
+        cell?.prepareCell(model: viewModel.loadCurrentDetailAccountList(indexPath: indexPath))
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.viewModel.heightForRowAt
+        return viewModel.heightForRowAt
     }
 }
 
@@ -77,7 +72,7 @@ extension DetailWarningViewController: DetailWarningViewModelProtocols {
             self.detailWarningView?.tableView.reloadData()
         }
     }
-
+    
     func failure() {
         alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.wrongCodeMessage.text)
     }

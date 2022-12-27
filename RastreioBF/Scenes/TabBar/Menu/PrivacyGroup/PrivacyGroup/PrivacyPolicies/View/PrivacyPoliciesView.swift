@@ -8,38 +8,36 @@
 import Foundation
 import UIKit
 
-protocol PrivacyPoliciesViewProtocol: class{
+protocol PrivacyPoliciesViewProtocol: AnyObject {
     func actionBackButton()
 }
 
-class PrivacyPoliciesView : UIView{
-    weak private var delegate : PrivacyPoliciesViewProtocol?
+class PrivacyPoliciesView: UIView {
     
-    func delegate( delegate: PrivacyPoliciesViewProtocol?){
+    weak private var delegate: PrivacyPoliciesViewProtocol?
+    
+    func delegate(delegate: PrivacyPoliciesViewProtocol?) {
         self.delegate = delegate
     }
     
-    lazy var backButton:UIButton = {
+    lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "back"), for: .normal)
-        button.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
         return button
     }()
     
-    lazy var loginLabel:UILabel = {
+    lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "mainPurpleColor")
         label.font = UIFont.boldSystemFont(ofSize: 35)
-        label.text = "Privacidade"
-        
-       
+        label.text = ""
         return label
     }()
-    
-    
-    lazy var  cardTableView : UITableView = {
+
+    lazy var cardTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
@@ -50,78 +48,68 @@ class PrivacyPoliciesView : UIView{
         tableView.layer.shadowColor=UIColor.gray.cgColor
         tableView.isScrollEnabled = false
         tableView.layer.cornerRadius = 15
-
         return tableView
     }()
     
-    lazy var privacidadeLabel : UILabel  = {
-        let  label = UILabel()
+    lazy var privacyLabel: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        //label.font = UIFont.boldSystemFont(ofSize: 18)
         label.backgroundColor = .white
         label.numberOfLines = 22
         label.textAlignment = NSTextAlignment.justified
-        
-      
-        
-        label.text = "A política de privacidade (ou declaração de política de privacidade) é o documento por meio do qual a pessoa física ou jurídica que mantém um site ou aplicativo expõe e explica a todos os interessados a forma como os dados pessoais dos usuários da plataforma serão tratados. O assunto é regulamentado, no Brasil, principalmente pela Lei Geral de Proteção de Dados Pessoais (LGPD), lei que estabeleceu uma série de exigências àqueles que realizam operações de tratamento de dados pessoais. A lei se aplica: se a operação de tratamento é realizada no território nacional; se a atividade de tratamento tem por objetivo a oferta de produtos ou serviços ou o tratamento de dados de indivíduos localizados no território nacional; se os dados pessoais são coletados no território nacional."
+        label.text = ""
         return label
     }()
     
-    private func configBackGround(){
-       // self.backgroundColor = UIColor(red: 24/255, green: 117/255, blue: 104/255, alpha: 1.0)
+    private func configBackground() {
         self.backgroundColor = .white
     }
     
-    @objc private func tappedBackButton(){
+    @objc private func tappedBackButton() {
         self.delegate?.actionBackButton()
     }
     
 override init(frame: CGRect) {
         super.init( frame: frame)
-        self.configBackGround()
-        self.configSuperView()
-        self.setupConstraints()
-    
+        configBackground()
+        configSuperView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configSuperView(){
-      
-        self.addSubview(self.backButton)
-        self.addSubview(self.cardTableView)
-        self.addSubview(self.privacidadeLabel)
-        self.addSubview(self.loginLabel)
-        
-        self.cardTableView.addSubview(loginLabel)
-        self.cardTableView.addSubview(privacidadeLabel)
-        
+    private func configSuperView() {
+        addSubview(backButton)
+        addSubview(cardTableView)
+        addSubview(privacyLabel)
+        addSubview(loginLabel)
+        cardTableView.addSubview(loginLabel)
+        cardTableView.addSubview(privacyLabel)
     }
     
-    private  func setupConstraints() {
+    private func setupConstraints() {
+        
         NSLayoutConstraint.activate([
             
-            
-            self.backButton.leadingAnchor.constraint(equalTo: self.backButton.leadingAnchor, constant: 35),
-            self.backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 20),
         
-            self.loginLabel.topAnchor.constraint(equalTo: self.cardTableView.topAnchor, constant: 20),
-            self.loginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            loginLabel.topAnchor.constraint(equalTo: cardTableView.topAnchor, constant: 20),
+            loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            self.cardTableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            self.cardTableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            self.cardTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.cardTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.cardTableView.heightAnchor.constraint(equalToConstant: 600),
+            cardTableView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            cardTableView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            cardTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            cardTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            cardTableView.heightAnchor.constraint(equalToConstant: 600),
             
-            self.privacidadeLabel.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 20),
-            self.privacidadeLabel.centerXAnchor.constraint(equalTo: self.privacidadeLabel.centerXAnchor),
-            self.privacidadeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 35),
-            self.privacidadeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -35),
+            privacyLabel.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 20),
+            privacyLabel.centerXAnchor.constraint(equalTo: privacyLabel.centerXAnchor),
+            privacyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            privacyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
         ])
     }
 }

@@ -10,25 +10,23 @@ import CoreData
 
 class WarningViewController: UIViewController{
     
-    private var alert:Alert?
-    private var coreData = DataProduct()
-    var coreDataStack = CoreDataStack(modelName: LC.dataProduct.text)
-    var eventArray = [DataProduct]()
+    private var alert: Alert?
     private var manageObjectContext: NSManagedObjectContext!
     private var viewModel = WarningViewModel()
     private var warningView: WarningView?
+    private var trackingVM = TrackingViewControllerViewModel()
     
     override func loadView() {
-        self.warningView = WarningView()
-        self.view = self.warningView
+        warningView = WarningView()
+        view = warningView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         alert = Alert(controller: self)
-        naviagtionSetup()
+        configNavigation()
         manageObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        viewModel.delegate = self
+        viewModel.delegate(delegate: self)
         hideTableViewData()
         warningView?.tableViewEmpty.separatorStyle = .none
     }
@@ -39,15 +37,16 @@ class WarningViewController: UIViewController{
         hideTableViewData()
     }
     
-    func naviagtionSetup(){
+    private func configNavigation(){
         navigationItem.title = LC.warningTitle.text
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: LC.filterIcon.text), style: .plain, target: self, action: #selector(filter))
     }
     
-    func loadSaveData()  {
+    private func loadSaveData()  {
         let eventRequest: NSFetchRequest<DataProduct> = DataProduct.fetchRequest()
         do {
-            eventArray = try manageObjectContext.fetch(eventRequest)
+            let event = try manageObjectContext.fetch(eventRequest)
+            viewModel.setEventArray(eventArray: event)
             warningView?.tableViewData.reloadData()
         } catch
         {
@@ -63,7 +62,7 @@ class WarningViewController: UIViewController{
     }
     
     @objc
-    func filter() {
+    private func filter() {
         alert?.filterState(completion: { option in
             switch option {
             case .onWay:
@@ -80,16 +79,15 @@ class WarningViewController: UIViewController{
         })
     }
     
-    func hideTableViewData(){
+    private func hideTableViewData(){
         if viewModel.dataArraySize != 0 {
-            self.warningView?.tableViewData.isHidden = false
-            self.warningView?.tableViewEmpty.isHidden = true
+            warningView?.tableViewData.isHidden = false
+            warningView?.tableViewEmpty.isHidden = true
         } else {
-            self.warningView?.tableViewData.isHidden = true
-            self.warningView?.tableViewEmpty.isHidden = false
+            warningView?.tableViewData.isHidden = true
+            warningView?.tableViewEmpty.isHidden = false
         }
     }
-    
 }
 
 extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
@@ -99,7 +97,7 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let eventArrayItem = eventArray[indexPath.row]
+        let eventArrayItem = viewModel.getEventArray(indexPath: indexPath)
         
         if editingStyle == .delete {
             manageObjectContext.delete(eventArrayItem)
@@ -113,7 +111,7 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
                 print("Error While Deleting Note: \(error.userInfo)")
             }
         }
-        self.loadSaveData()
+        loadSaveData()
         hideTableViewData()
     }
     
@@ -132,7 +130,6 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
             cell.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -144,8 +141,9 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.identifier) as? ProductDetailTableViewCell
             cell?.setupCell(data: viewModel.getDataProduct(indexPath: indexPath))
             
-            let vc = DetailWarningViewController(codigo: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
-            vc.data = viewModel.getDataProduct(indexPath: indexPath)
+            let vc = DetailWarningViewController(code: cell?.codeTrakingLabel.text ?? "", descriptionClient: cell?.productNameLabel.text ?? "")
+            vc.setData(data: viewModel.getDataProduct(indexPath: indexPath))
+            vc.title = trackingVM.getPackageName(indexPath: indexPath)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

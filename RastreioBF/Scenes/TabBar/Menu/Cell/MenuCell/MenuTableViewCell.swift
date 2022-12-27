@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewCell.swift
+//  MenuTableViewCell.swift
 //  RastreioBF
 //
 //  Created by Jessica Bigal on 09/09/22.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
+class MenuTableViewCell: UITableViewCell {
     
-    static let identifier = "SettingTableViewCell"
+    static let identifier = String(describing: MenuTableViewCell.self)
     
     private let iconContainer: UIView = {
         let view = UIView()
@@ -32,8 +32,6 @@ class SettingsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
-        
-        
         return label
     }()
     
@@ -42,7 +40,6 @@ class SettingsTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(iconContainer)
         iconContainer.addSubview(iconImageView)
-        
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
     }
@@ -71,7 +68,7 @@ class SettingsTableViewCell: UITableViewCell {
         iconContainer.backgroundColor = nil
     }
     
-    public func configure(width model: SettingsOption){
+    public func configCell(width model: SettingsOption) {
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor

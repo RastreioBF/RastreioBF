@@ -12,7 +12,7 @@ class WarningView: UIView {
     private var viewModel = WarningViewModel()
     
     lazy var warningTitleLabel : UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = LC.warningTitle.text
         label.textColor = .darkGray
@@ -38,39 +38,39 @@ class WarningView: UIView {
     
     override init(frame : CGRect) {
         super.init( frame : frame)
-        self.setupBackgroundColor()
-        self.addElement()
-        self.setupConstraints()
+        configBackground()
+        addElement()
+        configConstraints()
     }
     
-    func setupBackgroundColor(){
+    func configBackground(){
         backgroundColor = .white
     }
     
     func addElement(){
-        self.addSubview(self.warningTitleLabel)
-        self.addSubview(self.tableViewData)
-        self.addSubview(self.tableViewEmpty)
+        addSubview(warningTitleLabel)
+        addSubview(tableViewData)
+        addSubview(tableViewEmpty)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-     func setupConstraints() {
+    func configConstraints() {
         NSLayoutConstraint.activate([
-            self.warningTitleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: -25),
-            self.warningTitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            warningTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -25),
+            warningTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            self.tableViewData.topAnchor.constraint(equalTo: self.warningTitleLabel.bottomAnchor),
-            self.tableViewData.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
-            self.tableViewData.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
-            self.tableViewData.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            tableViewData.topAnchor.constraint(equalTo: warningTitleLabel.bottomAnchor),
+            tableViewData.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            tableViewData.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            tableViewData.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
-            self.tableViewEmpty.topAnchor.constraint(equalTo: self.warningTitleLabel.bottomAnchor),
-            self.tableViewEmpty.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
-            self.tableViewEmpty.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
-            self.tableViewEmpty.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+            tableViewEmpty.topAnchor.constraint(equalTo: warningTitleLabel.bottomAnchor),
+            tableViewEmpty.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            tableViewEmpty.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            tableViewEmpty.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

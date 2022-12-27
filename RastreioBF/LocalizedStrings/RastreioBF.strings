@@ -134,4 +134,8 @@
 "urlAPI" = "https://api.linketrack.com/track/json?user=jessicabigal21@outlook.com&token=af29d01cc3d2a0d9d25b7d560bdf671416e9055b6f1f087c091c015fe8c7ec1d&codigo=";
 "urlAPIMock" = "https://run.mocky.io/v3/";
 
+//Privacy Policy
+"policy" = "A política de privacidade (ou declaração de política de privacidade) é o documento por meio do qual a pessoa física ou jurídica que mantém um site ou aplicativo expõe e explica a todos os interessados a forma como os dados pessoais dos usuários da plataforma serão tratados. O assunto é regulamentado, no Brasil, principalmente pela Lei Geral de Proteção de Dados Pessoais (LGPD), lei que estabeleceu uma série de exigências àqueles que realizam operações de tratamento de dados pessoais. A lei se aplica: se a operação de tratamento é realizada no território nacional; se a atividade de tratamento tem por objetivo a oferta de produtos ou serviços ou o tratamento de dados de indivíduos localizados no território nacional; se os dados pessoais são coletados no território nacional.";
+"title" = "Privacidade";
+
 

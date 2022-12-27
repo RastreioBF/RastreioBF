@@ -9,7 +9,7 @@ import UIKit
 
 class PackageCell: UITableViewCell {
     
-    static let identifier = "PackageCell"
+    static let identifier = String(describing: PackageCell.self)
     
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -29,7 +29,7 @@ class PackageCell: UITableViewCell {
         return label
     }()
     
-    lazy var cidadeLabel: UILabel = {
+    lazy var cityNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -47,78 +47,29 @@ class PackageCell: UITableViewCell {
         return label
     }()
     
-    
-    private func setUpUIElements() {
-        self.contentView.addSubview(self.iconImageView)
-        self.contentView.addSubview(self.descriptionLabel)
-        self.contentView.addSubview(self.cidadeLabel)
-        self.contentView.addSubview(self.dataLabel)
+    private func configUIElements() {
+        contentView.addSubview(iconImageView)
+        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(cityNameLabel)
+        contentView.addSubview(dataLabel)
     }
-    
-    private func setUpUIConstraints() {
-        self.configIconImageViewConstraints()
-        self.configTestLabel()
-        self.configCidadeLabelConstraints()
-        self.configDataLabelConstraints()
-        
-    }
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.setUpUIElements()
-        self.setUpUIConstraints()
+        configUIElements()
+        configConstraints()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    private func configIconImageViewConstraints() {
-        NSLayoutConstraint.activate([
-            
-            self.iconImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
-            self.iconImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
-            self.iconImageView.heightAnchor.constraint(equalToConstant: 50),
-            self.iconImageView.widthAnchor.constraint(equalToConstant: 50),
-            
-        ])
-    }
-    
-    private func configTestLabel() {
-        NSLayoutConstraint.activate([
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.iconImageView.topAnchor, constant: -5),
-            self.descriptionLabel.leftAnchor.constraint(equalTo: self.iconImageView.rightAnchor, constant: 10),
-            self.descriptionLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5),
-            self.descriptionLabel.widthAnchor.constraint(equalToConstant: 250),
-            
-        ])
-    }
-    
-    private func configCidadeLabelConstraints() {
-        NSLayoutConstraint.activate([
-            self.cidadeLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor),
-            self.cidadeLabel.leftAnchor.constraint(equalTo: self.descriptionLabel.leftAnchor),
-            self.cidadeLabel.rightAnchor.constraint(equalTo: self.descriptionLabel.rightAnchor),
-            self.cidadeLabel.widthAnchor.constraint(equalToConstant: 100),
-            
-        ])
-    }
-    
-    private func configDataLabelConstraints() {
-        NSLayoutConstraint.activate([
-            self.dataLabel.topAnchor.constraint(equalTo: self.cidadeLabel.bottomAnchor),
-            self.dataLabel.leftAnchor.constraint(equalTo: self.cidadeLabel.leftAnchor),
-            self.dataLabel.widthAnchor.constraint(equalToConstant: 120)
-        ])
-    }
-
-    func prepareCell(model: Eventos) {
-        self.descriptionLabel.text = model.status
-        self.dataLabel.text = "Data:\(model.data ?? "")"
-        self.cidadeLabel.text = "Local:\(model.local ?? "")"
+    func prepareCell(model: Events) {
+        descriptionLabel.text = model.status
+        dataLabel.text = "Data:\(model.data ?? "")"
+        cityNameLabel.text = "Local:\(model.local ?? "")"
         var image = ""
-        var status = model.status ?? ""
+        let status = model.status ?? ""
         var tintColor = ""
         
         if status.contains(LC.payment.text) ||
@@ -137,8 +88,33 @@ class PackageCell: UITableViewCell {
             tintColor = LC.orangeColor.text
         }
         
-        self.iconImageView.image = UIImage(systemName: image)
-        self.iconImageView.tintColor = UIColor(named: tintColor)
+        iconImageView.image = UIImage(systemName: image)
+        iconImageView.tintColor = UIColor(named: tintColor)
+    }
+    
+    private func configConstraints() {
+        
+        NSLayoutConstraint.activate([
+            
+            iconImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
+            iconImageView.heightAnchor.constraint(equalToConstant: 50),
+            iconImageView.widthAnchor.constraint(equalToConstant: 50),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: iconImageView.topAnchor, constant: -5),
+            descriptionLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 10),
+            descriptionLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -5),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: 250),
+            
+            cityNameLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
+            cityNameLabel.leftAnchor.constraint(equalTo: descriptionLabel.leftAnchor),
+            cityNameLabel.rightAnchor.constraint(equalTo: descriptionLabel.rightAnchor),
+            cityNameLabel.widthAnchor.constraint(equalToConstant: 100),
+            
+            dataLabel.topAnchor.constraint(equalTo: cityNameLabel.bottomAnchor),
+            dataLabel.leftAnchor.constraint(equalTo: cityNameLabel.leftAnchor),
+            dataLabel.widthAnchor.constraint(equalToConstant: 120)
+            
+        ])
     }
 }
-

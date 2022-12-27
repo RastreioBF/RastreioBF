@@ -8,7 +8,8 @@
 import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
-    static let identifier = "SwitchTableViewCell"
+    
+    static let identifier = String(describing: SwitchTableViewCell.self)
     
     private let iconContainer: UIView = {
         let view = UIView()
@@ -34,12 +35,10 @@ class SwitchTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let mySwitch : UISwitch = {
+    private let mySwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.onTintColor = .systemBlue
         return mySwitch
-        
-        
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -48,7 +47,6 @@ class SwitchTableViewCell: UITableViewCell {
         contentView.addSubview(iconContainer)
         contentView.addSubview(mySwitch)
         iconContainer.addSubview(iconImageView)
-        
         contentView.clipsToBounds = true
         accessoryType = .none
     }
@@ -56,6 +54,7 @@ class SwitchTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         let size: CGFloat = contentView.frame.size.height - 12
@@ -85,7 +84,7 @@ class SwitchTableViewCell: UITableViewCell {
         mySwitch.isOn = false
     }
     
-    public func configure(width model: SettingsSwitchOption){
+    public func configCell(width model: SettingsSwitchOption) {
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor

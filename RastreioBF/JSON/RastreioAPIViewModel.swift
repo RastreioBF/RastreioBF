@@ -10,11 +10,11 @@ import Foundation
 struct Package: Codable {
     let codigo, servico, host: String?
     let quantidade: Int?
-    let eventos: [Eventos]?
+    let eventos: [Events]?
 }
 
 // MARK: - Eventos
-struct Eventos: Codable {
+struct Events: Codable {
     let data, hora: String?
     let local: String?
     let status: String?

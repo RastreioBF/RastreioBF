@@ -142,6 +142,10 @@ enum LocalizedConstants: String {
     case urlAPI
     case urlAPIMock
     
+    //MARK: - Privacy Policy
+    case policy
+    case title
+    
     var text: String {
         return rawValue.localized(.presentation)
     }

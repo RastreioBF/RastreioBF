@@ -15,7 +15,7 @@ protocol TrackingViewProtocol: AnyObject {
 
 class TrackingView: UIView {
     
-    weak var delegate: TrackingViewProtocol?
+    private weak var delegate: TrackingViewProtocol?
     
     func delegate(delegate: TrackingViewProtocol?){
         self.delegate = delegate
@@ -100,45 +100,45 @@ class TrackingView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configBackground()
-        self.configSuperView()
-        self.setUpConstraints()
+        configBackground()
+        configSuperView()
+        configConstraints()
     }
     
     private func configSuperView(){
-        self.addSubview(self.instructionLabel)
-        self.addSubview(self.trackingNumberLabel)
-        self.addSubview(self.trackingNumberTextField)
-        self.addSubview(self.descriptionLabel)
-        self.addSubview(self.descriptionTextField)
-        self.addSubview(self.submitButton)
-    }
-        
-    private func configBackground(){
-        self.backgroundColor = .white
+        addSubview(instructionLabel)
+        addSubview(trackingNumberLabel)
+        addSubview(trackingNumberTextField)
+        addSubview(descriptionLabel)
+        addSubview(descriptionTextField)
+        addSubview(submitButton)
     }
     
-    public func configTextFieldDelegate(delegate: UITextFieldDelegate){
-        self.trackingNumberTextField.delegate = delegate
-        self.descriptionTextField.delegate = delegate
+    private func configBackground(){
+        backgroundColor = .white
+    }
+    
+    func configTextFieldDelegate(delegate: UITextFieldDelegate){
+        trackingNumberTextField.delegate = delegate
+        descriptionTextField.delegate = delegate
     }
     
     @objc private func tappedBackButton(){
-        self.delegate?.actionBackButton()
+        delegate?.actionBackButton()
     }
     
     @objc private func tappedSubmitButton(){
-        self.delegate?.actionSubmitButton()
+        delegate?.actionSubmitButton()
     }
     
-    public func validateTextFields(){
-        let trackingNumber: String = self.trackingNumberTextField.text ?? ""
-        let description: String = self.descriptionTextField.text ?? ""
+    private func validateTextFields(){
+        let trackingNumber: String = trackingNumberTextField.text ?? ""
+        let description: String = descriptionTextField.text ?? ""
         
         if trackingNumber.isEmpty || description.isEmpty || trackingNumber.hasPrefix(" ") || description.hasPrefix(" ") {
-            self.configButtonEnabled(false)
+            configButtonEnabled(false)
         } else {
-            self.configButtonEnabled(true)
+            configButtonEnabled(true)
         }
     }
     
@@ -156,35 +156,34 @@ class TrackingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpConstraints(){
+    private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            self.instructionLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
-            self.instructionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.instructionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            instructionLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            instructionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            instructionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.instructionLabel.bottomAnchor, constant: 50),
-            self.descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            descriptionLabel.topAnchor.constraint(equalTo: instructionLabel.bottomAnchor, constant: 50),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            self.descriptionTextField.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 5),
-            self.descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5),
+            descriptionTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            descriptionTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            self.trackingNumberLabel.topAnchor.constraint(equalTo: self.descriptionTextField.bottomAnchor, constant: 10),
-            self.trackingNumberLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.trackingNumberLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            trackingNumberLabel.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 10),
+            trackingNumberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            trackingNumberLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            self.trackingNumberTextField.topAnchor.constraint(equalTo: self.trackingNumberLabel.bottomAnchor, constant: 5),
-            self.trackingNumberTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.trackingNumberTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            trackingNumberTextField.topAnchor.constraint(equalTo: trackingNumberLabel.bottomAnchor, constant: 5),
+            trackingNumberTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            trackingNumberTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            self.submitButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
-            self.submitButton.leadingAnchor.constraint(equalTo: self.descriptionTextField.leadingAnchor),
-            self.submitButton.trailingAnchor.constraint(equalTo: self.descriptionTextField.trailingAnchor),
-            self.submitButton.heightAnchor.constraint(equalToConstant: 40)
-        
+            submitButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
+            submitButton.leadingAnchor.constraint(equalTo: descriptionTextField.leadingAnchor),
+            submitButton.trailingAnchor.constraint(equalTo: descriptionTextField.trailingAnchor),
+            submitButton.heightAnchor.constraint(equalToConstant: 40)
+            
         ])
     }
 }
-

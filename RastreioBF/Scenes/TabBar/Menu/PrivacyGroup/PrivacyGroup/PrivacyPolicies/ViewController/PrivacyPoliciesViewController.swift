@@ -7,33 +7,39 @@
 
 import UIKit
 
-class PrivacyPoliciesViewController: UIViewController, PrivacyPoliciesViewProtocol {
+class PrivacyPoliciesViewController: UIViewController {
     
-    var privacyView : PrivacyPoliciesView?
-
-    func actionBackButton() {
-        self.navigationController?.popViewController(animated: true)
-        print("tappedButton")
-    }
+    private var privacyView: PrivacyPoliciesView?
+    private var privacyVM = PrivacyViewModel()
     
     override func loadView() {
         privacyView = PrivacyPoliciesView()
-        self.view = self.privacyView
+        view = privacyView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        self.privacyView?.delegate(delegate: self)
+        configPrivacyView()
+    }
+    
+    private func configPrivacyView(){
+        privacyView?.delegate(delegate: self)
+        privacyView?.privacyLabel.text = privacyVM.getPrivacyPolicy()
+        privacyView?.loginLabel.text = privacyVM.getTitle()
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-                super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-                hidesBottomBarWhenPushed = true
-            }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        hidesBottomBarWhenPushed = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
-
+extension PrivacyPoliciesViewController: PrivacyPoliciesViewProtocol {
+    func actionBackButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

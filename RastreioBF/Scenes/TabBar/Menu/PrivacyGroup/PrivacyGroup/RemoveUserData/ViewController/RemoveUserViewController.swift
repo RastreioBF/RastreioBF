@@ -1,44 +1,44 @@
 //
 //  MeusDadosVC.swift
 //  BackFrontProject
-// teste
 //  Created by ALYSSON MENEZES on 25/08/22.
 //
 
 import UIKit
 
-class RemoveUserViewController: UIViewController, RemoveUserScreenProtocol {
-    func actionBackButton() {
-        self.navigationController?.popViewController(animated: true)
-    }
+class RemoveUserViewController: UIViewController {
     
-    var removeUserScreen: RemoveUserView?
-    var alert : Alert?
+    private var removeUserScreen: RemoveUserView?
+    private var alert: Alert?
     
     override func loadView() {
-        self.removeUserScreen = RemoveUserView()
-        self.view = self.removeUserScreen
+        removeUserScreen = RemoveUserView()
+        view = removeUserScreen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.removeUserScreen?.delegate(delegate: self)
-        self.alert = Alert(controller: self)
+        removeUserScreen?.delegate(delegate: self)
+        alert = Alert(controller: self)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-                super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-                hidesBottomBarWhenPushed = true
-            }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        hidesBottomBarWhenPushed = true
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+       
     func actionRegisterButton() {
-        guard let register = self.removeUserScreen else { return }
-        self.alert?.deleteDataUser()
-        
+        guard removeUserScreen != nil else { return }
+        alert?.deleteDataUser()
+    }
+}
+
+extension RemoveUserViewController: RemoveUserScreenProtocol {
+    func actionBackButton() {
+        navigationController?.popViewController(animated: true)
     }
 }

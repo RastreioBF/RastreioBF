@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RequestUserDataProtocol: class{
+protocol RequestUserDataProtocol: AnyObject {
     func actionBackButton()
     func actionRegisterButton()
 }
@@ -17,11 +17,11 @@ class  RequestUserDataView: UIView {
     
     weak private var delegate : RequestUserDataProtocol?
     
-    func delegate( delegate: RequestUserDataProtocol?){
+    func delegate( delegate: RequestUserDataProtocol?) {
         self.delegate = delegate
     }
     
-    lazy var backButton:UIButton = {
+    lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "back"), for: .normal)
@@ -29,28 +29,24 @@ class  RequestUserDataView: UIView {
         return button
     }()
     
-    lazy var loginLabel:UILabel = {
+    lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         label.font = UIFont.boldSystemFont(ofSize: 35)
         label.text = "Meus Dados"
         label.textColor = UIColor(named: "mainPurpleColor")
         return label
     }()
-    
-    
-    lazy var logoAppImageView : UIImageView = {
+
+    lazy var logoAppImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage( named: "signinImagepng" )
         image.contentMode = .scaleAspectFit
-        //image.backgroundColor = .red
         return image
     }()
     
-    
-    lazy var  cardTableView : UITableView = {
+    lazy var cardTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
@@ -73,96 +69,82 @@ class  RequestUserDataView: UIView {
         button.clipsToBounds = true
         button.layer.cornerRadius = 9
         button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
-        
         return button
     }()
     
-    @objc private func tappedBackButton(){
-        self.delegate?.actionBackButton()
+    @objc private func tappedBackButton() {
+        delegate?.actionBackButton()
     }
     
-    private func configBackGround(){
-        self.backgroundColor = .white
+    private func configBackground() {
+        backgroundColor = .white
     }
     
     private func configSuperView() {
-        addSubview(self.backButton)
-        addSubview(self.cardTableView)
-        self.cardTableView.addSubview(self.loginLabel)
-        self.cardTableView.addSubview(self.logoAppImageView)
-        self.addSubview(registerButton)
-        
-        self.cardTableView.addSubview(self.registerButton)
-        
-        
-        
+        addSubview(backButton)
+        addSubview(cardTableView)
+        addSubview(registerButton)
+        cardTableView.addSubview(registerButton)
+        cardTableView.addSubview(loginLabel)
+        cardTableView.addSubview(logoAppImageView)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configBackGround()
-        self.configSuperView()
-        self.setupConstraints()
-        
+        configBackground()
+        configSuperView()
+        configConstraints()
     }
-    
-    
-    
-    
+
     @objc private func tappedRegisterButton(){
-        self.delegate?.actionRegisterButton()
+        delegate?.actionRegisterButton()
     }
-    
-    
-    public func configTableViewProtocols(delegate: UITableViewDelegate, dataSource : UITableViewDataSource){
-        self.cardTableView.delegate = delegate
-        self.cardTableView.dataSource = dataSource
+
+    private func configTableViewProtocols(delegate: UITableViewDelegate, dataSource : UITableViewDataSource) {
+        cardTableView.delegate = delegate
+        cardTableView.dataSource = dataSource
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configButtonEnable(_ enable : Bool ){
-        if enable{
-            self.registerButton.setTitleColor(.white, for: .normal)
-            self.registerButton.isEnabled = true
-        }else {
-            self.registerButton.setTitleColor(.lightGray, for: .normal)
-            self.registerButton.isEnabled = false
+    private func configButtonEnable(_ enable : Bool) {
+        if enable {
+            registerButton.setTitleColor(.white, for: .normal)
+            registerButton.isEnabled = true
+        } else {
+            registerButton.setTitleColor(.lightGray, for: .normal)
+            registerButton.isEnabled = false
         }
     }
     
-    private  func setupConstraints() {
+    private func configConstraints() {
+        
         NSLayoutConstraint.activate([
             
-            self.backButton.leadingAnchor.constraint(equalTo: self.backButton.leadingAnchor, constant: 35),
-            self.backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 20),
             
-            self.cardTableView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            self.cardTableView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            self.cardTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.cardTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.cardTableView.heightAnchor.constraint(equalToConstant: 400),
+            cardTableView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            cardTableView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            cardTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            cardTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            cardTableView.heightAnchor.constraint(equalToConstant: 400),
             
-            
-            self.loginLabel.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
-            self.loginLabel.topAnchor.constraint(equalTo: self.cardTableView.topAnchor, constant: 20),
-            
-            self.logoAppImageView.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
-            self.logoAppImageView.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 20),
-            self.logoAppImageView.heightAnchor.constraint(equalToConstant: 200),
-            self.logoAppImageView.widthAnchor.constraint(equalToConstant: 200),
-            
-            self.registerButton.centerXAnchor.constraint(equalTo: self.cardTableView.centerXAnchor),
-            self.registerButton.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 40),
-            
-            self.registerButton.leadingAnchor.constraint(equalTo: self.cardTableView.leadingAnchor, constant: 35),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.cardTableView.trailingAnchor, constant: -35),
-            
-            
-            
-            
+            loginLabel.centerXAnchor.constraint(equalTo: cardTableView.centerXAnchor),
+            loginLabel.topAnchor.constraint(equalTo: cardTableView.topAnchor, constant: 20),
+                
+            logoAppImageView.centerXAnchor.constraint(equalTo: cardTableView.centerXAnchor),
+            logoAppImageView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 20),
+            logoAppImageView.heightAnchor.constraint(equalToConstant: 200),
+            logoAppImageView.widthAnchor.constraint(equalToConstant: 200),
+                
+            registerButton.centerXAnchor.constraint(equalTo: cardTableView.centerXAnchor),
+            registerButton.topAnchor.constraint(equalTo: logoAppImageView.bottomAnchor, constant: 40),
+            registerButton.leadingAnchor.constraint(equalTo: cardTableView.leadingAnchor, constant: 35),
+            registerButton.trailingAnchor.constraint(equalTo: cardTableView.trailingAnchor, constant: -35)
+
         ])
     }
 }

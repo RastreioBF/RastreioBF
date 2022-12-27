@@ -9,7 +9,7 @@ import UIKit
 
 class EmptyStateTableViewCell: UITableViewCell {
     
-    static let identifier = "EmptyStateTableViewCell"
+    static let identifier = String(describing: EmptyStateTableViewCell.self)
     
     lazy var  statusLabel : UILabel = {
         let label = UILabel()
@@ -24,26 +24,24 @@ class EmptyStateTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.addSubview()
-        self.setupConstraints()
+        addSubview()
+        configConstraints()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    func addSubview() {
-        self.contentView.addSubview(statusLabel)
+    private func addSubview() {
+        contentView.addSubview(statusLabel)
     }
     
-    func setupConstraints(){
+    func configConstraints(){
         NSLayoutConstraint.activate([
-            self.statusLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            self.statusLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.statusLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            statusLabel.topAnchor.constraint(equalTo: topAnchor),
+            statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            statusLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
 }
-

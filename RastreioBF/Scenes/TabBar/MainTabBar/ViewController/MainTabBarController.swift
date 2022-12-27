@@ -8,25 +8,25 @@
 import UIKit
 
 class MainTabBarController: UITabBarController{
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTabBarController()
-        setUpNavigationBar()
+        configTabBarController()
+        configNavigationBar()
     }
     
-    private func setUpTabBarController() {
+    private func configTabBarController() {
         let homeViewController = UINavigationController(rootViewController: TrackingViewController())
         let warningViewController = UINavigationController(rootViewController: WarningViewController())
         let menuViewController = UINavigationController(rootViewController: MenuScreenVC())
         
-        self.setViewControllers([homeViewController, warningViewController, menuViewController], animated: true)
-
-        self.tabBar.selectedImageTintColor = UIColor(named: LC.mainPurpleColor.text)
-        self.tabBar.backgroundColor = .white
-        self.tabBar.alpha = 0.9
-        self.tabBar.isTranslucent = false
-
+        setViewControllers([homeViewController, warningViewController, menuViewController], animated: true)
+        
+        tabBar.tintColor = UIColor(named: LC.mainPurpleColor.text)
+        tabBar.backgroundColor = .white
+        tabBar.alpha = 0.9
+        tabBar.isTranslucent = false
+        
         guard let items = tabBar.items else {return}
         
         items[0].title = LC.homeTitleTab.text
@@ -39,7 +39,7 @@ class MainTabBarController: UITabBarController{
         items[2].image = UIImage(systemName: LC.menuIcon.text)
     }
     
-    private func setUpNavigationBar(){
+    private func configNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
@@ -49,8 +49,8 @@ class MainTabBarController: UITabBarController{
 
 extension UINavigationBar {
     func customNavigationBar() {
-        self.prefersLargeTitles = false
-        self.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
-        self.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
+        prefersLargeTitles = false
+        largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
+        titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
     }
 }

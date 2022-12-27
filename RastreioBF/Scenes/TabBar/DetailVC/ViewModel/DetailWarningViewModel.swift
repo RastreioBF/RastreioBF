@@ -1,5 +1,5 @@
 //
-//  DetailWarningViewModel.swift
+//  DetailWarningViewControllerViewModel.swift
 //  RastreioBF
 //
 //  Created by Anderson Sales on 04/12/22.
@@ -16,8 +16,11 @@ class DetailWarningViewControllerViewModel {
     
     private let service: RastreioBFService = RastreioBFService()
     private var package: Package?
-    weak var delegate: DetailWarningViewModelProtocols?
-    private static var data : [DataProduct] = []
+    private weak var delegate: DetailWarningViewModelProtocols?
+    private static var data: [DataProduct] = []
+    private var code: String?
+    private var description: String?
+    private static var dataDP: DataProduct?
     
     public func delegate(delegate: DetailWarningViewModelProtocols?){
         self.delegate = delegate
@@ -42,13 +45,28 @@ class DetailWarningViewControllerViewModel {
         return 80
     }
     
-    func loadCurrentDetailAccountList(indexPath: IndexPath) -> Eventos {
-        return package?.eventos?[indexPath.row] ?? Eventos(data: "", hora: "", local: "", status: "", subStatus: [""])
+    func loadCurrentDetailAccountList(indexPath: IndexPath) -> Events {
+        return package?.eventos?[indexPath.row] ?? Events(data: "", hora: "", local: "", status: "", subStatus: [""])
     }
     
     func setupDataProduct(data: DataProduct) {
         DetailWarningViewControllerViewModel.data.append(data)
     }
-
+    
+    var trackingCode: String {
+        return code ?? ""
+    }
+    
+    var descriptionClient: String {
+        return description ?? ""
+    }
+    
+    func setTrackingInformation(code: String, description: String) {
+        self.code = code
+        self.description = description
+    }
+    
+    func setData(data: DataProduct?) {
+        DetailWarningViewControllerViewModel.dataDP = data
+    }
 }
-
