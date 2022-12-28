@@ -17,8 +17,8 @@ class RastreioBFService: RastreioBFServiceProtocol {
     
     static let sharedObjc = RastreioBFService()
     
-//    let urlString: String = LC.urlAPI.text
-
+    //    let urlString: String = LC.urlAPI.text
+    
     let urlString: String = LC.urlAPIMock.text
     
     init() { }
@@ -39,7 +39,7 @@ class RastreioBFService: RastreioBFServiceProtocol {
     func getTrackingInfo(for trackingNumber: String, completion: @escaping (Package?, Error?) -> Void) {
         guard let urlString: URL = URL(string: urlString + trackingNumber) else { return }
         let request = URLRequest(url: urlString)
-    
+        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Failed to fetch json: ", error)

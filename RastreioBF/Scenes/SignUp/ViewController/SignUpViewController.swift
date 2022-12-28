@@ -148,17 +148,17 @@ extension SignUpViewController: SignUpViewProtocol {
                                   emailText: signUpScreen.hasEmailTextField,
                                   passwordText: signUpScreen.hasPasswordTextField ,
                                   confirmPasswordText: signUpScreen.hasConfPasswordTextField) {
-
+            
             if let email = self.signUpScreen.emailTextField.text ,
-            let password = self.signUpScreen.passwordTextField.text {
-
+               let password = self.signUpScreen.passwordTextField.text {
+                
                 Auth.auth().createUser(withEmail: email, password: password, completion: { user, error in
-
+                    
                     if let firebaseError = error {
                         print(firebaseError.localizedDescription)
                         return
                     }
-
+                    
                     self.sendVerificationMail()
                 })
             }

@@ -10,7 +10,7 @@ import FirebaseAuth
 
 
 class EmailConfirmationViewModel: EmailConfirmationViewModelProtocol {
- 
+    
     var auth:Auth?
     var navigationListener: EmailConfirmationCoordinatorProtocol?
     var viewController: UIViewController?

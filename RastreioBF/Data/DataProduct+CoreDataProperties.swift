@@ -10,11 +10,11 @@ import Foundation
 import CoreData
 
 extension DataProduct {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<DataProduct> {
         return NSFetchRequest<DataProduct>(entityName: LC.dataProduct.text)
     }
-
+    
     @NSManaged public var productName: String?
     @NSManaged public var productLocal: String?
     @NSManaged public var codeTraking: String?
@@ -27,5 +27,5 @@ extension DataProduct {
 }
 
 extension DataProduct : Identifiable {
-
+    
 }

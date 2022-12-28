@@ -118,6 +118,7 @@ enum LocalizedConstants: String {
     case trackingIcon
     case menuIcon
     case backButton
+    case backBt
     case filterIcon
     case airplaneIcon
     case personIcon
@@ -125,6 +126,9 @@ enum LocalizedConstants: String {
     case titlesColor
     case openedEye
     case closedEye
+    case firstSlide
+    case secondSlide
+    case thirdSlide
     
     //MARK: - Warning
     case payment
@@ -134,6 +138,7 @@ enum LocalizedConstants: String {
     case delivered
     case toBeDelivered
     case deliveredCaps
+    case saveButton
     
     //MARK: - Tabbar
     case homeTitleTab

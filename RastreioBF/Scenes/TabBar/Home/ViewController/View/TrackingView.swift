@@ -88,7 +88,7 @@ class TrackingView: UIView {
     lazy var submitButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Salvar", for: .normal)
+        button.setTitle(LC.saveButton.text, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.backgroundColor = UIColor(named: LC.mainPurpleColor.text)
         button.layer.cornerRadius = 8

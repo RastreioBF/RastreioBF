@@ -55,7 +55,7 @@ class PrivacyPoliciesView: UIView {
         self.delegate?.actionBackButton()
     }
     
-override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init( frame: frame)
         configBackground()
         configSuperView()
@@ -80,7 +80,7 @@ override init(frame: CGRect) {
             
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 20),
-        
+            
             loginLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             loginLabel.heightAnchor.constraint(equalToConstant: 30),

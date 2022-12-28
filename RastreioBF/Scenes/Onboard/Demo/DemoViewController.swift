@@ -35,11 +35,11 @@ extension DemoViewController {
         
         pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
         
-        let page1 = OnboardingViewController(imageName: "firstSlide",
+        let page1 = OnboardingViewController(imageName: LC.firstSlide.text,
                                              subtitleText: LC.firstSubtitle.text)
-        let page2 = OnboardingViewController(imageName: "secondSlide",
+        let page2 = OnboardingViewController(imageName: LC.secondSlide.text,
                                              subtitleText: LC.secondSubtitle.text)
-        let page3 = OnboardingViewController(imageName: "thirdSlide",
+        let page3 = OnboardingViewController(imageName: LC.firstSlide.text,
                                              subtitleText: LC.thirdSubtitle.text)
         
         pages.append(page1)
@@ -130,7 +130,7 @@ extension DemoViewController: UIPageViewControllerDataSource {
 // MARK: - Delegates
 
 extension DemoViewController: UIPageViewControllerDelegate {
-
+    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         guard let viewControllers = pageViewController.viewControllers else { return }

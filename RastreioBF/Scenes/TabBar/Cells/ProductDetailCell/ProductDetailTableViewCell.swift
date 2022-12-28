@@ -18,8 +18,6 @@ class ProductDetailTableViewCell: UITableViewCell {
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = false
         image.layer.cornerRadius = 15
-        image.image = UIImage(systemName: "truck")
-        image.tintColor = UIColor(named: "orangeColor")
         return image
     }()
     

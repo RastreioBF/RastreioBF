@@ -20,7 +20,7 @@ class EmailConfirmationScreen: UIView {
     
     var backButton: UIButton = {
         var button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        button.setImage(UIImage(systemName: LC.backBt.text), for: .normal)
         button.tintColor = .black
         button.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false

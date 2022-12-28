@@ -154,6 +154,7 @@
 		090D841A28D33DD900198D69 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				096BFC2229489E5F003C1945 /* JSON */,
 				099BCC6228CB7CEF000DFDE6 /* GoogleService-Info.plist */,
 				096BFC2029489DCC003C1945 /* GenericService.swift */,
 				093F937E2926DC9C00DA697B /* RastreioBFService.swift */,
@@ -167,6 +168,16 @@
 				099BCCAD28CB8BC4000DFDE6 /* WarningViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		091EC60A295BD423000C4E8C /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				0974F64228CB7883004E8716 /* loginAnimation.json */,
+				0974F64328CB7883004E8716 /* signUpAnimation.json */,
+				0974F64428CB7883004E8716 /* unlocked.json */,
+			);
+			name = Lotties;
 			sourceTree = "<group>";
 		};
 		0924A6A729553DA5007802AF /* EmptyStateCell */ = {
@@ -304,7 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				6C0DCC63293D1EB2001A5EF2 /* Data */,
-				096BFC2229489E5F003C1945 /* JSON */,
 				090D841A28D33DD900198D69 /* Service */,
 				0974F64128CB786D004E8716 /* Assets */,
 				0960A0D129595E7000D2FC37 /* MainDelegates */,
@@ -321,9 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				0974F63628CB77A8004E8716 /* Assets.xcassets */,
-				0974F64228CB7883004E8716 /* loginAnimation.json */,
-				0974F64328CB7883004E8716 /* signUpAnimation.json */,
-				0974F64428CB7883004E8716 /* unlocked.json */,
+				091EC60A295BD423000C4E8C /* Lotties */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
