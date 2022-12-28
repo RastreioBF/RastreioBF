@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0918AD4628D6953F00E95DFB /* ProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */; };
+		091EC60C295BD8F2000C4E8C /* Masks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EC60B295BD8F2000C4E8C /* Masks.swift */; };
 		0937E43428CFD58400920D18 /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0937E43328CFD58400920D18 /* UIResponder+Utils.swift */; };
 		093F937F2926DC9C00DA697B /* RastreioBFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F937E2926DC9C00DA697B /* RastreioBFService.swift */; };
 		0960A0C7295674E700D2FC37 /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960A0C6295674E700D2FC37 /* EmptyStateTableViewCell.swift */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		0918AD4528D6953F00E95DFB /* ProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewCell.swift; sourceTree = "<group>"; };
+		091EC60B295BD8F2000C4E8C /* Masks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Masks.swift; sourceTree = "<group>"; };
 		0937E43328CFD58400920D18 /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
 		093F937E2926DC9C00DA697B /* RastreioBFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RastreioBFService.swift; sourceTree = "<group>"; };
 		0960A0C6295674E700D2FC37 /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				0974F63128CB77A7004E8716 /* UITextField+SecureToggle.swift */,
 				0937E43328CFD58400920D18 /* UIResponder+Utils.swift */,
+				091EC60B295BD8F2000C4E8C /* Masks.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -893,6 +896,7 @@
 				099BCC8028CB8334000DFDE6 /* OnboardingViewController.swift in Sources */,
 				099BCC9B28CB89D3000DFDE6 /* SignUpViewController.swift in Sources */,
 				099BCCAE28CB8BC4000DFDE6 /* WarningViewController.swift in Sources */,
+				091EC60C295BD8F2000C4E8C /* Masks.swift in Sources */,
 				0960A0C7295674E700D2FC37 /* EmptyStateTableViewCell.swift in Sources */,
 				6CD1640C295A7A9F00B963A8 /* PrivacyViewModel.swift in Sources */,
 				099BCC6628CB80D6000DFDE6 /* Constants.swift in Sources */,

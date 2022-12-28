@@ -10,82 +10,11 @@ import UIKit
 
 class SignUpViewModel {
     
-    //MARK: - TextField Masks
-    
-    func isValidName(_ nameString: String) -> Bool {
-        
-        var returnValue = true
-        let mobileRegEx =  "^\\w{3,18}$"
-        
-        do {
-            let regex = try NSRegularExpression(pattern: mobileRegEx)
-            let nsString = nameString as NSString
-            let results = regex.matches(in: nameString, range: NSRange(location: 0, length: nsString.length))
-            
-            if results.count == 0
-            {
-                returnValue = false
-            }
-            
-        } catch let error as NSError {
-            print("invalid regex: \(error.localizedDescription)")
-            returnValue = false
-        }
-        return  returnValue
-    }
-    
-    public func validateName(name: String) ->Bool {
-        var returnValue = true
-        let mobileRegEx =  "^\\w{3,18}$"
-        
-        do {
-            let regex = try NSRegularExpression(pattern: mobileRegEx)
-            let nsString = name as NSString
-            let results = regex.matches(in: name, range: NSRange(location: 0, length: nsString.length))
-            
-            if results.count == 0
-            {
-                returnValue = false
-            }
-            
-        } catch let error as NSError {
-            print("invalid regex: \(error.localizedDescription)")
-            returnValue = false
-        }
-        return  returnValue
-    }
-    
-    public func validateEmailId(emailID: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
-        let trimmedString = emailID.trimmingCharacters(in: .whitespaces)
-        let validateEmail = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let isValidateEmail = validateEmail.evaluate(with: trimmedString)
-        return isValidateEmail
-    }
-    
-    func containsDigit(_ value: String) -> Bool {
-        let reqularExpression = ".*[0-9]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
-        return !predicate.evaluate(with: value)
-    }
-    
-    func containsLowerCase(_ value: String) -> Bool {
-        let reqularExpression = ".*[a-z]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
-        return !predicate.evaluate(with: value)
-    }
-    
-    func containsUpperCase(_ value: String) -> Bool {
-        let reqularExpression = ".*[A-Z]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
-        return !predicate.evaluate(with: value)
-    }
-    
     func verifyName(text: String, label: UILabel) {
         if text.isEmpty {
             label.text = LC.emptyNameError.text
             label.isHidden = false
-        } else if isValidName(text) == false {
+        } else if Masks.shared.isValidName(text) == false {
             label.text = LC.nameTargetError.text
             label.isHidden = false
         } else {
@@ -97,7 +26,7 @@ class SignUpViewModel {
         if text.isEmpty {
             label.text = LC.emptySurnameError.text
             label.isHidden = false
-        } else if isValidName(text) == false {
+        } else if Masks.shared.isValidName(text) == false {
             label.text = LC.surnameTargetError.text
             label.isHidden = false
         } else {
@@ -109,7 +38,7 @@ class SignUpViewModel {
         if text.isEmpty {
             label.text = LC.emptyEmailError.text
             label.isHidden = false
-        } else if validateEmailId(emailID: text) == false {
+        } else if Masks.shared.validateEmailId(emailID: text) == false {
             label.text = LC.emailFormatError.text
             label.isHidden = false
         } else {

@@ -24,19 +24,11 @@ class EmailConfirmationViewModel: EmailConfirmationViewModelProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func validateEmailId(emailID: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
-        let trimmedString = emailID.trimmingCharacters(in: .whitespaces)
-        let validateEmail = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let isValidateEmail = validateEmail.evaluate(with: trimmedString)
-        return isValidateEmail
-    }
-    
     func emailMaskVerify(text: String, label: UILabel, messageEmpty: String, messageEmailError: String) {
         if text.isEmpty {
             label.text = messageEmpty
             label.isHidden = false
-        } else if validateEmailId(emailID: text) == false {
+        } else if Masks.shared.validateEmailId(emailID: text) == false {
             label.text = messageEmailError
             label.isHidden = false
         } else {
