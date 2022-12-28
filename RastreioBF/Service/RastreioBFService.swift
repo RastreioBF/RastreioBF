@@ -52,16 +52,11 @@ class RastreioBFService: RastreioBFServiceProtocol {
             do {
                 let trackingInfo = try jsonDecoder.decode(Package.self, from: data)
                 completion(trackingInfo, nil)
-                
-                
             } catch let decodeErr {
                 print("Failed to decode json: ", decodeErr)
                 completion(nil, decodeErr)
             }
         }.resume()
-        
     }
     
-     
 }
-

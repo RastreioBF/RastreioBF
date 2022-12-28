@@ -12,7 +12,4 @@ class Constants {
         return Bundle(for: self)
     }
     
-    struct LoginPage {
-        static let btPassword = "Forgot Password?"
-    }
 }

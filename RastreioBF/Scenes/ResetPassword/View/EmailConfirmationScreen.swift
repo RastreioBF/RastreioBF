@@ -37,7 +37,7 @@ class EmailConfirmationScreen: UIView {
     
     var animationView:AnimationView = {
         var animation = AnimationView()
-        animation = .init(name: "unlocked")
+        animation = .init(name: LC.unlocked.text)
         animation.contentMode = .scaleAspectFill
         animation.loopMode = .playOnce
         animation.animationSpeed = 0.5
@@ -49,7 +49,7 @@ class EmailConfirmationScreen: UIView {
     lazy var emailConfirmationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(named: "titlesColor")
+        label.textColor = UIColor(named: LC.titlesColor.text)
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.font = .systemFont(ofSize: 25, weight: .semibold)
         label.text = LC.insertRegisteredEmail.text

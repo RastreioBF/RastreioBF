@@ -122,6 +122,9 @@ enum LocalizedConstants: String {
     case airplaneIcon
     case personIcon
     case logoutIcon
+    case titlesColor
+    case openedEye
+    case closedEye
     
     //MARK: - Warning
     case payment
@@ -155,6 +158,11 @@ enum LocalizedConstants: String {
     case removeDataButton
     case leaveButton
     case logoutButton
+    
+    //MARK: - Animations
+    case loginAnimation
+    case signUpAnimation
+    case unlocked
     
     var text: String {
         return rawValue.localized(.presentation)

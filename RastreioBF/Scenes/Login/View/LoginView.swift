@@ -31,7 +31,7 @@ class LoginView: UIView {
     
     var animationView:AnimationView = {
         var animation = AnimationView()
-        animation = .init(name: "loginAnimation")
+        animation = .init(name: LC.loginAnimation.text)
         animation.contentMode = .scaleAspectFit
         animation.loopMode = .playOnce
         animation.animationSpeed = 0.5
@@ -50,7 +50,6 @@ class LoginView: UIView {
     lazy var loginImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named:"loginImage")
         image.sizeToFit()
         image.contentMode = .scaleAspectFit
         return image
@@ -59,7 +58,7 @@ class LoginView: UIView {
     lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(named: "titlesColor")
+        label.textColor = UIColor(named: LC.titlesColor.text)
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.font = .systemFont(ofSize: 25, weight: .semibold)
         label.text = LC.loginLabel.text

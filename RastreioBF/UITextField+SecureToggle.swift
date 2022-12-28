@@ -14,8 +14,8 @@ extension UITextField {
     
     func enablePasswordToggle(){
         
-        button.setImage(UIImage(named: "icons8-eye-48"), for: .selected)
-        button.setImage(UIImage(named: "icons8-closed-eye-48"), for: .normal)
+        button.setImage(UIImage(named: LC.openedEye.text), for: .selected)
+        button.setImage(UIImage(named: LC.closedEye.text), for: .normal)
         button.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
         rightView = button
         rightViewMode = .always

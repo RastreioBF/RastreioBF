@@ -112,6 +112,9 @@
 "airplaneIcon" = "airplane";
 "personIcon" = "person.crop.circle.badge.xmark";
 "logoutIcon" = "person.badge.minus";
+"titlesColor" = "titlesColor";
+"openedEye" = "icons8-eye-48";
+"closedEye" = "icons8-closed-eye-48";
 
 //Keywords Image
 "payment" = "pagamento";
@@ -146,3 +149,8 @@
 "removeDataButton" = "Remover meus Dados";
 "leaveButton" = "Sair";
 "logoutButton" = "Lougout";
+
+//Animations
+"loginAnimation" = "loginAnimation";
+"signUpAnimation" = "signUpAnimation";
+"unlocked" = "unlocked";
