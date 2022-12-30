@@ -237,13 +237,14 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		0960A0D129595E7000D2FC37 /* MainDelegates */ = {
+		0960A0D129595E7000D2FC37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0974F64128CB786D004E8716 /* Assets */,
 				0974F62D28CB77A7004E8716 /* AppDelegate.swift */,
 				0974F62F28CB77A7004E8716 /* SceneDelegate.swift */,
 			);
-			name = MainDelegates;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		096BFC2229489E5F003C1945 /* JSON */ = {
@@ -319,8 +320,7 @@
 			children = (
 				6C0DCC63293D1EB2001A5EF2 /* Data */,
 				090D841A28D33DD900198D69 /* Service */,
-				0974F64128CB786D004E8716 /* Assets */,
-				0960A0D129595E7000D2FC37 /* MainDelegates */,
+				0960A0D129595E7000D2FC37 /* Resources */,
 				0960A0D029595E4100D2FC37 /* Helpers */,
 				099BCC9028CB877E000DFDE6 /* LocalizedStrings */,
 				099BCC9228CB881B000DFDE6 /* Scenes */,

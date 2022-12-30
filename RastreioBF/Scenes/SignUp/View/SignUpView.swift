@@ -62,13 +62,13 @@ class SignUpView: UIView {
     
     // MARK: - UI Properties
     
-    var animationUIView:UIView = {
+    lazy var animationUIView:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private var animationView:AnimationView = {
+    lazy var animationView:AnimationView = {
         var animation = AnimationView()
         animation = .init(name: LC.signUpAnimation.text)
         animation.contentMode = .scaleAspectFit
@@ -261,8 +261,6 @@ class SignUpView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //        passwordTextField.enablePasswordToggle()
-        //        confirmPasswordTextField.enablePasswordToggle()
         self.configBackground()
         self.errorMessagesHidden()
         self.configSuperView()
@@ -277,27 +275,27 @@ class SignUpView: UIView {
     
     @objc
     private func tappedName(){
-        self.delegate?.didTapName()
+        delegate?.didTapName()
     }
     
     @objc
     private func tappedSurname(){
-        self.delegate?.didTapSurname()
+        delegate?.didTapSurname()
     }
     
     @objc
     private func tappedEmail(){
-        self.delegate?.didTapEmail()
+        delegate?.didTapEmail()
     }
     
     @objc
     private func tappedPassword(){
-        self.delegate?.didTapPassword()
+        delegate?.didTapPassword()
     }
     
     @objc
     private func tappedConfirmPassword(){
-        self.delegate?.didTapConfirmPassword()
+        delegate?.didTapConfirmPassword()
     }
     
     @objc
@@ -317,173 +315,172 @@ class SignUpView: UIView {
     }
     
     private func configSuperView(){
-        self.addSubview(self.animationUIView)
+        addSubview(self.animationUIView)
         animationUIView.addSubview(animationView)
-        self.addSubview(self.signUpLabel)
-        self.addSubview(self.nameTextField)
-        self.addSubview(self.nameErrorLabel)
-        self.addSubview(self.surnameTextField)
-        self.addSubview(self.surnameErrorLabel)
-        self.addSubview(self.emailTextField)
-        self.addSubview(self.emailErrorLabel)
-        self.addSubview(self.passwordTextField)
-        self.addSubview(self.passwordErrorLabel)
-        self.addSubview(self.confirmPasswordTextField)
-        self.addSubview(self.confirmPasswordErrorLabel)
-        self.addSubview(self.signUpButton)
-        self.addSubview(self.alreadyMemberLabel)
+        addSubview(self.signUpLabel)
+        addSubview(self.nameTextField)
+        addSubview(self.nameErrorLabel)
+        addSubview(self.surnameTextField)
+        addSubview(self.surnameErrorLabel)
+        addSubview(self.emailTextField)
+        addSubview(self.emailErrorLabel)
+        addSubview(self.passwordTextField)
+        addSubview(self.passwordErrorLabel)
+        addSubview(self.confirmPasswordTextField)
+        addSubview(self.confirmPasswordErrorLabel)
+        addSubview(self.signUpButton)
+        addSubview(self.alreadyMemberLabel)
     }
     
-    //Hides error label when pages shows up
     func errorMessagesHidden(){
-        self.nameErrorLabel.isHidden = true
-        self.surnameErrorLabel.isHidden = true
-        self.passwordErrorLabel.isHidden = true
-        self.emailErrorLabel.isHidden = true
-        self.confirmPasswordErrorLabel.isHidden = true
+        nameErrorLabel.isHidden = true
+        surnameErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+        emailErrorLabel.isHidden = true
+        confirmPasswordErrorLabel.isHidden = true
     }
     
     public func getEmail()->String{
-        return self.emailTextField.text ?? ""
+        return emailTextField.text ?? ""
     }
     
     public func getPassword()->String{
-        return self.passwordTextField.text ?? ""
+        return passwordTextField.text ?? ""
     }
     
     private func configConstraints(){
-        self.setUpAnimationUIView()
-        self.setUpSignLabel()
-        self.setUpNameTextField()
-        self.setUpNameErrorLabel()
-        self.setUpSurnameTextField()
-        self.setUpSurnameErrorLabel()
-        self.setUpEmailTextField()
-        self.setUpEmailErrorLabel()
-        self.setUpPasswordTextField()
-        self.setUpPasswordErrorLabel()
-        self.setUpConfirmPasswordTextField()
-        self.setUpConfirmPasswordErrorLabel()
-        self.setUpSignUpButton()
-        self.setUpAlreadyMemberLabel()
-        self.configAlreadyMember()
+        setUpAnimationUIView()
+        setUpSignLabel()
+        setUpNameTextField()
+        setUpNameErrorLabel()
+        setUpSurnameTextField()
+        setUpSurnameErrorLabel()
+        setUpEmailTextField()
+        setUpEmailErrorLabel()
+        setUpPasswordTextField()
+        setUpPasswordErrorLabel()
+        setUpConfirmPasswordTextField()
+        setUpConfirmPasswordErrorLabel()
+        setUpSignUpButton()
+        setUpAlreadyMemberLabel()
+        configAlreadyMember()
     }
     
     private func setUpAnimationUIView() {
         NSLayoutConstraint.activate([
-            self.animationUIView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-            self.animationUIView.bottomAnchor.constraint(equalTo: signUpLabel.topAnchor, constant: -15),
-            self.animationUIView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.animationUIView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-            self.animationUIView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25),
+            animationUIView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            animationUIView.bottomAnchor.constraint(equalTo: signUpLabel.topAnchor, constant: -15),
+            animationUIView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            animationUIView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            animationUIView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25),
             
-            self.animationView.topAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.topAnchor),
-            self.animationView.bottomAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.bottomAnchor),
-            self.animationView.leadingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.leadingAnchor),
-            self.animationView.trailingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.trailingAnchor)
+            animationView.topAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.bottomAnchor),
+            animationView.leadingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
     
     private func setUpSignLabel() {
         NSLayoutConstraint.activate([
-            self.signUpLabel.bottomAnchor.constraint(equalTo: nameTextField.topAnchor, constant: -10),
-            self.signUpLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.signUpLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            signUpLabel.bottomAnchor.constraint(equalTo: nameTextField.topAnchor, constant: -10),
+            signUpLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            signUpLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpNameTextField() {
         NSLayoutConstraint.activate([
-            self.nameTextField.bottomAnchor.constraint(equalTo: nameErrorLabel.topAnchor, constant: -1),
-            self.nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            nameTextField.bottomAnchor.constraint(equalTo: nameErrorLabel.topAnchor, constant: -1),
+            nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpNameErrorLabel() {
         NSLayoutConstraint.activate([
-            self.nameErrorLabel.bottomAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: -1),
-            self.nameErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
-            self.nameErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            nameErrorLabel.bottomAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: -1),
+            nameErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
+            nameErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpSurnameTextField() {
         NSLayoutConstraint.activate([
-            self.surnameTextField.bottomAnchor.constraint(equalTo: surnameErrorLabel.topAnchor, constant: -1),
-            self.surnameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.surnameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            surnameTextField.bottomAnchor.constraint(equalTo: surnameErrorLabel.topAnchor, constant: -1),
+            surnameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            surnameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpSurnameErrorLabel() {
         NSLayoutConstraint.activate([
-            self.surnameErrorLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -1),
-            self.surnameErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
-            self.surnameErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            surnameErrorLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -1),
+            surnameErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
+            surnameErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpEmailTextField() {
         NSLayoutConstraint.activate([
-            self.emailTextField.bottomAnchor.constraint(equalTo: emailErrorLabel.topAnchor, constant: -1),
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            emailTextField.bottomAnchor.constraint(equalTo: emailErrorLabel.topAnchor, constant: -1),
+            emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpEmailErrorLabel() {
         NSLayoutConstraint.activate([
-            self.emailErrorLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: -1),
-            self.emailErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
-            self.emailErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            emailErrorLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: -1),
+            emailErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
+            emailErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpPasswordTextField() {
         NSLayoutConstraint.activate([
-            self.passwordTextField.bottomAnchor.constraint(equalTo: passwordErrorLabel.topAnchor, constant: -1),
-            self.passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            passwordTextField.bottomAnchor.constraint(equalTo: passwordErrorLabel.topAnchor, constant: -1),
+            passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpPasswordErrorLabel() {
         NSLayoutConstraint.activate([
-            self.passwordErrorLabel.bottomAnchor.constraint(equalTo: confirmPasswordTextField.topAnchor, constant: -1),
-            self.passwordErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
-            self.passwordErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            passwordErrorLabel.bottomAnchor.constraint(equalTo: confirmPasswordTextField.topAnchor, constant: -1),
+            passwordErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
+            passwordErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpConfirmPasswordTextField() {
         NSLayoutConstraint.activate([
-            self.confirmPasswordTextField.bottomAnchor.constraint(equalTo: confirmPasswordErrorLabel.topAnchor, constant: -1),
-            self.confirmPasswordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.confirmPasswordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            confirmPasswordTextField.bottomAnchor.constraint(equalTo: confirmPasswordErrorLabel.topAnchor, constant: -1),
+            confirmPasswordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            confirmPasswordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpConfirmPasswordErrorLabel() {
         NSLayoutConstraint.activate([
-            self.confirmPasswordErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
-            self.confirmPasswordErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            confirmPasswordErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
+            confirmPasswordErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpSignUpButton() {
         NSLayoutConstraint.activate([
-            self.signUpButton.topAnchor.constraint(equalTo: confirmPasswordErrorLabel.topAnchor, constant: 25),
-            self.signUpButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.signUpButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.signUpButton.heightAnchor.constraint(equalToConstant: 40)
+            signUpButton.topAnchor.constraint(equalTo: confirmPasswordErrorLabel.topAnchor, constant: 25),
+            signUpButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            signUpButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            signUpButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
     private func setUpAlreadyMemberLabel() {
         NSLayoutConstraint.activate([
-            self.alreadyMemberLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            self.alreadyMemberLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            alreadyMemberLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            alreadyMemberLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
     

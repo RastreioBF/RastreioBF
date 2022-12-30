@@ -11,14 +11,14 @@ import UIKit.UITextField
 import Foundation
 
 class EmailConfirmationScreen: UIView {
-
+    
     // MARK: - Delegate
     private var shouldFocusLink: Bool = false
-    var delegate: EmailConfirmationScreenDelegate?
+    weak var delegate: EmailConfirmationScreenDelegate?
     
     // MARK: - UI Properties
     
-    var backButton: UIButton = {
+    lazy var backButton: UIButton = {
         var button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: LC.backBt.text), for: .normal)
         button.tintColor = .black
@@ -29,13 +29,13 @@ class EmailConfirmationScreen: UIView {
         return button
     }()
     
-    var animationUIView:UIView = {
+    lazy var animationUIView:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    var animationView:AnimationView = {
+    lazy var animationView:AnimationView = {
         var animation = AnimationView()
         animation = .init(name: LC.unlocked.text)
         animation.contentMode = .scaleAspectFill
@@ -125,107 +125,106 @@ class EmailConfirmationScreen: UIView {
     
     @objc
     private func tappedBack() {
-        self.delegate?.actionGoBackTapped()
+        delegate?.actionGoBackTapped()
     }
     
     @objc
     private func tappedEmail() {
-        self.delegate?.didTapEmailTapped()
+        delegate?.didTapEmailTapped()
     }
     
     @objc
     func tappedConfirmCodeButton() {
-        self.delegate?.actionGoToCodeButtonTapped()
+        delegate?.actionGoToCodeButtonTapped()
     }
     
     @objc
     private func tappedRegisterButton() {
-        self.delegate?.actionSignUpButtonTapped()
+        delegate?.actionSignUpButtonTapped()
     }
     
     func configSuperView(){
-        self.addSubview(backButton)
-        self.addSubview(animationUIView)
+        addSubview(backButton)
+        addSubview(animationUIView)
         animationUIView.addSubview(animationView)
-        self.addSubview(emailConfirmationLabel)
-        self.addSubview(emailTextField)
-        self.addSubview(emailErrorLabel)
-        self.addSubview(confirmationCodeButton)
-        self.addSubview(registerLabel)
+        addSubview(emailConfirmationLabel)
+        addSubview(emailTextField)
+        addSubview(emailErrorLabel)
+        addSubview(confirmationCodeButton)
+        addSubview(registerLabel)
     }
     
     func setUpConstraints(){
-        self.setUpBackButton()
-        self.setUpAnimationUIView()
-        self.setUpEmailCodeLabel()
-        self.setUpEmailTextField()
-        self.setUpEmailErrorLabel()
-        self.setUpConfirmationButton()
-        self.setUpRegisterLabel()
+        setUpBackButton()
+        setUpAnimationUIView()
+        setUpEmailCodeLabel()
+        setUpEmailTextField()
+        setUpEmailErrorLabel()
+        setUpConfirmationButton()
+        setUpRegisterLabel()
     }
     
     private func setUpBackButton(){
         NSLayoutConstraint.activate([
-            self.backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-            self.backButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            self.backButton.heightAnchor.constraint(equalToConstant: 24),
-            self.backButton.widthAnchor.constraint(equalToConstant: 24)
+            backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            backButton.heightAnchor.constraint(equalToConstant: 24),
+            backButton.widthAnchor.constraint(equalToConstant: 24)
         ])
     }
     
     private func setUpAnimationUIView() {
         NSLayoutConstraint.activate([
-            self.animationUIView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
-            self.animationUIView.bottomAnchor.constraint(equalTo: emailConfirmationLabel.topAnchor, constant: -25),
-            self.animationUIView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            self.animationUIView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-            self.animationUIView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.45),
+            animationUIView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
+            animationUIView.bottomAnchor.constraint(equalTo: emailConfirmationLabel.topAnchor, constant: -25),
+            animationUIView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+            animationUIView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            animationUIView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.45),
             
-            self.animationView.topAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.topAnchor),
-            self.animationView.bottomAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.bottomAnchor),
-            self.animationView.leadingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.leadingAnchor),
-            self.animationView.trailingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.trailingAnchor)
-            ])
+            animationView.topAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.bottomAnchor),
+            animationView.leadingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.trailingAnchor)
+        ])
     }
-
+    
     private func setUpEmailCodeLabel() {
         NSLayoutConstraint.activate([
-            self.emailConfirmationLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -10),
-            self.emailConfirmationLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.emailConfirmationLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
-            ])
+            emailConfirmationLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -10),
+            emailConfirmationLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            emailConfirmationLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+        ])
     }
     
     private func setUpEmailTextField() {
         NSLayoutConstraint.activate([
-            self.emailTextField.bottomAnchor.constraint(equalTo: emailErrorLabel.topAnchor, constant: -1),
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
-            ])
+            emailTextField.bottomAnchor.constraint(equalTo: emailErrorLabel.topAnchor, constant: -1),
+            emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+        ])
     }
     
     private func setUpEmailErrorLabel() {
-            NSLayoutConstraint.activate([
-//                self.emailErrorLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: -1),
-                self.emailErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
-                self.emailErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
-                ])
-        }
+        NSLayoutConstraint.activate([
+            emailErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
+            emailErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+        ])
+    }
     
     private func setUpConfirmationButton() {
         NSLayoutConstraint.activate([
-            self.confirmationCodeButton.topAnchor.constraint(equalTo: emailErrorLabel.bottomAnchor, constant: 15),
-            self.confirmationCodeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.confirmationCodeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.confirmationCodeButton.heightAnchor.constraint(equalToConstant: 40)
-            ])
+            confirmationCodeButton.topAnchor.constraint(equalTo: emailErrorLabel.bottomAnchor, constant: 15),
+            confirmationCodeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            confirmationCodeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            confirmationCodeButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
     }
     
     private func setUpRegisterLabel() {
         NSLayoutConstraint.activate([
-            self.registerLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25),
-            self.registerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-            ])
+            registerLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25),
+            registerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
     }
     
     fileprivate func setUpRegister() {
@@ -237,12 +236,12 @@ class EmailConfirmationScreen: UIView {
         
         let baseString = NSMutableAttributedString(string: LC.newHere.text,
                                                    attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle,
-                                                    NSAttributedString.Key.font : font])
+                                                                NSAttributedString.Key.font : font])
         
         let linkString = NSMutableAttributedString(string: LC.signUp.text, attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle,
-             NSAttributedString.Key.font : boldFont,
-             NSAttributedString.Key.link : tappedRegisterButton()
-                                                                                    ])
+                                                                                        NSAttributedString.Key.font : boldFont,
+                                                                                        NSAttributedString.Key.link : tappedRegisterButton()
+                                                                                       ])
         
         let tapButton = UITapGestureRecognizer(target: self, action: #selector(tappedRegisterButton))
         registerLabel.addGestureRecognizer(tapButton)
@@ -254,7 +253,7 @@ class EmailConfirmationScreen: UIView {
             NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
             NSAttributedString.Key.underlineColor: UIColor.systemBlue
         ]
-
+        
         registerLabel.attributedText = baseString
     }
 }

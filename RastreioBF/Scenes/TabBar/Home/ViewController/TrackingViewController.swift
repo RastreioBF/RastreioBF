@@ -78,7 +78,7 @@ extension TrackingViewController: TrackingViewProtocol{
 extension TrackingViewController: TrackingViewModelDelegate {
     
     func didUpdatePackages() {
-        //to be implemented
+        //Don't need to be implemented
     }
     
     internal func success() {

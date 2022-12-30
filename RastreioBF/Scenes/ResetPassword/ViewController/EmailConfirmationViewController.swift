@@ -27,7 +27,6 @@ class EmailConfirmationViewController: UIViewController {
         alert = Alert(controller: self)
         emailConfirmationScreen?.emailTextField.delegate = self
         setupKeyboardHiding()
-        
     }
     
     init(viewModel: EmailConfirmationViewModel) {

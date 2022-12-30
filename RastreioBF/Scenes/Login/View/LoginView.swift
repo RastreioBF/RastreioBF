@@ -23,13 +23,13 @@ class LoginView: UIView {
     
     //MARK: Properties
     
-    var animationUIView:UIView = {
+    lazy var animationUIView:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    var animationView:AnimationView = {
+    lazy var animationView:AnimationView = {
         var animation = AnimationView()
         animation = .init(name: LC.loginAnimation.text)
         animation.contentMode = .scaleAspectFit
@@ -180,17 +180,17 @@ class LoginView: UIView {
     }
     
     private func configSuperView() {
-        self.addSubview(self.animationUIView)
+        addSubview(self.animationUIView)
         animationUIView.addSubview(animationView)
-        self.addSubview(self.loginLabel)
-        self.addSubview(self.emailTextField)
-        self.addSubview(self.loginErrorLabel)
-        self.addSubview(self.passwordTextField)
-        self.addSubview(self.recoverPasswordButton)
-        self.addSubview(self.loginButton)
-        self.addSubview(self.optionalLoginLabel)
-        self.addSubview(self.googleBT)
-        self.addSubview(self.registerLabel)
+        addSubview(self.loginLabel)
+        addSubview(self.emailTextField)
+        addSubview(self.loginErrorLabel)
+        addSubview(self.passwordTextField)
+        addSubview(self.recoverPasswordButton)
+        addSubview(self.loginButton)
+        addSubview(self.optionalLoginLabel)
+        addSubview(self.googleBT)
+        addSubview(self.registerLabel)
     }
     
     public func validaTextFields(){
@@ -199,161 +199,161 @@ class LoginView: UIView {
         let password:String = self.passwordTextField.text ?? ""
         
         if !email.isEmpty && !password.isEmpty {
-            self.configButtonEnabled(true)
+            configButtonEnabled(true)
         } else {
-            self.configButtonEnabled(false)
+            configButtonEnabled(false)
         }
     }
     
     private func configButtonEnabled(_ enable: Bool){
         if enable{
-            self.loginButton.setTitleColor(.white, for: .normal)
-            self.loginButton.isEnabled = true
+            loginButton.setTitleColor(.white, for: .normal)
+            loginButton.isEnabled = true
         } else {
-            self.loginButton.setTitleColor(.lightGray, for: .normal)
-            self.loginButton.isEnabled = false
+            loginButton.setTitleColor(.lightGray, for: .normal)
+            loginButton.isEnabled = false
         }
     }
     
     public func getEmail()->String{
-        return self.emailTextField.text ?? ""
+        return emailTextField.text ?? ""
     }
     
     public func getPassword()->String{
-        return self.passwordTextField.text ?? ""
+        return passwordTextField.text ?? ""
     }
     
     public func configTextFieldDelegate(delegate:UITextFieldDelegate) {
-        self.emailTextField.delegate = delegate
-        self.passwordTextField.delegate = delegate
+        emailTextField.delegate = delegate
+        passwordTextField.delegate = delegate
     }
     
     @objc
     private func tappedLoginButton() {
-        self.delegate?.actionLoginButton()
+        delegate?.actionLoginButton()
     }
     
     @objc
     private func tappedRegisterButton() {
-        self.delegate?.actionSignUpButton()
+        delegate?.actionSignUpButton()
     }
     
     @objc
     private func tappedGoogleBbutton() {
-        self.delegate?.signIn(sender: self)
+        delegate?.signIn(sender: self)
     }
     
     @objc
     private func tappedForgotPasswordBbutton() {
-        self.delegate?.actionForgotPassword()
+        delegate?.actionForgotPassword()
     }
     
     private func setUpConstraints(){
-        self.setUpAnimationUIView()
-        self.setUpLoginLabel()
-        self.setUpLoginErrorLabel()
-        self.setUpEmailText()
-        self.setUpPasswordText()
-        self.setUpLoginBt()
-        self.setUpRegister()
-        self.setUpRecoverBt()
-        self.setUpRegisterLabel()
-        self.setUpOptionalLogin()
-        self.setUpGoogleBt()
+        setUpAnimationUIView()
+        setUpLoginLabel()
+        setUpLoginErrorLabel()
+        setUpEmailText()
+        setUpPasswordText()
+        setUpLoginBt()
+        setUpRegister()
+        setUpRecoverBt()
+        setUpRegisterLabel()
+        setUpOptionalLogin()
+        setUpGoogleBt()
     }
     
     private func setUpScrollView() {
         NSLayoutConstraint.activate([
-            self.scrollView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            scrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
     
     private func setUpAnimationUIView() {
         NSLayoutConstraint.activate([
-            self.animationUIView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-            self.animationUIView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.animationUIView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-            self.animationUIView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3),
+            animationUIView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            animationUIView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            animationUIView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            animationUIView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3),
             
-            self.animationView.topAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.topAnchor),
-            self.animationView.bottomAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.bottomAnchor),
-            self.animationView.leadingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.leadingAnchor),
-            self.animationView.trailingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.trailingAnchor)
+            animationView.topAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.bottomAnchor),
+            animationView.leadingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: animationUIView.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
     
     
     private func setUpLoginLabel() {
         NSLayoutConstraint.activate([
-            self.loginLabel.topAnchor.constraint(equalTo: animationUIView.bottomAnchor, constant: 15),
-            self.loginLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.loginLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            loginLabel.topAnchor.constraint(equalTo: animationUIView.bottomAnchor, constant: 15),
+            loginLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            loginLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpLoginErrorLabel() {
         NSLayoutConstraint.activate([
-            self.loginErrorLabel.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 1),
-            self.loginErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
-            self.loginErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            loginErrorLabel.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 1),
+            loginErrorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
+            loginErrorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpEmailText() {
         NSLayoutConstraint.activate([
-            self.emailTextField.topAnchor.constraint(equalTo: loginErrorLabel.bottomAnchor, constant: 1),
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            emailTextField.topAnchor.constraint(equalTo: loginErrorLabel.bottomAnchor, constant: 1),
+            emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     
     private func setUpPasswordText() {
         NSLayoutConstraint.activate([
-            self.passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-            self.passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10)
+            passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10)
         ])
     }
     
     private func setUpRecoverBt() {
         NSLayoutConstraint.activate([
-            self.recoverPasswordButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.recoverPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5)
+            recoverPasswordButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            recoverPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5)
         ])
     }
     
     private func setUpLoginBt() {
         NSLayoutConstraint.activate([
-            self.loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.loginButton.topAnchor.constraint(equalTo: recoverPasswordButton.bottomAnchor, constant: 20),
-            self.loginButton.heightAnchor.constraint(equalToConstant: 40)
+            loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            loginButton.topAnchor.constraint(equalTo: recoverPasswordButton.bottomAnchor, constant: 20),
+            loginButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
     private func setUpOptionalLogin() {
         NSLayoutConstraint.activate([
-            self.optionalLoginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.optionalLoginLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            optionalLoginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            optionalLoginLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
         ])
     }
     
     private func setUpGoogleBt() {
         NSLayoutConstraint.activate([
-            self.googleBT.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.googleBT.heightAnchor.constraint(equalToConstant: 40),
-            self.googleBT.topAnchor.constraint(equalTo: optionalLoginLabel.bottomAnchor, constant: 20)
+            googleBT.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            googleBT.heightAnchor.constraint(equalToConstant: 40),
+            googleBT.topAnchor.constraint(equalTo: optionalLoginLabel.bottomAnchor, constant: 20)
         ])
     }
     
     
     private func setUpRegisterLabel() {
         NSLayoutConstraint.activate([
-            self.registerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.registerLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25)
+            registerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            registerLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25)
         ])
     }
     

@@ -18,20 +18,19 @@ class LoginViewController: UIViewController {
     let signInConfig = GIDConfiguration(clientID: LC.signInConfig.text)
     
     override func loadView() {
-        self.loginScreen = LoginView()
-        self.view = self.loginScreen
+        loginScreen = LoginView()
+        view = self.loginScreen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginScreen?.loginErrorLabel.isHidden = true
-        self.loginScreen?.delegate(delegate: self)
-        self.validationFields()
-        self.auth = Auth.auth()
-        self.alert = Alert(controller: self)
-        self.loginScreen?.emailTextField.delegate = self
-        self.loginScreen?.passwordTextField.delegate = self
-        self.setupKeyboardHiding()
+        loginScreen?.loginErrorLabel.isHidden = true
+        loginScreen?.delegate(delegate: self)
+        validationFields()
+        auth = Auth.auth()
+        alert = Alert(controller: self)
+        textfieldDelegate()
+        setupKeyboardHiding()
         
     }
     
@@ -51,6 +50,11 @@ class LoginViewController: UIViewController {
     private func setupKeyboardHiding() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func textfieldDelegate(){
+        loginScreen?.emailTextField.delegate = self
+        loginScreen?.passwordTextField.delegate = self
     }
     
     

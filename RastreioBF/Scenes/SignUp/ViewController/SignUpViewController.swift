@@ -22,16 +22,12 @@ class SignUpViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.signUpScreen.delegate(delegate: self)
-        self.hideErrorLabels()
-        self.auth = Auth.auth()
-        self.alert = Alert(controller: self)
-        self.setupKeyboardHiding()
-        self.signUpScreen.nameTextField.delegate = self
-        self.signUpScreen.surnameTextField.delegate = self
-        self.signUpScreen.emailTextField.delegate = self
-        self.signUpScreen.passwordTextField.delegate = self
-        self.signUpScreen.confirmPasswordTextField.delegate = self
+        signUpScreen.delegate(delegate: self)
+        hideErrorLabels()
+        auth = Auth.auth()
+        alert = Alert(controller: self)
+        setupKeyboardHiding()
+        textfieldDelegate()
     }
     
     private func setupKeyboardHiding() {
@@ -39,12 +35,20 @@ class SignUpViewController: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func hideErrorLabels(){
-        self.signUpScreen.nameErrorLabel.isHidden = true
-        self.signUpScreen.surnameErrorLabel.isHidden = true
-        self.signUpScreen.emailErrorLabel.isHidden = true
-        self.signUpScreen.passwordErrorLabel.isHidden = true
-        self.signUpScreen.confirmPasswordErrorLabel.isHidden = true
+    private func textfieldDelegate(){
+        signUpScreen.nameTextField.delegate = self
+        signUpScreen.surnameTextField.delegate = self
+        signUpScreen.emailTextField.delegate = self
+        signUpScreen.passwordTextField.delegate = self
+        signUpScreen.confirmPasswordTextField.delegate = self
+    }
+    
+    private func hideErrorLabels(){
+        signUpScreen.nameErrorLabel.isHidden = true
+        signUpScreen.surnameErrorLabel.isHidden = true
+        signUpScreen.emailErrorLabel.isHidden = true
+        signUpScreen.passwordErrorLabel.isHidden = true
+        signUpScreen.confirmPasswordErrorLabel.isHidden = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -120,7 +124,6 @@ extension SignUpViewController: SignUpViewProtocol {
         }
     }
     
-    //Checks e-mail
     private var authUser : User? {
         return Auth.auth().currentUser
     }
@@ -128,11 +131,11 @@ extension SignUpViewController: SignUpViewProtocol {
     public func sendVerificationMail() {
         if self.authUser != nil && !self.authUser!.isEmailVerified {
             self.authUser!.sendEmailVerification(completion: { (error) in
-                // Notify the user that the mail has sent or couldn't because of an error.
+                self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.errorOccurred.text)
             })
         }
         else {
-            // Either the user is not available, or the user is already verified.
+            self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.emailSentConfirm.text)
         }
     }
     
