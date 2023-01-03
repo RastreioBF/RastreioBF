@@ -45,7 +45,7 @@ class MenuScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                                                                 let user = Auth.auth().currentUser
                                                                 user?.delete { error in
                                                                     if error != nil {
-                                                                        // An error happened.
+                                                                        self.alert?.getAlert(titulo: LC.atentionTitle.text, mensagem: LC.errorOccurred.text)
                                                                     } else {
                                                                         let vc:LoginViewController = LoginViewController()
                                                                         self.navigationController?.pushViewController(vc, animated: false)

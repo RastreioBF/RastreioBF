@@ -91,7 +91,6 @@ enum LocalizedConstants: String {
     case deliveredFilter
     case allFilter
     
-    
     //MARK: - Forgot Password
     case insertRegisteredEmail
     case sendEmailTextButton
