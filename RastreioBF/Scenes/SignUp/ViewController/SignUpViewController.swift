@@ -114,8 +114,8 @@ extension SignUpViewController: SignUpViewProtocol {
         
         let user = Auth.auth().currentUser
         if let user = user {
-            let uid = user.uid
-            let email = user.email
+            _ = user.uid
+            _ = user.email
             var multiFactorString = "MultiFactor: "
             for info in user.multiFactor.enrolledFactors {
                 multiFactorString += info.displayName ?? "[\(String(describing: self.signUpScreen.nameTextField.text))]"

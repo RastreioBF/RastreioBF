@@ -11,7 +11,7 @@ import CoreData
 class WarningViewController: UIViewController{
     
     private var alert: Alert?
-    private var manageObjectContext: NSManagedObjectContext!
+    private var manageObjectContext: NSManagedObjectContext?
     private var viewModel = WarningViewModel()
     private var warningView: WarningView?
     
@@ -44,8 +44,8 @@ class WarningViewController: UIViewController{
     private func loadSaveData()  {
         let eventRequest: NSFetchRequest<DataProduct> = DataProduct.fetchRequest()
         do {
-            let event = try manageObjectContext.fetch(eventRequest)
-            viewModel.setEventArray(eventArray: event)
+            let event = try manageObjectContext?.fetch(eventRequest)
+            viewModel.setEventArray(eventArray: event ?? [DataProduct]())
             warningView?.tableViewData.reloadData()
         } catch
         {
@@ -99,13 +99,13 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
         let eventArrayItem = viewModel.getEventArray(indexPath: indexPath)
         
         if editingStyle == .delete {
-            manageObjectContext.delete(eventArrayItem)
+            manageObjectContext?.delete(eventArrayItem)
             tableView.beginUpdates()
             viewModel.removeData(indexPath: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
             do {
-                try manageObjectContext.save()
+                try manageObjectContext?.save()
             } catch let error as NSError {
                 print("Error While Deleting Note: \(error.userInfo)")
             }

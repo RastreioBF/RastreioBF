@@ -79,7 +79,7 @@ struct CoreDataManager {
         let api = trackingJson.eventos?.first
         
         trackingJson.eventos?.forEach({ (eventos) in
-            let context = persistentContainer.viewContext
+            _ = persistentContainer.viewContext
             package.status = api?.status ?? ""
             package.time = api?.hora
             package.date = api?.data

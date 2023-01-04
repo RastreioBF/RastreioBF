@@ -13,8 +13,8 @@ public class DataProduct: NSManagedObject {
     
     public static var entityName: String {
         let className = NSStringFromClass(self)
-        let entityName = className.components(separatedBy: ".").last!
-        return entityName
+        let entityName = className.components(separatedBy: ".").last
+        return entityName ?? ""
     }
     
     public static var entityClassName: String {
