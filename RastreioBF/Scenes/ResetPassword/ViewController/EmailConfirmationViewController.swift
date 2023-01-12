@@ -116,7 +116,7 @@ extension EmailConfirmationViewController: EmailConfirmationScreenDelegate {
     }
     
     func didTapEmailTapped() {
-        viewModel.emailMaskVerify(text: self.emailConfirmationScreen?.emailTextField.text ?? "", label: self.emailConfirmationScreen?.emailErrorLabel ?? UILabel(), messageEmpty: LC.emptyEmailError.text, messageEmailError: LC.emailFormatError.text)
+        Masks.shared.emailMaskVerify(text: self.emailConfirmationScreen?.emailTextField.text ?? "", label: self.emailConfirmationScreen?.emailErrorLabel ?? UILabel(), messageEmpty: LC.emptyEmailError.text, messageEmailError: LC.emailFormatError.text)
     }
     
     func actionSignUpButtonTapped() {

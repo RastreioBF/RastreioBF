@@ -85,27 +85,27 @@ extension SignUpViewController: SignUpViewProtocol {
     
     //MARK: - Error Labels
     func didTapName() {
-        viewModel.verifyName(text: self.signUpScreen.nameTextField.text ?? "",
+        Masks.shared.verifyName(text: self.signUpScreen.nameTextField.text ?? "",
                              label: self.signUpScreen.nameErrorLabel)
     }
     
     func didTapSurname() {
-        viewModel.verifySurname(text: self.signUpScreen.surnameTextField.text ?? "",
+        Masks.shared.verifySurname(text: self.signUpScreen.surnameTextField.text ?? "",
                                 label: self.signUpScreen.surnameErrorLabel)
     }
     
     func didTapEmail() {
-        viewModel.verifyEmail(text: self.signUpScreen.emailTextField.text ?? "",
+        Masks.shared.verifyEmail(text: self.signUpScreen.emailTextField.text ?? "",
                               label: self.signUpScreen.emailErrorLabel)
     }
     
     func didTapPassword() {
-        viewModel.verifyPassword(text: self.signUpScreen.passwordTextField.text ?? "",
+        Masks.shared.verifyPassword(text: self.signUpScreen.passwordTextField.text ?? "",
                                  label: self.signUpScreen.passwordErrorLabel)
     }
     
     func didTapConfirmPassword() {
-        viewModel.verifyConfirmPassword(text: self.signUpScreen.confirmPasswordTextField.text ?? "",
+        Masks.shared.verifyConfirmPassword(text: self.signUpScreen.confirmPasswordTextField.text ?? "",
                                         label: self.signUpScreen.confirmPasswordErrorLabel,
                                         password: self.signUpScreen.passwordTextField.text ?? "")
     }

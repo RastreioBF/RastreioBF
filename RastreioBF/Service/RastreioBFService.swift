@@ -17,7 +17,8 @@ class RastreioBFService: RastreioBFServiceProtocol {
     
     static let sharedObjc = RastreioBFService()
     
-    let urlString: String = LC.urlAPI.text
+//    let urlString: String = LC.urlAPI.text
+    let urlString: String = LC.urlAPIMock.text
     
     init() { }
     

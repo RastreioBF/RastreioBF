@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
     }
     
     func validationFields(){
-        viewModel.validateFields(button: loginScreen?.loginButton ?? UIButton(), password: loginScreen?.passwordTextField ?? UITextField(), errorLabel: loginScreen?.loginErrorLabel ?? UILabel(), email: loginScreen?.emailTextField ?? UITextField())
+        Masks.shared.validateFields(button: loginScreen?.loginButton ?? UIButton(), password: loginScreen?.passwordTextField ?? UITextField(), errorLabel: loginScreen?.loginErrorLabel ?? UILabel(), email: loginScreen?.emailTextField ?? UITextField())
     }
     
 }

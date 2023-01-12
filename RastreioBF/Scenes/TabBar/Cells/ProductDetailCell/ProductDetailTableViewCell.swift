@@ -111,14 +111,13 @@ class ProductDetailTableViewCell: UITableViewCell {
     
     private func configureConstraints(){
         NSLayoutConstraint.activate([
-            
             productImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+            productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             productImageView.heightAnchor.constraint(equalToConstant: 70),
             productImageView.widthAnchor.constraint(equalToConstant: 70),
             
             productLocalLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 10 ),
-            productLocalLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+            productLocalLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             
             productNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             productNameLabel.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: 15),

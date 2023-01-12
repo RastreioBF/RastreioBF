@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Masks {
     
@@ -56,6 +57,91 @@ struct Masks {
         let reqularExpression = ".*[A-Z]+.*"
         let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
         return !predicate.evaluate(with: value)
+    }
+    
+    func validateFields(button: UIButton, password: UITextField, errorLabel: UILabel, email: UITextField) {
+        
+        if button.isSelected == true {
+            if password.state.isEmpty == false || email.state.isEmpty == false {
+                errorLabel.text = ""
+            } else {
+                errorLabel.text = LC.fieldsMustBeFilleds.text
+                button.isEnabled = false
+            }
+        }
+        
+    }
+    
+    func emailMaskVerify(text: String, label: UILabel, messageEmpty: String, messageEmailError: String) {
+        if text.isEmpty {
+            label.text = messageEmpty
+            label.isHidden = false
+        } else if Masks.shared.validateEmailId(emailID: text) == false {
+            label.text = messageEmailError
+            label.isHidden = false
+        } else {
+            label.isHidden = true
+        }
+    }
+    
+    func verifyName(text: String, label: UILabel) {
+        if text.isEmpty {
+            label.text = LC.emptyNameError.text
+            label.isHidden = false
+        } else if Masks.shared.isValidName(text) == false {
+            label.text = LC.nameTargetError.text
+            label.isHidden = false
+        } else {
+            label.isHidden = true
+        }
+    }
+    
+    func verifySurname(text: String, label: UILabel) {
+        if text.isEmpty {
+            label.text = LC.emptySurnameError.text
+            label.isHidden = false
+        } else if Masks.shared.isValidName(text) == false {
+            label.text = LC.surnameTargetError.text
+            label.isHidden = false
+        } else {
+            label.isHidden = true
+        }
+    }
+    
+    func verifyEmail(text: String, label: UILabel) {
+        if text.isEmpty {
+            label.text = LC.emptyEmailError.text
+            label.isHidden = false
+        } else if Masks.shared.validateEmailId(emailID: text) == false {
+            label.text = LC.emailFormatError.text
+            label.isHidden = false
+        } else {
+            label.isHidden = true
+        }
+    }
+    
+    func verifyPassword(text: String, label: UILabel) {
+        if text.isEmpty {
+            label.text = LC.emptyPasswordError.text
+            label.isHidden = false
+        } else if text.count < 6 {
+            label.text = LC.passwordTargetError.text
+            label.isHidden = false
+        } else {
+            label.isHidden = true
+        }
+    }
+    
+    func verifyConfirmPassword(text: String, label: UILabel, password: String) {
+        if text.isEmpty {
+            label.text = LC.emptyConfirmPasswordError.text
+            label.isHidden = false
+        } else if text != password {
+            label.text = LC.passwordsNotEqualError.text
+            label.isHidden = false
+        } else {
+            label.isHidden = true
+        }
     }
     
 }
