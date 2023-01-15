@@ -21,6 +21,5 @@ class EmailConfirmationViewModel: EmailConfirmationViewModelProtocol {
     func actionSignUpButton() {
         navigationListener?.actionSignUpButton()
     }
-    
-    
+
 }
